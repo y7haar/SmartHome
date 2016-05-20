@@ -13,6 +13,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
 
+    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
 
     <!-- Angular Material Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.min.js"></script>
@@ -31,11 +32,21 @@
 <body ng-app = "mainApp" ng-cloak flex>
 
 <script>
+    var body = document.getElementsByTagName("body")[0];
+
+    body.addEventListener('touchmove', function(e) {
+
+        e.preventDefault();
+
+    }, false);
+
+
+
     var mainApp = angular.module('mainApp', ['ngMaterial'])
             .config(function ($mdThemingProvider) {
                 $mdThemingProvider.theme('default')
-                        .primaryPalette('pink')
-                        .accentPalette('green')
+                        .primaryPalette('green')
+                        .accentPalette('pink')
                         .warnPalette('red')
                         .backgroundPalette('grey');
             });
@@ -53,8 +64,31 @@
             {icon: "hot_tub"}
         ];
 
-        console.log($scope);
+        $scope.onModuleSwipeDown = function() {
+            alert("asd");
+
+            var stage2Module = element.getElementsByClassName("module stage2");
+
+            stage2Module.slideToggle("slow", function() {
+                alert("DONE");
+            })
+        };
     });
+
+    mainApp.controller("moduleCtrl", function($scope) {
+
+        $scope.onModuleSwipeDown = function() {
+            alert("asd");
+
+            var stage2Module = element.getElementsByClassName("module stage2");
+
+            stage2Module.slideToggle("slow", function() {
+                alert("DONE");
+            })
+        };
+    });
+
+
 </script>
 
 <md-content ng-controller = "roomCtrl" flex>
@@ -93,12 +127,23 @@
     <md-tabs md-swipe-content="true" md-align-tabs="bottom" md-center-tabs flex md-stretch-tabs="auto" style = "">
         <md-tab ng-repeat = "room in rooms">
             <md-tab-label>
-                <md-icon class = "md-accent" aria-label = "">{{room.icon}}</md-icon>
+                <md-icon class = "" aria-label = "">{{room.icon}}</md-icon>
 
             </md-tab-label>
 
             <md-tab-body>
-                <md-tab-content flex layout-fill style="background-color: firebrick"></md-tab-content>
+                <md-tab-content flex layout-fill style="background-color: white">
+                    <md-card md-swipe-down = "onModuleSwipeDown()">
+                        <div class = "module stage1" style = "height:100px;">
+                            <p>Erste Stufe</p>
+                        </div>
+
+
+                        <div class = "module stage2" ng-hide = "true" style = "height:100px;">
+                            <p>Zweite Stufe</p>
+                        </div>
+                    </md-card>
+                </md-tab-content>
             </md-tab-body>
         </md-tab>
     </md-tabs>
