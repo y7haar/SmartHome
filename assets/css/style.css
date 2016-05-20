@@ -1,3 +1,20 @@
-.content {
-    background-color: midnightblue;
+.rharbarber-logo {
+    width: 24px;
+    height: 24px;
+}
+
+
+.room-card {
+    border-right: 1px solid #ddd;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-top: 35px;
+    text-align: center;
+    width: 100px;
+    height:100%;
+}
+
+.room-container {
+    height: 500px;
+    width: 100%;
 }

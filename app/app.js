@@ -2,7 +2,7 @@
  * Created by yannic on 09.05.16.
  */
 
-var app = angular.module('MainApp', ['ngMaterial']);
+//var app = angular.module('MainApp', ['ngMaterial']);
 
 var test = {lol: "123",
     test:42};

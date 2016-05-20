@@ -1,33 +1,154 @@
-<html lang = "de" >
+<html lang="de">
 <head>
-    <meta name = "viewport" content = "width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
     <!-- Angular Material style sheet -->
-    <link rel = "stylesheet" href = "http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
-    <link rel = "stylesheet" href = "./assets/css/style.css">
+    <link rel="stylesheet"
+          href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc4/angular-material.min.css">
+
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+
+
+    <!-- Angular Material Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Own includes -->
+    <script src="./assets/js/util.js"></script>
+
+    <!-- Your application bootstrap  -->
+    <script src="./app/app.js"></script>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
 
 </head>
-<body ng-app = "MainApp" ng-cloak>
+<body ng-app = "mainApp" ng-cloak flex>
 
-<!-- Angular Material requires Angular.js Libraries -->
-<script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-<script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
-<script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
-<script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+<script>
+    var mainApp = angular.module('mainApp', ['ngMaterial'])
+            .config(function ($mdThemingProvider) {
+                $mdThemingProvider.theme('default')
+                        .primaryPalette('pink')
+                        .accentPalette('green')
+                        .warnPalette('red')
+                        .backgroundPalette('grey');
+            });
 
-<!-- Angular Material Library -->
-<script src = "http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+    mainApp.controller("roomCtrl", function($scope) {
 
-<!-- Own includes -->
-<script src = "./assets/js/util.js"></script>
+        $scope.rooms = [
+            {icon: "kitchen"},
+            {icon: "child_friendly"},
+            {icon: "fitness_center"},
+            {icon: "casino"},
+            {icon: "business_center"},
+            {icon: "spa"},
+            {icon: "free_breakfast"},
+            {icon: "hot_tub"}
+        ];
 
-<!-- Your application bootstrap  -->
-<script src = "./app/app.js"></script>
+        console.log($scope);
+    });
+</script>
 
-<md-toolbar>
-    <h1>Rharbarber Smart Home Solutions</h1>
-</md-toolbar>
+<md-content ng-controller = "roomCtrl" flex>
 
-    <md-content flex id = "content" class = "content">Content
-    </md-content>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" aria-label="Home">
+                <!--
+                <img src = "./assets/img/icons/rhabarber_icon.png" class = "rharbarber-logo">
+                -->
+                <md-icon aria-label="Home">home</md-icon>
+            </md-button>
+
+            <span flex></span>
+
+            <h1>
+                <span>Rharbarber</span>
+            </h1>
+            <span flex></span>
+
+            <md-button class="md-icon-button" aria-label="Notifications">
+                <md-icon aria-label="Notifications">notifications</md-icon>
+            </md-button>
+
+            <md-button class="md-icon-button" aria-label="Settings">
+                <md-icon aria-label="Settings">settings</md-icon>
+            </md-button>
+
+            <md-button class="md-icon-button" aria-label="User">
+                <md-icon aria-label="Person">person</md-icon>
+            </md-button>
+
+        </div>
+    </md-toolbar>
+
+    <md-tabs md-swipe-content="true" md-align-tabs="bottom" md-center-tabs flex md-stretch-tabs="auto" style = "">
+        <md-tab ng-repeat = "room in rooms">
+            <md-tab-label>
+                <md-icon class = "md-accent" aria-label = "">{{room.icon}}</md-icon>
+
+            </md-tab-label>
+
+            <md-tab-body>
+                <md-tab-content flex layout-fill style="background-color: firebrick"></md-tab-content>
+            </md-tab-body>
+        </md-tab>
+    </md-tabs>
+</md-content>
+
+<!--
+
+<md-content flex>
+
+    <md-virtual-repeat-container class = "room-container" md-orient-horizontal layout-fill>
+
+
+        <md-card class = "room-card" flex = "33">
+            1
+        </md-card>
+
+        <md-card class = "room-card" flex = "33">
+            1
+        </md-card>
+
+        <md-card class = "room-card" flex = "33">
+            1
+        </md-card>
+
+    </md-virtual-repeat-container>
+
+
+</md-content>
+-->
+
+<!--
+<md-content layout = "row" layout-align="center center" layout-wrap style = "overflow-x: scroll;">
+    <div flex = "33" style = "height:300px;">
+        CONTENT
+    </div>
+
+    <div flex = "33" style = "height:300px;">
+        CONTENT
+    </div>
+
+    <div flex = "33" style = "height:300px;">
+        CONTENT
+    </div>
+
+    <div flex = "33" style = "height:300px;">
+        CONTENT
+    </div>
+</md-content>
+-->
+
+
 </body>
 </html>
