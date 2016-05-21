@@ -1,8 +1,15 @@
-.rharbarber-logo {
-    width: 24px;
-    height: 24px;
+.rharbarber-icon {
+    width: 30px;
+    height: 30px;
+
+    background-color: white;
+    border-radius: 30px;
 }
 
+.rharbarber-icon-button{
+    height: 50px !important;
+    width: 50px !important;
+}
 
 .room-card {
     border-right: 1px solid #ddd;
@@ -11,10 +18,34 @@
     padding-top: 35px;
     text-align: center;
     width: 100px;
-    height:100%;
+    height: 100%;
 }
 
 .room-container {
     height: 500px;
     width: 100%;
+}
+
+.module {
+    text-align: center;
+}
+
+.module .stage1, .stage2{
+    width: 400px;
+}
+
+.module md-card-content{
+    padding:4px;
+}
+
+.module md-card-actions{
+    margin:4px;
+}
+
+.module h1, h2, h3, h4, h5, h6 {
+    margin:0px;
+}
+
+.module h5, h6 {
+    font-weight: normal;
 }

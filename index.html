@@ -2,153 +2,78 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <!-- Angular Material style sheet -->
-    <link rel="stylesheet"
-          href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc4/angular-material.min.css">
 
-
-    <!-- Angular Material requires Angular.js Libraries -->
+    <!-- Angular.js Libraries -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
 
-    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
-
     <!-- Angular Material Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.min.js"></script>
 
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc4/angular-material.min.css">
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+
+    <!-- icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!-- Own includes -->
+    <!-- non angular scripts -->
     <script src="./assets/js/util.js"></script>
 
-    <!-- Your application bootstrap  -->
+    <!-- application bootstrap  -->
     <script src="./app/app.js"></script>
 
+    <!-- controllers -->
+    <script src="./app/controllers/moduleController.js"></script>
+    <script src="./app/controllers/roomController.js"></script>
+
+    <!-- directives -->
+    <script src="./app/directives/toolbarDirective.js"></script>
+    <script src="./app/directives/modulesDirectives.js"></script>
+    <script src="./app/directives/moduleDirective.js"></script>
+
+
+
+    <!-- css -->
     <link rel="stylesheet" href="./assets/css/style.css">
 
 </head>
-<body ng-app = "mainApp" ng-cloak flex>
+
+<body ng-app="mainApp" flex>
 
 <script>
     var body = document.getElementsByTagName("body")[0];
 
-    body.addEventListener('touchmove', function(e) {
-
+    body.addEventListener('touchmove', function (e) {
         e.preventDefault();
 
     }, false);
-
-
-
-    var mainApp = angular.module('mainApp', ['ngMaterial'])
-            .config(function ($mdThemingProvider) {
-                $mdThemingProvider.theme('default')
-                        .primaryPalette('green')
-                        .accentPalette('pink')
-                        .warnPalette('red')
-                        .backgroundPalette('grey');
-            });
-
-    mainApp.controller("roomCtrl", function($scope) {
-
-        $scope.rooms = [
-            {icon: "kitchen"},
-            {icon: "child_friendly"},
-            {icon: "fitness_center"},
-            {icon: "casino"},
-            {icon: "business_center"},
-            {icon: "spa"},
-            {icon: "free_breakfast"},
-            {icon: "hot_tub"}
-        ];
-
-        $scope.onModuleSwipeDown = function() {
-            alert("asd");
-
-            var stage2Module = element.getElementsByClassName("module stage2");
-
-            stage2Module.slideToggle("slow", function() {
-                alert("DONE");
-            })
-        };
-    });
-
-    mainApp.controller("moduleCtrl", function($scope) {
-
-        $scope.onModuleSwipeDown = function() {
-            alert("asd");
-
-            var stage2Module = element.getElementsByClassName("module stage2");
-
-            stage2Module.slideToggle("slow", function() {
-                alert("DONE");
-            })
-        };
-    });
-
-
 </script>
 
-<md-content ng-controller = "roomCtrl" flex>
 
-    <md-toolbar>
-        <div class="md-toolbar-tools">
-            <md-button class="md-icon-button" aria-label="Home">
-                <!--
-                <img src = "./assets/img/icons/rhabarber_icon.png" class = "rharbarber-logo">
-                -->
-                <md-icon aria-label="Home">home</md-icon>
-            </md-button>
+<md-content ng-controller="roomCtrl" flex>
+    <main-toolbar></main-toolbar>
 
-            <span flex></span>
-
-            <h1>
-                <span>Rharbarber</span>
-            </h1>
-            <span flex></span>
-
-            <md-button class="md-icon-button" aria-label="Notifications">
-                <md-icon aria-label="Notifications">notifications</md-icon>
-            </md-button>
-
-            <md-button class="md-icon-button" aria-label="Settings">
-                <md-icon aria-label="Settings">settings</md-icon>
-            </md-button>
-
-            <md-button class="md-icon-button" aria-label="User">
-                <md-icon aria-label="Person">person</md-icon>
-            </md-button>
-
-        </div>
-    </md-toolbar>
-
-    <md-tabs md-swipe-content="true" md-align-tabs="bottom" md-center-tabs flex md-stretch-tabs="auto" style = "">
-        <md-tab ng-repeat = "room in rooms">
+    <md-tabs md-swipe-content="true" md-align-tabs="bottom" md-center-tabs flex md-stretch-tabs="auto"
+             style="min-height:90%;" md-selected="selectedRoomTab">
+        <md-tab ng-repeat="room in rooms">
             <md-tab-label>
-                <md-icon class = "" aria-label = "">{{room.icon}}</md-icon>
+                <md-icon class="" aria-label={{room.name}}>{{room.icon}}</md-icon>
 
             </md-tab-label>
 
             <md-tab-body>
                 <md-tab-content flex layout-fill style="background-color: white">
-                    <md-card md-swipe-down = "onModuleSwipeDown()">
-                        <div class = "module stage1" style = "height:100px;">
-                            <p>Erste Stufe</p>
-                        </div>
-
-
-                        <div class = "module stage2" ng-hide = "true" style = "height:100px;">
-                            <p>Zweite Stufe</p>
-                        </div>
-                    </md-card>
+                    <module></module>
                 </md-tab-content>
             </md-tab-body>
         </md-tab>
     </md-tabs>
 </md-content>
-
 <!--
 
 <md-content flex>

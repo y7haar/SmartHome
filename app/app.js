@@ -1,12 +1,8 @@
-/**
- * Created by yannic on 09.05.16.
- */
-
-//var app = angular.module('MainApp', ['ngMaterial']);
-
-var test = {lol: "123",
-    test:42};
-
-localStorage.setObject("test", test);
-
-console.log(localStorage.getObject("test"));
+var mainApp = angular.module('mainApp', ['ngMaterial'])
+    .config(function ($mdThemingProvider) {
+        $mdThemingProvider.theme('default')
+            .primaryPalette('green')
+            .accentPalette('pink')
+            .warnPalette('red')
+            .backgroundPalette('grey');
+    });

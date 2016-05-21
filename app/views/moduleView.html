@@ -1,0 +1,12 @@
+<md-card ng-cloak ng-controller="moduleCtrl" md-swipe-down="onModuleSwipeDown()"
+         class="multi-room-audio module card" ng-repeat="t in test">
+    <md-card-content layout="column" layout-align="none center">
+        <div class="module stage1">
+            <multi-room-audio1></multi-room-audio1>
+        </div>
+
+        <div class="module stage2" ng-hide="true">
+            <multi-room-audio2></multi-room-audio2>
+        </div>
+    </md-card-content>
+</md-card>
