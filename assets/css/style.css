@@ -49,3 +49,9 @@
 .module h5, h6 {
     font-weight: normal;
 }
+
+
+.profile-image {
+    width: 200px;
+    height:200px;
+}

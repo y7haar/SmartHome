@@ -1,34 +1,83 @@
-/**
- * Created by Yannic on 20.05.2016.
- */
+// IMPORTANT: REMOVE CLEAR
 
-var storage = function() {
+localStorage.clear();
 
-    var defaults = {
+var Storage = function () {
+
+    this.instance = null;
+
+    this.defaults = {
         rooms: [
-            {icon: "kitchen", name: "Küche"},
-            {icon: "free_breakfast", name: "Wohnzimmer"},
-            {icon: "hot_tub", name: "Bad"},
-            {icon: "casino", name: "Schlafzimmer"},
-            {icon: "child_friendly", name: "Kinderzimmer"},
-            {icon: "fitness_center", name: "Hobbyraum"},
-            {icon: "business_center", name: "Büro"},
-            {icon: "spa", name: "Waschkeller"},
-        ]
+            {
+                icon: "kitchen", name: "Küche", modules: [
+                {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"}]
+            },
+
+
+            {icon: "free_breakfast", name: "Wohnzimmer", modules: []},
+            {icon: "hot_tub", name: "Bad", modules: []},
+            {icon: "casino", name: "Schlafzimmer", modules: []},
+            {icon: "child_friendly", name: "Kinderzimmer", modules: []},
+            {icon: "fitness_center", name: "Hobbyraum", modules: []},
+            {icon: "business_center", name: "Büro", modules: []},
+            {icon: "spa", name: "Waschkeller", modules: []}
+        ],
+
+        users: [
+            {name: "Hans-Peter", image: "./assets/img/icons/rhabarber_icon.png"},
+            {name: "Kevin", image: "./assets/img/icons/rhabarber_icon.png"},
+            {name: "Peter Lendig", image: "./assets/img/icons/rhabarber_icon.png"}]
     };
 
-    this.getHelper = function(key) {
-        
-    };
+    for (var i = 0; i < this.defaults["rooms"].length; ++i) {
+        this.defaults["rooms"].id = i;
+    }
 
-    this.getRooms = function() {
+    this.getHelper = function (key) {
+        var storedObj = localStorage.getObject(key);
 
-        if(localStorage.getObject("rooms") === null) {
-            localStorage.setObject("rooms", this.defaultRooms);
-            return this.defaultRooms;
+        if (storedObj === null) {
+            localStorage.setObject(key, this.defaults[key]);
+            storedObj = this.defaults[key];
         }
 
-        return local
+        return storedObj;
     };
-}
+
+    this.getByIdHelper = function (key, id) {
+        var allObj = getHelper(key);
+
+        for (var i = 0; i < allObj.length; ++i) {
+            if (allObj[i].id === id) {
+                return allObj[i];
+            }
+        }
+
+        return null;
+    };
+
+    this.getRooms = function () {
+        return this.getHelper("rooms");
+    };
+
+    this.getRoomById = function (id) {
+        return this.getByIdHelper("rooms", id);
+    };
+
+    this.getModules = function () {
+        return this.getHelper("modules");
+    };
+
+    this.getUsers = function () {
+        return this.getHelper("users");
+    };
+};
+
+Storage.getInstance = function () {
+    if (Storage.instance == null) {
+        Storage.instance = new Storage();
+    }
+
+    return Storage.instance;
+};
 
