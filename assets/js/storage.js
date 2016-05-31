@@ -80,4 +80,3 @@ Storage.getInstance = function () {
 
     return Storage.instance;
 };
-
