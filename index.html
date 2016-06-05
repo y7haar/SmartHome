@@ -36,7 +36,7 @@
     <script src="./app/directives/toolbarDirective.js"></script>
     <script src="./app/directives/modulesDirectives.js"></script>
     <script src="./app/directives/moduleDirective.js"></script>
-
+    <script src="./app/directives/roomImageDirective.js"></script>
 
 
     <!-- css -->
@@ -47,27 +47,32 @@
 <body ng-app="mainApp" flex>
 
 <script>
+
     var body = document.getElementsByTagName("body")[0];
 
     body.addEventListener('touchmove', function (e) {
         e.preventDefault();
 
     }, false);
+
 </script>
 
+<main-toolbar></main-toolbar>
 <md-content ng-controller="roomCtrl" flex>
-    <main-toolbar></main-toolbar>
 
-    <md-tabs md-swipe-content="true" md-align-tabs="bottom" md-center-tabs flex md-stretch-tabs="auto"
-             style="min-height:90%;" md-selected="selectedRoomTab">
+
+    <md-tabs ng-cloak md-swipe-content="true" md-align-tabs="bottom" md-center-tabs flex md-stretch-tabs="auto"
+             md-selected="selectedRoomTab" class = "md-primary" flex>
         <md-tab ng-repeat="room in rooms">
             <md-tab-label>
                 <md-icon class="" aria-label={{room.name}}>{{room.icon}}</md-icon>
             </md-tab-label>
 
-            <md-tab-body>
+            <md-tab-body layout = "column" layout-align = "center center">
                 <md-tab-content flex layout-fill style="background-color: white">
-                    <module ng-repeat="module in room.modules"></module>
+                    <room-image layout = "column" layout-align = "center center"></room-image>
+
+                    <module layout = "column" layout-align = "center center" ng-repeat="module in room.modules"></module>
                 </md-tab-content>
             </md-tab-body>
         </md-tab>

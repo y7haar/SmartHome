@@ -1,4 +1,26 @@
-.rharbarber-icon {
+html,body {
+    height:100%;
+    padding:0;
+    margin:0;
+}
+
+md-tabs {
+    height: -moz-calc(100% - 56px);
+    height: -webkit-calc(100% - 56px);
+    height:calc(100% - 56px);
+}
+
+@media (min-device-width: 900px) {
+    md-tabs {
+        height: -moz-calc(100% - 64px);
+        height: -webkit-calc(100% - 64px);
+        height:calc(100% - 64px);
+    }
+}
+
+
+
+.rhabarber-icon {
     width: 30px;
     height: 30px;
 
@@ -6,9 +28,20 @@
     border-radius: 30px;
 }
 
-.rharbarber-icon-button{
+.rhabarber-icon-button{
     height: 50px !important;
     width: 50px !important;
+}
+
+
+
+.rhabarber-logo-button {
+    height: 45px !important;
+    /*width: 140px !important;*/
+}
+
+.rhabarber-logo {
+    height: 100%;
 }
 
 .room-card {
@@ -26,27 +59,48 @@
     width: 100%;
 }
 
-.module {
+.room-image-container {
+    width:95%;
+    max-width:500px;
+    height:200px;
+}
+
+.room-image {
+
+
+}
+
+.room-image-text {
+    z-index: 100;
+    position: absolute;
+    color: white;
+
     text-align: center;
+
+    top: 100px;
+}
+
+.module.card {
+    width: 95%;
+    max-width:500px;
+
 }
 
 .module .stage1, .stage2{
-    width: 400px;
+    width:100%;
 }
 
 .module md-card-content{
-    padding:4px;
+    padding:0px;
 }
 
-.module md-card-actions{
+
+.module h1, h2, h3, h4, h5, h6 {
     margin:4px;
 }
 
-.module h1, h2, h3, h4, h5, h6 {
-    margin:0px;
-}
 
-.module h5, h6 {
+.module h4, h5, h6 {
     font-weight: normal;
 }
 
@@ -54,4 +108,40 @@
 .profile-image {
     width: 200px;
     height:200px;
+}
+
+.green {
+    background-color: #6A961C;
+}
+
+.padding-left-10 {
+    padding-left: 10px;
+}
+
+.padding-left-20 {
+    padding-left: 20px;
+}
+
+.padding-top-10 {
+    padding-top: 10px;
+}
+
+.padding-bottom-10 {
+    padding-bottom: 10px;
+}
+
+.padding-height-10 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.padding-height-5 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+.audio-cover-image {
+    width:80px;
+    height:80px;
 }

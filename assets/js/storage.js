@@ -12,8 +12,7 @@ var Storage = function () {
                 icon: "kitchen", name: "Küche", modules: [
                 {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"}]
             },
-
-
+            
             {icon: "free_breakfast", name: "Wohnzimmer", modules: []},
             {icon: "hot_tub", name: "Bad", modules: []},
             {icon: "casino", name: "Schlafzimmer", modules: []},

@@ -1,8 +1,8 @@
 var mainApp = angular.module('mainApp', ['ngMaterial'])
     .config(function ($mdThemingProvider) {
         $mdThemingProvider.theme('default')
-            .primaryPalette('green')
-            .accentPalette('pink')
+            .primaryPalette('pink')
+            .accentPalette('green')
             .warnPalette('red')
             .backgroundPalette('grey');
     });

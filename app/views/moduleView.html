@@ -1,5 +1,14 @@
 <md-card ng-cloak md-swipe-down="onModuleSwipeDown()"
          class="multi-room-audio module card">
+
+
+    <div layout = "row" layout-align = "end start">
+        <md-button ng-show = "!module.expanded" class="md-icon-button" aria-label="Erweitern">
+            <md-icon aria-label="Pause">keyboard_arrow_down</md-icon>
+        </md-button>
+    </div>
+
+
     <md-card-content layout="column" layout-align="none center">
         <div class="module stage1">
 
@@ -10,7 +19,7 @@
 
         </div>
 
-        <div class="module stage2" ng-hide="false">
+        <div class="module stage2" ng-hide="true">
 
             <!-- all modules, stage 2 -->
 
