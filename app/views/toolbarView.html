@@ -1,4 +1,4 @@
-<md-toolbar>
+<md-toolbar ng-controller = "toolbarCtrl">
     <div class="md-toolbar-tools">
 
         <!--
@@ -26,9 +26,24 @@
             <md-icon aria-label="Einstellungen">settings</md-icon>
         </md-button>
 
-        <md-button class="md-icon-button" aria-label="User">
-            <md-icon aria-label="Bewohner">person</md-icon>
-        </md-button>
+
+        <md-menu>
+            <md-button class="md-icon-button" aria-label="User" ng-click="toolbarCtrl.openUserMenu($mdOpenMenu, $event)">
+                <md-icon aria-label="Bewohner">person</md-icon>
+            </md-button>
+
+            <md-menu-content width="6">
+                <md-menu-item>
+                    <md-button>
+                        <md-icon md-menu-align-target></md-icon>
+                        Info
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+
+
+
 
 
     </div>

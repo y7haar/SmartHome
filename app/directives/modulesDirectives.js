@@ -11,3 +11,19 @@ mainApp.directive('multiRoomAudio2', function() {
         restrict: "E"
     };
 });
+
+
+
+mainApp.directive('door1', function() {
+    return {
+        templateUrl: BASE_URL + "/app/views/modules/door1View.html",
+        restrict: "E"
+    };
+});
+
+mainApp.directive('door2', function() {
+    return {
+        templateUrl: BASE_URL + "/app/views/modules/door2View.html",
+        restrict: "E"
+    };
+});

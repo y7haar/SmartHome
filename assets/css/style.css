@@ -55,13 +55,13 @@ md-tabs {
 }
 
 .room-container {
-    height: 500px;
+    height: 450px;
     width: 100%;
 }
 
 .room-image-container {
     width:95%;
-    max-width:500px;
+    max-width:450px;
     height:200px;
 }
 
@@ -82,7 +82,7 @@ md-tabs {
 
 .module.card {
     width: 95%;
-    max-width:500px;
+    max-width:450px;
 
 }
 
@@ -100,7 +100,7 @@ md-tabs {
 }
 
 
-.module h4, h5, h6 {
+.module h5, h6 {
     font-weight: normal;
 }
 
@@ -130,6 +130,10 @@ md-tabs {
     padding-bottom: 10px;
 }
 
+.padding-bottom-5 {
+    padding-bottom: 5px;
+}
+
 .padding-height-10 {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -144,4 +148,8 @@ md-tabs {
 .audio-cover-image {
     width:80px;
     height:80px;
+}
+
+.door-image {
+    height:120px;
 }
