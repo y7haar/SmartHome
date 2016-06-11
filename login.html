@@ -52,31 +52,30 @@
     }, false);
 </script>
 
-<md-content flex>
-    <div ng-controller="loginCtrl" layout="row" layout-align="space-around center">
 
-        <md-button ng-repeat="user in users">
-            <md-card>
+<md-content layout-fill flex style = "height:100%">
 
-                <md-card-content layout="column" layout-align="none center">
-                    <img src="" class="profile-image">
-                </md-card-content>
+    <div style = "height:75%" ng-controller="loginCtrl" layout="row" layout-xs="column" layout-align="space-around center">
 
-                <md-card-title>
-                    <md-card-title-text layout="column" layout-align="center center">
-                        <span class="md-headline">{{user.name}}</span>
+        <div ng-repeat="user in users" layout="column" layout-align="center center">
+            <md-button>
+                <md-card>
 
-                        <!--
-                        <span class="md-subhead">Administrator</span>
-                        -->
-                    </md-card-title-text>
-                </md-card-title>
+                    <md-card-content layout="column" layout-align="none center">
+                        <img src="" class="profile-image">
+                    </md-card-content>
 
-            </md-card>
-        </md-button>
+                </md-card>
+
+            </md-button>
+
+            <span class="md-headline">{{user.name}}</span>
+        </div>
+
+
     </div>
-</md-content>
 
+</md-content>
 
 </body>
 </html>

@@ -1,12 +1,11 @@
-<md-card ng-cloak md-swipe-down="onModuleSwipeDown()"
-         class="multi-room-audio module card">
+<md-card ng-cloak md-swipe-down="expanded = true" md-swipe-up="expanded=false"
+         class="module card">
 
-
-    <div layout = "row" layout-align = "end start">
-        <md-button ng-show = "!module.expanded" class="md-icon-button" aria-label="Erweitern">
-            <md-icon aria-label="Pause">keyboard_arrow_down</md-icon>
-        </md-button>
-    </div>
+    <md-button ng-click="expanded = !expanded" class="md-icon-button module-arrow-button"
+               aria-label="Erweitern">
+        <md-icon ng-show = "!expanded" aria-label="Pause">keyboard_arrow_down</md-icon>
+        <md-icon ng-show = "expanded" aria-label="Pause">keyboard_arrow_up</md-icon>
+    </md-button>
 
 
     <md-card-content layout="column" layout-align="none center">
@@ -14,20 +13,19 @@
 
             <!-- all modules, stage 1 -->
 
-            <multi-room-audio1 ng-if = "module.name === 'multiRoomAudio'"></multi-room-audio1>
-            <door1 ng-if = "module.name === 'door'"></door1>
-
+            <multi-room-audio1 ng-if="module.name === 'multiRoomAudio'"></multi-room-audio1>
+            <door1 ng-if="module.name === 'door'"></door1>
 
         </div>
 
-        <div class="module stage2" ng-hide="true">
+        <div slide-toggle="expanded" class="module stage2">
 
             <hr>
 
             <!-- all modules, stage 2 -->
 
-            <multi-room-audio2 ng-if = "module.name === 'multiRoomAudio'"></multi-room-audio2>
-            <door2 ng-if = "module.name === 'door'"></door2>
+            <multi-room-audio2 ng-if="module.name === 'multiRoomAudio'"></multi-room-audio2>
+            <door2 ng-if="module.name === 'door'"></door2>
         </div>
     </md-card-content>
 </md-card>

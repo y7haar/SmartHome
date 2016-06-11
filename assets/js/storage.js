@@ -7,20 +7,34 @@ var Storage = function () {
     this.instance = null;
 
     this.defaults = {
+
+        house: {
+            modules: [
+                {id: 1, displayName: "Haustür", name: "door"},
+                {id: 1, displayName: "Haustür", name: "door"},
+                {id: 1, displayName: "Haustür", name: "door"}]
+
+        },
+
         rooms: [
             {
-                icon: "kitchen", name: "Küche", modules: [
+                iconUrl: "assets/img/icons/Kitchen-96.png", name: "Küche", modules: [
                 {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
-                {id: 1, displayName: "Haustür", name: "door"}]
+                {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
+                {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
+                {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
+                {id: 1, displayName: "Haustür", name: "door"},
+                {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
+                {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"}]
             },
             
-            {icon: "free_breakfast", name: "Wohnzimmer", modules: []},
-            {icon: "hot_tub", name: "Bad", modules: []},
-            {icon: "casino", name: "Schlafzimmer", modules: []},
-            {icon: "child_friendly", name: "Kinderzimmer", modules: []},
-            {icon: "fitness_center", name: "Hobbyraum", modules: []},
-            {icon: "business_center", name: "Büro", modules: []},
-            {icon: "spa", name: "Waschkeller", modules: []}
+            {iconUrl: "assets/img/icons/Living Room-96.png", name: "Wohnzimmer", modules: []},
+            {iconUrl: "assets/img/icons/Toilet Paper-96.png", name: "Bad", modules: []},
+            {iconUrl: "assets/img/icons/Bedroom-96.png", name: "Schlafzimmer", modules: []},
+            {iconUrl: "child_friendly", name: "Kinderzimmer", modules: []},
+            {iconUrl: "fitness_center", name: "Hobbyraum", modules: []},
+            {iconUrl: "business_center", name: "Büro", modules: []},
+            {iconUrl: "spa", name: "Waschkeller", modules: []}
         ],
 
         users: [
@@ -62,6 +76,11 @@ var Storage = function () {
 
     this.getRoomById = function (id) {
         return this.getByIdHelper("rooms", id);
+    };
+
+
+    this.getHouse = function () {
+        return this.getHelper("house");
     };
 
     this.getModules = function () {
