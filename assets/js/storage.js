@@ -10,8 +10,6 @@ var Storage = function () {
 
         house: {
             modules: [
-                {id: 1, displayName: "Haustür", name: "door"},
-                {id: 1, displayName: "Haustür", name: "door"},
                 {id: 1, displayName: "Haustür", name: "door"}]
 
         },
@@ -19,11 +17,6 @@ var Storage = function () {
         rooms: [
             {
                 iconUrl: "assets/img/icons/Kitchen-96.png", name: "Küche", modules: [
-                {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
-                {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
-                {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
-                {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
-                {id: 1, displayName: "Haustür", name: "door"},
                 {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
                 {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"}]
             },

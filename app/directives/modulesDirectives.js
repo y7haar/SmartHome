@@ -1,29 +1,14 @@
-mainApp.directive('multiRoomAudio1', function() {
+mainApp.directive('multiRoomAudio', function() {
     return {
-        templateUrl: BASE_URL + "/app/views/modules/multiRoomAudio1View.html",
-        restrict: "E"
-    };
-});
-
-mainApp.directive('multiRoomAudio2', function() {
-    return {
-        templateUrl: BASE_URL + "/app/views/modules/multiRoomAudio2View.html",
+        templateUrl: BASE_URL + "/app/views/modules/multiRoomAudioView.html",
         restrict: "E"
     };
 });
 
 
-
-mainApp.directive('door1', function() {
+mainApp.directive('door', function() {
     return {
-        templateUrl: BASE_URL + "/app/views/modules/door1View.html",
-        restrict: "E"
-    };
-});
-
-mainApp.directive('door2', function() {
-    return {
-        templateUrl: BASE_URL + "/app/views/modules/door2View.html",
+        templateUrl: BASE_URL + "/app/views/modules/doorView.html",
         restrict: "E"
     };
 });

@@ -9,23 +9,10 @@
 
 
     <md-card-content layout="column" layout-align="none center">
-        <div class="module stage1">
+            <!-- all modules -->
 
-            <!-- all modules, stage 1 -->
+            <multi-room-audio class = "module-content" ng-if="module.name === 'multiRoomAudio'"></multi-room-audio>
+            <door class = "module-content" ng-if="module.name === 'door'"></door>
 
-            <multi-room-audio1 ng-if="module.name === 'multiRoomAudio'"></multi-room-audio1>
-            <door1 ng-if="module.name === 'door'"></door1>
-
-        </div>
-
-        <div slide-toggle="expanded" class="module stage2">
-
-            <hr>
-
-            <!-- all modules, stage 2 -->
-
-            <multi-room-audio2 ng-if="module.name === 'multiRoomAudio'"></multi-room-audio2>
-            <door2 ng-if="module.name === 'door'"></door2>
-        </div>
     </md-card-content>
 </md-card>
