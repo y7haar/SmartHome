@@ -10,5 +10,4 @@ mainApp.controller("roomCtrl", function ($scope) {
     $scope.onModuleSwipeDown = function () {
         alert("Downswipe");
     };
-
 });

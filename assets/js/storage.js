@@ -16,18 +16,26 @@ var Storage = function () {
 
         rooms: [
             {
-                iconUrl: "assets/img/icons/Kitchen-96.png", name: "Küche", modules: [
+                iconUrl: "assets/img/icons/Kitchen-96.png", name: "Küche", roomImageUrl: "assets/img/room_images/kueche.png",
+                modules: [
                 {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
                 {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"}]
             },
             
-            {iconUrl: "assets/img/icons/Living Room-96.png", name: "Wohnzimmer", modules: []},
-            {iconUrl: "assets/img/icons/Toilet Paper-96.png", name: "Bad", modules: []},
-            {iconUrl: "assets/img/icons/Bedroom-96.png", name: "Schlafzimmer", modules: []},
-            {iconUrl: "child_friendly", name: "Kinderzimmer", modules: []},
-            {iconUrl: "fitness_center", name: "Hobbyraum", modules: []},
-            {iconUrl: "business_center", name: "Büro", modules: []},
-            {iconUrl: "spa", name: "Waschkeller", modules: []}
+            {iconUrl: "assets/img/icons/Living Room-96.png", name: "Wohnzimmer", roomImageUrl: "assets/img/room_images/wohnzimmer.png",
+                modules: []},
+            {iconUrl: "assets/img/icons/Toilet Paper-96.png", name: "Bad", roomImageUrl: "assets/img/room_images/badezimmer.png",
+                modules: []},
+            {iconUrl: "assets/img/icons/Bedroom-96.png", name: "Schlafzimmer", roomImageUrl: "assets/img/room_images/schlafzimmer.png",
+                modules: []},
+            {iconUrl: "child_friendly", name: "Kinderzimmer", roomImageUrl: "assets/img/room_images/kinderzimmer.png",
+                modules: []},
+            {iconUrl: "fitness_center", name: "Hobbyraum", roomImageUrl: "assets/img/room_images/hobbyraum.png",
+                modules: []},
+            {iconUrl: "business_center", name: "Büro", roomImageUrl: "assets/img/room_images/buero.png",
+                modules: []},
+            {iconUrl: "spa", name: "Waschkeller", roomImageUrl: "assets/img/room_images/waschraum.png",
+                modules: []}
         ],
 
         users: [
