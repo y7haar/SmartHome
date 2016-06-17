@@ -22,19 +22,19 @@ var Storage = function () {
                 {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"}]
             },
             
-            {iconUrl: "assets/img/icons/Living Room-96.png", name: "Wohnzimmer", roomImageUrl: "assets/img/room_images/wohnzimmer.png",
+            {iconUrl: "assets/img/icons/rooms/Living Room-96.png", name: "Wohnzimmer", roomImageUrl: "assets/img/room_images/wohnzimmer.png",
                 modules: []},
-            {iconUrl: "assets/img/icons/Toilet Paper-96.png", name: "Bad", roomImageUrl: "assets/img/room_images/badezimmer.png",
+            {iconUrl: "assets/img/icons/rooms/Shower and Tub-96.png", name: "Bad", roomImageUrl: "assets/img/room_images/badezimmer.png",
                 modules: []},
-            {iconUrl: "assets/img/icons/Bedroom-96.png", name: "Schlafzimmer", roomImageUrl: "assets/img/room_images/schlafzimmer.png",
+            {iconUrl: "assets/img/icons/rooms/Bedroom-96.png", name: "Schlafzimmer", roomImageUrl: "assets/img/room_images/schlafzimmer.png",
                 modules: []},
-            {iconUrl: "child_friendly", name: "Kinderzimmer", roomImageUrl: "assets/img/room_images/kinderzimmer.png",
+            {iconUrl: "assets/img/icons/rooms/Teddy Bear-96.png", name: "Kinderzimmer", roomImageUrl: "assets/img/room_images/kinderzimmer.png",
                 modules: []},
-            {iconUrl: "fitness_center", name: "Hobbyraum", roomImageUrl: "assets/img/room_images/hobbyraum.png",
+            {iconUrl: "assets/img/icons/rooms/Movie Projector-96.png", name: "Hobbyraum", roomImageUrl: "assets/img/room_images/hobbyraum.png",
                 modules: []},
-            {iconUrl: "business_center", name: "Büro", roomImageUrl: "assets/img/room_images/buero.png",
+            {iconUrl: "assets/img/icons/rooms/Laptop-96.png", name: "Büro", roomImageUrl: "assets/img/room_images/buero.png",
                 modules: []},
-            {iconUrl: "spa", name: "Waschkeller", roomImageUrl: "assets/img/room_images/waschraum.png",
+            {iconUrl: "assets/img/icons/rooms/Washing Machine-96.png", name: "Waschraum", roomImageUrl: "assets/img/room_images/waschraum.png",
                 modules: []}
         ],
 
