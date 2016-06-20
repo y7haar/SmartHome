@@ -1,51 +1,65 @@
 <div class="module stage1">
     <h4 class="padding-bottom-5">Haustür geschlossen, Schloss verriegelt</h4>
 
-    <div layout="row" layout-align="start center">
-        <img src="assets/img/door.jpg" class="door-image">
+    <div layout="row" layout-align="space-between center">
+        <img flex  src="assets/img/door.jpg" class="door-image">
 
-        <div layout="row" layout-align="space-between center">
-            <div layout="column" layout-align="start" class="">
-                <md-button layout-align="start start" layout="row">
+        <div flex="40" flex-md = "50" layout="row" layout-align="space-between center">
+            <div layout="column" layout-align="space-between center" class="">
+
+
+                <md-button hide-md class = "md-icon-button" layout-align="start start" layout="row">
                     <md-icon aria-label="Tür öffnen">vpn_key</md-icon>
-                    <div hide show-gt-sm>
-                        <span flex></span>
+                </md-button>
+
+                <md-button hide show-md layout-align="start start" layout="row">
+                    <md-icon aria-label="Tür öffnen">vpn_key</md-icon>
+                    <div hide show-md>
                         Öffnen
-                        <span flex></span>
                     </div>
                 </md-button>
 
-                <md-button layout-align="start start" layout="row">
+
+                <md-button hide-md class = "md-icon-button" layout-align="start start" layout="row">
                     <md-icon aria-label="Tür verriegeln">lock_outline</md-icon>
-                    <div hide show-gt-sm>
-                        <span flex></span>
-                        Sperren
-                        <span flex></span>
+                </md-button>
+
+                <md-button hide show-md layout-align="start start" layout="row">
+                    <md-icon aria-label="Tür verriegeln">lock_outline</md-icon>
+                    <div hide show-md>
+                        Verriegeln
                     </div>
                 </md-button>
+
 
 
             </div>
 
             <div layout="column" layout-align="start start" class="">
-                <md-button layout-align="start start" layout="row">
+
+                <md-button hide-md class = "md-icon-button" layout-align="start start" layout="row">
                     <md-icon aria-label="Haustelefon">phone</md-icon>
-                    <div hide show-gt-sm>
-                        <span flex></span>
+                </md-button>
+
+                <md-button hide show-md layout-align="start start" layout="row">
+                    <md-icon aria-label="Haustelefon">phone</md-icon>
+                    <div hide show-md>
                         Telefon
-                        <span flex></span>
                     </div>
                 </md-button>
 
-                <md-button layout-align="start start" layout="row">
+
+
+                <md-button hide-md class = "md-icon-button" layout-align="start start" layout="row">
                     <md-icon aria-label="Türlicht">lightbulb_outline</md-icon>
-                    <div hide show-gt-sm>
-                        <span flex></span>
-                        Licht
-                        <span flex></span>
-                    </div>
                 </md-button>
 
+                <md-button hide show-md layout-align="start start" layout="row">
+                    <md-icon aria-label="Türlicht">lightbulb_outline</md-icon>
+                    <div hide show-md>
+                        Licht
+                    </div>
+                </md-button>
 
             </div>
         </div>
