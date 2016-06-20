@@ -1,8 +1,8 @@
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
     <meta charset="utf-8">
 
     <link rel="icon" type="image/png" href="assets/img/icons/rhabarber_icon_32.png" sizes="32x32">
@@ -56,7 +56,7 @@
 
 </head>
 
-<body ng-app="mainApp" flex>
+<body ng-app="mainApp" flex onload="resizeHeight();" onresize="resizeHeight();">
 
 <script>
 
@@ -67,63 +67,76 @@
      e.preventDefault();
 
      }, false);
-*/
+     */
 
 </script>
 
-<main-toolbar></main-toolbar>
+
+<!--<main-toolbar></main-toolbar> -->
+
+<div >
+    <main-toolbar></main-toolbar>
+
+    <md-content class="wrapper" id = "wrapper">
 
 
-<md-content ng-controller="roomCtrl" layout="column" layout-gt-md="row">
-    <house class = "house-container" hide show-gt-md flex-gt-md=50 layout-fill></house>
+        <div ng-controller="roomCtrl" layout="column" layout-gt-md="row">
 
-    <div flex-gt-md=50>
-        <md-tabs ng-cloak md-swipe-content="true" md-align-tabs="bottom" md-center-tabs flex md-stretch-tabs="auto"
-                 md-selected="selectedRoomTab" class="md-primary" flex>
+            <house class="house-container" hide show-gt-md flex-gt-md=50 layout-fill></house>
 
-
-            <md-tab hide show-gt-sm>
-                <md-tab-label>
-                    <img src="assets/img/icons/Roofing-96.png" class="tab-icon" alt="Haus">
-                </md-tab-label>
-
-                <md-tab-body layout="column" layout-align="center center">
-                    <md-tab-content flex layout-fill style="background-color: white">
-                        <house></house>
-                    </md-tab-content>
-                </md-tab-body>
-            </md-tab>
+            <div flex-gt-md=50>
+                <md-tabs ng-cloak md-swipe-content="true" md-align-tabs="bottom" md-center-tabs flex
+                         md-stretch-tabs="auto"
+                         md-selected="selectedRoomTab" class="md-primary" flex layout-fill>
 
 
-            <md-tab ng-repeat="room in rooms">
-                <md-tab-label>
-                    <img src={{room.iconUrl}} class="tab-icon" alt={{room.name}}>
+                    <md-tab hide show-gt-sm>
+                        <md-tab-label>
+                            <img src="assets/img/icons/Roofing-96.png" class="tab-icon" alt="Haus">
+                        </md-tab-label>
 
-                    <!--
-                    <md-icon class="" aria-label={{room.name}}>{{room.icon}}</md-icon>
-                    -->
-                </md-tab-label>
+                        <md-tab-body layout="column" layout-align="center center">
+                            <md-tab-content flex layout-fill style="background-color: white">
+                                <house></house>
+                            </md-tab-content>
+                        </md-tab-body>
+                    </md-tab>
 
-                <md-tab-body layout="column" layout-align="center center">
-                    <md-tab-content style="background-color: white" layout="column"
-                                    layout-align="start center">
-                        <div class="room-container">
-                            <room-image room-image-url = "room.roomImageUrl" layout="column" layout-align="center center"></room-image>
 
-                            <div layout-gt-xs="row" layout-xs="column" layout-align="space-between start" layout-wrap>
-                                <div class = "module-container" flex-gt-xs="50" ng-repeat="module in room.modules">
-                                    <module
-                                    </module>
+                    <md-tab ng-repeat="room in rooms">
+                        <md-tab-label>
+                            <img src={{room.iconUrl}} class="tab-icon" alt={{room.name}}>
+
+                            <!--
+                            <md-icon class="" aria-label={{room.name}}>{{room.icon}}</md-icon>
+                            -->
+                        </md-tab-label>
+
+                        <md-tab-body layout="column" layout-align="center center">
+                            <md-tab-content style="background-color: white" layout="column"
+                                            layout-align="start center">
+                                <div class="room-container">
+                                    <room-image room-image-url="room.roomImageUrl" layout="column"
+                                                layout-align="center center"></room-image>
+
+                                    <div layout-gt-xs="row" layout-xs="column" layout-align="space-between start"
+                                         layout-wrap>
+                                        <div class="module-container" flex-gt-xs="50"
+                                             ng-repeat="module in room.modules">
+                                            <module
+                                            </module>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
 
-                    </md-tab-content>
-                </md-tab-body>
-            </md-tab>
-        </md-tabs>
-    </div>
-</md-content>
+                            </md-tab-content>
+                        </md-tab-body>
+                    </md-tab>
+                </md-tabs>
+            </div>
+        </div>
+    </md-content>
+</div>
 
 </body>
 </html>

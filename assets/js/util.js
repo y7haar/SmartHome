@@ -9,3 +9,12 @@ Storage.prototype.getObject = function(key) {
     var value = this.getItem(key);
     return value && JSON.parse(value);
 }
+
+function resizeHeight() {
+    var bar = $('#main-toolbar');
+    var wrapper = document.getElementById("wrapper");
+
+    var expression = "calc(100% - " + bar.height() + "px)";
+
+    wrapper.style.height = expression;
+}
