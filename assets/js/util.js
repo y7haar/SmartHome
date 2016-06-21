@@ -35,6 +35,10 @@ function getUrlParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+function mod(n, m) {
+    return ((n % m) + m) % m;
+}
+
 $(window).on("orientationchange",function(){
     resizeHeight();
 });

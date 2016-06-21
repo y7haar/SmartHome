@@ -47,7 +47,7 @@
 
     <span flex="5"></span>
     <div flex="20">
-        <img src="assets/img/rhabarber_logo.png" class="rhabarber-logo-login">
+        <img src="assets/img/rhabarber_logo_transparent.png" class="rhabarber-logo-login">
     </div>
     <span flex="5"></span>
 
@@ -56,16 +56,12 @@
     <div layout="row" layout-align="space-around start" layout-fill flex>
         <div layout="row" layout-align="space-around start" flex flex-gt-md="80">
 
-            <div ng-repeat="user in users" layout="column" layout-align="center center" flex="80" flex-gt-sm="25"
-                 flex-gt-lg="20">
+            <div ng-repeat="user in users" layout="column" layout-align="center center" flex="80" flex-gt-xs="30" flex-gt-sm="20"
+                 flex-gt-lg="15">
 
                 <md-button class="no-margin" aria-label = {{user.name}} ng-click="showLoginDialog($event, user)">
                     <md-card>
-
-                        <md-card-content layout="column" layout-align="center center">
-                            <img src={{user.profileUrl}} class="profile-image">
-                        </md-card-content>
-
+                        <img src={{user.profileUrl}} class="profile-image">
                     </md-card>
 
                 </md-button>
@@ -84,21 +80,16 @@
     <div layout="column" layout-align="center center">
         <div layout="column" layout-align="center center">
 
-            <span flex="5"></span>
-            <div flex="20">
-                <img src="assets/img/rhabarber_logo.png" class="rhabarber-logo-login">
+            <div flex="20" style="margin-top:10px">
+                <img src="assets/img/rhabarber_logo_transparent.png" class="rhabarber-logo-login">
             </div>
             <span flex="5"></span>
 
             <div ng-repeat="user in users" layout="column" layout-align="center center"
-                 style="max-width:55%;margin-bottom:15px;">
+                 style="max-width:50%;margin-bottom:15px;">
                 <md-button class="no-margin" aria-label = {{user.name}} ng-click="showLoginDialog($event, user)">
                     <md-card>
-
-                        <md-card-content layout="column" layout-align="center center">
-                            <img src={{user.profileUrl}} class="profile-image">
-                        </md-card-content>
-
+                        <img src={{user.profileUrl}} class="profile-image">
                     </md-card>
 
                 </md-button>

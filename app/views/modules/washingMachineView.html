@@ -1,0 +1,44 @@
+<div class="module stage1">
+
+    <div layout="column" layout-align="start start">
+        <md-card-title>
+            <h2>Buntwäsche - {{temperature}}°</h2>
+        </md-card-title>
+    </div>
+
+    <!-- extended controls-->
+    <div flex class="module stage2" slide-toggle="expanded">
+        <md-card-actions style="margin-left:0px;" flex layout="row" layout-align="space-between center">
+            <md-button class="md-icon-button no-margin" aria-label="Temperatur">
+                <img class="png-icon" src="assets/img/icons/Temperature-96.png">
+            </md-button>
+
+            <md-slider flex ng-model="temperature" class="md-primary" aria-label="Temperatureinstellung" min={{minTemp}} max={{maxTemp}}
+                       step="10"></md-slider>
+
+
+            <md-input-container>
+                <md-select ng-model="rotation" placeholder="Umdrehungen">
+                    <md-option ng-value="rotation" ng-repeat="rotation in rotations">{{ rotation }}</md-option>
+                </md-select>
+            </md-input-container>
+
+        </md-card-actions>
+
+        <md-card-actions layout="row" layout-align="space-between center" style="margin-left: 0px;">
+            <md-button class="md-icon-button no-margin" aria-label="Temperatur">
+                <img class="png-icon" src="assets/img/icons/Settings-96.png">
+            </md-button>
+
+            <md-button class="no-margin md-warn md-raised" aria-label="Stop" ng-click="stopMachine()">Stop</md-button>
+        </md-card-actions>
+    </div>
+
+    <div layout="row" layout-align="space-between center" style="margin-left: 10px;margin-right: 10px;">
+        <span>-{{timeLeftMin}}:{{timeLeftSecF}}</span>
+        <span>{{timeMin}} min</span>
+    </div>
+    <md-progress-linear md-mode="determinate" value={{progress}}></md-progress-linear>
+
+
+</div>

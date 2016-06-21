@@ -42,6 +42,10 @@
     <script src="./app/controllers/roomController.js"></script>
     <script src="./app/controllers/toolbarController.js"></script>
 
+    <script src="./app/controllers/modules/doorController.js"></script>
+    <script src="./app/controllers/modules/multiRoomAudioController.js"></script>
+    <script src="./app/controllers/modules/washingMachineController.js"></script>
+
     <!-- directives -->
     <script src="./app/directives/toolbarDirective.js"></script>
     <script src="./app/directives/modulesDirectives.js"></script>
@@ -56,7 +60,7 @@
 
 </head>
 
-<body ng-app="mainApp" flex onload="resizeHeight();" onresize="resizeHeight();">
+<body ng-cloak ng-app="mainApp" flex onload="resizeHeight();" onresize="resizeHeight();">
 
 <script>
 
@@ -96,7 +100,7 @@
                         </md-tab-label>
 
                         <md-tab-body layout="column" layout-align="center center">
-                            <md-tab-content flex layout-fill style="background-color: white">
+                            <md-tab-content flex layout-fill>
                                 <house></house>
                             </md-tab-content>
                         </md-tab-body>

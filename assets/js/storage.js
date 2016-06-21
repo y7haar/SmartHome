@@ -20,34 +20,38 @@ var Storage = function () {
             {
                 iconUrl: "assets/img/icons/Kitchen-96.png", name: "Küche", roomImageUrl: "assets/img/room_images/kueche.png",
                 modules: [
-                {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
-                    {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
-                    {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
-                    {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
-                    {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
-                    {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
-                    {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
-                    {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
-                    {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
-                    {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
-                    {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
                 {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"}]
             },
             
             {iconUrl: "assets/img/icons/rooms/Living Room-96.png", name: "Wohnzimmer", roomImageUrl: "assets/img/room_images/wohnzimmer.png",
-                modules: []},
+                modules: [
+                    {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"}
+                ]},
             {iconUrl: "assets/img/icons/rooms/Shower and Tub-96.png", name: "Bad", roomImageUrl: "assets/img/room_images/badezimmer.png",
-                modules: []},
+                modules: [
+                    {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"}
+                ]},
             {iconUrl: "assets/img/icons/rooms/Bedroom-96.png", name: "Schlafzimmer", roomImageUrl: "assets/img/room_images/schlafzimmer.png",
-                modules: []},
+                modules: [
+                    {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"}
+                ]},
             {iconUrl: "assets/img/icons/rooms/Teddy Bear-96.png", name: "Kinderzimmer", roomImageUrl: "assets/img/room_images/kinderzimmer.png",
-                modules: []},
+                modules: [
+                    {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"}
+                ]},
             {iconUrl: "assets/img/icons/rooms/Movie Projector-96.png", name: "Hobbyraum", roomImageUrl: "assets/img/room_images/hobbyraum.png",
-                modules: []},
+                modules: [
+                    {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"}
+                ]},
             {iconUrl: "assets/img/icons/rooms/Laptop-96.png", name: "Büro", roomImageUrl: "assets/img/room_images/buero.png",
-                modules: []},
+                modules: [
+                    {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"}
+                ]},
             {iconUrl: "assets/img/icons/rooms/Washing Machine-96.png", name: "Waschraum", roomImageUrl: "assets/img/room_images/waschraum.png",
-                modules: []}
+                modules: [
+                    {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
+                    {id: 0, displayName: "Waschmaschine", name: "washingMachine"}
+                ]}
         ],
 
         users: [

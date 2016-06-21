@@ -2,16 +2,23 @@
 
     <md-button ng-click="expanded = !expanded" class="md-icon-button module-arrow-button"
                aria-label="Erweitern">
-        <md-icon ng-show = "!expanded" aria-label="Pause">keyboard_arrow_down</md-icon>
-        <md-icon ng-show = "expanded" aria-label="Pause">keyboard_arrow_up</md-icon>
+
+        <md-icon ng-show="!expanded" aria-label="Pause">keyboard_arrow_down</md-icon>
+        <md-icon ng-show="expanded" aria-label="Pause">keyboard_arrow_up</md-icon>
+
     </md-button>
 
 
     <md-card-content layout="column" layout-align="none center">
-            <!-- all modules -->
+        <!-- all modules -->
 
-            <multi-room-audio class = "module-content" ng-if="module.name === 'multiRoomAudio'"></multi-room-audio>
-            <door class = "module-content" ng-if="module.name === 'door'"></door>
+        <!-- house -->
+        <door class="module-content" ng-if="module.name === 'door'"></door>
+
+        <!-- rooms-->
+        <washing-machine class="module-content" ng-if="module.name === 'washingMachine'"></washing-machine>
+        <multi-room-audio class="module-content" ng-if="module.name === 'multiRoomAudio'"></multi-room-audio>
+
 
     </md-card-content>
 </md-card>

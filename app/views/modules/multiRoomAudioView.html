@@ -1,20 +1,22 @@
 <div class="module stage1">
 
     <div layout="row" layout-align="start center">
-        <img src="assets/img/cover.jpg" class="audio-cover-image">
+        <img ng-src={{currentTrack.coverUrl}} class="audio-cover-image">
 
         <div flex layout="column" layout-align="start" class="padding-left-10">
-            <h3>System Of a Down</h3>
-            <h5>Chop Suey</h5>
+            <h3>{{currentTrack.artist}}</h3>
+            <h5>{{currentTrack.title}}</h5>
             <div style="margin-top:5px;" flex slide-toggle="expanded" layout = "row" layout-align = "start center">
-                <h5 flex>Steal this Album</h5>
+                <h5 flex>{{currentTrack.album}}</h5>
 
-                <md-button class="md-icon-button no-margin" aria-label="Favorite">
-                    <img class = "png-icon" src = "assets/img/icons/Repeat-96.png">
+                <md-button class="md-icon-button no-margin" aria-label="Wiederholen" ng-click="toggleRepeat()">
+                    <img ng-show="!isRepeat" class = "png-icon" ng-src = "assets/img/icons/Repeat-96.png">
+                    <img ng-show="isRepeat" class = "png-icon" ng-src = "assets/img/icons/green/Repeat-96.png">
                 </md-button>
 
-                <md-button class="md-icon-button no-margin" aria-label="Favorite">
-                    <img class = "png-icon" src = "assets/img/icons/Shuffle-96.png">
+                <md-button class="md-icon-button no-margin" aria-label="Zufällig" ng-click="toggleShuffle()">
+                    <img ng-show="!isShuffle" class = "png-icon" ng-src = "assets/img/icons/Shuffle-96.png">
+                    <img ng-show="isShuffle" class = "png-icon" ng-src = "assets/img/icons/green/Shuffle-96.png">
                 </md-button>
 
             </div>
@@ -30,17 +32,17 @@
                 <img class = "png-icon" src = "assets/img/icons/Settings-96.png">
             </md-button>
 
-            <md-button class="md-icon-button no-margin" aria-label="Favorite">
-                <img class = "png-icon" src = "assets/img/icons/High Volume-96.png">
-            </md-button>
 
-            <md-slider flex class = "md-primary"  aria-label="Lautstärkeregler" min="0" max="100"></md-slider>
+            <img class = "png-icon" src = "assets/img/icons/High Volume-96.png" style="margin-right: 4px;">
+
+
+            <md-slider flex class = "md-primary" ng-model="volume" aria-label="Lautstärkeregler" min="0" max="100"></md-slider>
 
             <md-button class="md-icon-button no-margin" aria-label="Favorite">
                 <img class = "png-icon" src = "assets/img/icons/Share-96.png">
             </md-button>
 
-            <h5>02:13</h5>
+            <span>{{timeLeftMin}}:{{timeLeftSecF}}</span>
 
         </md-card-actions>
     </div>
@@ -48,29 +50,18 @@
     <div class="green padding-height-5">
         <md-card-actions>
             <md-card-icon-actions layout="row" layout-align="space-around center">
-                <md-button class="md-icon-button" aria-label="Favorite">
+                <md-button class="md-icon-button" aria-label="Vorheriger Titel" ng-click="previousTrack()">
                     <md-icon aria-label="Vorheriger Titel">skip_previous</md-icon>
                 </md-button>
-                <md-button class="md-icon-button" aria-label="Share">
+                <md-button class="md-icon-button" aria-label="Share" ng-click="togglePlay()">
                     <md-icon aria-label="Pause">pause</md-icon>
                 </md-button>
-                <md-button class="md-icon-button" aria-label="Favorite">
+                <md-button class="md-icon-button" aria-label="Nächster Titel" ng-click="nextTrack()">
                     <md-icon aria-label="Nächster Titel">skip_next</md-icon>
                 </md-button>
             </md-card-icon-actions>
         </md-card-actions>
     </div>
 
-    <md-progress-linear md-mode="determinate" value="70"></md-progress-linear>
+    <md-progress-linear md-mode="determinate" value={{progress}}></md-progress-linear>
 </div>
-
-<!--
-<div class="module stage2" slide-toggle="expanded">
-    <hr>
-    <md-card-actions layout="row" layout-align="center center">
-        <md-icon aria-label="Leiser">volume_down</md-icon>
-        <md-slider flex aria-label="Lautstärkeregler" min="0" max="100"></md-slider>
-        <md-icon aria-label="Lauter">volume_up</md-icon>
-    </md-card-actions>
-</div>
--->
