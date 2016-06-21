@@ -43,14 +43,16 @@ mainApp.controller("washingMachineCtrl", function ($scope) {
 
             $scope.timeLeftSec -= 1;
 
-            if ($scope.timeLeftSec === 0) {
-                $scope.timeLeftMin--;
-            }
-
-            else if ($scope.timeLeftSec < 0) {
+            if ($scope.timeLeftSec < 0) {
                 $scope.timeLeftSec = 60 + $scope.timeLeftSec;
                 $scope.timeLeftMin--;
             }
+
+            else if ($scope.timeLeftSec === 0) {
+                $scope.timeLeftMin--;
+            }
+
+
 
             $scope.progress = ($scope.timeMin - $scope.timeLeftMin - (1 / 60) * $scope.timeLeftSec) / $scope.timeMin * 100;
         }
