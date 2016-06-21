@@ -1,0 +1,36 @@
+<md-dialog aria-label="Login Dialog" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Login</h2>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content" layout="row" layout-align="center center">
+
+                <div layout="column" layout-align="center center" flex="40" flex-xs="70">
+
+                    <md-card>
+                        <img ng-src={{user.profileUrl}} class="profile-image">
+
+                    </md-card>
+
+                    <span class="md-headline no-margin">{{user.name}}</span>
+                </div>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="column" layout-align="center center">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>PIN</label>
+                <input type="password"  maxlength="4" ng-model="pin" required>
+
+            </md-input-container>
+
+            <md-button type="submit" class="md-raised" ng-click="login()">
+                Login
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

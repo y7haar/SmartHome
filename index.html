@@ -1,142 +1,16 @@
-<html lang="de">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <title>Title</title>
 
-    <link rel="icon" type="image/png" href="assets/img/icons/rhabarber_icon_32.png" sizes="32x32">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icons/rhabarber_icon_180.png">
-
-    <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-2.2.3.min.js"
-            integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
-
-    <!-- Angular.js Libraries -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
-
-    <!-- Angular Material Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.min.js"></script>
-
-    <!-- Angular Material style sheet -->
-    <link rel="stylesheet"
-          href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc4/angular-material.min.css">
-
-
-    <!-- icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!-- non angular scripts -->
-    <script src="./assets/js/util.js"></script>
-    <script src="./assets/js/storage.js"></script>
-
-    <!-- application bootstrap  -->
-    <script src="./app/app.js"></script>
-
-    <!-- controllers -->
-    <script src="./app/controllers/moduleController.js"></script>
-    <script src="./app/controllers/houseController.js"></script>
-    <script src="./app/controllers/roomController.js"></script>
-    <script src="./app/controllers/toolbarController.js"></script>
-
-    <!-- directives -->
-    <script src="./app/directives/toolbarDirective.js"></script>
-    <script src="./app/directives/modulesDirectives.js"></script>
-    <script src="./app/directives/moduleDirective.js"></script>
-    <script src="./app/directives/roomImageDirective.js"></script>
-    <script src="./app/directives/houseDirective.js"></script>
-    <script src="./app/directives/slideDirective.js"></script>
-
-
-    <!-- css -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-
+    <script>
+        function redirect() {
+            window.location.href="login.html";
+        }
+    </script>
 </head>
-
-<body ng-app="mainApp" flex onload="resizeHeight();" onresize="resizeHeight();">
-
-<script>
-
-    /*
-     var body = document.getElementsByTagName("body")[0];
-
-     body.addEventListener('touchmove', function (e) {
-     e.preventDefault();
-
-     }, false);
-     */
-
-</script>
-
-
-<!--<main-toolbar></main-toolbar> -->
-
-<div >
-    <main-toolbar></main-toolbar>
-
-    <md-content class="wrapper" id = "wrapper">
-
-
-        <div ng-controller="roomCtrl" layout="column" layout-gt-md="row">
-
-            <house class="house-container" hide show-gt-md flex-gt-md=50 layout-fill></house>
-
-            <div flex-gt-md=50>
-                <md-tabs ng-cloak md-swipe-content="true" md-align-tabs="bottom" md-center-tabs flex
-                         md-stretch-tabs="auto"
-                         md-selected="selectedRoomTab" class="md-primary" flex layout-fill>
-
-
-                    <md-tab hide show-gt-sm>
-                        <md-tab-label>
-                            <img src="assets/img/icons/Roofing-96.png" class="tab-icon" alt="Haus">
-                        </md-tab-label>
-
-                        <md-tab-body layout="column" layout-align="center center">
-                            <md-tab-content flex layout-fill style="background-color: white">
-                                <house></house>
-                            </md-tab-content>
-                        </md-tab-body>
-                    </md-tab>
-
-
-                    <md-tab ng-repeat="room in rooms">
-                        <md-tab-label>
-                            <img src={{room.iconUrl}} class="tab-icon" alt={{room.name}}>
-
-                            <!--
-                            <md-icon class="" aria-label={{room.name}}>{{room.icon}}</md-icon>
-                            -->
-                        </md-tab-label>
-
-                        <md-tab-body layout="column" layout-align="center center">
-                            <md-tab-content style="background-color: white" layout="column"
-                                            layout-align="start center">
-                                <div class="room-container">
-                                    <room-image room-image-url="room.roomImageUrl" layout="column"
-                                                layout-align="center center"></room-image>
-
-                                    <div layout-gt-xs="row" layout-xs="column" layout-align="space-between start"
-                                         layout-wrap>
-                                        <div class="module-container" flex-gt-xs="50"
-                                             ng-repeat="module in room.modules">
-                                            <module
-                                            </module>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </md-tab-content>
-                        </md-tab-body>
-                    </md-tab>
-                </md-tabs>
-            </div>
-        </div>
-    </md-content>
-</div>
+<body onload="redirect()">
 
 </body>
 </html>

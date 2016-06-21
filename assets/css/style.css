@@ -91,6 +91,20 @@ md-tabs {
     border-radius: 30px;
 }
 
+.profile-icon-button {
+    height: 50px !important;
+    width: 50px !important;
+}
+.profile-icon {
+    width: 30px;
+    height: 30px;
+
+    background-color: white;
+    border-radius: 30px;
+
+    border:2px solid white;
+}
+
 .rhabarber-icon-button {
     height: 50px !important;
     width: 50px !important;
@@ -191,8 +205,7 @@ room-image {
 }
 
 .profile-image {
-    width: 200px;
-    height: 200px;
+    height:auto !important;
 }
 
 .green {
@@ -250,4 +263,14 @@ room-image {
 
 .md-icon-button.no-margin {
     margin:0px !important;
+}
+
+.no-margin {
+    margin:0px !important;
+}
+
+.rhabarber-logo-login {
+    height:100%;
+    width:auto;
+
 }

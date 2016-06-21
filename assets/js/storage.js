@@ -6,6 +6,8 @@ var Storage = function () {
 
     this.instance = null;
 
+    var self = this;
+
     this.defaults = {
 
         house: {
@@ -49,13 +51,17 @@ var Storage = function () {
         ],
 
         users: [
-            {name: "Hans-Peter", image: "./assets/img/icons/rhabarber_icon.png"},
-            {name: "Kevin", image: "./assets/img/icons/rhabarber_icon.png"},
-            {name: "Peter Lendig", image: "./assets/img/icons/rhabarber_icon.png"}]
+            {name: "Martin", profileUrl: "./assets/img/people_images/image02.png"},
+            {name: "Maria", profileUrl: "./assets/img/people_images/image03.png"},
+            {name: "Jan-Leon", profileUrl: "./assets/img/people_images/image01.png"}]
     };
 
     for (var i = 0; i < this.defaults["rooms"].length; ++i) {
-        this.defaults["rooms"].id = i;
+        this.defaults["rooms"][i].id = i;
+    }
+
+    for (var j = 0; j < this.defaults["users"].length; ++j) {
+        this.defaults["users"][j].id = j;
     }
 
     this.getHelper = function (key) {
@@ -70,7 +76,7 @@ var Storage = function () {
     };
 
     this.getByIdHelper = function (key, id) {
-        var allObj = getHelper(key);
+        var allObj = this.getHelper(key);
 
         for (var i = 0; i < allObj.length; ++i) {
             if (allObj[i].id === id) {
@@ -100,6 +106,10 @@ var Storage = function () {
 
     this.getUsers = function () {
         return this.getHelper("users");
+    };
+
+    this.getUserById = function (id) {
+        return self.getByIdHelper("users", id);
     };
 };
 
