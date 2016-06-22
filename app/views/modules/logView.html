@@ -1,9 +1,12 @@
 <div class="module stage1" ng-hide="expanded">
     <h2 class="padding-height-5 padding-left-10">Log</h2>
+    <div ng-repeat="msg in logMsgs" layout="column">
+        <span>{{ msg }}</span>
 
+    </div>
 </div>
 
-</div>
+
 
 
 <!-- extended controls-->
