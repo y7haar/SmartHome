@@ -125,6 +125,30 @@
                                 <div class="room-container" layout="column">
                                     <room-image></room-image>
 
+                                    <div layout="column" hide show-xs>
+                                        <div ng-repeat="module in room.modules">
+                                            <module></module>
+                                        </div>
+                                    </div>
+
+
+                                    <div layout="row" hide show-gt-xs>
+
+                                        <div layout="column" flex="50">
+                                            <div ng-repeat="module in room.modulesRight">
+                                                <module></module>
+                                            </div>
+                                        </div>
+
+                                        <div layout="column" flex="50">
+                                            <div ng-repeat="module in room.modulesLeft">
+                                                <module></module>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!--
                                     <div layout-gt-xs="row" layout-xs="column" layout-align="space-between start"
                                          layout-wrap>
                                         <div class="module-container" flex-gt-xs="50"
@@ -133,6 +157,9 @@
                                             </module>
                                         </div>
                                     </div>
+
+                                    -->
+
                                 </div>
 
                             </md-tab-content>
