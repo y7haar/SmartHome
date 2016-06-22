@@ -63,7 +63,7 @@
 
                 <md-button class="no-margin" aria-label = {{user.name}} ng-click="showLoginDialog($event, user)">
                     <md-card>
-                        <img src={{user.profileUrl}} class="profile-image">
+                        <img ng-src={{user.profileUrl}} class="profile-image">
                     </md-card>
 
                 </md-button>
@@ -91,7 +91,7 @@
                  style="max-width:50%;margin-bottom:15px;">
                 <md-button class="no-margin" aria-label = {{user.name}} ng-click="showLoginDialog($event, user)">
                     <md-card>
-                        <img src={{user.profileUrl}} class="profile-image">
+                        <img ng-src={{user.profileUrl}} class="profile-image">
                     </md-card>
 
                 </md-button>
