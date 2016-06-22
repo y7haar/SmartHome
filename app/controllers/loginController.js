@@ -28,9 +28,6 @@ var loginDialogCtrl = function ($scope, $mdDialog, user) {
     $scope.user = user;
 
     $scope.login = function () {
-
-        console.log($scope.pin);
-
         if ($scope.pin == "1234") {
             window.location.href = "rooms.html?user=" + $scope.user.id;
         }
