@@ -28,4 +28,25 @@ mainApp.controller("weatherCtrl", function ($scope) {
         {day:"Samstag", iconUrl:"assets/img/icons/weather/Clouds-96.png", minTemperature:"11", maxTemperature:"14"},
         {day:"Sonntag", iconUrl:"assets/img/icons/weather/Heavy Rain-96.png", minTemperature:"12", maxTemperature:"17"}
     ];
+
+    $scope.$watch(function() { return new Date().getHours(); }, function(hour) {
+
+        var format = hour;
+
+        if(format < 10) {
+            format = "0" + format;
+        }
+
+        $scope.currentData.timeHour = format;
+    });
+
+    $scope.$watch(function() { return new Date().getMinutes(); }, function(minute) {
+        var format = minute;
+
+        if(format < 10) {
+            format = "0" + format;
+        }
+
+        $scope.currentData.timeMin = format;
+    });
 });
