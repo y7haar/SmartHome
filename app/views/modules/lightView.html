@@ -44,9 +44,13 @@
             <span flex="20">{{ light.dimState}} %</span>
         </div>
 
-        <div layout="row" layout-align="space-between center" ng-if="light.isColorAble">
+        <div layout="row" layout-align="space-between start" ng-if="light.isColorAble">
 
-            <span flex="80">Color</span>
+            <span flex="60">Color</span>
+            <mg-button flex="20" class="color" ng-click="colorPicker();">
+                <md-card style="background-color:{{light.color}}; width:80%; height: 20px"></md-card>
+            </mg-button>
+
             <mg-button flex="20" class="color" ng-click="colorPicker();">
                 <md-icon md-font-library="material-icons" style="color:{{ light.color}}">face</md-icon>
             </mg-button>
