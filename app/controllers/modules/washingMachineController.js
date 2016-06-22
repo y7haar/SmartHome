@@ -54,5 +54,5 @@ mainApp.controller("washingMachineCtrl", function ($scope, $interval) {
 
             $scope.progress = ($scope.timeMin - $scope.timeLeftMin - (1 / 60) * $scope.timeLeftSec) / $scope.timeMin * 100;
         }
-    }, 100);
+    }, 1000);
 });

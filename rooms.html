@@ -70,7 +70,7 @@
 
 </head>
 
-<body ng-app="mainApp" flex onload="resizeHeight();" onresize="resizeHeight();">
+<body ng-app="mainApp" flex>
 
 <script>
 
@@ -91,7 +91,7 @@
         <main-toolbar ng-cloak flex="nogrow"></main-toolbar>
 
         <div layout="row" flex="grow">
-            <div flex-gt-md="50" layout="column" hide show-gt-md>
+            <md-content flex-gt-md="50" layout="column" hide show-gt-md>
 
                 <md-tabs md-swipe-content="true" md-align-tabs="bottom" md-center-tabs flex class="md-primary"
                          md-no-ink-bar="true">
@@ -108,13 +108,11 @@
                     </md-tab>
                 </md-tabs>
 
-            </div>
+            </md-content>
 
-            <div style="border:2px solid white;">
+            <div hide show-gt-md style="border:2px solid white;"></div>
 
-            </div>
-
-            <div flex="100" flex-gt-md="50" layout="column">
+            <md-content flex="100" flex-gt-md="50" layout="column">
 
                 <md-tabs md-swipe-content="true" md-align-tabs="bottom" md-center-tabs flex
                           class="md-primary" md-no-ink-bar="false">
@@ -133,7 +131,7 @@
                     </md-tab>
 
 
-                    <md-tab ng-repeat="room in rooms">
+                    <md-tab ng-repeat="room in rooms track by $index">
                         <md-tab-label>
                             <img ng-src={{room.iconUrl}} class="tab-icon" alt={{room.name}}>
                         </md-tab-label>
@@ -164,39 +162,13 @@
                                         </div>
                                     </div>
 
-
-                                    <!--
-                                    <div layout-gt-xs="row" layout-xs="column" layout-align="space-between start"
-                                         layout-wrap>
-                                        <div class="module-container" flex-gt-xs="50"
-                                             ng-repeat="module in room.modules">
-                                            <module
-                                            </module>
-                                        </div>
-                                    </div>
-
-                                    -->
-
                                 </div>
                             </md-tab-content>
                         </md-tab-body>
                     </md-tab>
                 </md-tabs>
 
-
-                <!--
-                <md-tabs md-center-tabs md-align-tabs="bottom" class="md-primary" flex="100">
-                    <md-tab ng-repeat="i in [0,1,2,3, 4, 5, 6, 7, 8]">
-                        <md-tab-label>TAB {{i}}</md-tab-label>
-                        <md-tab-body>
-                            <md-tab-content>LOL</md-tab-content>
-                        </md-tab-body>
-                    </md-tab>
-                </md-tabs>
-                -->
-
-
-            </div>
+            </md-content>
         </div>
     </div>
 

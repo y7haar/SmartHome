@@ -78,8 +78,6 @@ var Storage = function () {
                 modules: [
                     {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
                     {id: 2, displayName: "Licht", name: "light"},
-                    {id: 4, displayName: "Jalousien", name: "blinds"},
-                    {id: 3, displayName: "Heizung", name: "heater"},
                     {id: 0, displayName: "Waschmaschine", name: "washingMachine"}
                 ]}
         ],
