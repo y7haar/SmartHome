@@ -37,11 +37,11 @@
             <md-switch flex="20" ng-model="light.isOn" ></md-switch>
         </div>
 
-        <div  layout="row" layout-align="space-between center" >
-            <span flex ="20" >Dimmer</span>
-            <md-slider flex="60" min="0" max="100" ng-model="light.dimState" aria-label="dimState" id=""></md-slider>
+        <div layout="row" layout-align="space-between center" >
+            <span>Dimmer</span>
+            <md-slider class="md-primary" flex min="0" max="100" ng-model="light.dimState" aria-label="dimState" id=""></md-slider>
 
-            <span flex="20">{{ light.dimState}} %</span>
+            <span>{{ light.dimState}} %</span>
         </div>
 
         <div layout="row" layout-align="space-between start" ng-if="light.isColorAble">

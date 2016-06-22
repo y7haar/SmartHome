@@ -2,7 +2,7 @@
  * @author Yannic Siebenhaar
  */
 
-mainApp.controller("washingMachineCtrl", function ($scope) {
+mainApp.controller("washingMachineCtrl", function ($scope, $interval) {
     $scope.rotations = [];
     $scope.minTemp = 30;
     $scope.maxTemp = 100;
@@ -28,8 +28,8 @@ mainApp.controller("washingMachineCtrl", function ($scope) {
         $scope.isRunning = false;
     };
 
-    setInterval(function () {
-        if (! $scope.isRunning) {
+    $interval(function () {
+        if (!$scope.isRunning) {
             return;
         }
 
@@ -51,8 +51,6 @@ mainApp.controller("washingMachineCtrl", function ($scope) {
             else if ($scope.timeLeftSec === 0) {
                 $scope.timeLeftMin--;
             }
-
-
 
             $scope.progress = ($scope.timeMin - $scope.timeLeftMin - (1 / 60) * $scope.timeLeftSec) / $scope.timeMin * 100;
         }

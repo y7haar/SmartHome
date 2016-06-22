@@ -2,7 +2,7 @@
  * @author Yannic Siebenhaar
  */
 
-mainApp.controller("multiRoomAudioCtrl", function ($scope) {
+mainApp.controller("multiRoomAudioCtrl", function ($scope, $interval) {
 
     $scope.tracks = [
         {
@@ -46,14 +46,15 @@ mainApp.controller("multiRoomAudioCtrl", function ($scope) {
     $scope.currentTrack = $scope.tracks[$scope.currentTrackIndex];
 
     $scope.volume = parseInt(Math.random() * 100);
-    $scope.timeLeftMin = 3;
-    $scope.timeLeftSec = 40;
+
+    $scope.timePassedMin = 0;
+    $scope.timePassedSec = 0;
 
     $scope.timeMin = 4;
 
-    $scope.progress = ($scope.timeMin - $scope.timeLeftMin - (1/60) * $scope.timeLeftSec) / $scope.timeMin * 100;
+    $scope.progress = ($scope.timePassedMin + (1/60) * $scope.timePassedSec) / $scope.timeMin * 100;
 
-    $scope.timeLeftSecF = $scope.timeLeftSec;
+    $scope.timePassedSecF = $scope.timePassedSec;
     $scope.isPlaying = true;
 
     $scope.isShuffle = false;
@@ -65,9 +66,9 @@ mainApp.controller("multiRoomAudioCtrl", function ($scope) {
 
     function resetTime() {
         $scope.timeMin = 3 + parseInt(Math.random() * 2);
-        $scope.timeLeftMin = $scope.timeMin;
-        $scope.timeLeftSec = 0;
-        $scope.timeLeftSecF = "00";
+        $scope.timePassedMin = 0;
+        $scope.timePassedSec = 0;
+        $scope.timePassedSecF = "00";
     }
 
     $scope.nextTrack = function() {
@@ -95,30 +96,32 @@ mainApp.controller("multiRoomAudioCtrl", function ($scope) {
 
 
 
-    setInterval(function() {
+    $interval(function() {
         if(! $scope.isPlaying)
             return;
 
-        $scope.timeLeftSecF = parseInt($scope.timeLeftSec);
+        console.log("setInterval");
 
-        if($scope.timeLeftSec < 10) {
-            $scope.timeLeftSecF = "0" + $scope.timeLeftSecF;
+        $scope.timePassedSecF = parseInt($scope.timePassedSec);
+
+        if($scope.timePassedSecF < 10) {
+            $scope.timePassedSecF = "0" + $scope.timePassedSecF;
         }
 
-        if($scope.timeLeftMin > 0 || $scope.timeLeftSec > 0) {
+        if($scope.timePassedMin < $scope.timeMin) {
 
-            $scope.timeLeftSec -=0.1;
+            $scope.timePassedSec +=0.1;
 
-            if($scope.timeLeftSec === 0) {
-                $scope.timeLeftMin--;
+            if($scope.timePassedSec >= 60) {
+                $scope.timePassedMin++;
+                $scope.timePassedSec = 0;
             }
 
-            else if($scope.timeLeftSec < 0) {
-                $scope.timeLeftSec = 60 + $scope.timeLeftSec;
-                $scope.timeLeftMin--;
-            }
+            $scope.progress = ($scope.timePassedMin + (1/60) * $scope.timePassedSec) / $scope.timeMin * 100;
+        }
 
-            $scope.progress = ($scope.timeMin - $scope.timeLeftMin - (1/60) * $scope.timeLeftSec) / $scope.timeMin * 100;
+        else {
+            $scope.nextTrack();
         }
     }, 100);
 
