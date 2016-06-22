@@ -5,8 +5,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
     <meta charset="utf-8">
 
+    <!--
     <link rel="icon" type="image/png" href="assets/img/icons/rhabarber_icon_32.png" sizes="32x32">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icons/rhabarber_icon_180.png">
+    -->
 
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"
@@ -50,6 +52,7 @@
     <script src="./app/controllers/modules/multiRoomAudioController.js"></script>
     <script src="./app/controllers/modules/washingMachineController.js"></script>
     <script src="./app/controllers/modules/lightController.js"></script>
+    <script src="./app/controllers/modules/weatherController.js"></script>
 
     <!-- directives -->
     <script src="./app/directives/toolbarDirective.js"></script>
@@ -80,9 +83,6 @@
 
 </script>
 
-
-<!--<main-toolbar></main-toolbar> -->
-
 <div >
     <main-toolbar></main-toolbar>
 
@@ -99,13 +99,13 @@
                          md-selected="selectedRoomTab" class="md-primary" flex layout-fill>
 
 
-                    <md-tab hide show-gt-sm>
+                    <md-tab ng-if="!desktopView">
                         <md-tab-label>
                             <img src="assets/img/icons/Roofing-96.png" class="tab-icon" alt="Haus">
                         </md-tab-label>
 
                         <md-tab-body layout="column" layout-align="center center">
-                            <md-tab-content flex layout-fill>
+                            <md-tab-content>
                                 <house></house>
                             </md-tab-content>
                         </md-tab-body>
@@ -116,17 +116,12 @@
                         <md-tab-label>
                             <img ng-src={{room.iconUrl}} class="tab-icon" alt={{room.name}}>
 
-                            <!--
-                            <md-icon class="" aria-label={{room.name}}>{{room.icon}}</md-icon>
-                            -->
                         </md-tab-label>
 
                         <md-tab-body layout="column" layout-align="center center">
-                            <md-tab-content style="background-color: white" layout="column"
-                                            layout-align="start center">
-                                <div class="room-container">
-                                    <room-image room-image-url="room.roomImageUrl" layout="column"
-                                                layout-align="center center"></room-image>
+                            <md-tab-content>
+                                <div class="room-container" layout="column">
+                                    <room-image></room-image>
 
                                     <div layout-gt-xs="row" layout-xs="column" layout-align="space-between start"
                                          layout-wrap>

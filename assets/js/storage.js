@@ -11,8 +11,11 @@ var Storage = function () {
     this.defaults = {
 
         house: {
+            name: "Haus",
+            roomImageUrl: "assets/img/room_images/kueche.png",
             modules: [
-                {id: 1, displayName: "Haustür", name: "door"}]
+                {id: 1, displayName: "Haustür", name: "door"},
+                {id: 3, displayName: "Wetter", name: "weather"}]
 
         },
 

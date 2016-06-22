@@ -1,18 +1,17 @@
-<div ng-style="{'background-image': 'url(' + room.roomImageUrl + ')'}"  class="module room-image-container" layout = "column" layout-align = "center center">
+
+        <div ng-style="{'background-image': 'url(' + room.roomImageUrl + ')'}" class="room-image-container" layout="column" layout-align="center center">
+                <h1 class = "room-image-text">{{room.name}}</h1>
+        </div>
 
 
-        <!-- ng-style="{'background': 'linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)), url(assets/img/living_room.jpg), background-size: cover,
-    'background-size': cover,
-    'background-repeat': no-repeat,
-    'background-attachment': scroll,
-    'background-position': center}"
 
-     class="module room-image-container" layout = "column" layout-align = "center center">
 
-    <!-- url('')
-    <!--
-    <img class="room-image" src="assets/img/living_room.jpg"/>
-    -->
+<!--
+<div ng-style="{'background-image': 'url(' + room.roomImageUrl + ')'}" layout = "row" layout-align = "center center" flex="20">
+    <div layout="column" flex="100">
+        <h1 class = "room-image-text">{{room.name}}</h1>
+    </div>
 
-    <h1 class = "room-image-text">{{room.name}}</h1>
 </div>
+
+<!-- class="module room-image-container" -->

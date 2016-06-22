@@ -100,8 +100,6 @@ mainApp.controller("multiRoomAudioCtrl", function ($scope, $interval) {
         if(! $scope.isPlaying)
             return;
 
-        console.log("setInterval");
-
         $scope.timePassedSecF = parseInt($scope.timePassedSec);
 
         if($scope.timePassedSecF < 10) {
