@@ -6,11 +6,6 @@ mainApp.controller("roomCtrl", function ($scope, $mdMedia) {
 
     $scope.rooms = Storage.getInstance().getRooms();
 
-    $scope.getSelectedRoom = function () {
-        $scope.selectedRoom = $scope.rooms[$scope.selectedRoomTab];
-        return $scope.selectedRoom;
-    };
-
     $scope.modulesLeft = [];
     $scope.modulesRight = [];
 

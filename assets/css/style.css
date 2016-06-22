@@ -61,7 +61,7 @@ md-tabs {
 }
 
 .house-container {
-    border-right: 1px solid grey;
+    /*border-right: 1px solid grey;*/
     /*max-height:100% !important;*/
 }
 
@@ -105,9 +105,10 @@ md-tabs {
     height: 30px;
 
     background-color: white;
-    border-radius: 30px;
+    border-radius: 100000px;
 
     border:2px solid white;
+
 }
 
 .rhabarber-icon-button {
@@ -290,11 +291,11 @@ room-image {
 
 
 .md-icon-button.no-margin {
-    margin:0px !important;
+    margin:0 !important;
 }
 
 .no-margin {
-    margin:0px !important;
+    margin:0 !important;
 }
 
 .rhabarber-logo-login {
@@ -336,14 +337,24 @@ room-image {
 
 
 .weather-large-text {
-    margin-left:0px !important;
+    margin-left:0 !important;
     font-size:3.0rem;
 }
 
 .font-red {
-    color: rgb(189,39,55);
+    color: #BD2737;
 }
 
 .font-blue {
     color: #0956a9;
+}
+
+md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
+    color: white !important;
+    background-color:white !important;
+}
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
 }

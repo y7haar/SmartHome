@@ -11,6 +11,8 @@ Storage.prototype.getObject = function(key) {
 };
 
 function resizeHeight() {
+    /*
+
     var bar = $('#main-toolbar');
     var wrapper = document.getElementById("wrapper");
 
@@ -23,6 +25,8 @@ function resizeHeight() {
 
     var expression = "calc(100% - " + bar.height() + "px)";
     wrapper.style.height = expression;
+
+    */
 }
 
 function getUrlParameterByName(name, url) {

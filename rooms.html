@@ -70,7 +70,7 @@
 
 </head>
 
-<body ng-cloak ng-app="mainApp" flex onload="resizeHeight();" onresize="resizeHeight();">
+<body ng-app="mainApp" flex onload="resizeHeight();" onresize="resizeHeight();">
 
 <script>
 
@@ -85,20 +85,39 @@
 
 </script>
 
-<div >
-    <main-toolbar></main-toolbar>
 
-    <md-content class="wrapper" id = "wrapper">
+<div ng-cloak ng-controller="roomCtrl">
+    <div layout="column" layout-fill>
+        <main-toolbar ng-cloak flex="nogrow"></main-toolbar>
 
+        <div layout="row" flex="grow">
+            <div flex-gt-md="50" layout="column" hide show-gt-md>
 
-        <div ng-controller="roomCtrl" layout="column" layout-gt-md="row">
+                <md-tabs md-swipe-content="true" md-align-tabs="bottom" md-center-tabs flex class="md-primary"
+                         md-no-ink-bar="true">
+                    <md-tab>
+                        <md-tab-label>
+                            <img src="assets/img/icons/Roofing-96.png" class="tab-icon" alt="Haus">
+                        </md-tab-label>
 
-            <house class="house-container" hide show-gt-md flex-gt-md="50"></house>
+                        <md-tab-body layout="column" layout-align="center center">
+                            <md-tab-content>
+                                <house></house>
+                            </md-tab-content>
+                        </md-tab-body>
+                    </md-tab>
+                </md-tabs>
 
-            <div flex-gt-md=50>
-                <md-tabs ng-cloak md-swipe-content="true" md-align-tabs="bottom" md-center-tabs flex
-                         md-stretch-tabs="auto"
-                         md-selected="selectedRoomTab" class="md-primary" flex layout-fill>
+            </div>
+
+            <div style="border:2px solid white;">
+
+            </div>
+
+            <div flex="100" flex-gt-md="50" layout="column">
+
+                <md-tabs md-swipe-content="true" md-align-tabs="bottom" md-center-tabs flex
+                          class="md-primary" md-no-ink-bar="false">
 
 
                     <md-tab ng-if="!desktopView">
@@ -117,14 +136,12 @@
                     <md-tab ng-repeat="room in rooms">
                         <md-tab-label>
                             <img ng-src={{room.iconUrl}} class="tab-icon" alt={{room.name}}>
-
                         </md-tab-label>
 
                         <md-tab-body layout="column" layout-align="center center">
                             <md-tab-content>
                                 <div class="room-container" layout="column">
                                     <room-image></room-image>
-
                                     <div layout="column" hide show-xs>
                                         <div ng-repeat="module in room.modules">
                                             <module></module>
@@ -161,15 +178,114 @@
                                     -->
 
                                 </div>
-
                             </md-tab-content>
                         </md-tab-body>
                     </md-tab>
                 </md-tabs>
+
+
+                <!--
+                <md-tabs md-center-tabs md-align-tabs="bottom" class="md-primary" flex="100">
+                    <md-tab ng-repeat="i in [0,1,2,3, 4, 5, 6, 7, 8]">
+                        <md-tab-label>TAB {{i}}</md-tab-label>
+                        <md-tab-body>
+                            <md-tab-content>LOL</md-tab-content>
+                        </md-tab-body>
+                    </md-tab>
+                </md-tabs>
+                -->
+
+
             </div>
         </div>
-    </md-content>
+    </div>
+
+
+    <!--
+    <div ng-cloak>
+        <main-toolbar ng-cloak></main-toolbar>
+
+        <md-content layout="column" layout-fill>
+
+            <div ng-controller="roomCtrl" layout="column" layout-gt-md="row">
+
+                <house class="house-container" hide show-gt-md flex-gt-md="50"></house>
+
+                <div flex-gt-md=50>
+                    <md-tabs md-swipe-content="true" md-align-tabs="bottom" md-center-tabs flex
+                             md-stretch-tabs="auto"
+                             md-selected="selectedRoomTab" class="md-primary" flex layout-fill>
+
+
+                        <md-tab ng-if="!desktopView">
+                            <md-tab-label>
+                                <img src="assets/img/icons/Roofing-96.png" class="tab-icon" alt="Haus">
+                            </md-tab-label>
+
+                            <md-tab-body layout="column" layout-align="center center">
+                                <md-tab-content>
+                                    <house></house>
+                                </md-tab-content>
+                            </md-tab-body>
+                        </md-tab>
+
+
+                        <md-tab ng-repeat="room in rooms">
+                            <md-tab-label>
+                                <img ng-src={{room.iconUrl}} class="tab-icon" alt={{room.name}}>
+
+                            </md-tab-label>
+
+                            <md-tab-body layout="column" layout-align="center center">
+                                <md-tab-content>
+                                    <div class="room-container" layout="column">
+                                        <room-image></room-image>
+
+                                        <div layout="column" hide show-xs>
+                                            <div ng-repeat="module in room.modules">
+                                                <module></module>
+                                            </div>
+                                        </div>
+
+                                        <div layout="row" hide show-gt-xs>
+
+                                            <div layout="column" flex="50">
+                                                <div ng-repeat="module in room.modulesRight">
+                                                    <module></module>
+                                                </div>
+                                            </div>
+
+                                            <div layout="column" flex="50">
+                                                <div ng-repeat="module in room.modulesLeft">
+                                                    <module></module>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!--
+                                        <div layout-gt-xs="row" layout-xs="column" layout-align="space-between start"
+                                             layout-wrap>
+                                            <div class="module-container" flex-gt-xs="50"
+                                                 ng-repeat="module in room.modules">
+                                                <module
+                                                </module>
+                                            </div>
+                                        </div>
+
+                                        -->
+    <!--
+    </div>
+
+</md-tab-content>
+</md-tab-body>
+</md-tab>
+</md-tabs>
 </div>
+</div>
+</md-content>
+</div>
+-->
 
 </body>
 </html>
