@@ -31,3 +31,11 @@ mainApp.directive('washingMachine', function() {
         restrict: "E"
     };
 });
+
+mainApp.directive('weather', function() {
+    return {
+        controller: "weatherCtrl",
+        templateUrl: BASE_URL + "/app/views/modules/weatherView.html",
+        restrict: "E"
+    };
+});

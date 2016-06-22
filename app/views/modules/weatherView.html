@@ -1,0 +1,59 @@
+<div class="module stage1">
+
+    <md-card-title>
+        <div layout="row" layout-align="start center">
+            <img class="png-icon-large" ng-src={{currentData.iconUrl}}>
+            <h2>{{currentData.weatherStatus}}</h2>
+        </div>
+    </md-card-title>
+
+    <md-card-content class="with-padding">
+        <div layout="row" layout-align="space-between center">
+            <h1 class="weather-large-text">{{currentData.temperature}}°</h1>
+
+            <div layout="row" layout-align="start center">
+                <h1 class="weather-large-text">{{currentData.timeHour}}:{{currentData.timeMin}}</h1>
+                <img class="png-icon" ng-src="assets/img/icons/Clock-96.png" }>
+            </div>
+        </div>
+
+        <div layout="row" layout-align="space-between center">
+            <div>
+                <span style="margin-right:0px;" class="font-red">{{currentData.maxTemperature}}°</span>
+                <span class="no-margin">/</span>
+                <span style="margin-left:0px;" class="font-blue">{{currentData.minTemperature}}°</span>
+            </div>
+            <span>{{currentData.weekDay}}, {{currentData.dateDay}}. {{currentData.dateMonth}}. {{currentData.dateYear}}</span>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <img class="png-icon" ng-src="assets/img/icons/Marker-96.png" }>
+            <span>{{currentData.location}}</span>
+        </div>
+
+    </md-card-content>
+</div>
+
+
+<!-- extended controls-->
+<div flex class="module stage2" slide-toggle="expanded">
+
+    <md-card-content class="with-padding">
+        <hr>
+
+        <div ng-repeat="day in days">
+            <div layout="row" layout-align="space-between center">
+                <span flex="20">{{day.day}}</span>
+                <img class="png-icon" ng-src={{day.iconUrl}}>
+
+                <div>
+                    <span style="margin-right:0px;" class="font-red">{{day.maxTemperature}}°</span>
+                    <span class="no-margin">/</span>
+                    <span style="margin-left:0px;" class="font-blue">{{day.minTemperature}}°</span>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </md-card-content>
+
+</div>
