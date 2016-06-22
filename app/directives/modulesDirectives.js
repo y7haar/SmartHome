@@ -15,6 +15,14 @@ mainApp.directive('light', function() {
     };
 });
 
+mainApp.directive('heater', function() {
+    return {
+        controller: "heaterCtrl",
+        templateUrl: BASE_URL + "/app/views/modules/heaterView.html",
+        restrict: "E"
+    };
+});
+
 
 mainApp.directive('door', function() {
     return {
