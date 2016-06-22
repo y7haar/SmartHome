@@ -7,6 +7,15 @@ mainApp.directive('multiRoomAudio', function() {
 });
 
 
+mainApp.directive('light', function() {
+    return {
+        controller: "lightCtrl",
+        templateUrl: BASE_URL + "/app/views/modules/lightView.html",
+        restrict: "E"
+    };
+});
+
+
 mainApp.directive('door', function() {
     return {
         controller: "doorCtrl",

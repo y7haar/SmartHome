@@ -1,0 +1,62 @@
+<div class="module stage1">
+    <div class='md-padding' layout-align="space-between center" >
+
+        <div layout="row" layout-wrap>
+            <div layout="column" ng-repeat="light in lights" flex ="25">
+
+                <md-button class="no-margin" aria-label={{light.name}}
+                           ng-click="lightClicked($event, light.id)">
+                    <md-card>
+                        <div ng-if="light.isOn">
+                            <span>{{ light.name }} ON</span>
+                        </div>
+                        <div ng-if="!light.isOn">
+                            <span>{{ light.name }} OFF</span>
+                        </div>
+
+                    </md-card>
+
+                </md-button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+    <!-- extended controls-->
+<div flex class="module stage2" slide-toggle="expanded" >
+
+    <div ng-repeat="light in lights">
+
+        <div layout="row" layout-align="space-between center">
+            <span flex="75" >{{ light.name}}</span>
+            <span  flex="10" ng-if="light.isOn">ON</span>
+            <span flex="10" ng-if="!light.isOn">OFF</span>
+            <md-switch flex="20" ng-model="light.isOn" ></md-switch>
+        </div>
+
+        <div  layout="row" layout-align="space-between center" >
+            <span flex ="20" >Dimmer</span>
+            <md-slider flex="60" min="0" max="100" ng-model="light.dimState" aria-label="dimState" id=""></md-slider>
+
+            <span flex="20">{{ light.dimState}} %</span>
+        </div>
+
+        <div layout="row" layout-align="space-between center" ng-if="light.isColorAble">
+
+            <span flex="80">Color</span>
+            <mg-button flex="20" class="color" ng-click="colorPicker();">
+                <md-icon md-font-library="material-icons" style="color:{{ light.color}}">face</md-icon>
+            </mg-button>
+        </div>
+        <hr ng-if="!$last">
+        <br ng-if="$last">
+    </div>
+
+    <md-button class="md-icon-button no-margin" aria-label="Settings">
+        <img class = "png-icon" src = "assets/img/icons/Settings-96.png">
+    </md-button>
+
+</div>

@@ -20,7 +20,9 @@ var Storage = function () {
             {
                 iconUrl: "assets/img/icons/Kitchen-96.png", name: "Küche", roomImageUrl: "assets/img/room_images/kueche.png",
                 modules: [
-                {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"}]
+                    {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
+                    {id: 2, displayName: "Licht", name: "light"}
+                ]
             },
             
             {iconUrl: "assets/img/icons/rooms/Living Room-96.png", name: "Wohnzimmer", roomImageUrl: "assets/img/room_images/wohnzimmer.png",
