@@ -15,7 +15,9 @@ var Storage = function () {
             roomImageUrl: "assets/img/room_images/kueche.png",
             modules: [
                 {id: 1, displayName: "Haustür", name: "door"},
-                {id: 3, displayName: "Wetter", name: "weather"}]
+                {id: 3, displayName: "Wetter", name: "weather"},
+                {id: 2, displayName: "Log", name: "log"}
+            ]
 
         },
 

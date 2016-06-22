@@ -23,6 +23,14 @@ mainApp.directive('heater', function() {
     };
 });
 
+mainApp.directive('log', function() {
+    return {
+        controller: "logCtrl",
+        templateUrl: BASE_URL + "/app/views/modules/logView.html",
+        restrict: "E"
+    };
+});
+
 
 mainApp.directive('door', function() {
     return {
