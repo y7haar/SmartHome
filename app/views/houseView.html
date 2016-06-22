@@ -1,9 +1,26 @@
-<div ng-controller="houseCtrl" layout="column">
+<div ng-controller="houseCtrl" layout="column" layout-fill>
 
     <room-image></room-image>
-    <div layout-gt-xs="row" layout-xs="column" layout-align="space-between start">
-        <div class="module-container" flex-gt-xs="50" ng-repeat="module in house.modules">
-            <module layout-align="center center"</module>
+
+    <div layout="column" hide show-xs>
+        <div ng-repeat="module in modules">
+            <module></module>
+        </div>
+    </div>
+
+
+    <div layout="row" hide show-gt-xs>
+
+        <div layout="column" flex="50">
+            <div ng-repeat="module in modulesRight">
+                <module></module>
+            </div>
+        </div>
+
+        <div layout="column" flex="50">
+            <div ng-repeat="module in modulesLeft">
+                <module></module>
+            </div>
         </div>
     </div>
 

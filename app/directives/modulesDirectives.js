@@ -55,3 +55,11 @@ mainApp.directive('weather', function() {
         restrict: "E"
     };
 });
+
+mainApp.directive('blinds', function() {
+    return {
+        controller: "blindsCtrl",
+        templateUrl: BASE_URL + "/app/views/modules/blindsView.html",
+        restrict: "E"
+    };
+});

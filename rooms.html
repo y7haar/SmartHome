@@ -51,6 +51,7 @@
     <script src="./app/controllers/modules/washingMachineController.js"></script>
     <script src="./app/controllers/modules/lightController.js"></script>
     <script src="./app/controllers/modules/weatherController.js"></script>
+    <script src="./app/controllers/modules/blindsController.js"></script>
     <script src="./app/controllers/modules/heaterController.js"></script>
     <script src="./app/controllers/modules/logController.js"></script>
 
@@ -92,7 +93,7 @@
 
         <div ng-controller="roomCtrl" layout="column" layout-gt-md="row">
 
-            <house class="house-container" hide show-gt-md flex-gt-md=50 layout-fill></house>
+            <house class="house-container" hide show-gt-md flex-gt-md="50"></house>
 
             <div flex-gt-md=50>
                 <md-tabs ng-cloak md-swipe-content="true" md-align-tabs="bottom" md-center-tabs flex
@@ -124,6 +125,30 @@
                                 <div class="room-container" layout="column">
                                     <room-image></room-image>
 
+                                    <div layout="column" hide show-xs>
+                                        <div ng-repeat="module in room.modules">
+                                            <module></module>
+                                        </div>
+                                    </div>
+
+
+                                    <div layout="row" hide show-gt-xs>
+
+                                        <div layout="column" flex="50">
+                                            <div ng-repeat="module in room.modulesRight">
+                                                <module></module>
+                                            </div>
+                                        </div>
+
+                                        <div layout="column" flex="50">
+                                            <div ng-repeat="module in room.modulesLeft">
+                                                <module></module>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!--
                                     <div layout-gt-xs="row" layout-xs="column" layout-align="space-between start"
                                          layout-wrap>
                                         <div class="module-container" flex-gt-xs="50"
@@ -132,6 +157,9 @@
                                             </module>
                                         </div>
                                     </div>
+
+                                    -->
+
                                 </div>
 
                             </md-tab-content>

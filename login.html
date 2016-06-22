@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 
     <!-- Angular.js Libraries -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
@@ -26,6 +26,8 @@
     <!-- non angular scripts -->
     <script src="./assets/js/util.js"></script>
     <script src="./assets/js/storage.js"></script>
+    <script src="./assets/js/tinycolor-min.js"></script>
+    <script src="./assets/js/mdColorPicker.js"></script>
 
     <!-- application bootstrap  -->
     <script src="./app/app.js"></script>
@@ -61,7 +63,7 @@
 
                 <md-button class="no-margin" aria-label = {{user.name}} ng-click="showLoginDialog($event, user)">
                     <md-card>
-                        <img src={{user.profileUrl}} class="profile-image">
+                        <img ng-src={{user.profileUrl}} class="profile-image">
                     </md-card>
 
                 </md-button>
@@ -89,7 +91,7 @@
                  style="max-width:50%;margin-bottom:15px;">
                 <md-button class="no-margin" aria-label = {{user.name}} ng-click="showLoginDialog($event, user)">
                     <md-card>
-                        <img src={{user.profileUrl}} class="profile-image">
+                        <img ng-src={{user.profileUrl}} class="profile-image">
                     </md-card>
 
                 </md-button>

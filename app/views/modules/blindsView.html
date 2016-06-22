@@ -1,0 +1,133 @@
+<div class="module stage1">
+
+    <md-card-title layout="column">
+        <div layout="row" layout-align="space-between center">
+            <h2 flex="55">Jalousien</h2>
+            <h2 flex="45">Lamellen</h2>
+        </div>
+
+        <div layout="row" layout-align="space-between center">
+            <span style="margin-top:0px;"  flex="55">45% geschlossen</span>
+            <span style="margin-top:0px;" flex="45">geöffnet</span>
+        </div>
+    </md-card-title>
+
+    <md-card-actions class="with-padding">
+
+        <div layout="row" layout-align="space-between center">
+            <div flex="55" layout="row" layout-align="start center">
+                <md-button class="md-icon-button no-margin" aria-label="Schrittweise hochfahren">
+                    <img class="png-icon" ng-src="assets/img/icons/Collapse Arrow-96.png">
+                </md-button>
+
+                <md-button class="md-icon-button no-margin" aria-label="Komplett hochfahren">
+                    <img class="png-icon" ng-src="assets/img/icons/Double Up-96.png">
+                </md-button>
+
+                <md-button class="no-margin" aria-label="Schrittweise hochfahren">
+                    Auto
+                </md-button>
+            </div>
+
+            <div flex="45" layout="row" layout-align="start center">
+                <md-button style="text-align: left;padding-left:0px; " class="no-margin" aria-label="Schrittweise hochfahren">
+                    Öffnen
+                </md-button>
+            </div>
+        </div>
+
+        <div layout="row" layout-align="space-between center">
+            <div flex="55" layout="row" layout-align="start center">
+                <md-button class="md-icon-button no-margin" aria-label="Schrittweise herunterfahren">
+                    <img class="png-icon" ng-src="assets/img/icons/Expand Arrow-96.png">
+                </md-button>
+
+                <md-button class="md-icon-button no-margin" aria-label="Komplett herunterfahren">
+                    <img class="png-icon" ng-src="assets/img/icons/Double Down-96.png">
+                </md-button>
+            </div>
+
+            <div flex="45" layout="row" layout-align="start start">
+                <md-button style="text-align: left;padding-left:0px; margin-top:-20px !important;" class="no-margin" aria-label="Schrittweise hochfahren">
+                    Schliessen
+                </md-button>
+            </div>
+        </div>
+
+
+    </md-card-actions>
+</div>
+
+
+<!-- extended controls-->
+<div flex class="module stage2" slide-toggle="expanded">
+
+    <hr>
+
+    <div ng-repeat = "window in windows">
+
+        <md-card-title>
+            <h3>{{window.name}}</h3>
+        </md-card-title>
+
+        <md-card-title layout="column">
+            <div layout="row" layout-align="space-between center">
+                <h2 flex="50">Jalousien</h2>
+                <h2 flex="50">Lamellen</h2>
+            </div>
+
+            <div layout="row" layout-align="space-between center">
+                <span style="margin-top:0px;" flex="50">45% geschlossen</span>
+                <span style="margin-top:0px;" flex="50">geöffnet</span>
+            </div>
+        </md-card-title>
+
+        <md-card-actions class="with-padding">
+
+            <div layout="row" layout-align="space-between center">
+                <div flex="50" layout="row" layout-align="start center">
+                    <md-button class="md-icon-button no-margin" aria-label="Schrittweise hochfahren">
+                        <img class="png-icon" ng-src="assets/img/icons/Collapse Arrow-96.png">
+                    </md-button>
+
+                    <md-button class="md-icon-button no-margin" aria-label="Komplett hochfahren">
+                        <img class="png-icon" ng-src="assets/img/icons/Double Up-96.png">
+                    </md-button>
+
+                    <md-button class="no-margin" aria-label="Schrittweise hochfahren">
+                        Auto
+                    </md-button>
+                </div>
+
+                <div flex="50" layout="row" layout-align="start center">
+                    <md-button style="text-align: left;padding-left:0px; " class="no-margin" aria-label="Schrittweise hochfahren">
+                        Öffnen
+                    </md-button>
+                </div>
+            </div>
+
+            <div layout="row" layout-align="space-between center">
+                <div flex="50" layout="row" layout-align="start center">
+                    <md-button class="md-icon-button no-margin" aria-label="Schrittweise herunterfahren">
+                        <img class="png-icon" ng-src="assets/img/icons/Expand Arrow-96.png">
+                    </md-button>
+
+                    <md-button class="md-icon-button no-margin" aria-label="Komplett herunterfahren">
+                        <img class="png-icon" ng-src="assets/img/icons/Double Down-96.png">
+                    </md-button>
+                </div>
+
+                <div flex="50" layout="row" layout-align="start start">
+                    <md-button style="text-align: left;padding-left:0px; margin-top:-20px !important;" class="no-margin" aria-label="Schrittweise hochfahren">
+                        Schliessen
+                    </md-button>
+                </div>
+            </div>
+
+
+        </md-card-actions>
+
+        <hr ng-if="!$last">
+
+    </div>
+</div>
