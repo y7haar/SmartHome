@@ -15,6 +15,22 @@ mainApp.directive('light', function() {
     };
 });
 
+mainApp.directive('heater', function() {
+    return {
+        controller: "heaterCtrl",
+        templateUrl: BASE_URL + "/app/views/modules/heaterView.html",
+        restrict: "E"
+    };
+});
+
+mainApp.directive('log', function() {
+    return {
+        controller: "logCtrl",
+        templateUrl: BASE_URL + "/app/views/modules/logView.html",
+        restrict: "E"
+    };
+});
+
 
 mainApp.directive('door', function() {
     return {
