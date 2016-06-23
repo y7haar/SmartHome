@@ -16,47 +16,6 @@ html, body {
 }
 */
 
-/*
-md-tabs {
-    height: -moz-calc(100% - 56px);
-    height: -webkit-calc(100% - 56px);
-    height: calc(100% - 56px);
-}
-
-@media (min-device-width: 900px) {
-    md-tabs {
-        height: -moz-calc(100% - 64px);
-        height: -webkit-calc(100% - 64px);
-        height: calc(100% - 64px);
-    }
-}
-*/
-
-/*
-.wrapper {
-    height:calc(100% - 56px);
-}
-
-@media (min-device-width: 600px) {
-    .wrapper {
-        height:calc(100% - 48px);
-    }
-}
-
-@media (min-device-width: 768px) {
-    .wrapper {
-        height:calc(100% - 56px);
-    }
-}
-
-@media (min-device-width: 960px) {
-    .wrapper {
-        height:calc(100% - 64px);
-    }
-}
-*/
-
-
 
 
 .main-toolbar {

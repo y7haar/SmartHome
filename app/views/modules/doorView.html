@@ -1,10 +1,10 @@
 <div class="module stage1">
 
     <md-card-title>
-        <h2>Haustür - geschlossen</h2>
+        <h2>Haustür - {{isOpen ? "geöffnet" : "geschlossen"}}</h2>
     </md-card-title>
 
-    <h3 style="margin-left:12px;margin-top:0px">Schloss verriegelt</h3>
+    <h3 style="margin-left:12px;margin-top:0px">{{isLocked ? 'Schloss verriegelt' : 'Schloss geöffnet'}}</h3>
 
     <div layout="row" layout-align="center center">
         <div layout="column" flex="66">
@@ -33,7 +33,7 @@
 
             <md-button ng-if="isLocked" aria-label="Verriegeln" ng-click="toggleLock()">
                 <img align="center" class="png-icon" src="assets/img/icons/green/Lock-96.png" flex>
-                <span class="font-green">Entsperren</span>
+                <span class="font-green">Öffnen</span>
             </md-button>
 
 

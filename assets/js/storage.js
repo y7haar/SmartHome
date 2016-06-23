@@ -15,9 +15,7 @@ var Storage = function () {
             roomImageUrl: "assets/img/room_images/kueche.png",
             modules: [
                 {id: 1, displayName: "Haustür", name: "door"},
-                {id: 3, displayName: "Wetter", name: "weather"},
-                {id: 2, displayName: "Log", name: "log"}
-
+                {id: 3, displayName: "Wetter", name: "weather"}
             ]
 
         },
@@ -29,7 +27,6 @@ var Storage = function () {
                     {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
                     {id: 2, displayName: "Licht", name: "light"},
                     {id: 4, displayName: "Jalousien", name: "blinds"},
-                    {id: 3, displayName: "Heizung", name: "heater"},
                     {id: 5, displayName: "Backofen", name: "oven"}
                 ]
             },
@@ -38,43 +35,37 @@ var Storage = function () {
                 modules: [
                     {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
                     {id: 2, displayName: "Licht", name: "light"},
-                    {id: 4, displayName: "Jalousien", name: "blinds"},
-                    {id: 3, displayName: "Heizung", name: "heater"}
+                    {id: 4, displayName: "Jalousien", name: "blinds"}
                 ]},
             {iconUrl: "assets/img/icons/rooms/Shower and Tub-96.png", name: "Bad", roomImageUrl: "assets/img/room_images/badezimmer.png",
                 modules: [
                     {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
                     {id: 2, displayName: "Licht", name: "light"},
-                    {id: 4, displayName: "Jalousien", name: "blinds"},
-                    {id: 3, displayName: "Heizung", name: "heater"}
+                    {id: 4, displayName: "Jalousien", name: "blinds"}
                 ]},
             {iconUrl: "assets/img/icons/rooms/Bedroom-96.png", name: "Schlafzimmer", roomImageUrl: "assets/img/room_images/schlafzimmer.png",
                 modules: [
                     {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
                     {id: 2, displayName: "Licht", name: "light"},
-                    {id: 4, displayName: "Jalousien", name: "blinds"},
-                    {id: 3, displayName: "Heizung", name: "heater"}
+                    {id: 4, displayName: "Jalousien", name: "blinds"}
                 ]},
             {iconUrl: "assets/img/icons/rooms/Teddy Bear-96.png", name: "Kinderzimmer", roomImageUrl: "assets/img/room_images/kinderzimmer.png",
                 modules: [
                     {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
                     {id: 2, displayName: "Licht", name: "light"},
-                    {id: 4, displayName: "Jalousien", name: "blinds"},
-                    {id: 3, displayName: "Heizung", name: "heater"}
+                    {id: 4, displayName: "Jalousien", name: "blinds"}
                 ]},
             {iconUrl: "assets/img/icons/rooms/Movie Projector-96.png", name: "Hobbyraum", roomImageUrl: "assets/img/room_images/hobbyraum.png",
                 modules: [
                     {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
                     {id: 2, displayName: "Licht", name: "light"},
-                    {id: 4, displayName: "Jalousien", name: "blinds"},
-                    {id: 3, displayName: "Heizung", name: "heater"}
+                    {id: 4, displayName: "Jalousien", name: "blinds"}
                 ]},
             {iconUrl: "assets/img/icons/rooms/Laptop-96.png", name: "Büro", roomImageUrl: "assets/img/room_images/buero.png",
                 modules: [
                     {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
                     {id: 2, displayName: "Licht", name: "light"},
-                    {id: 4, displayName: "Jalousien", name: "blinds"},
-                    {id: 3, displayName: "Heizung", name: "heater"}
+                    {id: 4, displayName: "Jalousien", name: "blinds"}
                 ]},
             {iconUrl: "assets/img/icons/rooms/Washing Machine-96.png", name: "Waschraum", roomImageUrl: "assets/img/room_images/waschraum.png",
                 modules: [
