@@ -28,6 +28,10 @@ mainApp.controller("washingMachineCtrl", function ($scope, $interval) {
         $scope.isRunning = false;
     };
 
+    $scope.continueMachine = function () {
+        $scope.isRunning = true;
+    };
+
     $interval(function () {
         if (!$scope.isRunning) {
             return;

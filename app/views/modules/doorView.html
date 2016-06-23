@@ -1,69 +1,68 @@
 <div class="module stage1">
-    <h4 class="padding-bottom-10">Haustür geschlossen, Schloss verriegelt</h4>
 
-    <div layout="row" layout-align="space-between center">
-        <img flex src="assets/img/door.jpg" class="door-image">
+    <md-card-title>
+        <h2>Haustür - geschlossen</h2>
+    </md-card-title>
 
-        <div flex="40" flex-md = "50" flex-gt-md = "30" layout="row" layout-align="space-between center">
-            <div layout="column" layout-align="space-between center" class="">
+    <h3 style="margin-left:12px;margin-top:0px">Schloss verriegelt</h3>
 
-
-                <md-button hide-md class = "md-icon-button" layout-align="start start" layout="row">
-                    <md-icon aria-label="Tür öffnen">vpn_key</md-icon>
-                </md-button>
-
-                <md-button hide show-md layout-align="start start" layout="row">
-                    <md-icon aria-label="Tür öffnen">vpn_key</md-icon>
-                    <div hide show-md>
-                        Öffnen
-                    </div>
-                </md-button>
-
-
-                <md-button hide-md class = "md-icon-button" layout-align="start start" layout="row">
-                    <md-icon aria-label="Tür verriegeln">lock_outline</md-icon>
-                </md-button>
-
-                <md-button hide show-md layout-align="start start" layout="row">
-                    <md-icon aria-label="Tür verriegeln">lock_outline</md-icon>
-                    <div hide show-md>
-                        Verriegeln
-                    </div>
-                </md-button>
-
-
-
-            </div>
-
-            <div layout="column" layout-align="start start" class="">
-
-                <md-button hide-md class = "md-icon-button" layout-align="start start" layout="row">
-                    <md-icon aria-label="Haustelefon">phone</md-icon>
-                </md-button>
-
-                <md-button hide show-md layout-align="start start" layout="row">
-                    <md-icon aria-label="Haustelefon">phone</md-icon>
-                    <div hide show-md>
-                        Telefon
-                    </div>
-                </md-button>
-
-
-
-                <md-button hide-md class = "md-icon-button" layout-align="start start" layout="row">
-                    <md-icon aria-label="Türlicht">lightbulb_outline</md-icon>
-                </md-button>
-
-                <md-button hide show-md layout-align="start start" layout="row">
-                    <md-icon aria-label="Türlicht">lightbulb_outline</md-icon>
-                    <div hide show-md>
-                        Licht
-                    </div>
-                </md-button>
-
-            </div>
+    <div layout="row" layout-align="center center">
+        <div layout="column" flex="66">
+            <img src="assets/img/door.jpg" class="door-image">
         </div>
+
+        <md-card-actions class="no-margin" style="margin-left:3px !important;" layout="column"
+                         layout-align="center start" flex="33">
+
+            <md-button ng-if="!isOpen" aria-label="Öffnen" ng-click="timeoutOpen()">
+                <img align="center" class="png-icon" src="assets/img/icons/Key-96.png" flex>
+                <span>Öffnen</span>
+            </md-button>
+
+            <md-button ng-if="isOpen" aria-label="Öffnen">
+                <img align="center" class="png-icon" src="assets/img/icons/green/Key-96.png" flex>
+                <span class="font-green">Öffnen</span>
+            </md-button>
+
+
+
+            <md-button ng-if="!isLocked"  aria-label="Verriegeln" ng-click="toggleLock()">
+                <img align="center" class="png-icon" src="assets/img/icons/Lock-96.png" flex>
+                <span>Sperren</span>
+            </md-button>
+
+            <md-button ng-if="isLocked" aria-label="Verriegeln" ng-click="toggleLock()">
+                <img align="center" class="png-icon" src="assets/img/icons/green/Lock-96.png" flex>
+                <span class="font-green">Entsperren</span>
+            </md-button>
+
+
+
+            <md-button ng-if="!isLight" aria-label="Licht an" ng-click="timeoutLight()">
+                <img align="center" class="png-icon" src="assets/img/icons/Light On-96.png" flex>
+                <span>Licht</span>
+            </md-button>
+
+            <md-button ng-if="isLight" aria-label="Licht an">
+                <img align="center" class="png-icon" src="assets/img/icons/green/Light On-96.png" flex>
+                <span class="font-green">Licht</span>
+            </md-button>
+
+
+            <md-button ng-if="!isPhone" aria-label="Haustelefon" ng-click="togglePhone()">
+                <img align="center" class="png-icon" src="assets/img/icons/Phone-96.png" flex>
+                <span>Telefon</span>
+            </md-button>
+
+            <md-button ng-if="isPhone" aria-label="Haustelefon" ng-click="togglePhone()">
+                <img align="center" class="png-icon" src="assets/img/icons/green/Phone-96.png" flex>
+                <span class="font-green">Telefon</span>
+            </md-button>
+
+        </md-card-actions>
     </div>
+
+
 </div>
 
 

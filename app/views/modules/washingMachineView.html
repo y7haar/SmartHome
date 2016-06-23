@@ -30,7 +30,8 @@
                 <img class="png-icon" src="assets/img/icons/Settings-96.png">
             </md-button>
 
-            <md-button class="no-margin md-warn md-raised" aria-label="Stop" ng-click="stopMachine()">Stop</md-button>
+            <md-button ng-if="isRunning" class="no-margin md-warn md-raised" aria-label="Stop" ng-click="stopMachine()">Stop</md-button>
+            <md-button ng-if="!isRunning" class="no-margin md-accent md-raised" aria-label="Weiter" ng-click="continueMachine()">Weiter</md-button>
         </md-card-actions>
     </div>
 
