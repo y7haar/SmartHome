@@ -7,7 +7,7 @@ mainApp.controller("ovenCtrl", function ($scope, $interval) {
     $scope.minTemp = 50;
     $scope.maxTemp = 200;
 
-    $scope.mode = $scope.modes[0];
+    $scope.mode = $scope.modes[1];
 
     $scope.temperature = $scope.minTemp + 10 * parseInt(Math.random() * (($scope.maxTemp - $scope.minTemp) / 10));
 
