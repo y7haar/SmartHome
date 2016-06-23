@@ -48,6 +48,14 @@ mainApp.directive('washingMachine', function() {
     };
 });
 
+mainApp.directive('oven', function() {
+    return {
+        controller: "ovenCtrl",
+        templateUrl: BASE_URL + "/app/views/modules/ovenView.html",
+        restrict: "E"
+    };
+});
+
 mainApp.directive('weather', function() {
     return {
         controller: "weatherCtrl",

@@ -17,6 +17,7 @@ var Storage = function () {
                 {id: 1, displayName: "Haustür", name: "door"},
                 {id: 3, displayName: "Wetter", name: "weather"},
                 {id: 2, displayName: "Log", name: "log"}
+
             ]
 
         },
@@ -28,7 +29,8 @@ var Storage = function () {
                     {id: 0, displayName: "Multi Room Audio", name: "multiRoomAudio"},
                     {id: 2, displayName: "Licht", name: "light"},
                     {id: 4, displayName: "Jalousien", name: "blinds"},
-                    {id: 3, displayName: "Heizung", name: "heater"}
+                    {id: 3, displayName: "Heizung", name: "heater"},
+                    {id: 5, displayName: "Backofen", name: "oven"}
                 ]
             },
             

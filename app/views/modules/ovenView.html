@@ -1,0 +1,50 @@
+<div class="module stage1">
+
+    <div layout="column" layout-align="start start">
+        <md-card-title>
+            <h2>Ofen - {{mode}} {{temperature}}°</h2>
+        </md-card-title>
+    </div>
+
+    <!-- extended controls-->
+    <div flex class="module stage2" slide-toggle="expanded">
+        <md-card-actions style="margin-left:0px;" flex layout="row" layout-align="space-between center">
+            <md-button class="md-icon-button no-margin" aria-label="Temperatur">
+                <img class="png-icon" src="assets/img/icons/Temperature-96.png">
+            </md-button>
+
+            <md-slider flex ng-model="temperature" class="md-primary" aria-label="Temperatureinstellung" min={{minTemp}} max={{maxTemp}}
+                       step="10"></md-slider>
+
+
+            <md-input-container>
+                <md-select ng-model="mode" placeholder="Modus">
+                    <md-option ng-value="mode" ng-repeat="mode in modes">{{ mode }}</md-option>
+                </md-select>
+            </md-input-container>
+        </md-card-actions>
+
+        <md-card-actions layout="row" layout-align="space-around center">
+            <md-button class="no-margin md-raised md-accent" ng-click="minus5Min()">-5 min</md-button>
+            <md-button class="no-margin md-raised md-accent" ng-click="plus5Min()">+5 min </md-button>
+            <md-button ng-if="isRunning" class="no-margin md-warn md-raised" aria-label="Stop" ng-click="stopMachine()">Stop</md-button>
+            <md-button ng-if="!isRunning" class="no-margin md-accent md-raised" aria-label="Weiter" ng-click="continueMachine()">Weiter</md-button>
+        </md-card-actions>
+
+        <md-card-actions layout="row" layout-align="space-between center" style="margin-left: 0px;">
+            <md-button class="md-icon-button no-margin" aria-label="Einstellungen">
+                <img class="png-icon" src="assets/img/icons/Settings-96.png">
+            </md-button>
+
+
+        </md-card-actions>
+    </div>
+
+    <div layout="row" layout-align="space-between center" style="margin-left: 10px;margin-right: 10px;">
+        <span>-{{timeLeftMin}}:{{timeLeftSecF}}</span>
+        <span>{{timeMin}} min</span>
+    </div>
+    <md-progress-linear md-mode="determinate" value={{progress}}></md-progress-linear>
+
+
+</div>
