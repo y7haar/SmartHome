@@ -43,7 +43,7 @@
 
         <div ng-repeat="day in days track by $index">
             <div layout="row" layout-align="space-between center">
-                <span flex="20">{{day.day}}</span>
+                <span flex="20">{{::day.day}}</span>
                 <img class="png-icon" ng-src={{::day.iconUrl}}>
 
                 <div>

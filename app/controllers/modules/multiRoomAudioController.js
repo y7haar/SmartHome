@@ -108,7 +108,7 @@ mainApp.controller("multiRoomAudioCtrl", function ($scope, $interval) {
 
         if($scope.timePassedMin < $scope.timeMin) {
 
-            $scope.timePassedSec +=2;
+            $scope.timePassedSec +=1;
 
             if($scope.timePassedSec >= 60) {
                 $scope.timePassedMin++;
@@ -121,6 +121,6 @@ mainApp.controller("multiRoomAudioCtrl", function ($scope, $interval) {
         else {
             $scope.nextTrack();
         }
-    }, 2000);
+    }, 1000);
 
 });

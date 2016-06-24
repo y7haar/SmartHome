@@ -1,0 +1,35 @@
+<md-dialog aria-label="Logout Dialog" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Logout</h2>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content layout-padding layout="column" layout-align="center center">
+            <h2>Sie sind nun abgemeldet</h2>
+            <div class="md-dialog-content" layout="row" layout-align="center center">
+
+
+
+                <div layout="column" layout-align="center center" flex="40" flex-xs="70">
+
+
+
+                    <md-card>
+                        <img ng-src={{user.profileUrl}} class="profile-image">
+
+                    </md-card>
+
+                    <span class="md-headline no-margin">{{user.name}}</span>
+                </div>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="column" layout-align="center center">
+            <md-button class="md-raised" ng-click="logout()">
+                Zum Login
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

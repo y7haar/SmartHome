@@ -12,10 +12,11 @@ var Storage = function () {
 
         house: {
             name: "Haus",
-            roomImageUrl: "assets/img/room_images/kueche.png",
+            roomImageUrl: "assets/img/room_images/haus.png",
             modules: [
-                {id: 1, displayName: "Haustür", name: "door"},
-                {id: 3, displayName: "Wetter", name: "weather"}
+                {id: 3, displayName: "Wetter", name: "weather"},
+                {id: 1, displayName: "Haustür", name: "door"}
+
             ]
 
         },

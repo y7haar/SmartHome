@@ -1,0 +1,57 @@
+<md-content hide show-gt-xs layout="column" layout-align="center center" layout-fill flex>
+
+    <span flex="5"></span>
+    <div flex="20">
+        <img ng-src="assets/img/rhabarber_logo_transparent.png" class="rhabarber-logo-login">
+    </div>
+    <span flex="5"></span>
+
+
+    <!-- horizontal-->
+    <div layout="row" layout-align="space-around start" layout-fill flex>
+        <div layout="row" layout-align="space-around start" flex flex-gt-md="80">
+
+            <div ng-repeat="user in users" layout="column" layout-align="center center" flex="80" flex-gt-xs="30" flex-gt-sm="20"
+                 flex-gt-lg="15">
+
+                <md-button class="no-margin" aria-label = {{user.name}} ng-click="showLoginDialog($event, user)">
+                    <md-card>
+                        <img ng-src={{user.profileUrl}} class="profile-image">
+                    </md-card>
+
+                </md-button>
+
+                <span class="md-headline no-margin">{{user.name}}</span>
+            </div>
+
+        </div>
+
+    </div>
+</md-content>
+
+<md-content hide show-xs layout-fill flex>
+
+    <!-- vertical -->
+    <div layout="column" layout-align="center center">
+        <div layout="column" layout-align="center center">
+
+            <div flex="20" style="margin-top:10px">
+                <img src="assets/img/rhabarber_logo_transparent.png" class="rhabarber-logo-login">
+            </div>
+            <span flex="5"></span>
+
+            <div ng-repeat="user in users" layout="column" layout-align="center center"
+                 style="max-width:50%;margin-bottom:15px;">
+                <md-button class="no-margin" aria-label = {{user.name}} ng-click="showLoginDialog($event, user)">
+                    <md-card>
+                        <img ng-src={{user.profileUrl}} class="profile-image">
+                    </md-card>
+
+                </md-button>
+
+                <span class="md-headline no-margin">{{user.name}}</span>
+            </div>
+        </div>
+    </div>
+
+</md-content>

@@ -8,7 +8,7 @@ mainApp.controller("loginCtrl", function ($scope, $mdDialog, $mdMedia) {
 
         $mdDialog.show({
             controller: loginDialogCtrl,
-            templateUrl: "app/views/loginDialog.html",
+            templateUrl: "app/views/dialogs/loginDialog.html",
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true,
@@ -24,12 +24,17 @@ mainApp.controller("loginCtrl", function ($scope, $mdDialog, $mdMedia) {
 
 });
 
-var loginDialogCtrl = function ($scope, $mdDialog, user) {
+var loginDialogCtrl = function ($scope, $mdDialog, $state, user, mainService) {
     $scope.user = user;
 
     $scope.login = function () {
         if ($scope.pin == "1234") {
-            window.location.href = "rooms.html?user=" + $scope.user.id;
+
+            mainService.setCurrentUser(user);
+
+            $state.go("rooms");
+
+            $mdDialog.hide();
         }
     }
 };

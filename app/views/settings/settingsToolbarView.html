@@ -1,0 +1,58 @@
+<md-toolbar ng-controller="toolbarCtrl" class="main-toolbar" id="main-toolbar">
+    <div class="md-toolbar-tools">
+        <md-button class="rhabarber-logo-button" aria-label="Haus">
+            <img src="./assets/img/rhabarber_logo_whitefont_transparent.png" class="rhabarber-logo">
+        </md-button>
+
+        <span flex></span>
+
+        <md-button class="md-icon-button" aria-label="Notifications">
+            <img ng-src="assets/img/icons/bar/Info Filled-100.png" class="png-icon">
+            <!--
+            <md-icon aria-label="Benachrichtigungen">notifications</md-icon>
+            -->
+        </md-button>
+
+        <md-button class="md-icon-button" aria-label="Settings">
+            <img ng-src="assets/img/icons/bar/Settings Filled-100.png" class="png-icon">
+
+            <!--
+            <md-icon aria-label="Einstellungen">settings</md-icon>
+            -->
+        </md-button>
+
+
+        <md-menu md-position-mode="target-right target" md-offset="0 {{userMenuOffset}}">
+            <md-button class="md-icon-button profile-icon-button" aria-label="Benutzermenü"
+                       ng-click="$mdOpenMenu($event)">
+                <img ng-src={{user.profileUrl}} class="profile-icon">
+            </md-button>
+
+            <md-menu-content width="3">
+
+                <md-menu-item layout="column" layout-align="center center">
+                    <h3>Bewohner</h3>
+
+                </md-menu-item>
+
+                <md-menu-item>
+                    <div layout="row" layout-align="space-between center" flex>
+                        <span>{{user.name}}</span>
+                        <img ng-src={{user.profileUrl}} class="png-icon">
+                    </div>
+
+                </md-menu-item>
+
+                <md-menu-item>
+                    <md-button ng-controller="logoutCtrl" ng-click="showLogoutDialog($event)">
+                        <div layout="row" layout-align="space-between center" flex>
+                            <span>Abmelden</span>
+                            <img ng-src="assets/img/icons/bar/Exit-96.png" class="png-icon">
+                        </div>
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+
+    </div>
+</md-toolbar>
