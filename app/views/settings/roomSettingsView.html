@@ -1,10 +1,10 @@
-<settings-toolbar title='{{selectedRoom.name}}'></settings-toolbar>
+<settings-toolbar title='{{selectedRoom().name}}'></settings-toolbar>
 
-<md-content layout="row" layout-align="space-between center" flex="100">
+<md-content layout="row" layout-align="space-between start" flex="100">
 
-    <div layout="column" flex="100" flex-gt-sm="50">
+    <div layout="column" flex="100" hide show-xs>
 
-        <div ng-repeat="module in selectedRoom.modules" class="settings-module">
+        <div ng-repeat="module in selectedRoom().modules" class="settings-module">
             <div layout="row" flex style="margin-left:8px">
                 <img ng-src='{{"assets/img/icons/modules/black/" + module.iconUrl}}' class="png-icon">
                 <h3>{{module.displayName}}</h3>
@@ -19,9 +19,29 @@
 
     </div>
 
-    <div layout="column" hide show-gt-sm flex-gt-sm="50">
 
-        <div ng-repeat="module in selectedRoom.modules" class="settings-module">
+
+
+    <div layout="column" flex="100" flex-gt-sm="50" hide show-gt-xs>
+
+        <div ng-repeat="module in selectedRoom().modulesRight" class="settings-module">
+            <div layout="row" flex style="margin-left:8px">
+                <img ng-src='{{"assets/img/icons/modules/black/" + module.iconUrl}}' class="png-icon">
+                <h3>{{module.displayName}}</h3>
+            </div>
+
+            <md-card flex>
+                <md-card-content>
+                    STUFF
+                </md-card-content>
+            </md-card>
+        </div>
+
+    </div>
+
+    <div layout="column" hide show-gt-sm flex-gt-sm="50" hide show-gt-xs>
+
+        <div ng-repeat="module in selectedRoom().modulesLeft" class="settings-module">
             <div layout="row" flex style="margin-left:8px">
                 <img ng-src='{{"assets/img/icons/modules/black/" + module.iconUrl}}' class="png-icon">
                 <h3>{{module.displayName}}</h3>

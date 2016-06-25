@@ -354,3 +354,15 @@ room-image {
     margin-top:10px;
     margin-bottom:10px;
 }
+
+.settings-list-item {
+
+}
+
+.settings-list-item ._md-list-item-inner {
+    max-height:20px !important;
+}
+
+.settings-list-item.active {
+    color:#5d8e1a; !important;
+}

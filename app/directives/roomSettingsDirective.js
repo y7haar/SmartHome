@@ -11,7 +11,8 @@ mainApp.directive('roomSettings', function () {
 });
 
 var roomSettingsController = function($scope, settingsService) {
-    $scope.selectedRoom = settingsService.selectedRoom;
+    $scope.selectedRoom = function(){
+        return settingsService.selectedRoom;
+    };
 
-    
 };
