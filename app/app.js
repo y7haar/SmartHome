@@ -43,7 +43,13 @@ mainApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
         .state('rooms', {
             url:'/rooms',
             views: {
-                "content": { templateUrl: "app/views/roomsView.html", controller: "roomCtrl"}
+                "content": { templateUrl: "app/views/rooms/roomsView.html", controller: "roomCtrl"}
+            }
+        })
+        .state('settings', {
+            url:'/settings',
+            views: {
+                "content": { templateUrl: "app/views/settings/settingsView.html", controller: "settingsCtrl"}
             }
         })
 

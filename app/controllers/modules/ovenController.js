@@ -3,11 +3,11 @@
  */
 
 mainApp.controller("ovenCtrl", function ($scope, $interval) {
-    $scope.modes = ["Ober-/Unterhitze", "Umluft", "Grillen"];
+    $scope.ovenModes = ["Ober-/Unterhitze", "Umluft", "Grillen"];
     $scope.minTemp = 50;
     $scope.maxTemp = 200;
 
-    $scope.mode = $scope.modes[1];
+    $scope.ovenMode = $scope.ovenModes[1];
 
     $scope.temperature = $scope.minTemp + 10 * parseInt(Math.random() * (($scope.maxTemp - $scope.minTemp) / 10));
 

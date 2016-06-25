@@ -1,0 +1,76 @@
+<div layout="column" layout-fill>
+
+    <div ng-cloak flex="nogrow">
+        <settings-toolbar abort-mode="back" title="Einstellungen" abort-state="rooms"></settings-toolbar>
+    </div>
+
+    <div layout="column" flex="grow">
+        <div layout="row" flex="grow">
+            <md-content layout="column" flex-xs="100" flex-sm="50" flex-md="50" flex-gt-md="33">
+
+                <md-tabs md-swipe-content md-center-tabs md-align-tabs="top" class="settings-tabs"
+                         md-no-ink-bar="false" flex>
+                    <md-tab label="Raum">
+                        <md-content class="md-padding">
+                            <md-subheader class="md-no-sticky">Räume</md-subheader>
+
+                            <md-list>
+                                <md-divider></md-divider>
+
+                                <md-list-item class="md-1-line" ng-repeat="room in rooms">
+                                    <div class="md-list-item-text" layout="row" flex>
+                                        <img ng-src='{{"assets/img/icons/rooms/black/" + room.iconUrl}}'  class="png-icon">
+                                        <h4 flex>{{room.name}}</h4>
+                                    </div>
+                                    <md-divider></md-divider>
+                                </md-list-item>
+                            </md-list>
+                        </md-content>
+                    </md-tab>
+
+                    <md-tab label="Modul">
+                        <md-content class="md-padding">
+                            <md-subheader class="md-no-sticky">Module</md-subheader>
+
+                            <md-list>
+                                <md-divider></md-divider>
+
+                                <md-list-item class="md-1-line" ng-repeat="module in roomModules">
+                                    <div class="md-list-item-text" layout="row" flex>
+                                        <img ng-src='{{"assets/img/icons/modules/black/" + module.iconUrl}}'  class="png-icon">
+                                        <h4 flex>{{module.displayName}}</h4>
+                                    </div>
+                                    <md-divider></md-divider>
+                                </md-list-item>
+                            </md-list>
+                        </md-content>
+                    </md-tab>
+
+                    <md-tab label="Szene">
+                        <md-content class="md-padding">
+
+                        </md-content>
+                    </md-tab>
+
+
+                    <md-tab label="Admin">
+                        <md-content class="md-padding">
+
+                        </md-content>
+                    </md-tab>
+                </md-tabs>
+
+
+            </md-content>
+
+            <div hide show-gt-md style="border:2px solid white;"></div>
+
+            <md-content hide show-gt-xs flex-gt-xs="50" flex-gt-md="66" layout="column">
+
+                <room-settings></room-settings>
+
+
+            </md-content>
+        </div>
+    </div>
+</div>

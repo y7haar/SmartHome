@@ -17,7 +17,7 @@ html, body {
 */
 
 
-.main-toolbar {
+.main-toolbar, .settings-toolbar {
 }
 
 .house-container {
@@ -310,11 +310,16 @@ room-image {
     color: #0956a9;
 }
 
-md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
+
+.room-tabs md-ink-bar {
     color: white !important;
     background-color:white !important;
 }
 
+.settings-tabs md-ink-bar {
+    color: #BD2737 !important;
+    background-color: #BD2737 !important;
+}
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
@@ -343,3 +348,9 @@ md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
     position: fixed;
 }
 */
+
+
+.settings-module {
+    margin-top:10px;
+    margin-bottom:10px;
+}

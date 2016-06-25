@@ -1,6 +1,6 @@
 mainApp.directive('module', function() {
     return {
-        templateUrl: BASE_URL + "/app/views/moduleView.html",
+        templateUrl: BASE_URL + "/app/views/rooms/moduleView.html",
         restrict: "E"
     };
 });

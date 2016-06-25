@@ -1,4 +1,4 @@
-mainApp.controller("toolbarCtrl", function ($scope, mainService) {
+mainApp.controller("toolbarCtrl", function ($scope, $state, mainService) {
     $scope.user = mainService.getCurrentUser();
 
     $scope.$watch(function() { return $("#main-toolbar").height(); }, function(height) {
@@ -16,4 +16,8 @@ mainApp.controller("toolbarCtrl", function ($scope, mainService) {
             $scope.userMenuOffset = height + 14;
         }
     });
+
+    $scope.openSettings = function() {
+        $state.go("settings");
+    }
 });
