@@ -1,6 +1,6 @@
 mainApp.controller("toolbarCtrl", function ($scope, $state, mainService) {
     $scope.user = mainService.getCurrentUser();
-
+    
     $scope.$watch(function() { return $("#main-toolbar").height(); }, function(height) {
         $scope.toolbarHeight=height;
         

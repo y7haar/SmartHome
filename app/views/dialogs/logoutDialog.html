@@ -7,7 +7,7 @@
         </md-toolbar>
 
         <md-dialog-content layout-padding layout="column" layout-align="center center">
-            <h2>Sie sind nun abgemeldet</h2>
+            <h2 class="font-black">Sie sind nun abgemeldet</h2>
             <div class="md-dialog-content" layout="row" layout-align="center center">
 
 
@@ -21,13 +21,13 @@
 
                     </md-card>
 
-                    <span class="md-headline no-margin">{{user.name}}</span>
+                    <span class="md-headline no-margin font-black">{{user.name}}</span>
                 </div>
             </div>
         </md-dialog-content>
 
-        <md-dialog-actions layout="column" layout-align="center center">
-            <md-button class="md-raised" ng-click="logout()">
+        <md-dialog-actions style="padding-left:8px;" layout="column" layout-align="center center">
+            <md-button style="margin-left: 0px;" class="md-raised" ng-click="logout()">
                 Zum Login
             </md-button>
         </md-dialog-actions>

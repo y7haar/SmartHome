@@ -7,8 +7,8 @@
         </div>
 
         <div layout="row" layout-align="space-between center">
-            <span style="margin-top:0px;"  flex="55">45% geschlossen</span>
-            <span style="margin-top:0px;" flex="45">geöffnet</span>
+            <span style="margin-top:0px;"  flex="55">{{allWindowsStatus}} geschlossen</span>
+            <span style="margin-top:0px;" flex="45">{{allSlatsStatus}}</span>
         </div>
     </md-card-title>
 
@@ -16,21 +16,23 @@
 
         <div layout="row" layout-align="space-between center">
             <div flex="55" layout="row" layout-align="start center">
-                <md-button class="md-icon-button no-margin" aria-label="Schrittweise hochfahren">
-                    <img class="png-icon" ng-src="assets/img/icons/Collapse Arrow-96.png">
+                <md-button class="md-icon-button no-margin" aria-label="Alle Jalousien Schrittweise hochfahren" ng-click="moveAllUp()">
+                    <img ng-if="!allWindowsUp" class="png-icon" ng-src="assets/img/icons/Collapse Arrow-96.png">
+                    <img ng-if="allWindowsUp" class="png-icon" ng-src="assets/img/icons/green/Collapse Arrow-96.png">
                 </md-button>
 
-                <md-button class="md-icon-button no-margin" aria-label="Komplett hochfahren">
-                    <img class="png-icon" ng-src="assets/img/icons/Double Up-96.png">
+                <md-button class="md-icon-button no-margin" aria-label="Alle Jalousien Komplett hochfahren" ng-click="moveAllFullUp()">
+                    <img ng-if="!allWindowsFullUp" class="png-icon" ng-src="assets/img/icons/Double Up-96.png">
+                    <img ng-if="allWindowsFullUp" class="png-icon" ng-src="assets/img/icons/green/Double Up-96.png">
                 </md-button>
 
-                <md-button class="no-margin" aria-label="Auto Modus">
-                    Auto
+                <md-button class="no-margin" aria-label="Auto Modus" ng-click="toggleAllAuto()">
+                    <span ng-class="allAutoMode ? 'font-green' : ''">Auto</span>
                 </md-button>
             </div>
 
             <div flex="45" layout="row" layout-align="start center">
-                <md-button style="text-align: left;padding-left:0px; " class="no-margin" aria-label="Schrittweise hochfahren">
+                <md-button style="text-align: left;padding-left:0px; " class="no-margin" aria-label="Lamellen öffnen" ng-click="openAllSlats()" >
                     Öffnen
                 </md-button>
             </div>
@@ -38,17 +40,19 @@
 
         <div layout="row" layout-align="space-between center">
             <div flex="55" layout="row" layout-align="start center">
-                <md-button class="md-icon-button no-margin" aria-label="Schrittweise herunterfahren">
-                    <img class="png-icon" ng-src="assets/img/icons/Expand Arrow-96.png">
+                <md-button class="md-icon-button no-margin" aria-label="Alle Jalousien Schrittweise herunterfahren" ng-click="moveAllDown()">
+                    <img ng-if="!allWindowsDown" class="png-icon" ng-src="assets/img/icons/Expand Arrow-96.png">
+                    <img ng-if="allWindowsDown" class="png-icon" ng-src="assets/img/icons/green/Expand Arrow-96.png">
                 </md-button>
 
-                <md-button class="md-icon-button no-margin" aria-label="Komplett herunterfahren">
-                    <img class="png-icon" ng-src="assets/img/icons/Double Down-96.png">
+                <md-button class="md-icon-button no-margin" aria-label="Alle Jalousien Komplett herunterfahren" ng-click="moveAllFullDown()">
+                    <img ng-if="!allWindowsFullDown" class="png-icon" ng-src="assets/img/icons/Double Down-96.png">
+                    <img ng-if="allWindowsFullDown" class="png-icon" ng-src="assets/img/icons/green/Double Down-96.png">
                 </md-button>
             </div>
 
             <div flex="45" layout="row" layout-align="start start">
-                <md-button style="text-align: left;padding-left:0px; margin-top:-20px !important;" class="no-margin" aria-label="Schrittweise hochfahren">
+                <md-button style="text-align: left;padding-left:0px; margin-top:-20px !important;" class="no-margin" aria-label="Lamellen schliessen" ng-click="closeAllSlats()" >
                     Schliessen
                 </md-button>
             </div>
@@ -72,53 +76,57 @@
 
         <md-card-title layout="column">
             <div layout="row" layout-align="space-between center">
-                <h2 flex="50">Jalousie</h2>
-                <h2 flex="50">Lamellen</h2>
+                <h2 flex="55">Jalousie</h2>
+                <h2 flex="45">Lamellen</h2>
             </div>
 
             <div layout="row" layout-align="space-between center">
-                <span style="margin-top:0px;" flex="50">45% geschlossen</span>
-                <span style="margin-top:0px;" flex="50">geöffnet</span>
+                <span style="margin-top:0px;" flex="55">{{window.status}}% geschlossen</span>
+                <span style="margin-top:0px;" flex="45"> {{window.slatOpened ? "geöffnet" : "geschlossen"}}</span>
             </div>
         </md-card-title>
 
         <md-card-actions class="with-padding">
 
             <div layout="row" layout-align="space-between center">
-                <div flex="50" layout="row" layout-align="start center">
-                    <md-button class="md-icon-button no-margin" aria-label="Schrittweise hochfahren">
-                        <img class="png-icon" ng-src="assets/img/icons/Collapse Arrow-96.png">
+                <div flex="55" layout="row" layout-align="start center">
+                    <md-button class="md-icon-button no-margin" aria-label="Schrittweise hochfahren" ng-click="moveUp(window)">
+                        <img ng-if="!window.goingUp" class="png-icon" ng-src="assets/img/icons/Collapse Arrow-96.png">
+                        <img ng-if="window.goingUp" class="png-icon" ng-src="assets/img/icons/green/Collapse Arrow-96.png">
                     </md-button>
 
-                    <md-button class="md-icon-button no-margin" aria-label="Komplett hochfahren">
-                        <img class="png-icon" ng-src="assets/img/icons/Double Up-96.png">
+                    <md-button class="md-icon-button no-margin" aria-label="Komplett hochfahren" ng-click="moveFullUp(window)">
+                        <img ng-if="!window.goingFullUp" class="png-icon" ng-src="assets/img/icons/Double Up-96.png">
+                        <img ng-if="window.goingFullUp" class="png-icon" ng-src="assets/img/icons/green/Double Up-96.png">
                     </md-button>
 
-                    <md-button class="no-margin" aria-label="Schrittweise hochfahren">
-                        Auto
+                    <md-button class="no-margin" aria-label="Schrittweise hochfahren" ng-click="toggleAuto(window)">
+                        <span ng-class="window.autoMode ? 'font-green' : ''">Auto</span>
                     </md-button>
                 </div>
 
-                <div flex="50" layout="row" layout-align="start center">
-                    <md-button style="text-align: left;padding-left:0px; " class="no-margin" aria-label="Schrittweise hochfahren">
+                <div flex="45" layout="row" layout-align="start center">
+                    <md-button style="text-align: left;padding-left:0px; " class="no-margin" aria-label="Schrittweise hochfahren" ng-click="openSlat(window)">
                         Öffnen
                     </md-button>
                 </div>
             </div>
 
             <div layout="row" layout-align="space-between center">
-                <div flex="50" layout="row" layout-align="start center">
-                    <md-button class="md-icon-button no-margin" aria-label="Schrittweise herunterfahren">
-                        <img class="png-icon" ng-src="assets/img/icons/Expand Arrow-96.png">
+                <div flex="55" layout="row" layout-align="start center">
+                    <md-button class="md-icon-button no-margin" aria-label="Schrittweise herunterfahren" ng-click="moveDown(window)">
+                        <img ng-if="!window.goingDown" class="png-icon" ng-src="assets/img/icons/Expand Arrow-96.png">
+                        <img ng-if="window.goingDown" class="png-icon" ng-src="assets/img/icons/green/Expand Arrow-96.png">
                     </md-button>
 
-                    <md-button class="md-icon-button no-margin" aria-label="Komplett herunterfahren">
-                        <img class="png-icon" ng-src="assets/img/icons/Double Down-96.png">
+                    <md-button class="md-icon-button no-margin" aria-label="Komplett herunterfahren" ng-click="moveFullDown(window)">
+                        <img ng-if="!window.goingFullDown" class="png-icon" ng-src="assets/img/icons/Double Down-96.png">
+                        <img ng-if="window.goingFullDown" class="png-icon" ng-src="assets/img/icons/green/Double Down-96.png">
                     </md-button>
                 </div>
 
-                <div flex="50" layout="row" layout-align="start start">
-                    <md-button style="text-align: left;padding-left:0px; margin-top:-20px !important;" class="no-margin" aria-label="Schrittweise hochfahren">
+                <div flex="45" layout="row" layout-align="start start">
+                    <md-button style="text-align: left;padding-left:0px; margin-top:-20px !important;" class="no-margin" aria-label="Schrittweise hochfahren" ng-click="closeSlat(window)">
                         Schliessen
                     </md-button>
                 </div>

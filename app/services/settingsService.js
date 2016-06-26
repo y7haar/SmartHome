@@ -9,12 +9,19 @@ mainApp.service("settingsService", [
         this.rooms = Storage.getInstance().getRooms();
         this.roomModules = Storage.getInstance().getRoomModules();
 
+        this.selectedTabIndex = 0;
+
         this.selectedRoomIndex = 0;
-        this.selectedRoom = this.rooms[this.selectedRoomIndex];
-        this.selectedRoomModules = this.roomModules[0];
+        //this.selectedRoom = this.rooms[this.selectedRoomIndex];
+        //this.selectedRoomModule = this.roomModules[0];
 
 
         this.setSelectedRoomIndex = function(index) {
+            this.selectedRoomIndex = index;
+            this.selectedRoom = this.rooms[index];
+        };
+
+        this.setSelectedTabIndex = function(index) {
             this.selectedRoomIndex = index;
             this.selectedRoom = this.rooms[index];
         };

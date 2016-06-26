@@ -6,10 +6,10 @@
 
     <div layout="column" flex="grow">
         <div layout="row" flex="grow">
-            <md-content layout="column" flex-xs="100" flex-sm="50" flex-md="40" flex-gt-md="33">
+            <md-content layout="column" flex-xs="100" flex-sm="40" flex-md="40" flex-gt-md="33">
 
                 <md-tabs md-swipe-content md-center-tabs md-align-tabs="top" class="settings-tabs"
-                         md-no-ink-bar="false" flex>
+                         md-no-ink-bar="false" flex md-selected="selectedTabIndex">
                     <md-tab label="Raum">
                         <md-content class="md-padding">
                             <md-subheader class="md-no-sticky">Räume</md-subheader>
@@ -57,7 +57,7 @@
                     </md-tab>
 
 
-                    <md-tab label="Admin">
+                    <md-tab ng-if="user.isAdmin" label="Admin">
                         <md-content class="md-padding">
 
                         </md-content>
@@ -69,9 +69,10 @@
 
             <div hide show-gt-md style="border:2px solid white;"></div>
 
-            <md-content hide show-gt-xs flex-gt-xs="50" flex-md="60" flex-gt-md="66" layout="column">
+            <md-content hide show-gt-xs flex-sm="60" flex-md="60" flex-gt-md="66" layout="column">
 
-                <room-settings></room-settings>
+                <room-settings ng-if="selectedTabIndex==0"></room-settings>
+                <module-settings ng-if="selectedTabIndex==1"></module-settings>
 
 
             </md-content>

@@ -1,8 +1,15 @@
 <md-dialog aria-label="Login Dialog" ng-cloak>
     <form>
         <md-toolbar>
+
             <div class="md-toolbar-tools">
+
+                <md-button  class="md-icon-button" aria-label="Zurück" ng-click="hideLoginDialog()">
+                    <img ng-src="assets/img/icons/Back-96.png" class="png-icon">
+                </md-button>
+
                 <h2>Login</h2>
+
             </div>
         </md-toolbar>
 
@@ -16,19 +23,19 @@
 
                     </md-card>
 
-                    <span class="md-headline no-margin">{{user.name}}</span>
+                    <span class="md-headline no-margin font-black">{{user.name}}</span>
                 </div>
             </div>
         </md-dialog-content>
 
-        <md-dialog-actions layout="column" layout-align="center center">
+        <md-dialog-actions style="padding-left:8px;" layout="column" layout-align="center center">
             <md-input-container class="md-block" flex-gt-sm>
                 <label>PIN</label>
                 <input type="password"  md-autofocus maxlength="4" ng-model="pin" required>
 
             </md-input-container>
 
-            <md-button type="submit" class="md-raised" ng-click="login()">
+            <md-button style="margin-left: 0px;" type="submit" class="md-raised" ng-click="login()">
                 Login
             </md-button>
         </md-dialog-actions>

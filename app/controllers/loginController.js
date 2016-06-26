@@ -36,5 +36,9 @@ var loginDialogCtrl = function ($scope, $mdDialog, $state, user, mainService) {
 
             $mdDialog.hide();
         }
+    };
+
+    $scope.hideLoginDialog = function() {
+        $mdDialog.hide();
     }
 };
