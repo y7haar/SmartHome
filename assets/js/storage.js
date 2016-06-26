@@ -1,6 +1,6 @@
 // IMPORTANT: REMOVE CLEAR
 
-//localStorage.clear();
+localStorage.clear();
 
 var Storage = function () {
 
