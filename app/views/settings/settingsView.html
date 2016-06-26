@@ -11,7 +11,7 @@
                 <md-tabs md-swipe-content md-center-tabs md-align-tabs="top" class="settings-tabs"
                          md-no-ink-bar="false" flex md-selected="selectedTabIndex">
                     <md-tab label="Raum">
-                        <md-content class="md-padding">
+                        <md-content class="md-padding" style="padding-top:18px !important;">
                             <md-subheader class="md-no-sticky">Räume</md-subheader>
 
                             <md-list>
@@ -31,14 +31,15 @@
                     </md-tab>
 
                     <md-tab label="Modul">
-                        <md-content class="md-padding">
+                        <md-content class="md-padding" style="padding-top:18px !important;">
                             <md-subheader class="md-no-sticky">Module</md-subheader>
 
                             <md-list>
                                 <md-divider></md-divider>
 
 
-                                <md-list-item class="md-1-line settings-list-item" ng-repeat="module in roomModules" ng-click="null">
+                                <md-list-item class="md-1-line settings-list-item" ng-class="($index==selectedModuleIndex) ? 'active' : ''"
+                                              ng-repeat="module in roomModules" ng-click="selectModule($index)">
                                         <div class="md-list-item-text" layout="row" layout-align="center center" flex>
                                             <img ng-src='{{"assets/img/icons/modules/black/" + module.iconUrl}}'
                                                  class="png-icon">
@@ -51,15 +52,48 @@
                     </md-tab>
 
                     <md-tab label="Szene">
-                        <md-content class="md-padding">
+                        <md-content class="md-padding" style="padding-top:18px !important;">
 
                         </md-content>
                     </md-tab>
 
 
                     <md-tab ng-if="user.isAdmin" label="Admin">
-                        <md-content class="md-padding">
+                        <md-content class="md-padding" style="padding-top:18px !important;">
+                            <md-subheader class="md-no-sticky">Konfiguration</md-subheader>
 
+                            <md-list>
+                                <md-divider></md-divider>
+
+                                <md-list-item class="md-1-line settings-list-item" ng-class="(0==selectedAdminIndex) ? 'active' : ''" ng-click="selectHouseSettings()">
+                                    <div class="md-list-item-text" layout="row" layout-align="center center" flex>
+                                        <img ng-src="assets/img/icons/Roofing-96-black.png"
+                                             class="png-icon">
+                                        <h4 flex>Hauseinstellungen</h4>
+                                    </div>
+                                    <md-divider></md-divider>
+                                </md-list-item>
+
+                                <md-list-item class="md-1-line settings-list-item" ng-class="(1==selectedAdminIndex) ? 'active' : ''" ng-click="selectRoomConfiguration()">
+                                    <div class="md-list-item-text" layout="row" layout-align="center center" flex>
+                                        <img ng-src="assets/img/icons/Room-96.png"
+                                             class="png-icon">
+                                        <h4 flex>Raumkonfiguration</h4>
+                                    </div>
+                                    <md-divider></md-divider>
+                                </md-list-item>
+
+                                <md-list-item class="md-1-line settings-list-item" ng-class="(2==selectedAdminIndex) ? 'active' : ''" ng-click="selectUserManagement()">
+                                    <div class="md-list-item-text" layout="row" layout-align="center center" flex>
+                                        <img ng-src="assets/img/icons/User-96.png"
+                                             class="png-icon">
+                                        <h4 flex>Bewohnerverwaltung</h4>
+                                    </div>
+                                    <md-divider></md-divider>
+                                </md-list-item>
+
+
+                            </md-list>
                         </md-content>
                     </md-tab>
                 </md-tabs>
@@ -69,11 +103,25 @@
 
             <div hide show-gt-md style="border:2px solid white;"></div>
 
-            <md-content hide show-gt-xs flex-sm="60" flex-md="60" flex-gt-md="66" layout="column">
+            <md-content ng-if="selectedAdminIndex!=1"  hide show-gt-xs flex-sm="60" flex-md="60" flex-gt-md="66" layout="column">
 
                 <room-settings ng-if="selectedTabIndex==0"></room-settings>
                 <module-settings ng-if="selectedTabIndex==1"></module-settings>
+                <house-settings style="position:relative" flex ng-if="selectedAdminIndex==0"></house-settings>
 
+            </md-content>
+
+            <md-content ng-if="selectedTabIndex ==3 && selectedAdminIndex==1" hide show-gt-xs flex-sm="60" flex-md="60" flex-gt-md="33" layout="column">
+
+                <room-configuration style="position:relative" flex ng-if="selectedAdminIndex==1"></room-configuration>
+
+            </md-content>
+
+            <div ng-if="selectedTabIndex ==3 && selectedAdminIndex==1" style="border:2px solid white;"></div>
+
+            <md-content ng-if="selectedTabIndex ==3 && selectedAdminIndex==1" hide show-gt-xs flex-sm="60" flex-md="60" flex-gt-md="33" layout="column">
+
+                <new-room style="position:relative" flex ng-if="selectedAdminIndex==1"></new-room>
 
             </md-content>
         </div>

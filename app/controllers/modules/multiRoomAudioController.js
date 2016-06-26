@@ -55,13 +55,25 @@ mainApp.controller("multiRoomAudioCtrl", function ($scope, $interval) {
     $scope.progress = ($scope.timePassedMin + (1/60) * $scope.timePassedSec) / $scope.timeMin * 100;
 
     $scope.timePassedSecF = $scope.timePassedSec;
-    $scope.isPlaying = true;
+    $scope.isPlaying = false;
 
     $scope.isShuffle = false;
     $scope.isRepeat = false;
 
+    resetTime();
+
+    var interval;
+
     $scope.togglePlay = function() {
         $scope.isPlaying = !$scope.isPlaying;
+
+        if($scope.isPlaying) {
+            startAnimation();
+        }
+
+        else {
+            stopAnimation();
+        }
     };
 
     function resetTime() {
@@ -94,33 +106,38 @@ mainApp.controller("multiRoomAudioCtrl", function ($scope, $interval) {
         $scope.isRepeat = !$scope.isRepeat;
     };
 
+    function startAnimation() {
+        $interval.cancel(interval);
 
+        interval = $interval(function() {
+            $scope.timePassedSecF = parseInt($scope.timePassedSec);
 
-    $interval(function() {
-        if(! $scope.isPlaying)
-            return;
-
-        $scope.timePassedSecF = parseInt($scope.timePassedSec);
-
-        if($scope.timePassedSecF < 10) {
-            $scope.timePassedSecF = "0" + $scope.timePassedSecF;
-        }
-
-        if($scope.timePassedMin < $scope.timeMin) {
-
-            $scope.timePassedSec +=1;
-
-            if($scope.timePassedSec >= 60) {
-                $scope.timePassedMin++;
-                $scope.timePassedSec = 0;
+            if($scope.timePassedSecF < 10) {
+                $scope.timePassedSecF = "0" + $scope.timePassedSecF;
             }
 
-            $scope.progress = ($scope.timePassedMin + (1/60) * $scope.timePassedSec) / $scope.timeMin * 100;
-        }
+            if($scope.timePassedMin < $scope.timeMin) {
 
-        else {
-            $scope.nextTrack();
-        }
-    }, 1000);
+                $scope.timePassedSec +=1;
+
+                if($scope.timePassedSec >= 60) {
+                    $scope.timePassedMin++;
+                    $scope.timePassedSec = 0;
+                }
+
+                $scope.progress = ($scope.timePassedMin + (1/60) * $scope.timePassedSec) / $scope.timeMin * 100;
+            }
+
+            else {
+                $scope.nextTrack();
+            }
+        }, 1000);
+    }
+
+    function stopAnimation() {
+        $interval.cancel(interval);
+    }
+
+
 
 });

@@ -357,7 +357,7 @@ room-image {
     margin-top:10px;
     margin-bottom:10px;
 
-    max-width:400px;
+    max-width:450px;
 }
 
 .settings-list-item {
@@ -377,9 +377,7 @@ room-image {
 
 
 .animate-settings-content {
-    background:white;
-    border:1px solid black;
-    padding:10px;
+
 }
 
 .animate-settings-content.ng-enter, .animate-settings-content.ng-leave {
@@ -394,4 +392,11 @@ room-image {
 .animate-settings-content.ng-leave,
 .animate-settings-content.ng-enter.ng-enter-active {
     opacity:1;
+}
+
+.settings-fab-button {
+    position:absolute !important;
+    bottom:15px;
+    right:15px;
+
 }

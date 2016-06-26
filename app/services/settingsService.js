@@ -9,9 +9,32 @@ mainApp.service("settingsService", [
         this.rooms = Storage.getInstance().getRooms();
         this.roomModules = Storage.getInstance().getRoomModules();
 
+
+        var storage = Storage.getInstance();
+
+        for(var i = 0;i < this.roomModules.length;++i) {
+            var rooms = storage.getRoomsWithModuleById(this.roomModules[i].id);
+
+            this.roomModules[i].rooms = rooms;
+            this.roomModules[i].roomsLeft = [];
+            this.roomModules[i].roomsRight = [];
+
+            for(var r = 0;r < rooms.length;++r) {
+
+                if(r % 2 != 0) {
+                    this.roomModules[i].roomsLeft.push(rooms[r]);
+                }
+
+                else {
+                    this.roomModules[i].roomsRight.push(rooms[r]);
+                }
+            }
+        }
+
+
         this.selectedTabIndex = 0;
 
-        this.selectedRoomIndex = 0;
+        //this.selectedRoomIndex = 0;
         //this.selectedRoom = this.rooms[this.selectedRoomIndex];
         //this.selectedRoomModule = this.roomModules[0];
 
@@ -19,6 +42,16 @@ mainApp.service("settingsService", [
         this.setSelectedRoomIndex = function(index) {
             this.selectedRoomIndex = index;
             this.selectedRoom = this.rooms[index];
+        };
+
+        this.setSelectedModuleIndex = function(index) {
+            this.selectedModuleIndex = index;
+            this.selectedModule = this.roomModules[index];
+        };
+
+        this.setSelectedAdminIndex = function(index) {
+            this.selectedModuleIndex = index;
+            this.selectedModule = this.roomModules[index];
         };
 
         this.setSelectedTabIndex = function(index) {

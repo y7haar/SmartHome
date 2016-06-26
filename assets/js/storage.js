@@ -1,6 +1,6 @@
 // IMPORTANT: REMOVE CLEAR
 
-localStorage.clear();
+//localStorage.clear();
 
 var Storage = function () {
 
@@ -9,6 +9,13 @@ var Storage = function () {
     var self = this;
 
     this.defaults = {
+
+        houseSettings: {
+            street: "Am Schnakenberg Hügel 7",
+            zip: "88888",
+            location: "Gifhorn",
+            country: "Kaufland"
+        },
 
         roomModules: [
             {id: 1, displayName: "Multi Room Audio", name: "multiRoomAudio", iconUrl: "Music-96.png"},
@@ -163,6 +170,46 @@ var Storage = function () {
 
     this.getRoomModules = function() {
         return this.defaults.roomModules;
+    };
+
+    this.getHouseSettings = function() {
+        return this.getHelper("houseSettings");
+    };
+
+    this.saveHouseSettings = function(settings) {
+      localStorage.setObject("houseSettings", settings);
+    };
+
+    this.saveRooms = function(rooms) {
+        localStorage.setObject("rooms", rooms);
+    };
+
+    this.getRoomsWithModuleById= function(moduleId) {
+        var rooms = this.getRooms();
+        var result = [];
+
+        for(var i = 0;i < rooms.length;++i) {
+            var room = rooms[i];
+
+            for(var m = 0;m < room.modules.length;++m) {
+                var module = room.modules[m];
+
+                if(module.id === moduleId) {
+                    result.push(room);
+                    break;
+                }
+            }
+        }
+        return result;
+    };
+
+    this.getRoomTypes = function() {
+        var types = [
+            {name:"Küche", iconUrl:"Kitchen-96.png"},
+            {name:"Badezimmer", iconUrl:"Shower and Tub-96.png"}
+        ];
+
+        return types;
     }
 };
 

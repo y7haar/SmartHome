@@ -12,7 +12,7 @@ mainApp.directive('moduleSettings', function () {
 
 var moduleSettingsController = function($scope, settingsService) {
     $scope.selectedModule = function(){
-        return settingsService.selectedModule;
+        var module = settingsService.selectedModule;
+        return module;
     };
-
 };

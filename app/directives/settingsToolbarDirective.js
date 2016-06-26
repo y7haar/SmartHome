@@ -9,7 +9,8 @@ mainApp.directive('settingsToolbar', function() {
         scope: {
             title: "@",
             abortMode: '@',
-            abortState: "@"
+            abortState: "@",
+            abortFunction: "&?"
         },
 
         controller: settingsToolbarController
@@ -18,11 +19,14 @@ mainApp.directive('settingsToolbar', function() {
 
 var settingsToolbarController = function ($scope, $state) {
 
-    $scope.title = null;
-    $scope.abortMode = null;
-    $scope.abortState = null;
-
     $scope.doAbort = function() {
+        
+        if($scope.abortFunction !== undefined)
+        {
+            $scope.abortFunction();
+            return;
+        }
+
         $state.go($scope.abortState);
     }
 

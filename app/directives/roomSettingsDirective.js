@@ -14,5 +14,4 @@ var roomSettingsController = function($scope, settingsService) {
     $scope.selectedRoom = function(){
         return settingsService.selectedRoom;
     };
-
 };

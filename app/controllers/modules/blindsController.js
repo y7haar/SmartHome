@@ -388,6 +388,6 @@ mainApp.controller("blindsCtrl", function ($scope, $interval) {
         $scope.allWindowsFullDown = futureAllFullDown;
         $scope.allWindowsFullUp = futureAllFullUp;
 
-    }, 500);
+    }, 2000);
 
 });

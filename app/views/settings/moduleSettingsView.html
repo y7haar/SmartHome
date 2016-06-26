@@ -1,13 +1,13 @@
-<settings-toolbar title='{{selectedRoom().name}}'></settings-toolbar>
+<settings-toolbar title='{{selectedModule().displayName}}'></settings-toolbar>
 
 <md-content layout="row" layout-align="center start">
 
     <div layout="column" flex="100" flex-md="70" hide-gt-md>
 
-        <div ng-repeat="module in selectedRoom().modules" class="settings-module">
+        <div ng-repeat="room in selectedModule().rooms" class="settings-module">
             <div layout="row" flex style="margin-left:8px">
-                <img ng-src='{{"assets/img/icons/modules/black/" + module.iconUrl}}' class="png-icon">
-                <h3>{{module.displayName}}</h3>
+                <img ng-src='{{"assets/img/icons/rooms/black/" + room.iconUrl}}' class="png-icon">
+                <h3>{{room.name}}</h3>
             </div>
 
             <md-card flex>
@@ -24,10 +24,10 @@
 
     <div layout="column" hide flex="50" hide show-gt-md>
 
-        <div ng-repeat="module in selectedRoom().modulesRight" class="settings-module">
+        <div ng-repeat="room in selectedModule().roomsRight" class="settings-module">
             <div layout="row" flex style="margin-left:8px">
-                <img ng-src='{{"assets/img/icons/modules/black/" + module.iconUrl}}' class="png-icon">
-                <h3>{{module.displayName}}</h3>
+                <img ng-src='{{"assets/img/icons/rooms/black/" + room.iconUrl}}' class="png-icon">
+                <h3>{{room.name}}</h3>
             </div>
 
             <md-card flex>
@@ -41,10 +41,10 @@
 
     <div layout="column" hide flex="50" hide show-gt-md>
 
-        <div ng-repeat="module in selectedRoom().modulesLeft" class="settings-module">
+        <div ng-repeat="room in selectedModule().roomsLeft" class="settings-module">
             <div layout="row" flex style="margin-left:8px">
-                <img ng-src='{{"assets/img/icons/modules/black/" + module.iconUrl}}' class="png-icon">
-                <h3>{{module.displayName}}</h3>
+                <img ng-src='{{"assets/img/icons/rooms/black/" + room.iconUrl}}' class="png-icon">
+                <h3>{{room.name}}</h3>
             </div>
 
             <md-card flex>
