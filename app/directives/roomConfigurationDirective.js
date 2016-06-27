@@ -21,6 +21,7 @@ var roomConfigurationController = function ($scope, $mdDialog, settingsService) 
             .textContent('Soll der Raum wirklich gelöscht werden?')
             .ariaLabel('Löschen bestätigen')
             .targetEvent(ev)
+            .clickOutsideToClose(true)
             .ok('Raum löschen')
             .cancel('Abbrechen');
 

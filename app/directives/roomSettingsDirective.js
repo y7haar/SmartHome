@@ -10,8 +10,19 @@ mainApp.directive('roomSettings', function () {
     };
 });
 
-var roomSettingsController = function($scope, settingsService) {
+var roomSettingsController = function($scope, $mdMedia, settingsService) {
+
+    var sizeXs = $mdMedia('xs');
+
+    if(!sizeXs) {
+        settingsService.setSelectedRoomIndex(0);
+    }
+
     $scope.selectedRoom = function(){
         return settingsService.selectedRoom;
     };
+
+    $scope.selectedRoomIndex = function() {
+        return settingsService.selectedRoomIndex;
+    }
 };

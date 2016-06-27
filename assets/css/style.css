@@ -400,3 +400,8 @@ room-image {
     right:15px;
 
 }
+
+
+md-dialog {
+    color:rgba(0,0,0,0.87);
+}

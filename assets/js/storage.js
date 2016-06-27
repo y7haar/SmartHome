@@ -205,8 +205,15 @@ var Storage = function () {
 
     this.getRoomTypes = function() {
         var types = [
+            {name:"Wochnzimmer", iconUrl:"Living Room-96.png"},
             {name:"Küche", iconUrl:"Kitchen-96.png"},
-            {name:"Badezimmer", iconUrl:"Shower and Tub-96.png"}
+            {name:"Esszimmer", iconUrl:"Dining Room-96.png"},
+            {name:"Schlafzimmer", iconUrl:"Bedroom-96.png"},
+            {name:"Badezimmer", iconUrl:"Shower and Tub-96.png"},
+            {name:"Kinderzimmer", iconUrl:"Teddy Bear-96.png"},
+            {name:"Arbeitszimmer", iconUrl:"Laptop-96.png"},
+            {name:"Multimediaraum", iconUrl:"Movie Projector-96.png"},
+            {name:"Waschraum", iconUrl:"Washing Machine-96.png"}
         ];
 
         return types;

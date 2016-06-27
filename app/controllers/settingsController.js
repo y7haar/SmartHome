@@ -8,11 +8,22 @@ mainApp.controller("settingsCtrl", function ($scope, settingsService, mainServic
     $scope.roomModules = settingsService.roomModules;
     $scope.user = mainService.getCurrentUser();
 
-    $scope.selectedRoomIndex = settingsService.selectedRoomIndex;
+
+    $scope.roomTabIndex = 0;
+    $scope.sceneTabIndex = 1;
+    $scope.adminTabIndex = 2;
+
+
+    $scope.selectedTabIndex = 0;
+
     $scope.selectedModuleIndex = settingsService.selectedModuleIndex;
 
+
+    $scope.getSelectedRoomIndex = function () {
+        return settingsService.selectedRoomIndex;
+    };
+
     $scope.selectRoom = function(index) {
-        $scope.selectedRoomIndex = index;
         settingsService.setSelectedRoomIndex(index);
     };
 
@@ -21,19 +32,23 @@ mainApp.controller("settingsCtrl", function ($scope, settingsService, mainServic
         settingsService.setSelectedModuleIndex(index);
     };
 
-    $scope.selectedTabIndex = 0;
+
+    $scope.getSelectedAdminIndex = function () {
+        return settingsService.selectedAdminIndex;
+    };
 
     $scope.selectHouseSettings = function() {
-        $scope.selectedAdminIndex = 0;
+        settingsService.setSelectedAdminIndex(0);
     };
 
     $scope.selectRoomConfiguration = function() {
-        $scope.selectedAdminIndex = 1;
+        settingsService.setSelectedAdminIndex(1);
     };
 
     $scope.selectUserManagement= function() {
-        $scope.selectedAdminIndex = 2;
+        settingsService.setSelectedAdminIndex(2);
     };
+
 
     $scope.selectHouseSettings();
 });

@@ -10,13 +10,13 @@
                 <h5 flex>{{currentTrack.album}}</h5>
 
                 <md-button class="md-icon-button no-margin" aria-label="Wiederholen" ng-click="toggleRepeat()">
-                    <img ng-show="!isRepeat" class = "png-icon" ng-src = "assets/img/icons/Repeat-96.png">
-                    <img ng-show="isRepeat" class = "png-icon" ng-src = "assets/img/icons/green/Repeat-96.png">
+                    <img ng-if="!isRepeat" class = "png-icon" ng-src = "assets/img/icons/Repeat-96.png">
+                    <img ng-if="isRepeat" class = "png-icon" ng-src = "assets/img/icons/green/Repeat-96.png">
                 </md-button>
 
                 <md-button class="md-icon-button no-margin" aria-label="Zufällig" ng-click="toggleShuffle()">
-                    <img ng-show="!isShuffle" class = "png-icon" ng-src = "assets/img/icons/Shuffle-96.png">
-                    <img ng-show="isShuffle" class = "png-icon" ng-src = "assets/img/icons/green/Shuffle-96.png">
+                    <img ng-if="!isShuffle" class = "png-icon" ng-src = "assets/img/icons/Shuffle-96.png">
+                    <img ng-if="isShuffle" class = "png-icon" ng-src = "assets/img/icons/green/Shuffle-96.png">
                 </md-button>
 
             </div>

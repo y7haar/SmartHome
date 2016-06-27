@@ -10,12 +10,22 @@ mainApp.directive('houseSettings', function () {
     };
 });
 
-var houseSettingsController = function($scope, settingsService) {
+var houseSettingsController = function($scope, $mdDialog, settingsService) {
     $scope.houseSettings = Storage.getInstance().getHouseSettings();
 
     $scope.countries = ["Deutschland", "Kaufland", "Schlaraffenland"];
     
-    $scope.saveSettings = function() {
+    $scope.saveSettings = function(ev) {
         Storage.getInstance().saveHouseSettings($scope.houseSettings);
+
+        var dialog = $mdDialog.alert()
+            .title('Einstellungen gespeichert')
+            .textContent('Die Hauseinstellungen wurden gespeichert.')
+            .ariaLabel('Einstellungen gespeichert')
+            .clickOutsideToClose(true)
+            .targetEvent(ev)
+            .ok('Ok');
+
+        $mdDialog.show(dialog);
     }
 };
