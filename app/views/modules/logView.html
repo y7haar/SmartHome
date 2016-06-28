@@ -1,8 +1,10 @@
-<div class="module stage1" ng-hide="expanded">
+<div class="module stage1" >
     <h2 class="padding-height-5 padding-left-10">Log</h2>
-    <div ng-repeat="msg in logMsgs" layout="column">
-        <span>{{ msg }}</span>
+    <div ng-class="sizeClass" class="log-content">
+        <div ng-repeat="msg in logMsgs" layout="column">
+            <span class="log-small-text"> {{ msg }}</span>
 
+        </div>
     </div>
 </div>
 
@@ -18,7 +20,7 @@
 
 <div layout="row" layout-align="space-between center">
     <div flex="10">
-        <md-button class="md-icon-button no-margin" aria-label="Settings" ng-show="expanded">
+        <md-button class="md-icon-button no-margin" aria-label="Einstellungen" ng-show="expanded">
             <img class="png-icon" src="assets/img/icons/Settings-96.png">
         </md-button>
     </div>
