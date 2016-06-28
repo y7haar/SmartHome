@@ -46,7 +46,7 @@ var Storage = function () {
                     {id: 1, displayName: "Multi Room Audio", name: "multiRoomAudio", iconUrl: "Music-96.png"},
                     {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png"},
                     {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png"},
-                    {id: 4, displayName: "Backofen", name: "oven", iconUrl: "Cooker-96.png"},
+                    {id: 4, displayName: "Backofen", name: "oven", iconUrl: "Cooker-96.png"}
                 ]
             },
             
@@ -54,37 +54,37 @@ var Storage = function () {
                 modules: [
                     {id: 1, displayName: "Multi Room Audio", name: "multiRoomAudio", iconUrl: "Music-96.png"},
                     {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png"},
-                    {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png"},
+                    {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png"}
                 ]},
             {iconUrl: "Shower and Tub-96.png", name: "Bad", roomImageUrl: "assets/img/room_images/badezimmer.png",
                 modules: [
                     {id: 1, displayName: "Multi Room Audio", name: "multiRoomAudio", iconUrl: "Music-96.png"},
                     {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png"},
-                    {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png"},
+                    {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png"}
                 ]},
             {iconUrl: "Bedroom-96.png", name: "Schlafzimmer", roomImageUrl: "assets/img/room_images/schlafzimmer.png",
                 modules: [
                     {id: 1, displayName: "Multi Room Audio", name: "multiRoomAudio", iconUrl: "Music-96.png"},
                     {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png"},
-                    {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png"},
+                    {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png"}
                 ]},
             {iconUrl: "Teddy Bear-96.png", name: "Kinderzimmer", roomImageUrl: "assets/img/room_images/kinderzimmer.png",
                 modules: [
                     {id: 1, displayName: "Multi Room Audio", name: "multiRoomAudio", iconUrl: "Music-96.png"},
                     {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png"},
-                    {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png"},
+                    {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png"}
                 ]},
             {iconUrl: "Movie Projector-96.png", name: "Hobbyraum", roomImageUrl: "assets/img/room_images/hobbyraum.png",
                 modules: [
                     {id: 1, displayName: "Multi Room Audio", name: "multiRoomAudio", iconUrl: "Music-96.png"},
                     {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png"},
-                    {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png"},
+                    {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png"}
                 ]},
             {iconUrl: "Laptop-96.png", name: "Büro", roomImageUrl: "assets/img/room_images/buero.png",
                 modules: [
                     {id: 1, displayName: "Multi Room Audio", name: "multiRoomAudio", iconUrl: "Music-96.png"},
                     {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png"},
-                    {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png"},
+                    {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png"}
                 ]},
             {iconUrl: "Washing Machine-96.png", name: "Waschraum", roomImageUrl: "assets/img/room_images/waschraum.png",
                 modules: [
@@ -95,9 +95,9 @@ var Storage = function () {
         ],
 
         users: [
-            {name: "Martin", isAdmin:true, hasSettingsPrivileges:true, profileUrl: "./assets/img/people_images/image02.png", pin:"1234"},
-            {name: "Maria", isAdmin:false, hasSettingsPrivileges:true, profileUrl: "./assets/img/people_images/image03.png", pin:"1234"},
-            {name: "Jan-Leon", isAdmin:false, hasSettingsPrivileges:false, profileUrl: "./assets/img/people_images/image01.png", pin:"1234"}]
+            {id:0, name: "Martin", isAdmin:true, hasSettingsPrivileges:true, profileUrl: "./assets/img/people_images/image02.png", pin:"1234"},
+            {id:1, name: "Maria", isAdmin:false, hasSettingsPrivileges:true, profileUrl: "./assets/img/people_images/image03.png", pin:"1234"},
+            {id:2, name: "Jan-Leon", isAdmin:false, hasSettingsPrivileges:false, profileUrl: "./assets/img/people_images/image01.png", pin:"1234"}]
     };
 
     for (var i = 0; i < this.defaults["rooms"].length; ++i) {
@@ -184,6 +184,21 @@ var Storage = function () {
 
     this.saveRooms = function(rooms) {
         localStorage.setObject("rooms", rooms);
+    };
+    
+    this.saveUser = function(user) {
+        var users = this.getUsers();
+
+        for(var i = 0;i < users.length;++i) {
+            var current = users[i];
+
+            if(current.id === user.id) {
+                users[i] = user;
+                break;
+            }
+        }
+
+        localStorage.setObject("users", users);
     };
 
     this.getRoomsWithModuleById= function(moduleId) {

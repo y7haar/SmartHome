@@ -62,18 +62,31 @@
                                     </div>
 
 
-                                    <div layout="row" hide show-gt-xs>
+                                    <div layout="row" layout-align="center start" hide show-gt-xs>
 
-                                        <div layout="column" flex="50">
+                                        <div layout="column" flex="auto">
+
+                                        </div>
+
+                                        <div style="width:480px" layout="column" flex="nogrow">
                                             <div ng-repeat="module in room.modulesRight">
                                                 <module></module>
                                             </div>
                                         </div>
 
-                                        <div layout="column" flex="50">
+                                        <div layout="column" flex="auto">
+
+                                        </div>
+
+                                        <div style="width:480px" layout="column" flex="nogrow">
                                             <div ng-repeat="module in room.modulesLeft">
                                                 <module></module>
                                             </div>
+                                        </div>
+
+
+                                        <div layout="column" flex="auto">
+
                                         </div>
                                     </div>
 

@@ -28,8 +28,25 @@ var loginDialogCtrl = function ($scope, $mdDialog, $state, user, mainService) {
     $scope.user = user;
 
     $scope.login = function () {
-        if ($scope.pin == "1234") {
+        
+        var pin = $scope.pinForm.currentPin.$viewValue;
 
+        var valid = true;
+
+        $scope.isPinEmpty = false;
+        $scope.isPinWrong = false;
+
+        if(pin === "" || pin === undefined) {
+            $scope.isPinEmpty = true;
+            valid = false;
+        }
+
+        if(pin !== user.pin) {
+            $scope.isPinWrong = true;
+            valid = false;
+        }
+
+        if (valid) {
             mainService.setCurrentUser(user);
 
             $state.go("rooms");
