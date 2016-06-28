@@ -1,0 +1,50 @@
+<md-card class="font-black notification">
+    <md-card-title layout="row" layout-align="start start">
+
+        <div layout="column" style="margin-right: 5px">
+            <img ng-src="assets/img/icons/Door Sensor-96.png" class="png-icon">
+        </div>
+
+        <div layout="column" flex>
+            <div layout="row">
+                <h3 flex style="margin-top:2px">Haustür</h3>
+                <span>14:12</span>
+            </div>
+
+
+            <md-card-content style="padding:0px 0px 4px 0px;" layout="column" layout-align="start start">
+                <span class="notification-text">Es klinkgelt an der Haustür.</span>
+
+                <div layout-gt-xs="row">
+                    <img style="max-height:160px;width:auto;" src="assets/img/door.jpg">
+
+
+                    <div layout="row" layout-gt-xs="column" layout-align="center center"
+                         layout-align-gt-xs="start start">
+                        <md-button class="md-accent" aria-label="Öffnen" ng-click="null">
+                            <div layout="row" layout-align="center center">
+                                <img class="png-icon" src="assets/img/icons/Key-96.png" flex>
+                                <span>Öffnen</span>
+                            </div>
+
+                        </md-button>
+
+                        <md-button class="md-primary" aria-label="Ignorieren" ng-click="null" layout="row"
+                                   layout-align="center center">
+                            <div layout="row" layout-align="center center">
+                                <img class="png-icon" src="assets/img/icons/Cancel 2-96.png" flex>
+                                <span>Ignorieren</span>
+                            </div>
+
+
+                        </md-button>
+                    </div>
+                </div>
+
+            </md-card-content>
+
+        </div>
+
+
+    </md-card-title>
+</md-card>

@@ -1,4 +1,4 @@
-<md-toolbar ng-controller="toolbarCtrl" class="main-toolbar" id="main-toolbar">
+<md-toolbar class="main-toolbar" id="main-toolbar">
     <div class="md-toolbar-tools">
         <md-button class="rhabarber-logo-button" aria-label="Haus">
             <img src="./assets/img/rhabarber_logo_whitefont_transparent.png" class="rhabarber-logo">
@@ -6,7 +6,7 @@
 
         <span flex></span>
 
-        <md-button class="md-icon-button" aria-label="Notifications">
+        <md-button class="md-icon-button" aria-label="Notifications" ng-click="toggleNotificationBar()">
             <img ng-src="assets/img/icons/bar/Info Filled-100.png" class="png-icon">
 
         </md-button>
@@ -38,6 +38,17 @@
 
                 </md-menu-item>
 
+
+                <md-menu-item>
+                    <md-button ng-controller="pinChangeCtrl" ng-click="showPinChangeDialog($event)">
+                        <div layout="row" layout-align="space-between center" flex>
+                            <span>PIN ändern</span>
+                            <img ng-src="assets/img/icons/bar/Password-96.png" class="png-icon">
+                        </div>
+                    </md-button>
+                </md-menu-item>
+
+
                 <md-menu-item>
                     <md-button ng-controller="logoutCtrl" ng-click="showLogoutDialog($event)">
                         <div layout="row" layout-align="space-between center" flex>
@@ -51,3 +62,6 @@
 
     </div>
 </md-toolbar>
+
+
+<notification-bar ng-if="isNotificationBarShown"></notification-bar>

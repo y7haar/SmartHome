@@ -1,0 +1,51 @@
+<md-dialog aria-label="PIN ändern Dialog" ng-cloak>
+    <form name="pinForm" required>
+        <md-toolbar>
+
+            <div class="md-toolbar-tools">
+                <md-button  class="md-icon-button" aria-label="Zurück" ng-click="hideDialog()">
+                    <img ng-src="assets/img/icons/Back-96.png" class="png-icon">
+                </md-button>
+
+                <h2>PIN ändern</h2>
+
+            </div>
+        </md-toolbar>
+
+
+        <md-dialog-actions style="padding-left:8px; padding-top:40px;" layout="column" layout-align="center center">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Aktueller PIN</label>
+                <input type="password"  maxlength="4" ng-model="currentPin" name="currentPin" required ng-pattern="/^{{1234}}$/">
+                <div ng-messages="pinForm.currentPin.$error">
+                    <div ng-message="required">PIN eingeben</div>
+                    <div ng-message="pattern">PIN falsch</div>
+                </div>
+
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Neuer PIN</label>
+                <input type="password"  maxlength="4" ng-model="newPin" name="newPin" required>
+                <div ng-messages="pinForm.newPin.$error">
+                    <div ng-message="required">Neuen PIN eingeben</div>
+                </div>
+
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Neuer PIN (Wiederholen)</label>
+                <input type="password"  maxlength="4" ng-model="newPinRepeat" name="newPinRepeat" required ng-pattern="/^{{newPin}}$/">
+                <div ng-messages="pinForm.newPinRepeat.$error">
+                    <div ng-message="required">Neuen PIN eingeben</div>
+                    <div ng-message="pattern">PINs stimmen nicht überein</div>
+                </div>
+
+            </md-input-container>
+
+            <md-button style="margin-left: 0px;" type="submit" class="md-raised" ng-click="changePin()">
+                Ändern
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

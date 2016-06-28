@@ -39,13 +39,13 @@ html, body {
 }
 
 .png-icon {
-    width:24px;
-    height:24px;
+    width:24px !important;
+    height:24px !important;
 }
 
 .png-icon-large {
-    width:42px;
-    height:42px;
+    width:42px !important;
+    height:42px !important;
 }
 
 .rhabarber-icon {
@@ -404,4 +404,28 @@ room-image {
 
 md-dialog {
     color:rgba(0,0,0,0.87);
+}
+
+.notification-bar {
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    z-index:10000000;
+}
+
+.notification {
+    margin-top:0px;
+    margin-bottom: 0px;
+    margin-left:0px;
+    margin-right: 0px;
+}
+
+.notification md-card-title {
+    padding:8px;
+}
+
+.notification-text {
+    font-size:0.9rem;
 }

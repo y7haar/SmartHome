@@ -1,0 +1,37 @@
+<md-card class="font-black notification">
+    <md-card-title layout="row" layout-align="start start">
+
+        <div layout="column" style="margin-right: 5px">
+            <img ng-src="assets/img/icons/modules/black/Cooker-96.png" class="png-icon">
+        </div>
+
+        <div layout="column" flex>
+            <div layout="row">
+                <h3 flex style="margin-top:2px">Backofen</h3>
+                <span>15:07</span>
+            </div>
+
+
+            <md-card-content style="padding:0px 0px 4px 0px;" layout="column" layout-align="start start">
+                <span class="notification-text">Timer abgelaufen. Der Ofen wurde abgeschaltet.</span>
+
+                <div layout="row" layout-align="center center">
+                        <md-button class="md-raised md-accent" aria-label="Öffnen" ng-click="add1Min()">
+                            +1 Min
+                        </md-button>
+
+                        <md-button class="md-raised md-accent" aria-label="Ignorieren" ng-click="add5Min()">
+                            +5 Min
+                        </md-button>
+
+                        <h4 ng-if="plusMinutes !== null">+{{plusMinutes}} Min</h4>
+
+                </div>
+
+            </md-card-content>
+
+        </div>
+
+
+    </md-card-title>
+</md-card>
