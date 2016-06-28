@@ -1,4 +1,4 @@
-<md-dialog aria-label="PIN ändern Dialog" ng-cloak>
+<md-dialog  style="width:380px" aria-label="PIN ändern Dialog" ng-cloak>
     <form name="pinForm" required>
         <md-toolbar>
 
@@ -16,10 +16,10 @@
         <md-dialog-actions style="padding-left:8px; padding-top:40px;" layout="column" layout-align="center center">
             <md-input-container class="md-block" flex-gt-sm>
                 <label>Aktueller PIN</label>
-                <input type="password"  maxlength="4" ng-model="currentPin" name="currentPin" required ng-pattern="/^{{1234}}$/">
+                <input type="password"  maxlength="4" ng-model="currentPin" name="currentPin" required>
                 <div ng-messages="pinForm.currentPin.$error">
-                    <div ng-message="required">PIN eingeben</div>
-                    <div ng-message="pattern">PIN falsch</div>
+                    <span ng-if="isPinEmtpy">PIN eingeben</span>
+                    <span ng-if="pinIsWrong">PIN falsch</span>
                 </div>
 
             </md-input-container>
@@ -28,17 +28,18 @@
                 <label>Neuer PIN</label>
                 <input type="password"  maxlength="4" ng-model="newPin" name="newPin" required>
                 <div ng-messages="pinForm.newPin.$error">
-                    <div ng-message="required">Neuen PIN eingeben</div>
+                    <span ng-if="isNewPinEmtpy">Neuen PIN eingeben</span>
+                    <span ng-if="isNewPinTooShort">PIN ist zu kurz</span>
                 </div>
 
             </md-input-container>
 
             <md-input-container class="md-block" flex-gt-sm>
                 <label>Neuer PIN (Wiederholen)</label>
-                <input type="password"  maxlength="4" ng-model="newPinRepeat" name="newPinRepeat" required ng-pattern="/^{{newPin}}$/">
+                <input type="password"  maxlength="4" ng-model="newPinRepeat" name="newPinRepeat" required>
                 <div ng-messages="pinForm.newPinRepeat.$error">
-                    <div ng-message="required">Neuen PIN eingeben</div>
-                    <div ng-message="pattern">PINs stimmen nicht überein</div>
+                    <span ng-if="isNewPinRepeatEmtpy">Neuen PIN eingeben</span>
+                    <div ng-if="newPinRepeatIsDifferent">PINs stimmen nicht überein</div>
                 </div>
 
             </md-input-container>

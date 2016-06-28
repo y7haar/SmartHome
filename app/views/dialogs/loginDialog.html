@@ -1,5 +1,5 @@
 <md-dialog aria-label="Login Dialog" ng-cloak>
-    <form>
+    <form name="pinForm">
         <md-toolbar>
 
             <div class="md-toolbar-tools">
@@ -31,7 +31,11 @@
         <md-dialog-actions style="padding-left:8px;" layout="column" layout-align="center center">
             <md-input-container class="md-block" flex-gt-sm>
                 <label>PIN</label>
-                <input type="password"  md-autofocus maxlength="4" ng-model="pin" required>
+                <input type="password"  md-autofocus maxlength="4" ng-model="currentPin" name="currentPin" required>
+                <div ng-messages="pinForm.currentPin.$error">
+                    <span ng-if="isPinEmtpy">PIN eingeben</span>
+                    <span ng-if="isPinWrong">PIN falsch</span>
+                </div>
 
             </md-input-container>
 

@@ -24,23 +24,71 @@ mainApp.controller("pinChangeCtrl", function ($scope, $mdDialog, $mdMedia) {
 var pinChangeDialogController = function ($scope, $mdDialog, $state, mainService) {
     $scope.user = mainService.getCurrentUser();
 
-    alert($scope.user.pin);
-
     $scope.hideDialog = function() {
         $mdDialog.hide();
     };
 
     $scope.changePin = function(ev) {
 
-        var dialog = $mdDialog.alert()
-            .title('Einstellungen gespeichert')
-            .textContent('Die Hauseinstellungen wurden gespeichert.')
-            .ariaLabel('Einstellungen gespeichert')
-            .clickOutsideToClose(true)
-            .targetEvent(ev)
-            .ok('Ok');
+        var valid = true;
 
-        $mdDialog.show(dialog);
+        $scope.isPinEmpty = false;
+        $scope.isNewPinEmpty = false;
+        $scope.isNewPinRepeatEmpty = false;
+
+        $scope.pinIsWrong = false;
+        $scope.isNewPinTooShort = false;
+        $scope.newPinRepeatIsDifferent = false;
+
+        if($scope.pinForm.currentPin.$viewValue === "" || $scope.pinForm.currentPin.$viewValue === undefined) {
+            $scope.isPinEmpty = true;
+            valid = false;
+        }
+
+        if($scope.pinForm.newPin.$viewValue === "" || $scope.pinForm.newPin.$viewValue === undefined) {
+            $scope.isNewPinEmpty = true;
+            valid = false;
+        }
+
+
+        if($scope.pinForm.newPinRepeat.$viewValue === "" || $scope.pinForm.newPinRepeat.$viewValue === undefined) {
+            $scope.isNewPinRepeatEmpty = true;
+            valid = false;
+        }
+
+
+        if($scope.pinForm.currentPin.$viewValue !== $scope.user.pin) {
+            $scope.pinIsWrong = true;
+            valid = false;
+        }
+
+
+        if($scope.pinForm.newPin.$viewValue.length < 4) {
+            $scope.isNewPinTooShort = true;
+            valid = false;
+        }
+
+
+        if($scope.pinForm.newPinRepeat.$viewValue!== $scope.pinForm.newPin.$viewValue) {
+            $scope.newPinRepeatIsDifferent = true;
+            valid = false;
+        }
+
+        if(valid) {
+
+            $scope.user.pin = $scope.pinForm.newPin.$viewValue;
+            Storage.getInstance().saveUser($scope.user);
+
+            var dialog = $mdDialog.alert()
+                .title('Einstellungen gespeichert')
+                .textContent('Der PIN Code wurde geändert.')
+                .ariaLabel('PIN gespeichert')
+                .clickOutsideToClose(true)
+                .targetEvent(ev)
+                .ok('Ok');
+
+            $mdDialog.show(dialog);
+        }
 
     };
 
