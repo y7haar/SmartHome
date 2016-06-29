@@ -6,7 +6,6 @@
 mainApp.controller("logCtrl", function ($scope) {
 
     $scope.users = Storage.getInstance().getUsers();
-    $scope.sizeClass = "log-content-size";
 
     $scope.logData = [
         {
@@ -42,13 +41,7 @@ mainApp.controller("logCtrl", function ($scope) {
         "[13.04.2016] 17:30: Maria hat die Haustür entriegelt"
     ];
 
-    $scope.$watch("expanded",function(oldValue, newValue) {
-        if (oldValue !== 'undefined') {
-            if (oldValue) $scope.sizeClass = "log-content-size-expanded";
-            else
-                $scope.sizeClass = "log-content-size";
-        }
-    });
+
 
 
 

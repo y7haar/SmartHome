@@ -22,8 +22,9 @@ var Storage = function () {
             {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png"},
             {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png"},
             {id: 4, displayName: "Backofen", name: "oven", iconUrl: "Cooker-96.png"},
-            {id: 5, displayName: "Waschmaschine", name: "washingMachine", iconUrl: "Washing Machine-96.png"}
-            
+            {id: 5, displayName: "Waschmaschine", name: "washingMachine", iconUrl: "Washing Machine-96.png"},
+            {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Temperature-96.png"}
+
         ],
         
         house: {
@@ -33,8 +34,6 @@ var Storage = function () {
                 {id: 101, displayName: "Wetter", name: "weather"},
                 {id: 102, displayName: "Haustür", name: "door"},
                 {id: 103, displayName: "Log", name: "log"}
-
-
             ]
 
         },
@@ -46,7 +45,9 @@ var Storage = function () {
                     {id: 1, displayName: "Multi Room Audio", name: "multiRoomAudio", iconUrl: "Music-96.png"},
                     {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png"},
                     {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png"},
-                    {id: 4, displayName: "Backofen", name: "oven", iconUrl: "Cooker-96.png"}
+                    {id: 4, displayName: "Backofen", name: "oven", iconUrl: "Cooker-96.png"},
+                    {id: 5, displayName: "Heizung", name: "heater", iconUrl: "Temperature-96.png"},
+                    {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Temperature-96.png"}
                 ]
             },
             

@@ -1,0 +1,42 @@
+<div class="module stage1">
+    <h2 class="padding-height-5 padding-left-10">Szenen</h2>
+    <div layout="row" layout-align="space-around center">
+        <md-select ng-model="currentScene" ng-init="currentState = 0" flex aria-label="Szenen auswahl" style="margin: 0px 10px 0px 20px; ">
+            <md-option ng-repeat="scene in scenes" value="{{scene.id}}" aria-label="Szene {{scene.name}}">
+                {{scene.name}}
+            </md-option>
+        </md-select>
+        <md-button ng-if="!hasSceneStarted" class="md-raised margin-right-20 md-accent" ng-click="startScene();" aria-label="Szene starten" flex="20">
+            START
+        </md-button>
+        <md-button  ng-if="hasSceneStarted" class="md-raised margin-right-20 md-warn" ng-click="stopScene();" aria-label="Szene stopen" flex = "20">
+            STOP
+        </md-button>
+    </div>
+</div>
+
+
+<!-- extended controls-->
+<div flex class="module stage2" slide-toggle="expanded">
+    <md-divider style="margin-top:10px; margin-bottom: 10px;"></md-divider>
+    <div style="padding-left:25px;">
+        <h3>Ablauf</h3>
+        <div style="padding-left:15px; padding-bottom: 5px;" ng-repeat="info in scenes[currentScene].infos">
+            <span> {{ info }} </span>
+        </div>
+    </div>
+</div>
+
+<md-progress-linear ng-if="false" md-mode="determinate" value={{progress}}></md-progress-linear>
+
+<!-- Bottom Controls-->
+<!--
+<div layout="row" layout-align="space-between center">
+    <div flex="10">
+        <md-button class="md-icon-button no-margin" aria-label="Einstellungen" ng-show="expanded">
+            <img class="png-icon" src="assets/img/icons/Settings-96.png">
+        </md-button>
+    </div>
+
+</div>
+-->

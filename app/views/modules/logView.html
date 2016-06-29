@@ -1,6 +1,6 @@
 <div class="module stage1" >
     <h2 class="padding-height-5 padding-left-10">Log</h2>
-    <div ng-class="sizeClass" class="log-content">
+    <div ng-class="expanded ? 'log-content-size-expanded' : 'log-content-size' " class="log-content">
         <div ng-repeat="msg in logMsgs" layout="column">
             <span class="log-small-text"> {{ msg }}</span>
 

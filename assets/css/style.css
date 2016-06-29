@@ -48,6 +48,11 @@ html, body {
     height:42px !important;
 }
 
+.png-icon-small {
+    width: 16px !important;
+    height:16px !important;
+}
+
 .rhabarber-icon {
     width: 30px;
     height: 30px;
@@ -317,7 +322,7 @@ room-image {
 
 /*-------*/
 
-
+/*Heater*/
 
 .weather-large-text {
     margin-left:0 !important;
