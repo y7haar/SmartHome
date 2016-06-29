@@ -1,6 +1,29 @@
-<div class="module stage1" ng-hide="expanded">
+<div class="module stage1">
     <h2 class="padding-height-5 padding-left-10">Heizung</h2>
+    <div style="padding-left:10px; padding-right:10px; padding-bottom: 10px;" layout="row" layout-align="space-around center">
+        <div flex="48">
+            <h3 align="center">Temperatur</h3>
+            <div layout="row" layout-align="center center">
+                <img style="margin-right:5px" class="png-icon" ng-src="assets/img/icons/Temperature-96.png">
+                <span style="font-size: 2rem;">{{temperature}}°</span>
+                <img style="margin-left:5px" ng-if="isTemperatureRising" class="png-icon-small" ng-src="assets/img/icons/Double Up-96.png">
+                <img style="margin-left:5px" ng-if="!isTemperatureRising" class="png-icon-small" ng-src="assets/img/icons/Double Down-96.png">
+            </div>
 
+        </div>
+
+        <div flex="2" style="border-style:solid; border-left:1px #cecece; border-radius: 100px; height:10%"></div>
+
+        <div flex="48">
+            <h3 align="center">Rel. Feuchte</h3>
+            <div layout="row" layout-align="center center">
+                <img style="margin-right:5px" class="png-icon" ng-src="assets/img/icons/Humidity-96.png">
+                <span style="font-size: 2rem;">{{humidity}}%</span>
+                <img style="margin-left:5px" ng-if="isHumidityRising" class="png-icon-small" ng-src="assets/img/icons/Double Up-96.png">
+                <img style="margin-left:5px" ng-if="!isHumidityRising" class="png-icon-small" ng-src="assets/img/icons/Double Down-96.png">
+            </div>
+        </div>
+    </div>
 </div>
 
 </div>
@@ -21,3 +44,5 @@
     </div>
 
 </div>
+
+<md-progress-linear md-mode="determinate" value={{progress}}></md-progress-linear>
