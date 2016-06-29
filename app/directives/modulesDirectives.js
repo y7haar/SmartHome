@@ -6,6 +6,14 @@ mainApp.directive('multiRoomAudio', function() {
     };
 });
 
+mainApp.directive('consumer', function() {
+    return {
+        controller: "consumerCtrl",
+        templateUrl: BASE_URL + "/app/views/modules/consumerView.html",
+        restrict: "E"
+    };
+});
+
 mainApp.directive('scene', function() {
     return {
         controller: "sceneCtrl",
