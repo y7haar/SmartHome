@@ -23,7 +23,8 @@ var Storage = function () {
             {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png"},
             {id: 4, displayName: "Backofen", name: "oven", iconUrl: "Cooker-96.png"},
             {id: 5, displayName: "Waschmaschine", name: "washingMachine", iconUrl: "Washing Machine-96.png"},
-            {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Temperature-96.png"}
+            {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Temperature-96.png"},
+            {id: 7, displayName: "Verbraucher", name: "consumer", iconUrl: "Temperature-96.png"}
 
         ],
         
@@ -47,7 +48,8 @@ var Storage = function () {
                     {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png"},
                     {id: 4, displayName: "Backofen", name: "oven", iconUrl: "Cooker-96.png"},
                     {id: 5, displayName: "Heizung", name: "heater", iconUrl: "Temperature-96.png"},
-                    {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Temperature-96.png"}
+                    {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Temperature-96.png"},
+                    {id: 7, displayName: "Verbraucher", name: "consumer", iconUrl: "Temperature-96.png"}
                 ]
             },
             

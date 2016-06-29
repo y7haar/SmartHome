@@ -1,0 +1,50 @@
+<div class="module stage1">
+    <h2 aria-label="Verbraucher" class="padding-height-5 padding-left-10">Verbraucher</h2>
+    <div class='md-padding'>
+        <div layout="row" layout-wrap>
+            <div layout="row" ng-repeat="consumer in consumers" flex="33" layout-align="space-around center">
+
+                <md-button class="no-margin" aria-label={{consumer.name}} ng-click="consumerClicked(consumer.id)">
+                    
+                    <div ng-if="consumer.isOn && consumer.isSwitchOffAble" style="word-wrap: break-word;">
+                        <img align="center" class="png-icon" src="assets/img/icons/Flash On-96.png" flex="30">
+                        <span style="word-wrap: break-word;" class="font-green" flex="70">{{consumer.name}}</span>
+                    </div>
+                    <div ng-if="consumer.isOn && !consumer.isSwitchOffAble" style="word-wrap: break-word;">
+                        <img align="center" class="png-icon" src="assets/img/icons/Flash Always On-96.png" flex="30">
+                        <span style="word-wrap: break-word;" class="font-green" flex="70">{{consumer.name}}</span>
+                    </div>
+                    
+                    <div ng-if="!consumer.isOn && consumer.isSwitchOffAble" align="center" style="word-wrap: break-word;">
+                        <img align="center" class="png-icon" src="assets/img/icons/Flash Off-96.png" flex="30">
+                        <span style="word-wrap: break-word;" flex="70">{{consumer.name}}</span>
+                    </div>
+                    <div ng-if="!consumer.isOn && !consumer.isSwitchOffAble" align="center" style="word-wrap: break-word;">
+                        <img align="center" class="png-icon" src="assets/img/icons/Flash Always Off-96.png" flex="30">
+                        <span style="word-wrap: break-word;" flex="70">{{consumer.name}}</span>
+                    </div>
+                </md-button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- extended controls-->
+<div class="module stage2" slide-toggle="expanded">
+
+</div>
+
+
+<!-- Bottom Controls-->
+<!--
+<div layout="row" layout-align="space-between center">
+    <div flex="10">
+        <md-button class="md-icon-button no-margin" aria-label="Einstellungen" ng-show="expanded">
+            <img class="png-icon" src="assets/img/icons/Settings-96.png">
+        </md-button>
+    </div>
+
+</div>
+-->
