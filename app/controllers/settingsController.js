@@ -2,7 +2,9 @@
  * @author Yannic Siebenhaar
  */
 
-mainApp.controller("settingsCtrl", function ($scope, settingsService, mainService) {
+mainApp.controller("settingsCtrl", function ($scope, $mdMedia, $mdDialog, settingsService, mainService) {
+
+    var isXs = $mdMedia("xs");
 
     $scope.rooms = settingsService.rooms;
     $scope.roomModules = settingsService.roomModules;
@@ -23,11 +25,11 @@ mainApp.controller("settingsCtrl", function ($scope, settingsService, mainServic
         return settingsService.selectedRoomIndex;
     };
 
-    $scope.selectRoom = function(index) {
+    $scope.selectRoom = function (index) {
         settingsService.setSelectedRoomIndex(index);
     };
 
-    $scope.selectModule = function(index) {
+    $scope.selectModule = function (index) {
         $scope.selectedModuleIndex = index;
         settingsService.setSelectedModuleIndex(index);
     };
@@ -37,18 +39,31 @@ mainApp.controller("settingsCtrl", function ($scope, settingsService, mainServic
         return settingsService.selectedAdminIndex;
     };
 
-    $scope.selectHouseSettings = function() {
+    $scope.selectHouseSettings = function (ev) {
         settingsService.setSelectedAdminIndex(0);
-    };
 
-    $scope.selectRoomConfiguration = function() {
+        if (isXs) {
+            $mdDialog.show({
+                template: '<house-settings></house-settings>',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: true
+            })
+        }
+    };
+    
+    $scope.selectRoomConfiguration = function () {
         settingsService.setSelectedAdminIndex(1);
     };
 
-    $scope.selectUserManagement= function() {
+    $scope.selectUserManagement = function () {
         settingsService.setSelectedAdminIndex(2);
     };
 
 
-    $scope.selectHouseSettings();
+    if(! isXs) {
+        $scope.selectHouseSettings();
+    }
+
 });

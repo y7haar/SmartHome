@@ -1,4 +1,4 @@
-mainApp.controller("roomCtrl", function ($scope, $mdMedia) {
+mainApp.controller("roomCtrl", function ($scope, $state, $mdMedia) {
 
     $scope.$watch(function() { return $mdMedia('gt-md'); }, function(desktopView) {
         $scope.desktopView = desktopView;

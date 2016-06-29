@@ -27,5 +27,9 @@ var houseSettingsController = function($scope, $mdDialog, settingsService) {
             .ok('Ok');
 
         $mdDialog.show(dialog);
+    };
+
+    $scope.goBack = function() {
+        $mdDialog.cancel();
     }
 };

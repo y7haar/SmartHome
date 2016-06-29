@@ -56,6 +56,16 @@ mainApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
 }]);
 
 
+mainApp.run(['$rootScope', '$state', function($rootScope, $state, $timeout){
+
+    $rootScope.$on('$stateChangeSuccess',function(){
+        $rootScope.stateIsLoading = true;
+    });
 
 
+    $rootScope.$on('$viewContentLoaded',function(){
+        $rootScope.stateIsLoading = false;
+    });
+
+}]);
 

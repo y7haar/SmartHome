@@ -33,7 +33,7 @@ mainApp.service("settingsService", [
 
 
         this.selectedTabIndex = 0;
-        this.selectedAdminIndex = 0;
+        this.selectedAdminIndex = null;
         
 
         this.setSelectedRoomIndex = function(index) {
