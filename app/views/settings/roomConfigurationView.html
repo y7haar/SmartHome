@@ -1,13 +1,13 @@
-<settings-toolbar title='Raumkonfiguration'></settings-toolbar>
+<settings-toolbar title="'Räume'"></settings-toolbar>
 
-<md-content>
+<md-content class="md-padding">
 
     <md-subheader class="md-no-sticky">Räume konfigurieren</md-subheader>
 
     <md-list>
         <md-divider></md-divider>
 
-        <md-list-item class="md-1-line settings-list-item" ng-repeat="room in rooms"> <!-- ng-click="selectRoom($index)" -->
+        <md-list-item class="md-1-line settings-list-item" ng-class="roomToEditIndex == $index ? 'active' : ''"  ng-repeat="room in rooms"> <!-- ng-click="selectRoom($index)" -->
             <div class="md-list-item-text" layout="row" layout-align="center center" flex>
                 <img ng-src='{{"assets/img/icons/rooms/black/" + room.iconUrl}}'
                      class="png-icon">
@@ -24,7 +24,7 @@
                 </button>
 
                 <button class="md-icon-button">
-                    <img ng-src="assets/img/icons/Edit-96.png" class="png-icon">
+                    <img ng-src="assets/img/icons/Edit-96.png" class="png-icon" ng-click="editRoom($index)">
                 </button>
 
                 <button class="md-icon-button">
@@ -37,6 +37,6 @@
 
 </md-content>
 
-<md-button class="md-fab settings-fab-button" aria-label="Bestätigen" ng-click="saveSettings()">
+<md-button class="md-fab settings-fab-button" aria-label="Bestätigen" ng-click="addRoom()">
     <img ng-src="assets/img/icons/Plus Math-96.png" class="png-icon">
 </md-button>

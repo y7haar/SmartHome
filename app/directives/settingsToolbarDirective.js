@@ -7,7 +7,7 @@ mainApp.directive('settingsToolbar', function() {
         templateUrl: BASE_URL + "/app/views/settings/settingsToolbarView.html",
         restrict: "E",
         scope: {
-            title: "@",
+            title: "=",
             abortMode: '@',
             abortState: "@",
             abortFunction: "&?"

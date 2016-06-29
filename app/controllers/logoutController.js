@@ -10,7 +10,7 @@ mainApp.controller("logoutCtrl", function ($scope, $mdDialog, $mdMedia) {
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: false,
-            espaceToClose: false,
+            escapeToClose: false,
             fullscreen: useFullScreen
         });
 

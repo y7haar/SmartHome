@@ -1,5 +1,5 @@
-<settings-toolbar hide show-gt-xs title='Neuer Raum'></settings-toolbar>
-<settings-toolbar hide show-xs abort-mode="cancel" title='Neuer Raum'></settings-toolbar>
+<settings-toolbar hide show-gt-xs title='getBarTitle()'></settings-toolbar>
+<settings-toolbar hide show-xs abort-mode="cancel" title='getBarTitle()'></settings-toolbar>
 
 <md-content class="md-padding" layout="column" flex="100">
     <form layout="column">
@@ -12,8 +12,8 @@
 
         <div layout="row" layout-align="start center">
             <md-input-container flex="grow">
-                <md-select ng-model="selectedTypeIndex" placeholder="Raumtyp">
-                    <md-option ng-value="$index" ng-repeat="type in roomTypes">{{ type.name }}</md-option>
+                <md-select ng-model="room.type" placeholder="Raumtyp">
+                    <md-option ng-value="type.name" ng-repeat="type in roomTypes">{{ type.name }}</md-option>
                 </md-select>
 
             </md-input-container>
@@ -31,14 +31,24 @@
 
 
             <md-list-item class="md-1-line settings-list-item" ng-class="($index==selectedModuleIndex) ? 'active' : ''"
-                          ng-repeat="module in roomModules" ng-click="selectModule($index)">
+                          ng-repeat="module in room.modules">
                 <div class="md-list-item-text" layout="row" layout-align="center center" flex>
                     <img ng-src='{{"assets/img/icons/modules/black/" + module.iconUrl}}'
                          class="png-icon">
                     <h4 flex>{{module.displayName}}</h4>
+
+                    <button class="md-icon-button" ng-if="module.hasComponents">
+                        <img ng-src="assets/img/icons/Add Property-96.png" class="png-icon" ng-click="">
+                    </button>
                 </div>
                 <md-divider></md-divider>
             </md-list-item>
+
+
+            <md-button flex ng-click="addModule()">
+                Modul hinzufügen
+            </md-button>
+
         </md-list>
 
     </form>

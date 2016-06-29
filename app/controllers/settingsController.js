@@ -61,6 +61,14 @@ mainApp.controller("settingsCtrl", function ($scope, $mdMedia, $mdDialog, settin
         settingsService.setSelectedAdminIndex(2);
     };
 
+    $scope.getRoomToEdit = function() {
+        return settingsService.roomToEdit;
+    };
+
+    $scope.isEditingRoom = function() {
+        return settingsService.editingRoom;
+    };
+
 
     if(! isXs) {
         $scope.selectHouseSettings();

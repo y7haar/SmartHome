@@ -10,9 +10,10 @@ mainApp.directive('roomConfiguration', function () {
     };
 });
 
-var roomConfigurationController = function ($scope, $mdDialog, settingsService) {
+var roomConfigurationController = function ($scope, $mdDialog, $mdMedia,settingsService) {
     $scope.rooms = settingsService.rooms;
 
+    var isXs = $mdMedia("xs");
 
     $scope.deleteRoom = function (roomIndex, ev) {
 
@@ -58,4 +59,26 @@ var roomConfigurationController = function ($scope, $mdDialog, settingsService) 
 
         Storage.getInstance().saveRooms($scope.rooms);
     };
+    
+    $scope.editRoom = function(roomIndex) {
+        settingsService.roomToEdit = $scope.rooms[roomIndex];
+        settingsService.roomToEditIndex = roomIndex;
+        $scope.roomToEditIndex = roomIndex;
+        settingsService.editingRoom = true;
+    };
+
+    $scope.addRoom = function() {
+
+        var newRoom = {};
+
+        settingsService.roomToEdit = newRoom;
+        settingsService.roomToEditIndex = $scope.rooms.length;
+        $scope.roomToEditIndex = $scope.rooms.length;
+        settingsService.editingRoom = true;
+    };
+
+
+    if(!isXs) {
+        $scope.editRoom(0);
+    }
 };
