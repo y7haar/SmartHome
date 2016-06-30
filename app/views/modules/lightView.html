@@ -1,5 +1,5 @@
+<h2 class="padding-height-5 padding-left-10">Beleuchtung</h2>
 <div class="module stage1" ng-hide="expanded">
-    <h2 class="padding-height-5 padding-left-10">Beleuchtung</h2>
     <div class='md-padding'>
         <div layout="row" layout-wrap>
             <div layout="row" ng-repeat="light in lights" flex="33" layout-align="space-around center">
@@ -22,7 +22,6 @@
 
 <!-- extended controls-->
 <div flex class="module stage2" slide-toggle="expanded">
-    <h2 class="padding-height-5 padding-left-10">Beleuchtung</h2>
     <div ng-repeat="light in lights">
         <!--
                 <div layout="row" layout-align="space-between center">
@@ -54,7 +53,7 @@
             <span flex="15">{{ light.dimState}} %</span>
         </div>
 
-        <div layout="row" layout-align="end center">
+        <div layout="row" layout-align="end center" style="width:200px;">
             <div style="margin-top: -20px; margin-bottom: -40px; margin-right: 10px;" md-color-picker
                  ng-model="light.color" ng-if="light.isColorAble" flex="40"
                  md-color-alpha-channel="false" md-color-hex="false" md-color-hsl="false"
