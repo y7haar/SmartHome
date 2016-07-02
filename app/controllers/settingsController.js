@@ -3,8 +3,13 @@
  */
 
 mainApp.controller("settingsCtrl", function ($scope, $mdMedia, $mdDialog, settingsService, mainService) {
+    $scope.isXs = function() {
+        return $mdMedia("xs");
+    };
 
-    var isXs = $mdMedia("xs");
+    $scope.isGtMd = function() {
+        return $mdMedia("gt-md");
+    };
 
     $scope.rooms = settingsService.rooms;
     $scope.roomModules = settingsService.roomModules;
@@ -42,7 +47,7 @@ mainApp.controller("settingsCtrl", function ($scope, $mdMedia, $mdDialog, settin
     $scope.selectHouseSettings = function (ev) {
         settingsService.setSelectedAdminIndex(0);
 
-        if (isXs) {
+        if ($scope.isXs()) {
             $mdDialog.show({
                 template: '<house-settings></house-settings>',
                 parent: angular.element(document.body),
@@ -69,9 +74,6 @@ mainApp.controller("settingsCtrl", function ($scope, $mdMedia, $mdDialog, settin
         return settingsService.editingRoom;
     };
 
-
-    if(! isXs) {
-        $scope.selectHouseSettings();
-    }
+    settingsService.setSelectedAdminIndex($scope.isXs() ? undefined : 0);
 
 });

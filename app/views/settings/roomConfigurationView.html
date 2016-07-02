@@ -8,27 +8,27 @@
         <md-divider></md-divider>
 
         <md-list-item class="md-1-line settings-list-item" ng-class="roomToEditIndex == $index ? 'active' : ''"  ng-repeat="room in rooms"> <!-- ng-click="selectRoom($index)" -->
-            <div class="md-list-item-text" layout="row" layout-align="center center" flex>
+            <div ng-click="editRoom($index)" md-ink-ripple class="md-list-item-text no-focus clickable" layout="row" layout-align="center center" flex>
                 <img ng-src='{{"assets/img/icons/rooms/black/" + room.iconUrl}}'
                      class="png-icon">
 
                 <h4 flex>{{room.name}}</h4>
 
 
-                <button class="md-icon-button">
-                    <img ng-src="assets/img/icons/Collapse Arrow-96.png" class="png-icon" ng-click="moveRoomUp($index)">
+                <button class="md-icon-button button-inside-list no-focus" ng-click="moveRoomUp($index)">
+                    <img ng-src="assets/img/icons/Collapse Arrow-96.png" class="png-icon">
                 </button>
 
-                <button class="md-icon-button">
-                    <img ng-src="assets/img/icons/Expand Arrow-96.png" class="png-icon" ng-click="moveRoomDown($index)">
+                <button class="md-icon-button button-inside-list no-focus" ng-click="moveRoomDown($index)">
+                    <img ng-src="assets/img/icons/Expand Arrow-96.png" class="png-icon">
                 </button>
 
-                <button class="md-icon-button">
-                    <img ng-src="assets/img/icons/Edit-96.png" class="png-icon" ng-click="editRoom($index)">
+                <button class="md-icon-button button-inside-list no-focus" ng-click="editRoom($index)">
+                    <img ng-src="assets/img/icons/Edit-96.png" class="png-icon" >
                 </button>
 
-                <button class="md-icon-button">
-                    <img ng-src="assets/img/icons/Delete-black.png" class="png-icon" ng-click="deleteRoom($index)">
+                <button class="md-icon-button button-inside-list no-focus" ng-click="deleteRoom($index)">
+                    <img ng-src="assets/img/icons/Delete-black.png" class="png-icon">
                 </button>
             </div>
             <md-divider></md-divider>

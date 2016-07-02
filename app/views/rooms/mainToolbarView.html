@@ -6,8 +6,11 @@
 
         <span flex></span>
 
-        <md-button class="md-icon-button" aria-label="Notifications" ng-click="toggleNotificationBar()">
-            <img ng-src="assets/img/icons/bar/Info Filled-100.png" class="png-icon">
+        <md-button style="position:relative" class="md-icon-button" aria-label="Notifications" ng-click="toggleNotificationBar()">
+            <img ng-src="assets/img/icons/bar/Appointment Reminders Filled-100.png" class="png-icon">
+            <div ng-if="!isNotificationBarShown" class="notification-count-wrapper green" layout="column" layout-align="center center">
+                <span class="notification-count-number">{{notificationCount}}</span>
+            </div>
 
         </md-button>
 
@@ -17,10 +20,10 @@
         </md-button>
 
 
-        <md-menu md-position-mode="target-right target" md-offset="0 {{userMenuOffset}}">
+        <md-menu md-position-mode="target-right target" md-offset="78">
             <md-button class="md-icon-button profile-icon-button" aria-label="Benutzermenü"
                        ng-click="$mdOpenMenu($event)">
-                <img ng-src={{user.profileUrl}} class="profile-icon">
+                <img ng-src={{::user.profileUrl}} class="profile-icon">
             </md-button>
 
             <md-menu-content width="3">
@@ -32,8 +35,8 @@
 
                 <md-menu-item>
                     <div layout="row" layout-align="space-between center" flex>
-                        <span>{{user.name}}</span>
-                        <img ng-src={{user.profileUrl}} class="png-icon">
+                        <span>{{::user.name}}</span>
+                        <img ng-src={{::user.profileUrl}} class="png-icon">
                     </div>
 
                 </md-menu-item>

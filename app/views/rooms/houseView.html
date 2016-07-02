@@ -1,9 +1,9 @@
 <div ng-controller="houseCtrl" layout="column">
 
-    <room-image></room-image>
+    <room-image room="::house"></room-image>
 
     <div layout="column" hide show-xs>
-        <div ng-repeat="module in modules">
+        <div ng-repeat="module in ::modules">
             <module></module>
         </div>
     </div>
@@ -16,7 +16,7 @@
         </div>
 
         <div style="width:480px" layout="column" flex="nogrow">
-            <div ng-repeat="module in modulesRight">
+            <div ng-repeat="module in ::modulesRight">
                 <module></module>
             </div>
         </div>
@@ -26,7 +26,7 @@
         </div>
 
         <div style="width:480px" layout="column" flex="nogrow">
-            <div ng-repeat="module in modulesLeft">
+            <div ng-repeat="module in ::modulesLeft">
                 <module></module>
             </div>
         </div>

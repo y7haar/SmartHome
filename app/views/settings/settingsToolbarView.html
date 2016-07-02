@@ -1,14 +1,16 @@
 <md-toolbar ng-controller="toolbarCtrl" class="settings-toolbar" id="settings-toolbar">
     <div class="md-toolbar-tools">
 
-        <md-button hide show-xs show-sm ng-if="abortMode == 'back'" class="md-icon-button" aria-label="Zurück" ng-click="doAbort()">
+        <md-button ng-if="abortMode == 'back'" class="md-icon-button" aria-label="Zurück" ng-click="doAbort()">
             <img ng-src="assets/img/icons/Back-96.png" class="png-icon">
         </md-button>
 
+        <!--
         <md-button hide show-gt-sm ng-if="abortMode == 'back'" class="" aria-label="Zurück" layout="row" layout-align="center center" ng-click="doAbort()">
             <img ng-src="assets/img/icons/Back-96.png" class="png-icon">
             <span hide show-gt-xs>Zurück</span>
         </md-button>
+        -->
 
         <md-button ng-if="abortMode == 'cancel'" class="md-icon-button" aria-label="Abbrechen" ng-click="doAbort()">
             <img ng-src="assets/img/icons/Delete-96.png" class="png-icon">

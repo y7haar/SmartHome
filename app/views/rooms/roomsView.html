@@ -50,17 +50,17 @@
                     </md-tab>
 
 
-                    <md-tab ng-repeat="room in rooms track by $index">
+                    <md-tab ng-repeat="room in ::rooms">
                         <md-tab-label>
-                            <img ng-src='{{"assets/img/icons/rooms/white/" + room.iconUrl}}' class="tab-icon" alt={{room.name}}>
+                            <img ng-src='{{"assets/img/icons/rooms/white/" + room.iconUrl}}' class="tab-icon" alt={{::room.name}}>
                         </md-tab-label>
 
                         <md-tab-body layout="column" layout-align="center center">
                             <md-tab-content>
                                 <div class="room-container" layout="column">
-                                    <room-image></room-image>
+                                    <room-image room="::room"></room-image>
                                     <div layout="column" hide show-xs>
-                                        <div ng-repeat="module in room.modules">
+                                        <div ng-repeat="module in ::room.modules">
                                             <module></module>
                                         </div>
                                     </div>
@@ -73,7 +73,7 @@
                                         </div>
 
                                         <div style="width:480px" layout="column" flex="nogrow">
-                                            <div ng-repeat="module in room.modulesRight">
+                                            <div ng-repeat="module in ::room.modulesRight">
                                                 <module></module>
                                             </div>
                                         </div>
@@ -83,14 +83,9 @@
                                         </div>
 
                                         <div style="width:480px" layout="column" flex="nogrow">
-                                            <div ng-repeat="module in room.modulesLeft">
+                                            <div ng-repeat="module in ::room.modulesLeft">
                                                 <module></module>
                                             </div>
-                                        </div>
-
-
-                                        <div layout="column" flex="auto">
-
                                         </div>
                                     </div>
 
@@ -99,6 +94,7 @@
                         </md-tab-body>
                     </md-tab>
                 </md-tabs>
+
 
             </md-content>
         </div>

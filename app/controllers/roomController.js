@@ -5,11 +5,7 @@ mainApp.controller("roomCtrl", function ($scope, $state, $mdMedia) {
     });
 
     $scope.rooms = Storage.getInstance().getRooms();
-
-    $scope.modulesLeft = [];
-    $scope.modulesRight = [];
-
-
+    
     for(var room = 0;room < $scope.rooms.length;++room) {
         $scope.rooms[room].modulesLeft = [];
         $scope.rooms[room].modulesRight = [];

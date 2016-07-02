@@ -42,6 +42,12 @@ mainApp.controller("multiRoomAudioCtrl", function ($scope, $interval) {
     ];
 
 
+
+    $scope.test = "1";
+
+
+
+
     $scope.currentTrackIndex = parseInt(Math.random() * $scope.tracks.length);
     $scope.currentTrack = $scope.tracks[$scope.currentTrackIndex];
 
@@ -74,6 +80,10 @@ mainApp.controller("multiRoomAudioCtrl", function ($scope, $interval) {
         else {
             stopAnimation();
         }
+
+
+
+        $scope.test = "ASODJ";
     };
 
     function resetTime() {

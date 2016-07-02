@@ -1,12 +1,13 @@
 <div layout="column" layout-fill>
 
-    <div ng-cloak flex="nogrow">
-        <settings-toolbar abort-mode="back" title="'Einstellungen'" abort-state="rooms"></settings-toolbar>
-    </div>
-
     <div layout="column" flex="grow">
         <div layout="row" flex="grow">
-            <md-content layout="column" flex-xs="100" flex-sm="40" flex-md="40" flex-gt-md="auto">
+
+            <!-- Left view-->
+            <div layout="column" flex-xs="100" flex-sm="50" flex-md="40" flex-gt-md="30">
+                <div ng-cloak flex="nogrow">
+                    <settings-toolbar abort-mode="back" title="'Einstellungen'" abort-state="rooms"></settings-toolbar>
+                </div>
 
                 <md-tabs md-swipe-content md-center-tabs md-align-tabs="top" class="settings-tabs"
                          md-no-ink-bar="false" flex md-selected="selectedTabIndex">
@@ -102,31 +103,35 @@
                 </md-tabs>
 
 
-            </md-content>
+            </div>
 
-            <div hide show-gt-md style="border:2px solid white;"></div>
 
-            <md-content ng-if="getSelectedAdminIndex() != 1"  hide show-gt-xs flex-sm="60" flex-md="60" flex-gt-md="66" layout="column">
+            <!-- seperator-->
+            <div hide show-gt-xs class="vertical-divider"></div>
 
-                <room-settings ng-if="selectedTabIndex == 0"></room-settings>
-                <module-settings ng-if="selectedTabIndex == 1"></module-settings>
-                <house-settings style="position:relative" flex ng-if="selectedTabIndex == adminTabIndex && getSelectedAdminIndex() == 0"></house-settings>
+            <!-- middle view 66% House Settings-->
+            <div ng-if="selectedTabIndex == adminTabIndex && getSelectedAdminIndex() == 0 && !isXs()" layout="column" flex-sm="auto" flex-md="auto" flex-gt-md="auto">
+                <house-settings style="position:relative" flex></house-settings>
+            </div>
 
-            </md-content>
 
-            <md-content ng-if="selectedTabIndex == adminTabIndex && getSelectedAdminIndex() == 1" hide show-gt-xs flex-sm="60" flex-md="60" flex-gt-md="33" layout="column">
+            <!-- middle view 33% Room Settings -->
+            <div ng-if="selectedTabIndex == roomTabIndex && !isXs()" layout="column" flex-sm="auto" flex-md="auto" flex-gt-md="auto">
+                <room-settings></room-settings>
+            </div>
 
-                <room-configuration style="position:relative" flex ng-if="getSelectedAdminIndex() == 1"></room-configuration>
+            <!-- middle view 33% Room Config -->
+            <div ng-if="selectedTabIndex == adminTabIndex && getSelectedAdminIndex() == 1 && !isXs()" layout="column" flex-sm="50" flex-md="auto" flex-gt-md="auto">
+                <room-configuration></room-configuration>
+            </div>
 
-            </md-content>
+            <!-- seperator-->
+            <div hide show-gt-md class="vertical-divider"></div>
 
-            <div ng-if="selectedTabIndex == adminTabIndex && getSelectedAdminIndex() == 1" style="border:2px solid white;"></div>
-
-            <md-content ng-if="selectedTabIndex == adminTabIndex && getSelectedAdminIndex() == 1" hide show-gt-xs flex-sm="60" flex-md="60" flex-gt-md="33" layout="column">
-
-                <new-room room="getRoomToEdit()" style="position:relative" flex ng-if="getSelectedAdminIndex() == 1 && isEditingRoom()"></new-room>
-
-            </md-content>
+            <!-- right view  33%-->
+            <div ng-if="selectedTabIndex == adminTabIndex && getSelectedAdminIndex() == 1 && isEditingRoom() && isGtMd()" layout="column" flex-gt-md="auto">
+                <new-room room="getRoomToEdit()" style="position:relative" flex></new-room>
+            </div>
         </div>
     </div>
 </div>

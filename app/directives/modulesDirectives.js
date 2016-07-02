@@ -2,7 +2,8 @@ mainApp.directive('multiRoomAudio', function() {
     return {
         controller: "multiRoomAudioCtrl",
         templateUrl: BASE_URL + "/app/views/modules/multiRoomAudioView.html",
-        restrict: "E"
+        restrict: "E",
+        scope:true
     };
 });
 

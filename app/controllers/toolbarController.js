@@ -1,6 +1,7 @@
 mainApp.controller("toolbarCtrl", function ($scope, $state, $timeout, mainService) {
     $scope.user = mainService.getCurrentUser();
-    
+
+    /*
     $scope.$watch(function() { return $("#main-toolbar").height(); }, function(height) {
         $scope.toolbarHeight=height;
         
@@ -17,6 +18,8 @@ mainApp.controller("toolbarCtrl", function ($scope, $state, $timeout, mainServic
         }
     });
 
+    */
+
     $scope.openSettings = function() {
         $state.go("settings");
     };
@@ -26,14 +29,17 @@ mainApp.controller("toolbarCtrl", function ($scope, $state, $timeout, mainServic
     var timeToHideNotificationBar = 30 * 1000;
 
     $scope.isNotificationBarShown = false;
-    var closing;
+    $scope.notificationCount = 0;
 
-    var falseTrue = [false, true];
+    var closing;
 
     $scope.showWashingMachineNotification = false;
 
     $scope.toggleNotificationBar = function() {
-        $timeout.cancel(close);
+
+        $scope.user.name="test";
+
+        $timeout.cancel(closing);
 
         if($scope.isNotificationBarShown) {
             $scope.hideNotificationBar();
@@ -46,12 +52,6 @@ mainApp.controller("toolbarCtrl", function ($scope, $state, $timeout, mainServic
 
     $scope.showNotificationBar = function() {
 
-        $scope.showNotifications = [false, false, false, false];
-
-        $scope.showNotifications[parseInt(Math.random() * $scope.showNotifications.length)] = true;
-        $scope.showNotifications[parseInt(Math.random() * $scope.showNotifications.length)] = true;
-
-
         $scope.isNotificationBarShown = true;
 
         closing = $timeout(function() {
@@ -61,6 +61,24 @@ mainApp.controller("toolbarCtrl", function ($scope, $state, $timeout, mainServic
 
     $scope.hideNotificationBar = function() {
         $scope.isNotificationBarShown = false;
+
+        $scope.showNotifications = [false, false, false, false];
+
+        $scope.showNotifications[parseInt(Math.random() * $scope.showNotifications.length)] = true;
+        $scope.showNotifications[parseInt(Math.random() * $scope.showNotifications.length)] = true;
+        $scope.showNotifications[parseInt(Math.random() * $scope.showNotifications.length)] = true;
+
+        var count = 0;
+
+        for(var i = 0;i < $scope.showNotifications.length;++i) {
+            if($scope.showNotifications[i] === true) {
+                count++;
+            }
+        }
+
+        $scope.notificationCount = count;
     };
+
+    $scope.hideNotificationBar();
 
 });
