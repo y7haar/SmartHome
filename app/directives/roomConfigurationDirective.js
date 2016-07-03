@@ -19,7 +19,7 @@ var roomConfigurationController = function ($scope, $mdDialog, $mdMedia,settings
 
         var confirm = $mdDialog.confirm()
             .title('Raum löschen?')
-            .textContent('Soll der Raum wirklich gelöscht werden?')
+            .textContent('Soll der Raum ' + "'" + $scope.rooms[roomIndex].name + "'" +  ' wirklich gelöscht werden?')
             .ariaLabel('Löschen bestätigen')
             .targetEvent(ev)
             .clickOutsideToClose(true)
@@ -29,7 +29,7 @@ var roomConfigurationController = function ($scope, $mdDialog, $mdMedia,settings
         $mdDialog.show(confirm).then(function () {
             $scope.rooms.splice(roomIndex, 1);
 
-            Storage.getInstance().saveRooms($scope.rooms);
+            settingsService.saveAllRooms();
         }, function () {
         });
         
@@ -45,7 +45,7 @@ var roomConfigurationController = function ($scope, $mdDialog, $mdMedia,settings
         $scope.rooms.splice(roomIndex, 1);
         $scope.rooms.splice(roomIndex - 1, 0, room);
 
-        Storage.getInstance().saveRooms($scope.rooms);
+        settingsService.saveAllRooms();
     };
 
     $scope.moveRoomDown = function (roomIndex) {
@@ -57,7 +57,7 @@ var roomConfigurationController = function ($scope, $mdDialog, $mdMedia,settings
         $scope.rooms.splice(roomIndex, 1);
         $scope.rooms.splice(roomIndex + 1, 0, room);
 
-        Storage.getInstance().saveRooms($scope.rooms);
+        settingsService.saveAllRooms();
     };
     
     $scope.editRoom = function(roomIndex) {
@@ -65,16 +65,18 @@ var roomConfigurationController = function ($scope, $mdDialog, $mdMedia,settings
         settingsService.roomToEditIndex = roomIndex;
         $scope.roomToEditIndex = roomIndex;
         settingsService.editingRoom = true;
+        settingsService.addingRoom = false;
     };
 
     $scope.addRoom = function() {
 
-        var newRoom = {};
+        var newRoom = {modules:[]};
 
         settingsService.roomToEdit = newRoom;
         settingsService.roomToEditIndex = $scope.rooms.length;
         $scope.roomToEditIndex = $scope.rooms.length;
-        settingsService.editingRoom = true;
+        settingsService.editingRoom = false;
+        settingsService.addingRoom = true;
     };
 
 

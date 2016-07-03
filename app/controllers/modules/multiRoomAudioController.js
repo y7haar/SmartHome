@@ -40,14 +40,7 @@ mainApp.controller("multiRoomAudioCtrl", function ($scope, $interval) {
             coverUrl: "assets/img/album_covers/cover_4.jpg"
         }
     ];
-
-
-
-    $scope.test = "1";
-
-
-
-
+    
     $scope.currentTrackIndex = parseInt(Math.random() * $scope.tracks.length);
     $scope.currentTrack = $scope.tracks[$scope.currentTrackIndex];
 
@@ -83,7 +76,7 @@ mainApp.controller("multiRoomAudioCtrl", function ($scope, $interval) {
 
 
 
-        $scope.test = "ASODJ";
+        $scope.test++;
     };
 
     function resetTime() {

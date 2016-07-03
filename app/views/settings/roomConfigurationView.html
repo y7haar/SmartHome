@@ -1,35 +1,39 @@
 <settings-toolbar title="'Räume'"></settings-toolbar>
 
-<md-content class="md-padding">
+<md-content class="md-padding" >
 
     <md-subheader class="md-no-sticky">Räume konfigurieren</md-subheader>
 
     <md-list>
         <md-divider></md-divider>
 
-        <md-list-item class="md-1-line settings-list-item" ng-class="roomToEditIndex == $index ? 'active' : ''"  ng-repeat="room in rooms"> <!-- ng-click="selectRoom($index)" -->
-            <div ng-click="editRoom($index)" md-ink-ripple class="md-list-item-text no-focus clickable" layout="row" layout-align="center center" flex>
+        <md-list-item class="md-1-line settings-list-item" ng-class="roomToEditIndex == $index ? 'active' : ''"
+                      ng-repeat="room in rooms"> <!-- ng-click="selectRoom($index)" -->
+            <div ng-click="editRoom($index)" md-ink-ripple class="md-list-item-text no-focus clickable" layout="row"
+                 layout-align="center center" flex="grow">
                 <img ng-src='{{"assets/img/icons/rooms/black/" + room.iconUrl}}'
                      class="png-icon">
 
-                <h4 flex>{{room.name}}</h4>
+                <h4 flex="100">{{room.name}}</h4>
 
 
-                <button class="md-icon-button button-inside-list no-focus" ng-click="moveRoomUp($index)">
-                    <img ng-src="assets/img/icons/Collapse Arrow-96.png" class="png-icon">
-                </button>
+                <div flex="nogrow" layout="row">
+                    <button class="md-icon-button button-inside-list no-focus" ng-click="moveRoomUp($index)">
+                        <img ng-src="assets/img/icons/Collapse Arrow-96.png" class="png-icon">
+                    </button>
 
-                <button class="md-icon-button button-inside-list no-focus" ng-click="moveRoomDown($index)">
-                    <img ng-src="assets/img/icons/Expand Arrow-96.png" class="png-icon">
-                </button>
+                    <button class="md-icon-button button-inside-list no-focus" ng-click="moveRoomDown($index)">
+                        <img ng-src="assets/img/icons/Expand Arrow-96.png" class="png-icon">
+                    </button>
 
-                <button class="md-icon-button button-inside-list no-focus" ng-click="editRoom($index)">
-                    <img ng-src="assets/img/icons/Edit-96.png" class="png-icon" >
-                </button>
+                    <button class="md-icon-button button-inside-list no-focus" ng-click="editRoom($index)">
+                        <img ng-src="assets/img/icons/Edit-96.png" class="png-icon">
+                    </button>
 
-                <button class="md-icon-button button-inside-list no-focus" ng-click="deleteRoom($index)">
-                    <img ng-src="assets/img/icons/Delete-black.png" class="png-icon">
-                </button>
+                    <button class="md-icon-button button-inside-list no-focus" ng-click="deleteRoom($index)">
+                        <img ng-src="assets/img/icons/Delete-black.png" class="png-icon">
+                    </button>
+                </div>
             </div>
             <md-divider></md-divider>
         </md-list-item>
@@ -37,6 +41,8 @@
 
 </md-content>
 
+
 <md-button class="md-fab settings-fab-button" aria-label="Bestätigen" ng-click="addRoom()">
     <img ng-src="assets/img/icons/Plus Math-96.png" class="png-icon">
 </md-button>
+

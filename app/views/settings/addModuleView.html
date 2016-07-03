@@ -13,7 +13,7 @@
             </md-input-container>
 
             <img ng-if="module.index === undefined"
-                 ng-src="assets/img/icons/Room-96.png" class="png-icon">
+                 ng-src="assets/img/icons/Control Panel-96.png" class="png-icon">
 
             <img ng-if="module.index !== undefined"
                  ng-src='{{"assets/img/icons/modules/black/" + roomModules[module.index].iconUrl}}' class="png-icon">
@@ -44,6 +44,9 @@
             </md-button>
         </div>
 
+        <md-button class="md-fab settings-fab-button" aria-label="Bestätigen" ng-click="">
+            <img ng-src="assets/img/icons/Checkmark-96.png" class="png-icon">
+        </md-button>
         <!--
 
         <md-list>

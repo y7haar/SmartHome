@@ -121,15 +121,15 @@
             </div>
 
             <!-- middle view 33% Room Config -->
-            <div ng-if="selectedTabIndex == adminTabIndex && getSelectedAdminIndex() == 1 && !isXs()" layout="column" flex-sm="50" flex-md="auto" flex-gt-md="auto">
+            <md-content ng-if="selectedTabIndex == adminTabIndex && getSelectedAdminIndex() == 1 && !isXs()" layout="column" flex-sm="50" flex-md="auto" flex-gt-md="auto">
                 <room-configuration></room-configuration>
-            </div>
+            </md-content>
 
             <!-- seperator-->
             <div hide show-gt-md class="vertical-divider"></div>
 
             <!-- right view  33%-->
-            <div ng-if="selectedTabIndex == adminTabIndex && getSelectedAdminIndex() == 1 && isEditingRoom() && isGtMd()" layout="column" flex-gt-md="auto">
+            <div ng-if="selectedTabIndex == adminTabIndex && getSelectedAdminIndex() == 1 && (isEditingRoom() || isAddingRoom()) && isGtMd()" layout="column" flex-gt-md="auto">
                 <new-room room="getRoomToEdit()" style="position:relative" flex></new-room>
             </div>
         </div>

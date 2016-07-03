@@ -2,16 +2,16 @@
 <div class="module stage1" ng-hide="expanded">
     <div class='md-padding'>
         <div layout="row" layout-wrap>
-            <div layout="row" ng-repeat="light in lights" flex="33" layout-align="space-around center">
+            <div layout="row" ng-repeat="light in ::lights" flex="33" layout-align="space-around center">
 
-                <md-button class="no-margin" aria-label={{light.name}} ng-click="lightClicked($event, light.id)">
+                <md-button class="no-margin" aria-label={{::light.name}} ng-click="lightClicked($event, light.id)">
                     <div ng-if="light.isOn">
                         <img align="center" class="png-icon" src="assets/img/icons/Light On-96.png" flex="30">
-                        <span class="font-green" flex="70">{{ light.name }}</span>
+                        <span class="font-green" flex="70">{{::light.name }}</span>
                     </div>
                     <div ng-if="!light.isOn" align="center">
                         <img align="center" class="png-icon" src="assets/img/icons/Light Off-96.png" flex="30">
-                        <span flex="70">{{ light.name }}</span>
+                        <span flex="70">{{::light.name }}</span>
                     </div>
                 </md-button>
             </div>
@@ -22,7 +22,7 @@
 
 <!-- extended controls-->
 <div flex class="module stage2" slide-toggle="expanded">
-    <div ng-repeat="light in lights">
+    <div ng-repeat="light in ::lights">
         <!--
                 <div layout="row" layout-align="space-between center">
                     <span flex="75" >{{ light.name}}</span>
@@ -34,15 +34,15 @@
         <div layout="row" layout-align="space-between center">
 
             <div layout="row" layout-align="center center">
-                <md-button class="no-margin" aria-label={{light.name}}
+                <md-button class="no-margin" aria-label={{::light.name}}
                            ng-click="lightClicked($event, light.id)">
                     <div ng-if="light.isOn">
                         <img align="center" class="png-icon" src="assets/img/icons/Light On-96.png">
-                        <span class="font-green">{{ light.name }}</span>
+                        <span class="font-green">{{::light.name }}</span>
                     </div>
                     <div ng-if="!light.isOn">
                         <img align="center" class="png-icon" src="assets/img/icons/Light Off-96.png">
-                        <span>{{ light.name }}</span>
+                        <span>{{::light.name }}</span>
                     </div>
                 </md-button>
             </div>
@@ -50,7 +50,7 @@
             <md-slider class="md-primary" flex="50" min="0" max="100" ng-model="light.dimState" aria-label="dimState"
                        id=""></md-slider>
 
-            <span flex="15">{{ light.dimState}} %</span>
+            <span flex="15">{{light.dimState}} %</span>
         </div>
 
         <div layout="row" layout-align="end center" style="width:200px;">
