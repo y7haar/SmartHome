@@ -17,6 +17,48 @@ var Storage = function () {
             country: "Kaufland"
         },
 
+        centralHeaterSettings:{
+            timeStates:[
+                {
+                    id:0,
+                    name:"Tag",
+                    from:{
+                        hour:6,
+                        min:0
+                    },
+                    to:{
+                        hour:21,
+                        min:59
+                    }
+                },
+                {
+                    id:1,
+                    name:"Nacht",
+                    from:{
+                        hour:22,
+                        min:0
+                    },
+                    to:{
+                        hour:5,
+                        min:59
+                    }
+                }
+            ],
+            modes:[
+                {
+                    id:0,
+                    name:"Auto 1",
+                    temperature:[20,17]
+                },
+                {
+                    id:1,
+                    name:"Auto 2",
+                    temperature:[23,15]
+                }
+            ]
+
+        },
+
         roomModules: [
 
 
@@ -249,7 +291,11 @@ var Storage = function () {
         ];
 
         return types;
-    }
+    };
+
+    this.getCentralHeaterSettings = function () {
+        return this.getHelper("centralHeaterSettings");
+    };
 };
 
 Storage.getInstance = function () {
