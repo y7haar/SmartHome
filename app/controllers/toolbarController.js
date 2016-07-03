@@ -36,9 +36,6 @@ mainApp.controller("toolbarCtrl", function ($scope, $state, $timeout, mainServic
     $scope.showWashingMachineNotification = false;
 
     $scope.toggleNotificationBar = function() {
-
-        $scope.user.name="test";
-
         $timeout.cancel(closing);
 
         if($scope.isNotificationBarShown) {

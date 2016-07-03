@@ -5,24 +5,24 @@
         <div layout="row" layout-wrap>
             <div layout="row" stlye="max-width:100%" ng-repeat="consumer in consumers" flex="33" layout-align="space-around center">
 
-                <md-button class="no-margin" aria-label={{consumer.name}} ng-click="consumerClicked(consumer.id)">
+                <md-button class="no-margin" aria-label={{::consumer.name}} ng-click="consumerClicked(consumer.id)">
                     
                     <div ng-if="consumer.isOn && consumer.isSwitchOffAble" style="word-wrap: break-word;">
                         <img align="center" class="png-icon" src="assets/img/icons/Flash On-96.png" flex>
-                        <span style="word-wrap: break-word;" class="font-green" flex="70">{{consumer.name}}</span>
+                        <span style="word-wrap: break-word;" class="font-green" flex="70">{{::consumer.name}}</span>
                     </div>
                     <div ng-if="consumer.isOn && !consumer.isSwitchOffAble" style="word-wrap: break-word;">
                         <img align="center" class="png-icon" src="assets/img/icons/Flash Always On-96.png" flex>
-                        <span style="word-wrap: break-word;" class="font-green" flex="70">{{consumer.name}}</span>
+                        <span style="word-wrap: break-word;" class="font-green" flex="70">{{::consumer.name}}</span>
                     </div>
                     
                     <div ng-if="!consumer.isOn && consumer.isSwitchOffAble" align="center" style="word-wrap: break-word;">
                         <img align="center" class="png-icon" src="assets/img/icons/Flash Off-96.png" flex>
-                        <span style="word-wrap: break-word;" flex="70">{{consumer.name}}</span>
+                        <span style="word-wrap: break-word;" flex="70">{{::consumer.name}}</span>
                     </div>
                     <div ng-if="!consumer.isOn && !consumer.isSwitchOffAble" align="center" style="word-wrap: break-word;">
                         <img align="center" class="png-icon" src="assets/img/icons/Flash Always Off-96.png" flex>
-                        <span style="word-wrap: break-word;" flex="70">{{consumer.name}}</span>
+                        <span style="word-wrap: break-word;" flex="70">{{::consumer.name}}</span>
                     </div>
                 </md-button>
             </div>
@@ -35,24 +35,24 @@
 <!-- extended controls-->
 <div class="module stage2" slide-toggle="expanded">
     <div ng-repeat="consumer in consumers" layout="row" layout-align="space-between center" style="margin-left: 15px; margin-right:15px;">
-        <md-button class="no-margin" aria-label={{consumer.name}} ng-click="consumerClicked(consumer.id)">
+        <md-button class="no-margin" aria-label={{::consumer.name}} ng-click="consumerClicked(consumer.id)">
 
             <div ng-if="consumer.isOn && consumer.isSwitchOffAble"  >
                 <img align="center" class="png-icon" src="assets/img/icons/Flash On-96.png" >
-                <span  class="font-green" >{{consumer.name}}</span>
+                <span  class="font-green" >{{::consumer.name}}</span>
             </div>
             <div ng-if="consumer.isOn && !consumer.isSwitchOffAble">
                 <img align="center" class="png-icon" src="assets/img/icons/Flash Always On-96.png" >
-                <span  class="font-green" >{{consumer.name}}</span>
+                <span  class="font-green" >{{::consumer.name}}</span>
             </div>
 
             <div ng-if="!consumer.isOn && consumer.isSwitchOffAble" align="center" >
                 <img align="center" class="png-icon" src="assets/img/icons/Flash Off-96.png" >
-                <span >{{consumer.name}}</span>
+                <span >{{::consumer.name}}</span>
             </div>
             <div ng-if="!consumer.isOn && !consumer.isSwitchOffAble" align="center">
                 <img align="center" class="png-icon" src="assets/img/icons/Flash Always Off-96.png" >
-                <span  >{{consumer.name}}</span>
+                <span  >{{::consumer.name}}</span>
             </div>
         </md-button>
 

@@ -74,6 +74,10 @@ mainApp.controller("settingsCtrl", function ($scope, $mdMedia, $mdDialog, settin
         return settingsService.editingRoom;
     };
 
+    $scope.isAddingRoom = function() {
+        return settingsService.addingRoom;
+    };
+
     settingsService.setSelectedAdminIndex($scope.isXs() ? undefined : 0);
 
 });

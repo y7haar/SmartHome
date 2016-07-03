@@ -50,7 +50,7 @@
                     </md-tab>
 
 
-                    <md-tab ng-repeat="room in ::rooms">
+                    <md-tab ng-repeat="room in ::rooms track by $index">
                         <md-tab-label>
                             <img ng-src='{{"assets/img/icons/rooms/white/" + room.iconUrl}}' class="tab-icon" alt={{::room.name}}>
                         </md-tab-label>

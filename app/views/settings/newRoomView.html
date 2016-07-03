@@ -13,16 +13,16 @@
         <div layout="row" layout-align="start center">
             <md-input-container flex="grow">
                 <md-select ng-model="room.type" placeholder="Raumtyp">
-                    <md-option ng-value="type.name" ng-repeat="type in roomTypes">{{ type.name }}</md-option>
+                    <md-option ng-value="roomType.name" ng-repeat="roomType in roomTypes">{{roomType.name}}</md-option>
                 </md-select>
 
             </md-input-container>
 
-            <img ng-if="selectedTypeIndex === undefined"
+            <img ng-if="room.type === undefined"
                  ng-src="assets/img/icons/Room-96.png" class="png-icon">
 
-            <img ng-if="selectedTypeIndex !== undefined"
-                 ng-src='{{"assets/img/icons/rooms/black/" + roomTypes[selectedTypeIndex].iconUrl}}' class="png-icon">
+            <img ng-if="room.type !== undefined"
+                 ng-src='{{"assets/img/icons/rooms/black/" + roomTypesByName[room.type]}}' class="png-icon">
         </div>
 
         <md-list>
@@ -32,14 +32,24 @@
 
             <md-list-item class="md-1-line settings-list-item" ng-class="($index==selectedModuleIndex) ? 'active' : ''"
                           ng-repeat="module in room.modules">
-                <div class="md-list-item-text" layout="row" layout-align="center center" flex>
+                <div class="md-list-item-text" layout="row" layout-align="center center" flex="grow">
                     <img ng-src='{{"assets/img/icons/modules/black/" + module.iconUrl}}'
                          class="png-icon">
                     <h4 flex>{{module.displayName}}</h4>
 
-                    <button class="md-icon-button button-inside-list no-focus" ng-if="module.hasComponents">
-                        <img ng-src="assets/img/icons/Add Property-96.png" class="png-icon" ng-click="">
-                    </button>
+
+                    <div flex="nogrow" layout="row">
+
+
+                        <button class="md-icon-button button-inside-list no-focus" ng-if="module.hasComponents"
+                                ng-click="editRoom($index)">
+                            <img ng-src="assets/img/icons/Edit-96.png" class="png-icon">
+                        </button>
+
+                        <button class="md-icon-button button-inside-list no-focus" ng-click="deleteModule($index)">
+                            <img ng-src="assets/img/icons/Delete-black.png" class="png-icon">
+                        </button>
+                    </div>
                 </div>
                 <md-divider></md-divider>
             </md-list-item>

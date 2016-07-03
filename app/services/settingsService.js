@@ -10,7 +10,6 @@ mainApp.service("settingsService", [
         this.rooms = storage.getRooms();
         this.roomModules = storage.getRoomModules();
 
-        
 
         for(var i = 0;i < this.roomModules.length;++i) {
             var rooms = storage.getRoomsWithModuleById(this.roomModules[i].id);
@@ -55,21 +54,30 @@ mainApp.service("settingsService", [
             this.selectedRoom = this.rooms[index];
         };
 
-        for(var room = 0;room < this.rooms.length;++room) {
-            this.rooms[room].modulesLeft = [];
-            this.rooms[room].modulesRight = [];
+        this.updateRoomModules = function () {
+            for(var room = 0;room < this.rooms.length;++room) {
+                this.rooms[room].modulesLeft = [];
+                this.rooms[room].modulesRight = [];
 
-            for(var module = 0;module < this.rooms[room].modules.length;++module) {
+                for(var module = 0;module < this.rooms[room].modules.length;++module) {
 
-                if(module % 2 != 0) {
-                    this.rooms[room].modulesLeft.push(this.rooms[room].modules[module]);
-                }
+                    if(module % 2 != 0) {
+                        this.rooms[room].modulesLeft.push(this.rooms[room].modules[module]);
+                    }
 
-                else {
-                    this.rooms[room].modulesRight.push(this.rooms[room].modules[module]);
+                    else {
+                        this.rooms[room].modulesRight.push(this.rooms[room].modules[module]);
+                    }
                 }
             }
-        }
+        };
+
+        this.saveAllRooms = function() {
+            storage.saveRooms(this.rooms);
+        };
+
+
+        this.updateRoomModules();
 
     }]
 );
