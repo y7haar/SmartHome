@@ -8,7 +8,8 @@
 mainApp.controller("heaterCtrl", function ($scope) {
 
     var centralHeaterSettings = Storage.getInstance().getCentralHeaterSettings();
-
+    
+    $scope.timeStates = centralHeaterSettings.timeStates;
     $scope.currentTimeState = calcCurrentTimeState(centralHeaterSettings.timeStates);
     $scope.modes = centralHeaterSettings.modes;
 
@@ -36,23 +37,23 @@ mainApp.controller("heaterCtrl", function ($scope) {
     //-------------------
 
 
-
     //$scope.currentMode = 1;
     //$scope.currentTemp = $scope.modes[$scope.models.currentMode].temperature[$scope.timeState];
 
     var lockTempWatch = true;
 
-    var watchGroupExpression = [];
-    for(var i =0; i< $scope.modes[$scope.models.currentMode].temperature.length; ++i)
-        watchGroupExpression.push('models.currentTemp['+i+']');
+    //watches
 
-    $scope.$watchGroup(watchGroupExpression, function (newValue) {
-        console.log(newValue);
-        $scope.models.currentTemp[$scope.models.currentMode] = newValue;
-        if (!lockTempWatch)
-            $scope.models.currentMode = userDefinedId;
-        lockTempWatch = false;
-    });
+    for(var i = 0; i< $scope.timeStates.length;++i){
+        $scope.$watch('models.currentTemp['+i+']', function (newValue) {
+            $scope.models.currentTemp[i] = newValue;
+            if (!lockTempWatch)
+                $scope.models.currentMode = userDefinedId;
+            lockTempWatch = false;
+        });
+    }
+
+
 
     $scope.$watch('models.currentMode', function (newValue) {
         $scope.models.currentMode = newValue;

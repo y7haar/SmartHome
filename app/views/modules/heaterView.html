@@ -2,14 +2,14 @@
     <div>
         <div layout="column" layout-align="start start">
             <md-card-title>
-                <h2>Temperatur - {{timeStateNames[models.currentMode]}} {{ models.currentTemp[models.currentMode]}}°</h2>
+                <h2>Temperatur - {{timeStateNames[currentTimeState]}} {{ models.currentTemp[currentTimeState]}}°</h2>
             </md-card-title>
         </div>
 
         <div layout="row" layout-align="space-between center" flex="95" style="margin-left:5px">
             <img class="png-icon" src="assets/img/icons/Temperature-96.png">
             <md-slider flex="90" class="md-primary" aria-label="Temperatureinstellung" min={{minTemp}} max={{maxTemp}}
-                       ng-model="models.currentTemp[models.currentMode]">
+                       ng-model="models.currentTemp[currentTimeState]">
             </md-slider>
         </div>
     </div>
@@ -26,7 +26,7 @@
 <!-- extended controls-->
 <div flex class="module stage2" slide-toggle="expanded">
 
-    <div >
+    <div ng-repeat="timeState in timeStates track by timeState.id">
         <div layout="column" layout-align="start start">
             <md-card-title>
                 <h2>Temperatur - {{timeStateNames[timeState]}} {{ models.currentTemp[timeState]}}°</h2>
@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <div layout="row" layout-align="end center" ng-if="!expanded">
+    <div layout="row" layout-align="end center">
         <md-select ng-model="models.currentMode" flex="50" aria-label="Modus Auswahl" style="margin: 0px 10px 10px 20px;">
             <md-option ng-repeat="mode in modes track by mode.id" value="{{mode.id}}" aria-label="Szene {{mode.name}}">
                 {{mode.name}}
@@ -49,22 +49,15 @@
         </md-select>
     </div>
 
-    <div layout="row" layout-align="end center" ng-if="expanded">
-        <md-select ng-model="models.currentMode" flex="50" aria-label="Modus Auswahl" style="margin: 0px 10px 10px 20px; " >
-            <md-option ng-repeat="mode in modes track by mode.id" value="{{mode.id}}"   aria-label="Szene {{mode.name}}">
-                {{mode.name}}
-            </md-option>
-        </md-select>
-    </div>
     <md-divider style="margin-top:10px; margin-bottom: 10px;"></md-divider>
     <div layout="row" layout-align="space-between center">
         <span flex="33" style="padding-left:10px;">Boost</span>
         <div flex="66" layout="row" layout-align="center center">
-            <md-button class="md-raised margin-right-20 md-accent" ng-click="" aria-label="Heizung boos zehn minuten"
+            <md-button class="md-raised margin-right-20 md-accent" ng-click="" aria-label="Heizung boost zehn minuten"
                        flex="30">
                 10 MIN
             </md-button>
-            <md-button class="md-raised margin-right-20 md-accent" ng-click="" aria-label="Heizung boos 30 minuten"
+            <md-button class="md-raised margin-right-20 md-accent" ng-click="" aria-label="Heizung boost 30 minuten"
                        flex="30">
                 30 MIN
             </md-button>
