@@ -9,7 +9,7 @@ mainApp.controller("heaterCtrl", function ($scope) {
 
     var centralHeaterSettings = Storage.getInstance().getCentralHeaterSettings();
     
-    $scope.timeStates = centralHeaterSettings.timeStates;
+    //$scope.timeStates = centralHeaterSettings.timeStates;
     $scope.currentTimeState = calcCurrentTimeState(centralHeaterSettings.timeStates);
     $scope.modes = centralHeaterSettings.modes;
 
@@ -19,11 +19,12 @@ mainApp.controller("heaterCtrl", function ($scope) {
 
     //workaround for ng-if new scope creating
     $scope.models = {
+        timeStates : centralHeaterSettings.timeStates,
         currentMode: 0,
         currentTemp: []
     };
-    for(var i =0; i< $scope.modes[$scope.models.currentMode].temperature.length; ++i)
-        $scope.models.currentTemp[i] = $scope.modes[$scope.models.currentMode].temperature[i];
+    for(var j =0; j< $scope.modes[$scope.models.currentMode].temperature.length; ++j)
+        $scope.models.currentTemp[j] = $scope.modes[$scope.models.currentMode].temperature[j];
 
     $scope.minTemp = 0;
     $scope.maxTemp = 30;
@@ -40,29 +41,40 @@ mainApp.controller("heaterCtrl", function ($scope) {
     //$scope.currentMode = 1;
     //$scope.currentTemp = $scope.modes[$scope.models.currentMode].temperature[$scope.timeState];
 
-    var lockTempWatch = true;
-
-    //watches
-
-    for(var i = 0; i< $scope.timeStates.length;++i){
-        $scope.$watch('models.currentTemp['+i+']', function (newValue) {
-            $scope.models.currentTemp[i] = newValue;
-            if (!lockTempWatch)
-                $scope.models.currentMode = userDefinedId;
-            lockTempWatch = false;
-        });
-    }
+    var lockTempWatch = 1;
 
 
+    $scope.$watchCollection("models.currentTemp", function (newValue) {
 
-    $scope.$watch('models.currentMode', function (newValue) {
-        $scope.models.currentMode = newValue;
-
-        if ($scope.models.currentMode != userDefinedId) {
-            for(var i =0; i< $scope.modes[$scope.models.currentMode].temperature.length; ++i)
-                $scope.models.currentTemp[i] = $scope.modes[$scope.models.currentMode].temperature[i];
-            lockTempWatch = true;
+        for (var i = 0; i < $scope.modes.length - 1; ++i) {
+            if (arraysEqual($scope.modes[i].temperature, newValue))
+            {
+                $scope.models.currentMode = $scope.modes[i].id;
+                lockTempWatch =1;
+                break;
+            }
         }
+
+        if (lockTempWatch <= 0)
+            $scope.models.currentMode = userDefinedId;
+
+        lockTempWatch = $scope.expanded ? lockTempWatch - $scope.models.timeStates.length : 0;
+
+    });
+
+
+    $scope.$watch('models.currentMode', function () {
+        var tempTemp = [];
+        if ($scope.models.currentMode != userDefinedId) {
+            for(var i =0; i< $scope.modes[$scope.models.currentMode].temperature.length; ++i){
+                tempTemp[i] = $scope.models.currentTemp[i];
+                $scope.models.currentTemp[i] = $scope.modes[$scope.models.currentMode].temperature[i];
+            }
+
+        }
+
+        if(!arraysEqual(tempTemp, $scope.models.currentTemp))
+            lockTempWatch = $scope.expanded ? $scope.models.timeStates.length : 1;
     });
 
 
@@ -91,8 +103,20 @@ mainApp.controller("heaterCtrl", function ($scope) {
             }
         }
         return timeStateID;
+    }
 
-    };
+    function arraysEqual(arr1, arr2) {
+        if(arr1.length !== arr2.length)
+            return false;
+        for(var i = arr1.length; i--;) {
+            if(arr1[i] !== arr2[i])
+                return false;
+        }
+
+        return true;
+    }
+
+    //console.log($scope);
 
 
 });

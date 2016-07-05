@@ -3,7 +3,7 @@
  */
 
 mainApp.controller("lightCtrl", function ($scope){
-
+    console.log("LICHT TEST");
 
     $scope.lights = [
         {
