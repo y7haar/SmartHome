@@ -17,43 +17,43 @@ var Storage = function () {
             country: "Kaufland"
         },
 
-        centralHeaterSettings:{
-            timeStates:[
+        centralHeaterSettings: {
+            timeStates: [
                 {
-                    id:0,
-                    name:"Tag",
-                    from:{
-                        hour:6,
-                        min:0
+                    id: 0,
+                    name: "Tag",
+                    from: {
+                        hour: 6,
+                        min: 0
                     },
-                    to:{
-                        hour:21,
-                        min:59
+                    to: {
+                        hour: 21,
+                        min: 59
                     }
                 },
                 {
-                    id:1,
-                    name:"Nacht",
-                    from:{
-                        hour:22,
-                        min:0
+                    id: 1,
+                    name: "Nacht",
+                    from: {
+                        hour: 22,
+                        min: 0
                     },
-                    to:{
-                        hour:5,
-                        min:59
+                    to: {
+                        hour: 5,
+                        min: 59
                     }
                 }
             ],
-            modes:[
+            modes: [
                 {
-                    id:0,
-                    name:"Automatisch",
-                    temperature:[20,17]
+                    id: 0,
+                    name: "Automatisch",
+                    temperature: [20, 17]
                 },
                 {
-                    id:1,
-                    name:"Komforttemperatur",
-                    temperature:[23,15]
+                    id: 1,
+                    name: "Komforttemperatur",
+                    temperature: [23, 15]
                 }
             ]
 
@@ -62,26 +62,50 @@ var Storage = function () {
         roomModules: [
 
 
-            {id: 1, displayName: "Multi Room Audio", name: "multiRoomAudio", iconUrl: "Music-96.png",
-                hasComponents:false, description: "Mit dem Multi Room Audio Modul können Sie Musik in dem aktuellen Raum abspielen. Synchronisieren Sie Ihre Lieblingslieder in gewünschten Räumen."},
+            {
+                id: 1,
+                displayName: "Multi Room Audio",
+                name: "multiRoomAudio",
+                iconUrl: "Music-96.png",
+                hasComponents: false,
+                description: "Mit dem Multi Room Audio Modul können Sie Musik in dem aktuellen Raum abspielen. Synchronisieren Sie Ihre Lieblingslieder in gewünschten Räumen."
+            },
 
-            {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png",
-                hasComponents:true, componentName: "Licht",description: "Dieses Modul steuert all Ihre Lichter in dem aktuellen Raum."},
+            {
+                id: 2,
+                displayName: "Licht",
+                name: "light",
+                iconUrl: "Light On-96.png",
+                hasComponents: true,
+                componentName: "Licht",
+                description: "Dieses Modul steuert all Ihre Lichter in dem aktuellen Raum."
+            },
 
-            {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png",
-                hasComponents:true, componentName:"Fenster" ,description: "Automatisieren Sie die Steuerung der Jalousien mithilfe dieses Moduls."},
+            {
+                id: 3,
+                displayName: "Jalousien",
+                name: "blinds",
+                iconUrl: "General Blind-96.png",
+                hasComponents: true,
+                componentName: "Fenster",
+                description: "Automatisieren Sie die Steuerung der Jalousien mithilfe dieses Moduls."
+            },
 
-            {id: 4, displayName: "Backofen", name: "oven", iconUrl: "Cooker-96.png",
-                hasComponents:false, description: "Erweitern Sie Ihre Küche um einen Backofen mit automatischem Timer."},
+            {
+                id: 4, displayName: "Backofen", name: "oven", iconUrl: "Cooker-96.png",
+                hasComponents: false, description: "Erweitern Sie Ihre Küche um einen Backofen mit automatischem Timer."
+            },
 
-            {id: 5, displayName: "Waschmaschine", name: "washingMachine", iconUrl: "Washing Machine-96.png",
-                hasComponents:false, description: "Eine Steuerung zur Überwachung Ihrer Waschmaschine."},
+            {
+                id: 5, displayName: "Waschmaschine", name: "washingMachine", iconUrl: "Washing Machine-96.png",
+                hasComponents: false, description: "Eine Steuerung zur Überwachung Ihrer Waschmaschine."
+            },
             {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Temperature-96.png"},
             {id: 7, displayName: "Verbraucher", name: "consumer", iconUrl: "Temperature-96.png"}
 
-            
+
         ],
-        
+
         house: {
             name: "Haus",
             roomImageUrl: "assets/img/room_images/haus.png",
@@ -96,66 +120,233 @@ var Storage = function () {
 
         rooms: [
             {
-                iconUrl: "Kitchen-96.png", name: "Küche", type:"Küche", roomImageUrl: "assets/img/room_images/kueche.png",
+                iconUrl: "Kitchen-96.png",
+                name: "Küche",
+                type: "Küche",
+                roomImageUrl: "assets/img/room_images/kueche.png",
                 modules: [
-                    {id: 1, displayName: "Multi Room Audio", name: "multiRoomAudio", iconUrl: "Music-96.png", hasComponents:false},
-                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents:true},
-                    {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png", hasComponents:true},
-                    {id: 4, displayName: "Backofen", name: "oven", iconUrl: "Cooker-96.png", hasComponents:false},
+                    {
+                        id: 1,
+                        displayName: "Multi Room Audio",
+                        name: "multiRoomAudio",
+                        iconUrl: "Music-96.png",
+                        hasComponents: false
+                    },
+                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents: true},
+                    {
+                        id: 3,
+                        displayName: "Jalousien",
+                        name: "blinds",
+                        iconUrl: "General Blind-96.png",
+                        hasComponents: true
+                    },
+                    {id: 4, displayName: "Backofen", name: "oven", iconUrl: "Cooker-96.png", hasComponents: false},
                     {id: 5, displayName: "Heizung", name: "heater", iconUrl: "Temperature-96.png"},
                     {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Temperature-96.png"},
                     {id: 7, displayName: "Verbraucher", name: "consumer", iconUrl: "Temperature-96.png"}
                 ]
             },
-            
-            {iconUrl: "Living Room-96.png", name: "Wohnzimmer", type:"Wohnzimmer",roomImageUrl: "assets/img/room_images/wohnzimmer.png",
+
+            {
+                iconUrl: "Living Room-96.png",
+                name: "Wohnzimmer",
+                type: "Wohnzimmer",
+                roomImageUrl: "assets/img/room_images/wohnzimmer.png",
                 modules: [
-                    {id: 1, displayName: "Multi Room Audio", name: "multiRoomAudio", iconUrl: "Music-96.png", hasComponents:false},
-                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents:true},
-                    {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png", hasComponents:true}
-                ]},
-            {iconUrl: "Shower and Tub-96.png", name: "Bad", type:"Badezimmer",roomImageUrl: "assets/img/room_images/badezimmer.png",
+                    {
+                        id: 1,
+                        displayName: "Multi Room Audio",
+                        name: "multiRoomAudio",
+                        iconUrl: "Music-96.png",
+                        hasComponents: false
+                    },
+                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents: true},
+                    {
+                        id: 3,
+                        displayName: "Jalousien",
+                        name: "blinds",
+                        iconUrl: "General Blind-96.png",
+                        hasComponents: true
+                    }
+                ]
+            },
+            {
+                iconUrl: "Shower and Tub-96.png",
+                name: "Bad",
+                type: "Badezimmer",
+                roomImageUrl: "assets/img/room_images/badezimmer.png",
                 modules: [
-                    {id: 1, displayName: "Multi Room Audio", name: "multiRoomAudio", iconUrl: "Music-96.png", hasComponents:false},
-                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents:true},
-                    {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png", hasComponents:true}
-                ]},
-            {iconUrl: "Bedroom-96.png", name: "Schlafzimmer", type:"Schlafzimmer",roomImageUrl: "assets/img/room_images/schlafzimmer.png",
+                    {
+                        id: 1,
+                        displayName: "Multi Room Audio",
+                        name: "multiRoomAudio",
+                        iconUrl: "Music-96.png",
+                        hasComponents: false
+                    },
+                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents: true},
+                    {
+                        id: 3,
+                        displayName: "Jalousien",
+                        name: "blinds",
+                        iconUrl: "General Blind-96.png",
+                        hasComponents: true
+                    }
+                ]
+            },
+            {
+                iconUrl: "Bedroom-96.png",
+                name: "Schlafzimmer",
+                type: "Schlafzimmer",
+                roomImageUrl: "assets/img/room_images/schlafzimmer.png",
                 modules: [
-                    {id: 1, displayName: "Multi Room Audio", name: "multiRoomAudio", iconUrl: "Music-96.png", hasComponents:false},
-                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents:true},
-                    {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png", hasComponents:true}
-                ]},
-            {iconUrl: "Teddy Bear-96.png", name: "Kinderzimmer", type:"Kinderzimmer",roomImageUrl: "assets/img/room_images/kinderzimmer.png",
+                    {
+                        id: 1,
+                        displayName: "Multi Room Audio",
+                        name: "multiRoomAudio",
+                        iconUrl: "Music-96.png",
+                        hasComponents: false
+                    },
+                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents: true},
+                    {
+                        id: 3,
+                        displayName: "Jalousien",
+                        name: "blinds",
+                        iconUrl: "General Blind-96.png",
+                        hasComponents: true
+                    }
+                ]
+            },
+            {
+                iconUrl: "Teddy Bear-96.png",
+                name: "Kinderzimmer",
+                type: "Kinderzimmer",
+                roomImageUrl: "assets/img/room_images/kinderzimmer.png",
                 modules: [
-                    {id: 1, displayName: "Multi Room Audio", name: "multiRoomAudio", iconUrl: "Music-96.png", hasComponents:false},
-                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents:true},
-                    {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png", hasComponents:true}
-                ]},
-            {iconUrl: "Movie Projector-96.png", name: "Hobbyraum", type:"Multimediaraum",roomImageUrl: "assets/img/room_images/hobbyraum.png",
+                    {
+                        id: 1,
+                        displayName: "Multi Room Audio",
+                        name: "multiRoomAudio",
+                        iconUrl: "Music-96.png",
+                        hasComponents: false
+                    },
+                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents: true},
+                    {
+                        id: 3,
+                        displayName: "Jalousien",
+                        name: "blinds",
+                        iconUrl: "General Blind-96.png",
+                        hasComponents: true
+                    }
+                ]
+            },
+            {
+                iconUrl: "Movie Projector-96.png",
+                name: "Hobbyraum",
+                type: "Multimediaraum",
+                roomImageUrl: "assets/img/room_images/hobbyraum.png",
                 modules: [
-                    {id: 1, displayName: "Multi Room Audio", name: "multiRoomAudio", iconUrl: "Music-96.png", hasComponents:false},
-                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents:true},
-                    {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png", hasComponents:true}
-                ]},
-            {iconUrl: "Laptop-96.png", name: "Büro", type:"Arbeitszimmer", roomImageUrl: "assets/img/room_images/buero.png",
+                    {
+                        id: 1,
+                        displayName: "Multi Room Audio",
+                        name: "multiRoomAudio",
+                        iconUrl: "Music-96.png",
+                        hasComponents: false
+                    },
+                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents: true},
+                    {
+                        id: 3,
+                        displayName: "Jalousien",
+                        name: "blinds",
+                        iconUrl: "General Blind-96.png",
+                        hasComponents: true
+                    }
+                ]
+            },
+            {
+                iconUrl: "Laptop-96.png",
+                name: "Büro",
+                type: "Arbeitszimmer",
+                roomImageUrl: "assets/img/room_images/buero.png",
                 modules: [
-                    {id: 1, displayName: "Multi Room Audio", name: "multiRoomAudio", iconUrl: "Music-96.png", hasComponents:false},
-                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents:true},
-                    {id: 3, displayName: "Jalousien", name: "blinds", iconUrl: "General Blind-96.png", hasComponents:true}
-                ]},
-            {iconUrl: "Washing Machine-96.png", name: "Waschraum", type:"Waschraum" ,roomImageUrl: "assets/img/room_images/waschraum.png",
+                    {
+                        id: 1,
+                        displayName: "Multi Room Audio",
+                        name: "multiRoomAudio",
+                        iconUrl: "Music-96.png",
+                        hasComponents: false
+                    },
+                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents: true},
+                    {
+                        id: 3,
+                        displayName: "Jalousien",
+                        name: "blinds",
+                        iconUrl: "General Blind-96.png",
+                        hasComponents: true
+                    }
+                ]
+            },
+            {
+                iconUrl: "Washing Machine-96.png",
+                name: "Waschraum",
+                type: "Waschraum",
+                roomImageUrl: "assets/img/room_images/waschraum.png",
                 modules: [
-                    {id: 1, displayName: "Multi Room Audio", name: "multiRoomAudio", iconUrl: "Music-96.png", hasComponents:false},
-                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents:true},
-                    {id: 5, displayName: "Waschmaschine", name: "washingMachine", iconUrl: "Washing Machine-96.png", hasComponents:false}
-                ]}
+                    {
+                        id: 1,
+                        displayName: "Multi Room Audio",
+                        name: "multiRoomAudio",
+                        iconUrl: "Music-96.png",
+                        hasComponents: false
+                    },
+                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents: true},
+                    {
+                        id: 5,
+                        displayName: "Waschmaschine",
+                        name: "washingMachine",
+                        iconUrl: "Washing Machine-96.png",
+                        hasComponents: false
+                    }
+                ]
+            }
         ],
 
         users: [
-            {id:0, name: "Martin", isAdmin:true, hasSettingsPrivileges:true, profileUrl: "./assets/img/people_images/image02.png", pin:"1234"},
-            {id:1, name: "Maria", isAdmin:false, hasSettingsPrivileges:true, profileUrl: "./assets/img/people_images/image03.png", pin:"1234"},
-            {id:2, name: "Jan-Leon", isAdmin:false, hasSettingsPrivileges:false, profileUrl: "./assets/img/people_images/image01.png", pin:"1234"}]
+            {
+                id: 0,
+                name: "Martin",
+                isAdmin: true,
+                hasSettingsPrivileges: true,
+                profileUrl: "./assets/img/people_images/image02.png",
+                pin: "1234"
+            },
+            {
+                id: 1,
+                name: "Maria",
+                isAdmin: false,
+                hasSettingsPrivileges: true,
+                profileUrl: "./assets/img/people_images/image03.png",
+                pin: "1234"
+            },
+            {
+                id: 2,
+                name: "Jan-Leon",
+                isAdmin: false,
+                hasSettingsPrivileges: false,
+                profileUrl: "./assets/img/people_images/image01.png",
+                pin: "1234"
+            }],
+
+        scenes:[
+            {
+                name:"Party",
+                modules:[{
+                    id:1
+                }]
+
+            }
+        ]
+
+
     };
 
     for (var i = 0; i < this.defaults["rooms"].length; ++i) {
@@ -168,16 +359,16 @@ var Storage = function () {
 
     /*
 
-    for(var room = 0;room < this.defaults.rooms.length;++room) {
-        var currentRoom = this.defaults.rooms[room];
+     for(var room = 0;room < this.defaults.rooms.length;++room) {
+     var currentRoom = this.defaults.rooms[room];
 
-        for(var module=0;module < currentRoom.modules.length;++module) {
-            var currentModule = currentRoom.modules[module];
+     for(var module=0;module < currentRoom.modules.length;++module) {
+     var currentModule = currentRoom.modules[module];
 
 
-        }
-    }
-    */
+     }
+     }
+     */
 
 
     this.getHelper = function (key) {
@@ -228,29 +419,29 @@ var Storage = function () {
         return self.getByIdHelper("users", id);
     };
 
-    this.getRoomModules = function() {
+    this.getRoomModules = function () {
         return this.defaults.roomModules;
     };
 
-    this.getHouseSettings = function() {
+    this.getHouseSettings = function () {
         return this.getHelper("houseSettings");
     };
 
-    this.saveHouseSettings = function(settings) {
-      localStorage.setObject("houseSettings", settings);
+    this.saveHouseSettings = function (settings) {
+        localStorage.setObject("houseSettings", settings);
     };
 
-    this.saveRooms = function(rooms) {
+    this.saveRooms = function (rooms) {
         localStorage.setObject("rooms", rooms);
     };
-    
-    this.saveUser = function(user) {
+
+    this.saveUser = function (user) {
         var users = this.getUsers();
 
-        for(var i = 0;i < users.length;++i) {
+        for (var i = 0; i < users.length; ++i) {
             var current = users[i];
 
-            if(current.id === user.id) {
+            if (current.id === user.id) {
                 users[i] = user;
                 break;
             }
@@ -259,21 +450,21 @@ var Storage = function () {
         localStorage.setObject("users", users);
     };
 
-    this.getCountries = function() {
+    this.getCountries = function () {
         return ["Deutschland", "Kaufland", "Schlaraffenland"];
     };
 
-    this.getRoomsWithModuleById= function(moduleId) {
+    this.getRoomsWithModuleById = function (moduleId) {
         var rooms = this.getRooms();
         var result = [];
 
-        for(var i = 0;i < rooms.length;++i) {
+        for (var i = 0; i < rooms.length; ++i) {
             var room = rooms[i];
 
-            for(var m = 0;m < room.modules.length;++m) {
+            for (var m = 0; m < room.modules.length; ++m) {
                 var module = room.modules[m];
 
-                if(module.id === moduleId) {
+                if (module.id === moduleId) {
                     result.push(room);
                     break;
                 }
@@ -282,17 +473,17 @@ var Storage = function () {
         return result;
     };
 
-    this.getRoomTypes = function() {
+    this.getRoomTypes = function () {
         var types = [
-            {name:"Wohnzimmer", iconUrl:"Living Room-96.png"},
-            {name:"Küche", iconUrl:"Kitchen-96.png"},
-            {name:"Esszimmer", iconUrl:"Dining Room-96.png"},
-            {name:"Schlafzimmer", iconUrl:"Bedroom-96.png"},
-            {name:"Badezimmer", iconUrl:"Shower and Tub-96.png"},
-            {name:"Kinderzimmer", iconUrl:"Teddy Bear-96.png"},
-            {name:"Arbeitszimmer", iconUrl:"Laptop-96.png"},
-            {name:"Multimediaraum", iconUrl:"Movie Projector-96.png"},
-            {name:"Waschraum", iconUrl:"Washing Machine-96.png"}
+            {name: "Wohnzimmer", iconUrl: "Living Room-96.png"},
+            {name: "Küche", iconUrl: "Kitchen-96.png"},
+            {name: "Esszimmer", iconUrl: "Dining Room-96.png"},
+            {name: "Schlafzimmer", iconUrl: "Bedroom-96.png"},
+            {name: "Badezimmer", iconUrl: "Shower and Tub-96.png"},
+            {name: "Kinderzimmer", iconUrl: "Teddy Bear-96.png"},
+            {name: "Arbeitszimmer", iconUrl: "Laptop-96.png"},
+            {name: "Multimediaraum", iconUrl: "Movie Projector-96.png"},
+            {name: "Waschraum", iconUrl: "Washing Machine-96.png"}
         ];
 
         return types;

@@ -90,5 +90,21 @@ mainApp.controller("settingsCtrl", function ($scope, $mdMedia, $mdDialog, $state
     };
 
     settingsService.setSelectedAdminIndex($scope.isXs() ? undefined : 0);
+    
+    // Alex Kern
+
+    $scope.selectRoomForScene = function (index) {
+        settingsService.setSelectedRoomForSceneIndex(index);
+
+        if($scope.isXs())
+            $state.go("settingsSceneScenes", {roomId: index});
+    };
+
+    $scope.getScenes = function () {
+    };
+
+    $scope.getSelectedRoomForSceneIndex = function () {
+        return settingsService.selectedRoomForSceneIndex;
+    }
 
 });

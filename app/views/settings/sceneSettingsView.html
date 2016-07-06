@@ -1,0 +1,39 @@
+
+<settings-toolbar ng-if="mobile" title="'Hauseinstellungen'" abort-mode="back" abort-state="settings"></settings-toolbar>
+<settings-toolbar ng-if="!mobile" title="'Hauseinstellungen'"></settings-toolbar>
+
+<md-content class="md-padding" layout="column" flex="100">
+    <h1>YOOOOOOO</h1>
+    <!--
+    <form layout="column">
+        <md-input-container class="md-block">
+            <label>Straße</label>
+            <input type="text" ng-model="houseSettings.street" required>
+
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <label>Postleitzahl</label>
+            <input type="text" ng-model="houseSettings.zip" required>
+
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <label>Ort</label>
+            <input type="text" ng-model="houseSettings.location" required>
+
+        </md-input-container>
+
+        <md-input-container>
+            <md-select ng-model="houseSettings.country" placeholder="Bitte wählen Sie Ihr Land">
+                <md-option ng-value="country" ng-repeat="country in countries">{{ country }}</md-option>
+            </md-select>
+        </md-input-container>
+    </form>
+    -->
+</md-content>
+
+
+<md-button class="md-fab settings-fab-button" aria-label="Bestätigen" ng-click="saveSettings()">
+    <img ng-src="assets/img/icons/Checkmark-96.png" class="png-icon">
+</md-button>

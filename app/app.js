@@ -91,6 +91,13 @@ mainApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
                 "content": { templateUrl: "app/views/settings/settingsView.html", controller: "settingsCtrl"}
             }
         })
+        .state('settingsSceneScenes', {
+            url:'/settings/scene/scenes/:roomId',
+            views: {
+                "content": { template: "<scene-settings></scene-settings>"}
+            }
+        })
+
 
 }]);
 

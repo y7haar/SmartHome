@@ -54,6 +54,7 @@ mainApp.service("settingsService", [
             this.selectedRoomIndex = index;
             this.selectedRoom = this.rooms[index];
         };
+     
 
         this.setSelectedRoomWithHouseIndex = function(index) {
             this.selectedRoomWithHouseIndex = index;
@@ -98,6 +99,17 @@ mainApp.service("settingsService", [
 
 
         this.updateRoomModules();
+        
+        
+        
+        
+        // Alex K
+        
+        this.setSelectedRoomForSceneIndex = function(index) {
+            this.selectedRoomForSceneIndex = index;
+            this.selectedRoomForScene = this.rooms[index];
+        };
+
 
     }]
 );
