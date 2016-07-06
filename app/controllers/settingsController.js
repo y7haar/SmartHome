@@ -2,7 +2,7 @@
  * @author Yannic Siebenhaar
  */
 
-mainApp.controller("settingsCtrl", function ($scope, $mdMedia, $mdDialog, settingsService, mainService) {
+mainApp.controller("settingsCtrl", function ($scope, $mdMedia, $mdDialog, $state, settingsService, mainService) {
     $scope.isXs = function() {
         return $mdMedia("xs");
     };
@@ -32,6 +32,9 @@ mainApp.controller("settingsCtrl", function ($scope, $mdMedia, $mdDialog, settin
 
     $scope.selectRoom = function (index) {
         settingsService.setSelectedRoomWithHouseIndex(index);
+
+        if($scope.isXs())
+            $state.go("settingsRoomsDetail", {roomId: index});
     };
 
     $scope.selectModule = function (index) {
@@ -48,6 +51,9 @@ mainApp.controller("settingsCtrl", function ($scope, $mdMedia, $mdDialog, settin
         settingsService.setSelectedAdminIndex(0);
 
         if ($scope.isXs()) {
+            $state.go("settingsAdminHousesettings");
+
+            /*
             $mdDialog.show({
                 template: '<house-settings></house-settings>',
                 parent: angular.element(document.body),
@@ -55,6 +61,7 @@ mainApp.controller("settingsCtrl", function ($scope, $mdMedia, $mdDialog, settin
                 clickOutsideToClose: true,
                 fullscreen: true
             })
+            */
         }
     };
     

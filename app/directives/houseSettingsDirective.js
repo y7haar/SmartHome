@@ -10,7 +10,16 @@ mainApp.directive('houseSettings', function () {
     };
 });
 
-var houseSettingsController = function($scope, $mdDialog, settingsService) {
+var houseSettingsController = function($scope, $mdDialog, $location, settingsService) {
+
+    $scope.mobile = false;
+
+    var url = $location.url();
+
+    if(url === "/settings/admin/housesettings") {
+        $scope.mobile=true;
+    }
+
     $scope.houseSettings = Storage.getInstance().getHouseSettings();
 
     $scope.countries = Storage.getInstance().getCountries();
@@ -29,7 +38,4 @@ var houseSettingsController = function($scope, $mdDialog, settingsService) {
         $mdDialog.show(dialog);
     };
 
-    $scope.goBack = function() {
-        $mdDialog.cancel();
-    }
 };

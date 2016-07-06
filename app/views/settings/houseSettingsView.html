@@ -1,5 +1,6 @@
-<settings-toolbar hide show-gt-xs title="'Hauseinstellungen'"></settings-toolbar>
-<settings-toolbar hide show-xs abort-mode="cancel" abort-function="goBack()" title='Hauseinstellungen'></settings-toolbar>
+
+<settings-toolbar ng-if="mobile" title="'Hauseinstellungen'" abort-mode="back" abort-state="settings"></settings-toolbar>
+<settings-toolbar ng-if="!mobile" title="'Hauseinstellungen'"></settings-toolbar>
 
 <md-content class="md-padding" layout="column" flex="100">
     <form layout="column">

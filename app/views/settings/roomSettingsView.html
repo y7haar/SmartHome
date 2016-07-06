@@ -1,4 +1,5 @@
-<settings-toolbar title="selectedRoom().name"></settings-toolbar>
+<settings-toolbar ng-if="mobile" title="selectedRoom().name" abort-mode="back" abort-state="settings"></settings-toolbar>
+<settings-toolbar ng-if="!mobile" title="selectedRoom().name"></settings-toolbar>
 
 <md-content class="md-padding" layout="row" layout-align="center start">
 
