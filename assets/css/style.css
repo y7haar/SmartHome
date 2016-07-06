@@ -400,10 +400,15 @@ room-image {
 }
 
 
-.module-settings {
-    min-width: 350px;
-    max-width: 100%;
+@media (min-device-width: 1024px) {
+    .module-settings {
+        min-width:600px;
+    }
 }
+
+
+
+
 
 /*
 .mdl-layout {

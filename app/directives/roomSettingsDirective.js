@@ -6,27 +6,35 @@ mainApp.directive('roomSettings', function () {
     return {
         templateUrl: BASE_URL + "/app/views/settings/roomSettingsView.html",
         restrict: "E",
-        controller:roomSettingsController
+        controller: roomSettingsController
     };
 });
 
-var roomSettingsController = function($scope, $mdMedia, $mdDialog, settingsService) {
-
+var roomSettingsController = function ($scope, $mdMedia, $mdDialog, $stateParams, settingsService) {
     var sizeXs = $mdMedia('xs');
 
-    if(!sizeXs) {
+    $scope.mobile = false;
+
+    if (!sizeXs) {
         settingsService.setSelectedRoomIndex(0);
     }
 
-    $scope.selectedRoom = function(){
+    var id = $stateParams.roomId;
+
+    if (id !== undefined) {
+        $scope.mobile = true;
+        settingsService.setSelectedRoomWithHouseIndex(id);
+    }
+
+    $scope.selectedRoom = function () {
         return settingsService.selectedRoomWithHouse;
     };
 
-    $scope.selectedRoomIndex = function() {
+    $scope.selectedRoomIndex = function () {
         return settingsService.selectedRoomWithHouseIndex;
     };
 
-    $scope.getSelectedModuleIndex = function() {
+    $scope.getSelectedModuleIndex = function () {
         return settingsService.selectedModuleIndex;
     };
 

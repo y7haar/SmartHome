@@ -52,6 +52,45 @@ mainApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
                 "content": { templateUrl: "app/views/settings/settingsView.html", controller: "settingsCtrl"}
             }
         })
+        .state('settings.rooms', {
+            url:'/rooms'
+        })
+        .state('settingsRoomsDetail', {
+            url:'/settings/rooms/detail/:roomId',
+            views: {
+                "content": { template: "<room-settings></room-settings>"}
+            }
+        })
+        .state('settingsAdminHousesettings', {
+            url:'/settings/admin/housesettings',
+            views: {
+                "content": { template: "<house-settings></house-settings>"}
+            }
+        })
+        .state('settings.admin.roomconfiguration', {
+            url:'/settings/admin/roomconfiguration',
+            views: {
+                "content": { templateUrl: "app/views/settings/settingsView.html", controller: "settingsCtrl"}
+            }
+        })
+        .state('settings.admin.roomconfiguration.rooms', {
+            url:'/settings/admin/roomconfiguration/rooms',
+            views: {
+                "content": { templateUrl: "app/views/settings/settingsView.html", controller: "settingsCtrl"}
+            }
+        })
+        .state('settings.admin.roomconfiguration.rooms.detail', {
+            url:'/settings/admin/roomconfiguration/rooms/:roomId',
+            views: {
+                "content": { templateUrl: "app/views/settings/settingsView.html", controller: "settingsCtrl"}
+            }
+        })
+        .state('settings.admin.usermanagement', {
+            url:'/settings/admin/usermanagement',
+            views: {
+                "content": { templateUrl: "app/views/settings/settingsView.html", controller: "settingsCtrl"}
+            }
+        })
 
 }]);
 
