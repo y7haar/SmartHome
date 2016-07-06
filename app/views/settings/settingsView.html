@@ -135,6 +135,8 @@
                 <house-settings style="position:relative" flex></house-settings>
             </div>
 
+
+            <!-- middle view 66% Scene Settings-->
             <div ng-if="selectedTabIndex == sceneTabIndex && !isXs()" layout="column" flex-sm="auto" flex-md="auto" flex-gt-md="auto">
                 <scene-settings style="position:relative" flex></scene-settings>
             </div>
@@ -142,11 +144,6 @@
 
             <!-- middle view 33% Room Settings -->
             <div ng-if="selectedTabIndex == roomTabIndex && !isXs()" layout="column" flex-sm="auto" flex-md="auto" flex-gt-md="auto">
-                <room-settings></room-settings>
-            </div>
-
-            <!-- middle view 33% Room Settings -->
-            <div ng-if="selectedTabIndex == sceneTabIndex && !isXs()" layout="column" flex-sm="auto" flex-md="auto" flex-gt-md="auto">
                 <room-settings></room-settings>
             </div>
 
@@ -165,7 +162,7 @@
 
             <!-- right view  33%-->
             <div ng-if="selectedTabIndex == sceneTabIndex " layout="column" flex-gt-md="auto">
-                <new-room room="getRoomToEdit()" style="position:relative" flex></new-room>
+                <scene-module-settings></scene-module-settings>
             </div>
         </div>
     </div>
