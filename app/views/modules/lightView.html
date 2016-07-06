@@ -52,7 +52,7 @@
 
             <span flex="15">{{light.dimState}} %</span>
         </div>
-
+        <!-- Old Colorpicker not working for Mobile :(
         <div layout="row" layout-align="end center" style="width:200px;">
             <div style="margin-top: -20px; margin-bottom: -40px; margin-right: 10px;" md-color-picker
                  ng-model="light.color" ng-if="light.isColorAble" flex="40"
@@ -60,9 +60,12 @@
                  md-color-material-palette="false" md-color-sliders="false" md-color-generic-palette="false">
             </div>
         </div>
-        <div layout="row" layout-algin="center center" style="">
-            <div flex colorpicker="rgb" layout="row" layout-align="end center" ng-model="light.color"  ng-if="light.isColorAble" style="background-color: {{light.color}}; border-color: #F1F1F1; border-style:solid; border-width: 3px;  border-radius: 50%; max-width: 35px; max-height: 35px; min-width: 35px; min-height: 35px;   box-shadow: 0px 2px 5px #D1D1D1;">
-            <!--<input colorpicker="rgb" colorpicker-position="left" class="form-control" ng-model="light.color"  type="button" value="TEST"/>-->
+        -->
+
+        <div layout="row" layout-align="end center" style="">
+            <div class="colorpicker-style"  colorpicker-size="150" colorpicker="rgb"
+                 colorpicker-position="left" ng-model="light.color"  ng-if="light.isColorAble"
+                 style="background-color: {{light.color}};">
             </div>
         </div>
 
@@ -75,7 +78,7 @@
 
 <div layout="row" layout-align="space-between center">
     <div flex="10">
-        <md-button class="md-icon-button no-margin" aria-label="Settings" ng-show="expanded">
+        <md-button class="md-icon-button no-margin" aria-label="Settings" ng-show="expanded" ng-click="openSettings();">
             <img class="png-icon" src="assets/img/icons/Settings-96.png">
         </md-button>
     </div>

@@ -293,3 +293,44 @@ function washingMachineController($scope, $mdDialog) {
 
     $scope.toggleAll();
 }
+
+
+mainApp.directive('washingMachineSettings', function () {
+    return {
+        templateUrl: BASE_URL + "/app/views/settings/modules/washingMachineSettingsView.html",
+        restrict: "E",
+        controller:washingMachineController
+    };
+});
+
+//#####################################
+/* Alex Kern*/
+
+mainApp.directive('lightSettings', function () {
+    return {
+        templateUrl: BASE_URL + "/app/views/settings/modules/lightSettingsView.html",
+        restrict: "E",
+        controller:lightController
+    };
+});
+
+
+function lightController($scope, $mdDialog) {
+
+    $scope.speed = 6;
+
+    $scope.lightOnAnimation = false;
+    $scope.lightOnSpeed =100;
+
+    $scope.lightOffAnimation = false;
+    $scope.lightOffSpeed =100;
+
+    $scope.setToDefault = function (name) {
+        console.log( $scope[name]);
+        $scope[name] = 100;
+    };
+
+    $scope.close = function() {
+        $mdDialog.hide();
+    };
+}

@@ -3,7 +3,7 @@
 
     <div class='md-padding'>
         <div layout="row" layout-wrap>
-            <div layout="row" stlye="max-width:100%" ng-repeat="consumer in consumers" flex="33" layout-align="space-around center">
+            <div layout="row" stlye="max-width:100%" ng-repeat="consumer in consumers | limitTo: 3" flex="33" layout-align="space-around center">
 
                 <md-button class="no-margin" aria-label={{::consumer.name}} ng-click="consumerClicked(consumer.id)">
                     
@@ -69,7 +69,7 @@
 
 
     <div layout="row" layout-aling="center center">
-        <hc-chart flex="100"  options="chartOptions" >Placeholder for generic chart</hc-chart>
+        <hc-chart flex="100"  options="chartOptions" >Beim erstellen der Statistik ist ein Fehler unterlaufen.</hc-chart>
     </div>
 </div>
 

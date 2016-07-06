@@ -1,11 +1,18 @@
 /**
  * Created by AlexK on 29.06.2016.
  */
-mainApp.controller("consumerCtrl", function ($scope) {
+mainApp.controller("consumerCtrl", function ($scope,$mdMedia) {
 
     $scope.totalConsumption = 0;
     $scope.chart = "";
+    var chartWidth = 0;
 
+    if($mdMedia("xs")) chartWidth = 300;
+    else
+        chartWidth = 445;
+
+    console.log("WIDTH: "+chartWidth);
+    
     $scope.consumers = [
         {
             id: 0,
@@ -70,26 +77,31 @@ mainApp.controller("consumerCtrl", function ($scope) {
 
     $scope.chartOptions = {
         chart:{
-            width: null,
+            width: chartWidth,
             events: {
                 load : function () {
 
                     // set up the updating of the chart each second
-                    var series = this.series[0];
+                    var series = this.series;
                     setInterval(function () {
-                        var x = (new Date()).getTime(), // current time
-                            y = Math.round(25+Math.random() * 50);
-                        series.addPoint([x, y], true, true);
-                    }, 5000);
+                        var x = (new Date()).getTime();// current time
+                        var y1= Math.round(5+Math.random(x.getMilliseconds()*42) *35);
+                        var y2= Math.round(1+Math.random(x.getMilliseconds()*21) *5);
+                        series[0].addPoint([x, y1], true, true);
+                        series[1].addPoint([x, y2], true, true);
+
+                    }, 15000);
                 }
             }
         },
         navigator: {
-            margin: 5
+            margin: 5,
+            color:'#000000'
         },
 
         rangeSelector: {
             enabled: false
+
         },
         credits: {
             enabled: false
@@ -98,29 +110,52 @@ mainApp.controller("consumerCtrl", function ($scope) {
             text: 'Verbrauch'
         },
         xAxis: {
-            range: 30 * 1000 // six months
+            range: 30 * 1000,
+            type:'datetime'
         },
 
-        series : [{
-            type: "areaspline",
-            name : 'Verbrauch in kWh',
-            data : (function () {
-                // generate an array of random data
-                var data = [], time = (new Date()).getTime(), i;
+        series: [{
+            type: "column",
+            color: '#5d8e1a',
+            name: 'Stromverbrauch in kWh',
+            data: (function () {
+                var data = [], time = (new Date()), i;
+                time.setSeconds(0);
+                time = time.getTime();
 
-                for (i = -999; i <= 0; i += 1) {
+                for (i = -100; i <= 0; i += 1) {
                     data.push([
-                        time + i * 1000,
-                        Math.round(Math.random() * 100)
+                        time + i * 15000,
+                        Math.round(3+Math.random(time *2) * 35)
                     ]);
                 }
                 return data;
             }())
-        }],
+        },
+            {
+                type: "column",
+                color: '#0956a9',
+                name: 'Wasserverbrauch in m³',
+                data: (function () {
+                    var data = [], time = (new Date()), i;
+                    time.setSeconds(0);
+                    time = time.getTime();
+
+                    for (i = -100; i <= 0; i += 1) {
+                        data.push([
+                            time + i * 15000,
+                            Math.round(1+Math.random(time) * 5)
+                        ]);
+                    }
+                    return data;
+                }())
+            }
+
+        ],
         tooltip:{
             crosshairs: [true],
             formatter: function() {
-                return 'Verbrauch <br>' + Highcharts.dateFormat('%d.%m.%Y %H:%M:%S', this.x) +': '+ this.y+' kWh';
+                return Highcharts.dateFormat('%d.%m.%Y %H:%M:%S', this.x)+'<br>Stromverbrauch: '+ this.points[0].y+' kWh'+'<br>Wasserverbrauch: '+ this.points[1].y+' m³';
             }
         }
     };

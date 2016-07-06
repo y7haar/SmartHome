@@ -1,0 +1,55 @@
+<settings-toolbar abort-mode="cancel" title='"Licht"' abort-function="close()"></settings-toolbar>
+
+<md-content class="md-padding" layout="column" flex="100">
+    <form layout="column">
+
+        <fieldset class="standard" style="margin-bottom:25px">
+            <legend>Animationen</legend>
+
+            <md-checkbox ng-model="lightOnAnimation" ng-click="setToDefault('lightOnSpeed');" aria-label="Licht Einschalte-Animation?">Einschalte-Animation</md-checkbox>
+            <div style="padding-left:20px;">
+                <h4>Geschwindigkeit {{lightOnSpeed}} % / s</h4>
+                <div layout="row" layout-align="space-between center">
+
+                    <img style="margin-right:4px" class="png-icon" ng-src="assets/img/icons/Light On-96.png">
+                    <md-slider ng-disabled="!lightOnAnimation" class="md-primary" flex min="0" max="100"
+                               ng-model="lightOnSpeed">
+
+                    </md-slider>
+                </div>
+            </div>
+
+            <md-checkbox ng-model="lightOffAnimation"  ng-click="setToDefault('lightOffSpeed');" aria-label="Licht Ausschalte-Animation?">Ausschalte-Animation</md-checkbox>
+            <div style="padding-left:20px;">
+                <h4>Geschwindigkeit {{lightOffSpeed}} % / s</h4>
+                <div layout="row" layout-align="space-between center">
+
+                    <img style="margin-right:4px" class="png-icon" ng-src="assets/img/icons/Light On-96.png">
+                    <md-slider ng-disabled="!lightOffAnimation" class="md-primary" flex min="0" max="100"
+                               ng-model="lightOffSpeed">
+
+                    </md-slider>
+                </div>
+            </div>
+            <md-checkbox ng-model="colorChangeAnimation"  aria-label="Farbwechsel-Animation">Farbwechsel-Animation</md-checkbox>
+
+        </fieldset>
+
+
+        <fieldset class="standard" style="margin-bottom:25px">
+            <legend>Dimmen</legend>
+
+            <h4>Geschwindigkeit - {{speed}} % / s</h4>
+
+            <div layout="row" layout-align="space-between center">
+
+                <img style="margin-right:4px" class="png-icon" ng-src="assets/img/icons/Light On-96.png">
+                <md-slider class="md-primary" flex min="1" max="25" step="1" ng-model="speed"></md-slider>
+            </div>
+        </fieldset>
+
+
+
+
+    </form>
+</md-content>

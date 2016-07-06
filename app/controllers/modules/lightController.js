@@ -2,8 +2,7 @@
  * @author Alexander Kern
  */
 
-mainApp.controller("lightCtrl", function ($scope){
-    console.log("LICHT TEST");
+mainApp.controller("lightCtrl", function ($scope, $mdDialog){
 
     $scope.lights = [
         {
@@ -37,10 +36,6 @@ mainApp.controller("lightCtrl", function ($scope){
         $scope.lights[id].isOn = !$scope.lights[id].isOn;
     };
 
-    $scope.colorPicker = function(){
-        alert("COLOR PICKER");
-    };
-
     $scope.allLightOff = function () {
         (function () {
                 for (var i = 0; i < $scope.lights.length; ++i) {
@@ -57,10 +52,15 @@ mainApp.controller("lightCtrl", function ($scope){
         })();
     };
 
-    $scope.test = function (id) {
-        console.log($scope.lights[id].color);
-    }
 
-
+    $scope.openSettings = function (ev) {
+        $mdDialog.show({
+            template: "<" + "light-settings" + " class='module-settings'></" + "light-settings" + ">",
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: true
+        });
+    };
 
 });
