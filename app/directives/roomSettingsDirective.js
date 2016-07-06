@@ -10,7 +10,7 @@ mainApp.directive('roomSettings', function () {
     };
 });
 
-var roomSettingsController = function($scope, $mdMedia, settingsService) {
+var roomSettingsController = function($scope, $mdMedia, $mdDialog, settingsService) {
 
     var sizeXs = $mdMedia('xs');
 
@@ -19,10 +19,35 @@ var roomSettingsController = function($scope, $mdMedia, settingsService) {
     }
 
     $scope.selectedRoom = function(){
-        return settingsService.selectedRoom;
+        return settingsService.selectedRoomWithHouse;
     };
 
     $scope.selectedRoomIndex = function() {
-        return settingsService.selectedRoomIndex;
-    }
+        return settingsService.selectedRoomWithHouseIndex;
+    };
+
+    $scope.getSelectedModuleIndex = function() {
+        return settingsService.selectedModuleIndex;
+    };
+
+    $scope.openModuleSettings = function (module, ev) {
+
+        var mapping = {};
+
+        mapping["blinds"] = "blinds-settings";
+        mapping["door"] = "door-settings";
+        mapping["multiRoomAudio"] = "multi-room-audio-settings";
+        mapping["oven"] = "oven-settings";
+        mapping["washingMachine"] = "washing-machine-settings";
+
+
+        $mdDialog.show({
+            template: "<" + mapping[module.name] + " class='module-settings'></" + mapping[module.name] + ">",
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: true
+        });
+
+    };
 };

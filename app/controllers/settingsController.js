@@ -27,11 +27,11 @@ mainApp.controller("settingsCtrl", function ($scope, $mdMedia, $mdDialog, settin
 
 
     $scope.getSelectedRoomIndex = function () {
-        return settingsService.selectedRoomIndex;
+        return settingsService.selectedRoomWithHouseIndex;
     };
 
     $scope.selectRoom = function (index) {
-        settingsService.setSelectedRoomIndex(index);
+        settingsService.setSelectedRoomWithHouseIndex(index);
     };
 
     $scope.selectModule = function (index) {
@@ -76,6 +76,10 @@ mainApp.controller("settingsCtrl", function ($scope, $mdMedia, $mdDialog, settin
 
     $scope.isAddingRoom = function() {
         return settingsService.addingRoom;
+    };
+
+    $scope.getRoomsWithHouse = function () {
+        return settingsService.getRoomsWithHouse();
     };
 
     settingsService.setSelectedAdminIndex($scope.isXs() ? undefined : 0);

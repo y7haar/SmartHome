@@ -4,6 +4,8 @@
 
 mainApp.controller("doorCtrl", function ($scope, $timeout) {
 
+    console.log("door");
+
     $scope.isLocked = false;
     $scope.isOpen = false;
 

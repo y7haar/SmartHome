@@ -1,0 +1,71 @@
+<settings-toolbar abort-mode="cancel" title='"Haustür"' abort-function="close()"></settings-toolbar>
+
+<md-content class="md-padding" layout="column" flex="100">
+    <form layout="column">
+
+
+        <fieldset class="standard" style="margin-bottom:25px">
+            <legend>Haustür</legend>
+
+            <div layout="column">
+
+                <md-checkbox ng-model="check1" aria-label="Tür automatisch schließen">
+                    Tür automatisch schließen
+                </md-checkbox>
+
+                <md-checkbox aria-label="Tür automatisch sperren">
+                    Tür automatisch sperren
+                </md-checkbox>
+
+                <md-checkbox ng-model="check3" aria-label="Benachrichtigungen bei Klingeln">
+                    Bewegungsmelder für Türlicht aktivieren
+                </md-checkbox>
+            </div>
+
+        </fieldset>
+
+
+        <h3>Lautstärke Haustelefon</h3>
+
+        <h4>Sprechen</h4>
+
+        <div layout="row" layout-align="space-between center">
+
+            <img style="margin-right:4px" class="png-icon" ng-src="assets/img/icons/High Volume-96.png">
+            <md-slider class="md-primary" flex min="0" max="100" ng-model="volTalk"></md-slider>
+        </div>
+
+        <h4>Hören</h4>
+
+        <div layout="row" layout-align="space-between center" style="margin-bottom:25px">
+
+            <img style="margin-right:4px" class="png-icon" ng-src="assets/img/icons/High Volume-96.png">
+            <md-slider class="md-primary" flex min="0" max="100" ng-model="volHear"></md-slider>
+        </div>
+
+
+
+        <fieldset class="standard">
+            <legend>Benachrichtungen</legend>
+            <div layout="column">
+                <div>
+                    <md-checkbox aria-label="Alle Benachrichtigungen"
+                                 ng-checked="isChecked()"
+                                 md-indeterminate="isIndeterminate()"
+                                 ng-click="toggleAll()">
+                        Benachrichtigungen erhalten
+                    </md-checkbox>
+                </div>
+                <div style="padding-left: 30px" ng-repeat="not in notifications">
+                    <md-checkbox ng-checked="exists(not, selected)"
+                                 ng-click="toggle(not, selected)"
+                                 aria-label={{not}}>
+                        {{ not }}
+                    </md-checkbox>
+                </div>
+            </div>
+        </fieldset>
+
+
+    </form>
+</md-content>

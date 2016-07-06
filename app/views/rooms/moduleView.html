@@ -10,17 +10,6 @@
 
 
     <md-card-content layout="column" layout-align="none center" ng-switch="::module.name">
-        <!-- all modules -->
-
-
-        <!-- house -->
-
-        <!--
-        <door class="module-content" ng-if="module.name === 'door'"></door>
-        <weather class="module-content" ng-if="module.name === 'weather'"></weather>
-        <log class="module-content" ng-if="module.name === 'log'"></log>
-        -->
-
 
         <door class="module-content" ng-switch-when="door"></door>
         <weather class="module-content" ng-switch-when="weather"></weather>
@@ -34,20 +23,6 @@
         <oven class="module-content" ng-switch-when="oven"></oven>
         <scene class="module-content" ng-switch-when="scene"></scene>
         <consumer class="module-content" ng-switch-when="consumer"></consumer>
-
-
-
-        <!-- rooms-->
-
-        <!--
-        <washing-machine class="module-content" ng-if="module.name === 'washingMachine'"></washing-machine>
-        <multi-room-audio class="module-content" ng-if="module.name === 'multiRoomAudio'"></multi-room-audio>
-        <light class="module-content" ng-if="module.name === 'light'"></light>
-        <blinds class="module-content" ng-if="module.name === 'blinds'"></blinds>
-        <heater class="module-content" ng-if="module.name === 'heater'"></heater>
-        <oven class="module-content" ng-if="module.name === 'oven'"></oven>
-        -->
-
 
     </md-card-content>
 </md-card>

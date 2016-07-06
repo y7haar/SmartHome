@@ -386,6 +386,11 @@ room-image {
 }
 
 
+.module-settings {
+    min-width: 450px;
+    max-width: 100%;
+}
+
 /*
 .mdl-layout {
     overflow: visible;

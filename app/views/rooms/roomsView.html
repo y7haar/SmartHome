@@ -29,7 +29,7 @@
 
             </md-content>
 
-            <div hide show-gt-md style="border:2px solid white;"></div>
+            <div hide show-gt-md style="border:1px solid white;"></div>
 
             <md-content flex="100" flex-gt-md="50" layout="column">
 
@@ -59,20 +59,26 @@
                             <md-tab-content>
                                 <div class="room-container" layout="column">
                                     <room-image room="::room"></room-image>
+
+
+                                    <!--
                                     <div layout="column" hide show-xs>
                                         <div ng-repeat="module in ::room.modules">
                                             <module></module>
                                         </div>
                                     </div>
+                                    -->
+
+                                    <h1 style="color:red"> TODO: Layout anpassen</h1>
 
 
-                                    <div layout="row" layout-align="center start" hide show-gt-xs>
+                                    <div layout="row" layout-align="center start" layout-wrap>
 
                                         <div layout="column" flex="auto">
 
                                         </div>
 
-                                        <div style="width:480px" layout="column" flex="nogrow">
+                                        <div style="max-width:480px" layout="column" flex="50" flex-xs="100">
                                             <div ng-repeat="module in ::room.modulesRight">
                                                 <module></module>
                                             </div>
@@ -82,11 +88,16 @@
 
                                         </div>
 
-                                        <div style="width:480px" layout="column" flex="nogrow">
+                                        <div style="max-width:480px" layout="column" flex="50" flex-xs="100">
                                             <div ng-repeat="module in ::room.modulesLeft">
                                                 <module></module>
                                             </div>
                                         </div>
+
+                                        <div hide show-gt-xs layout="column" flex="auto">
+
+                                        </div>
+
                                     </div>
 
                                 </div>

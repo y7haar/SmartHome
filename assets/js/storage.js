@@ -85,10 +85,11 @@ var Storage = function () {
         house: {
             name: "Haus",
             roomImageUrl: "assets/img/room_images/haus.png",
+            iconUrl: "Roofing-96.png",
             modules: [
-                {id: 101, displayName: "Wetter", name: "weather"},
-                {id: 102, displayName: "Haustür", name: "door"},
-                {id: 103, displayName: "Log", name: "log"}
+                {id: 101, displayName: "Wetter", name: "weather", iconUrl: "Sun-96.png"},
+                {id: 102, displayName: "Haustür", name: "door", iconUrl: "Door Sensor-96.png"},
+                {id: 103, displayName: "Log", name: "log", iconUrl: "Page Overview -96.png"}
             ]
 
         },

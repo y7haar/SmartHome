@@ -47,9 +47,9 @@
         </md-card-actions>
     </div>
 
-    <div class="green padding-height-5">
-        <md-card-actions>
-            <md-card-icon-actions layout="row" layout-align="space-around center">
+
+        <div class="green padding-height-5">
+            <md-card-actions layout="row" layout-align="space-around center">
                 <md-button class="md-icon-button" aria-label="Vorheriger Titel" ng-click="previousTrack()">
                     <md-icon aria-label="Vorheriger Titel">skip_previous</md-icon>
                 </md-button>
@@ -59,9 +59,8 @@
                 <md-button class="md-icon-button" aria-label="Nächster Titel" ng-click="nextTrack()">
                     <md-icon aria-label="Nächster Titel">skip_next</md-icon>
                 </md-button>
-            </md-card-icon-actions>
-        </md-card-actions>
-    </div>
+            </md-card-actions>
+        </div>
 
     <md-progress-linear md-mode="determinate" value={{progress}}></md-progress-linear>
 </div>

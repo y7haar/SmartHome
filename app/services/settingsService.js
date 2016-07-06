@@ -7,7 +7,10 @@ mainApp.service("settingsService", [
     function () {
 
         var storage = Storage.getInstance();
+        this.house = storage.getHouse();
         this.rooms = storage.getRooms();
+
+
         this.roomModules = storage.getRoomModules();
 
 
@@ -35,14 +38,31 @@ mainApp.service("settingsService", [
         this.selectedAdminIndex = null;
         
 
+        this.getRoomsWithHouse = function() {
+            var rooms = [];
+
+            for(var i = 0;i < this.rooms.length;++i) {
+                rooms.push(this.rooms[i]);
+            }
+
+            rooms.push(this.house);
+
+            return rooms;
+        };
+
         this.setSelectedRoomIndex = function(index) {
             this.selectedRoomIndex = index;
             this.selectedRoom = this.rooms[index];
         };
 
+        this.setSelectedRoomWithHouseIndex = function(index) {
+            this.selectedRoomWithHouseIndex = index;
+            this.selectedRoomWithHouse = this.getRoomsWithHouse()[index];
+        };
+
         this.setSelectedModuleIndex = function(index) {
             this.selectedModuleIndex = index;
-            this.selectedModule = this.roomModules[index];
+            this.selectedModule = this.selectedRoom.modules[index];
         };
 
         this.setSelectedAdminIndex = function(index) {
