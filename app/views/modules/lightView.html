@@ -60,8 +60,10 @@
                  md-color-material-palette="false" md-color-sliders="false" md-color-generic-palette="false">
             </div>
         </div>
-        <div layout="row" layout-align="end center"  ng-if="light.isColorAble">
-            <input colorpicker="rgb" colorpicker-position="left" class="form-control" ng-model="light.color"  type="button" value="TEST"/>
+        <div layout="row" layout-algin="center center" style="">
+            <div flex colorpicker="rgb" layout="row" layout-align="end center" ng-model="light.color"  ng-if="light.isColorAble" style="background-color: {{light.color}}; border-color: #F1F1F1; border-style:solid; border-width: 3px;  border-radius: 50%; max-width: 35px; max-height: 35px; min-width: 35px; min-height: 35px;   box-shadow: 0px 2px 5px #D1D1D1;">
+            <!--<input colorpicker="rgb" colorpicker-position="left" class="form-control" ng-model="light.color"  type="button" value="TEST"/>-->
+            </div>
         </div>
 
     </div>
