@@ -3,13 +3,15 @@
  */
 mainApp.controller("consumerCtrl", function ($scope,$mdMedia) {
 
-    $scope.totalConsumption = 0;
+    $scope.totalElecConsumption = 0;
+    $scope.totalWaterConsumption = 0;
     $scope.chart = "";
     var chartWidth = 0;
 
-    if($mdMedia("xs")) chartWidth = 300;
+    if($mdMedia("xs"))
+        chartWidth = 365;
     else
-        chartWidth = 445;
+        chartWidth = 440;
 
     console.log("WIDTH: "+chartWidth);
     
@@ -17,53 +19,63 @@ mainApp.controller("consumerCtrl", function ($scope,$mdMedia) {
         {
             id: 0,
             name: "TV",
-            isOn: false,
+            isOn: true,
             isSwitchOffAble :true,
-            consumption: 47
+            elecConsumption: 0.12,
+            waterConsumption: 0
         },
         {
             id: 1,
             name: "Kühlschrank",
             isOn: true,
             isSwitchOffAble :false,
-            consumption: 103
+            elecConsumption: 0.26,
+            waterConsumption: 0
         },
         {
             id: 2,
-            name: "Spülmaschine",
+            name: "Waschmaschine",
             isOn: false,
             isSwitchOffAble :false,
-            consumption: 75
+            elecConsumption: 0.71,
+            waterConsumption: 12
         },
         {
             id: 3,
             name: "Kaffe Maschine",
             isOn: false,
             isSwitchOffAble :true,
-            consumption: 3
+            elecConsumption: 0.001,
+            waterConsumption: 0.3
         },
         {
             id: 4,
             name: "Telefon",
             isOn: true,
             isSwitchOffAble :false,
-            consumption: 0.3
+            elecConsumption: 0.1,
+            waterConsumption: 0
         },
         {
             id: 5,
             name: "TV 2",
             isOn: true,
             isSwitchOffAble :true,
-            consumption: 21
+            elecConsumption: 0.04,
+            waterConsumption: 0
         }
     ];
 
 
     $scope.calcTotalConsumption= function () {
-        $scope.totalConsumption = 0;
+        console.log("CALLED")
+        $scope.totalElecConsumption = 0;
+        $scope.totalWaterConsumption = 0;
         for(var i= 0; i< $scope.consumers.length;++i){
-            if($scope.consumers[i].isOn)
-                $scope.totalConsumption+= $scope.consumers[i].consumption;
+            if($scope.consumers[i].isOn) {
+                $scope.totalElecConsumption += $scope.consumers[i].elecConsumption;
+                $scope.totalWaterConsumption += $scope.consumers[i].waterConsumption;
+            }
         }
     };
 
@@ -85,8 +97,8 @@ mainApp.controller("consumerCtrl", function ($scope,$mdMedia) {
                     var series = this.series;
                     setInterval(function () {
                         var x = (new Date()).getTime();// current time
-                        var y1= Math.round(5+Math.random(x.getMilliseconds()*42) *35);
-                        var y2= Math.round(1+Math.random(x.getMilliseconds()*21) *5);
+                        var y1= Math.round(5+Math.random(x*42) *35);
+                        var y2= Math.round(1+Math.random(x*21) *5);
                         series[0].addPoint([x, y1], true, true);
                         series[1].addPoint([x, y2], true, true);
 
@@ -96,7 +108,10 @@ mainApp.controller("consumerCtrl", function ($scope,$mdMedia) {
         },
         navigator: {
             margin: 5,
-            color:'#000000'
+            series: {
+                color: "#5d8e1a",
+                lineWidth: 2
+            }
         },
 
         rangeSelector: {
@@ -110,7 +125,7 @@ mainApp.controller("consumerCtrl", function ($scope,$mdMedia) {
             text: 'Verbrauch'
         },
         xAxis: {
-            range: 30 * 1000,
+            range: 15 * 1000,
             type:'datetime'
         },
 

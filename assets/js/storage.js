@@ -47,12 +47,12 @@ var Storage = function () {
             modes:[
                 {
                     id:0,
-                    name:"Auto 1",
+                    name:"Automatisch",
                     temperature:[20,17]
                 },
                 {
                     id:1,
-                    name:"Auto 2",
+                    name:"Komforttemperatur",
                     temperature:[23,15]
                 }
             ]
