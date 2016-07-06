@@ -1,1 +1,76 @@
-<h1>LOL</h1>
+<settings-toolbar abort-mode="cancel" title='"Multi Room Audio"' abort-function="close()"></settings-toolbar>
+
+<md-content class="md-padding" layout="column" flex="100">
+    <form layout="column">
+
+
+        <fieldset class="standard" style="margin-bottom:25px">
+            <legend>Maximale Lautstärke begrenzen</legend>
+
+            <md-checkbox ng-model="limitVolume" aria-label="Lautstärke begrenzen?">Lautstärke begrenzen?</md-checkbox>
+
+            <h4>Maximale Lautstärke</h4>
+
+            <div layout="row" layout-align="space-between center">
+
+                <img style="margin-right:4px" class="png-icon" ng-src="assets/img/icons/High Volume-96.png">
+                <md-slider ng-disabled="!limitVolume" class="md-primary" flex min="0" max="100"
+                           ng-model="maxVolume"></md-slider>
+            </div>
+
+        </fieldset>
+
+
+        <fieldset class="standard">
+            <legend>EQ</legend>
+
+            <md-input-container style="width:100%">
+                <md-select ng-model="eqPreset" placeholder="EQ Voreinstellung wählen">
+                    <md-option ng-value="preset" ng-repeat="preset in eqPresets">{{ preset }}</md-option>
+                </md-select>
+            </md-input-container>
+
+            <div layout="row" layout-align="space-between center">
+
+                <md-slider-container flex>
+                    <md-input-container>
+                        <span>{{bass > 0 ? "+" : ""}}{{bass}}</span>
+                    </md-input-container>
+                    <md-slider md-discrete ng-model="bass" min="-10" max="10" step="1" aria-label="bass"
+                               class="md-primary"
+                               md-vertical></md-slider>
+                    </md-slider>
+                    <h5>Bass</h5>
+                </md-slider-container>
+
+                <md-slider-container flex>
+                    <md-input-container>
+                        <span>{{middle > 0 ? "+" : ""}}{{middle}}</span>
+                    </md-input-container>
+                    <md-slider md-discrete ng-model="middle" min="-10" max="10" step="1" aria-label="mitten"
+                               class="md-primary"
+                               md-vertical></md-slider>
+                    </md-slider>
+                    <h5>Mitten</h5>
+                </md-slider-container>
+
+                <md-slider-container flex>
+                    <md-input-container>
+                        <span>{{treble > 0 ? "+" : ""}}{{treble}}</span>
+                    </md-input-container>
+                    <md-slider md-discrete ng-model="treble" min="-10" max="10" step="1" aria-label="höhen"
+                               class="md-primary"
+                               md-vertical></md-slider>
+                    </md-slider>
+                    <h5>Höhen</h5>
+                </md-slider-container>
+            </div>
+
+        </fieldset>
+
+
+    </form>
+</md-content>
+
+
+

@@ -13,7 +13,7 @@ mainApp.directive('houseSettings', function () {
 var houseSettingsController = function($scope, $mdDialog, settingsService) {
     $scope.houseSettings = Storage.getInstance().getHouseSettings();
 
-    $scope.countries = ["Deutschland", "Kaufland", "Schlaraffenland"];
+    $scope.countries = Storage.getInstance().getCountries();
     
     $scope.saveSettings = function(ev) {
         Storage.getInstance().saveHouseSettings($scope.houseSettings);

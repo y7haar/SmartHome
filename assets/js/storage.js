@@ -259,6 +259,10 @@ var Storage = function () {
         localStorage.setObject("users", users);
     };
 
+    this.getCountries = function() {
+        return ["Deutschland", "Kaufland", "Schlaraffenland"];
+    };
+
     this.getRoomsWithModuleById= function(moduleId) {
         var rooms = this.getRooms();
         var result = [];

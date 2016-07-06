@@ -39,6 +39,7 @@ var roomSettingsController = function($scope, $mdMedia, $mdDialog, settingsServi
         mapping["multiRoomAudio"] = "multi-room-audio-settings";
         mapping["oven"] = "oven-settings";
         mapping["washingMachine"] = "washing-machine-settings";
+        mapping["weather"] = "weather-settings";
 
 
         $mdDialog.show({

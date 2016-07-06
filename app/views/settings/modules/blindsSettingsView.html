@@ -1,10 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<settings-toolbar abort-mode="cancel" title='"Jalousien"' abort-function="close()"></settings-toolbar>
 
-</body>
-</html>
+<md-content class="md-padding" layout="column" flex="100">
+    <form layout="column">
+
+        <fieldset class="standard" style="margin-bottom:25px">
+            <legend>Jalousien </legend>
+
+            <h4>Geschwindigkeit - {{speed}} cm / s</h4>
+
+            <div layout="row" layout-align="space-between center">
+
+                <img style="margin-right:4px" class="png-icon" ng-src="assets/img/icons/Blind Down-96.png">
+                <md-slider class="md-primary" flex min="1" max="10" step="0.1" ng-model="speed"></md-slider>
+            </div>
+        </fieldset>
+
+
+
+        <fieldset class="standard" style="margin-bottom:25px">
+            <legend>Maximaler Lamellenwinkel </legend>
+
+            <h4>Lamellen geöffnet - {{lamellsOpen}}°</h4>
+
+            <div layout="row" layout-align="space-between center">
+
+                <img style="margin-right:4px" class="png-icon" ng-src="assets/img/icons/Menu-96.png">
+                <md-slider class="md-primary" flex min="0" max="90" step="1" ng-model="lamellsOpen"></md-slider>
+            </div>
+
+
+            <h4>Lamellen geschlossen - {{lamellsShut}}°</h4>
+
+            <div layout="row" layout-align="space-between center">
+
+                <img style="margin-right:4px" class="png-icon" ng-src="assets/img/icons/Align Justify-96.png">
+                <md-slider class="md-primary" flex min="0" max="90" step="1" ng-model="lamellsShut"></md-slider>
+            </div>
+
+
+        </fieldset>
+
+
+        <fieldset class="standard" style="margin-bottom:25px">
+            <legend>Automatik Modus</legend>
+
+            <div layout="column">
+
+                <md-checkbox ng-model="syncBlinds" aria-label="Jalousien im Raum synchron halten?">
+                    Jalousien im Raum synchron halten?
+                </md-checkbox>
+
+                <md-checkbox ng-model="thunderShut" aria-label="Bei Gewitter schließen?">
+                    Bei Gewitter schließen?
+                </md-checkbox>
+
+                <md-checkbox ng-model="windOpen" aria-label="Öffnen bei Wind?">
+                    Öffnen bei Wind?
+                </md-checkbox>
+
+                <br>
+
+                <h4>Empfindlichkeit</h4>
+
+                <div layout="row" layout-align="space-between center">
+
+                    <img style="margin-right:4px" class="png-icon" ng-src="assets/img/icons/Blind Automatic Mode-96.png">
+                    <md-slider class="md-primary" flex min="0" max="100" step="1"
+                               ng-model="sensitivity"></md-slider>
+                </div>
+
+            </div>
+
+        </fieldset>
+
+    </form>
+</md-content>

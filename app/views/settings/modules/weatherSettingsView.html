@@ -1,0 +1,47 @@
+<settings-toolbar abort-mode="cancel" title='"Wetter"' abort-function="close()"></settings-toolbar>
+
+
+<md-content class="md-padding" layout="column" flex="100">
+    <form layout="column">
+
+        <md-checkbox ng-model="syncPlace" aria-label="Standort synchronisieren">
+            Standort entspicht Haus-Standort?
+        </md-checkbox>
+
+
+        <fieldset ng-disabled ="syncPlace" class="standard" style="margin-bottom:35px">
+            <legend>Standort</legend>
+
+            <md-input-container class="md-block">
+                <label>Straße</label>
+                <input type="text" ng-model="houseSettings.street" required>
+
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Postleitzahl</label>
+                <input type="text" ng-model="houseSettings.zip" required>
+
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Ort</label>
+                <input type="text" ng-model="houseSettings.location" required>
+
+            </md-input-container>
+
+            <md-input-container style="width:100%">
+                <md-select ng-model="houseSettings.country" placeholder="Bitte wählen Sie Ihr Land">
+                    <md-option ng-value="country" ng-repeat="country in countries">{{ country }}</md-option>
+                </md-select>
+            </md-input-container>
+
+        </fieldset>
+
+        <md-checkbox ng-model="notifications" aria-label="Benachrichtigungen bei Unwetter?">
+            Benachrichtigungen bei Unwetter?
+        </md-checkbox>
+
+
+    </form>
+</md-content>
