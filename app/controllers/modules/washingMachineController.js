@@ -2,7 +2,7 @@
  * @author Yannic Siebenhaar
  */
 
-mainApp.controller("washingMachineCtrl", function ($scope, $interval) {
+mainApp.controller("washingMachineCtrl", function ($scope, $interval, $mdDialog) {
     $scope.rotations = [];
     $scope.minTemp = 30;
     $scope.maxTemp = 100;
@@ -30,6 +30,16 @@ mainApp.controller("washingMachineCtrl", function ($scope, $interval) {
 
     $scope.continueMachine = function () {
         $scope.isRunning = true;
+    };
+
+    $scope.openSettings = function (ev) {
+        $mdDialog.show({
+            template: "<" + "washing-machine-settings" + " class='module-settings'></" + "washing-machine-settings" + ">",
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: true
+        });
     };
 
     $interval(function () {

@@ -2,7 +2,7 @@
  * @author Yannic Siebenhaar
  */
 
-mainApp.controller("multiRoomAudioCtrl", function ($scope, $interval) {
+mainApp.controller("multiRoomAudioCtrl", function ($scope, $interval, $mdDialog) {
 
     $scope.tracks = [
         {
@@ -107,6 +107,16 @@ mainApp.controller("multiRoomAudioCtrl", function ($scope, $interval) {
 
     $scope.toggleRepeat = function() {
         $scope.isRepeat = !$scope.isRepeat;
+    };
+
+    $scope.openSettings = function (ev) {
+        $mdDialog.show({
+            template: "<" + "multi-room-audio-settings" + " class='module-settings'></" + "multi-room-audio-settings" + ">",
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: true
+        });
     };
 
     function startAnimation() {

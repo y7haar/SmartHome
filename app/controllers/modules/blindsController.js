@@ -2,7 +2,7 @@
  * @author Yannic Siebenhaar
  */
 
-mainApp.controller("blindsCtrl", function ($scope, $interval) {
+mainApp.controller("blindsCtrl", function ($scope, $interval, $mdDialog) {
 
     $scope.windows = [
         {name:"Fenster Links", status:10, slatOpened:true, autoMode:true},
@@ -314,6 +314,16 @@ mainApp.controller("blindsCtrl", function ($scope, $interval) {
         window.autoMode = !window.autoMode;
 
         updateAllAutoMode();
+    };
+
+    $scope.openSettings = function (ev) {
+        $mdDialog.show({
+            template: "<" + "blinds-settings" + " class='module-settings'></" + "blinds-settings" + ">",
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: true
+        });
     };
 
     $interval(function () {

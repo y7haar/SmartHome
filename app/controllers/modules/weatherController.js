@@ -2,7 +2,7 @@
  * @author Yannic Siebenhaar
  */
 
-mainApp.controller("weatherCtrl", function ($scope) {
+mainApp.controller("weatherCtrl", function ($scope, $mdDialog) {
 
     $scope.currentData = {
         iconUrl: "assets/img/icons/weather/Clouds-96.png",
@@ -28,6 +28,17 @@ mainApp.controller("weatherCtrl", function ($scope) {
         {day:"Samstag", iconUrl:"assets/img/icons/weather/Clouds-96.png", minTemperature:"11", maxTemperature:"14"},
         {day:"Sonntag", iconUrl:"assets/img/icons/weather/Heavy Rain-96.png", minTemperature:"12", maxTemperature:"17"}
     ];
+
+
+    $scope.openSettings = function (ev) {
+        $mdDialog.show({
+            template: "<" + "weather-settings" + " class='module-settings'></" + "weather-settings" + ">",
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: true
+        });
+    };
 
     $scope.$watch(function() { return new Date().getHours(); }, function(hour) {
 

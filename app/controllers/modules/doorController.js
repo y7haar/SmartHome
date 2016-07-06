@@ -2,7 +2,7 @@
  * @author Yannic Siebenhaar
  */
 
-mainApp.controller("doorCtrl", function ($scope, $timeout) {
+mainApp.controller("doorCtrl", function ($scope, $timeout, $mdDialog) {
 
     console.log("door");
 
@@ -34,7 +34,17 @@ mainApp.controller("doorCtrl", function ($scope, $timeout) {
 
     $scope.togglePhone = function() {
         $scope.isPhone = !$scope.isPhone;
-    }
+    };
+
+    $scope.openSettings = function (ev) {
+        $mdDialog.show({
+            template: "<" + "door-settings" + " class='module-settings'></" + "door-settings" + ">",
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: true
+        });
+    };
 
 
 });
