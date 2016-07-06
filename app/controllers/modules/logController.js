@@ -6,7 +6,7 @@
 mainApp.controller("logCtrl", function ($scope) {
 
     $scope.users = Storage.getInstance().getUsers();
-
+    $scope.logQuantity = 3;
     $scope.logData = [
         {
             "room":"Wohnzimmer",

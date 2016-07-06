@@ -60,6 +60,9 @@
                  md-color-material-palette="false" md-color-sliders="false" md-color-generic-palette="false">
             </div>
         </div>
+        <div layout="row" layout-align="end center"  ng-if="light.isColorAble">
+            <input colorpicker="rgb" colorpicker-position="left" class="form-control" ng-model="light.color"  type="button" value="TEST"/>
+        </div>
 
     </div>
 

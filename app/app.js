@@ -1,4 +1,4 @@
-var mainApp = angular.module('mainApp', ['ngMaterial', 'ngAnimate', 'ngMessages','mdColorPicker', 'ui.router'])
+var mainApp = angular.module('mainApp', ['ngMaterial', 'ngAnimate', 'ngMessages','mdColorPicker', 'ui.router','colorpicker.module' ])
     .config(function ($mdThemingProvider) {
 
         var customPink = $mdThemingProvider.extendPalette('pink', {
