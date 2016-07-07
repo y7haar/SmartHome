@@ -38,7 +38,7 @@
 
             <md-slider flex class = "md-primary" ng-model="volume" aria-label="Lautstärkeregler" min="0" max="100"></md-slider>
 
-            <md-button class="md-icon-button no-margin" aria-label="Casten">
+            <md-button class="md-icon-button no-margin" aria-label="Casten" ng-click="openCast()">
                 <img class = "png-icon" src = "assets/img/icons/Share-96.png">
             </md-button>
 
@@ -50,15 +50,20 @@
 
         <div class="green padding-height-5">
             <md-card-actions layout="row" layout-align="space-around center">
+
                 <md-button class="md-icon-button" aria-label="Vorheriger Titel" ng-click="previousTrack()">
-                    <md-icon aria-label="Vorheriger Titel">skip_previous</md-icon>
+                    <img class = "png-icon" src = "assets/img/icons/Skip to Start-96.png">
                 </md-button>
+
                 <md-button class="md-icon-button" aria-label="Share" ng-click="togglePlay()">
-                    <md-icon aria-label="Pause">pause</md-icon>
+                    <img ng-src="assets/img/icons/Pause-96.png" class="png-icon" ng-if="isPlaying" aria-label="Pause">
+                    <img ng-src="assets/img/icons/Play-96.png" class="png-icon" class="png-icon" ng-if="!isPlaying" aria-label="Pause">
                 </md-button>
+
                 <md-button class="md-icon-button" aria-label="Nächster Titel" ng-click="nextTrack()">
-                    <md-icon aria-label="Nächster Titel">skip_next</md-icon>
+                    <img class = "png-icon" src = "assets/img/icons/End-96.png">
                 </md-button>
+
             </md-card-actions>
         </div>
 

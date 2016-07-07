@@ -1,5 +1,5 @@
 /**
- * @author Yannic Siebenhaar
+ * @author Andreas Kurt Rohne
  */
 
 mainApp.controller("washingMachineCtrl", function ($scope, $interval, $mdDialog) {

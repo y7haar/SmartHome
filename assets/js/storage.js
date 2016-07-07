@@ -11,10 +11,10 @@ var Storage = function () {
     this.defaults = {
 
         houseSettings: {
-            street: "Am Schnakenberg Hügel 7",
-            zip: "88888",
-            location: "Gifhorn",
-            country: "Kaufland"
+            street: "Am Geigengrund 5",
+            zip: "95028",
+            location: "Hof",
+            country: "Deutschland"
         },
 
         centralHeaterSettings: {
@@ -92,16 +92,38 @@ var Storage = function () {
             },
 
             {
-                id: 4, displayName: "Backofen", name: "oven", iconUrl: "Cooker-96.png",
-                hasComponents: false, description: "Erweitern Sie Ihre Küche um einen Backofen mit automatischem Timer."
+                id: 4,
+                displayName: "Backofen",
+                name: "oven",
+                iconUrl: "Cooker-96.png",
+                hasComponents: false,
+                description: "Erweitern Sie Ihre Küche um einen Backofen mit automatischem Timer."
             },
 
             {
-                id: 5, displayName: "Waschmaschine", name: "washingMachine", iconUrl: "Washing Machine-96.png",
-                hasComponents: false, description: "Eine Steuerung zur Überwachung Ihrer Waschmaschine."
+                id: 5, 
+                displayName: "Waschmaschine", 
+                name: "washingMachine", 
+                iconUrl: "Washing Machine-96.png",
+                hasComponents: false,
+                description: "Eine Steuerung zur Überwachung Ihrer Waschmaschine."
             },
-            {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Temperature-96.png"},
-            {id: 7, displayName: "Verbraucher", name: "consumer", iconUrl: "Temperature-96.png"}
+            
+            {
+                id: 6,
+                displayName: "Szenen", 
+                name: "scene", 
+                iconUrl: "Start-96.png",
+                hasComponents: false
+            },
+
+            {
+                id: 7,
+                displayName: "Verbraucher",
+                name: "consumer",
+                iconUrl: "Temperature-96.png",
+                hasComponents: false,
+            }
 
 
         ],
@@ -142,7 +164,7 @@ var Storage = function () {
                     },
                     {id: 4, displayName: "Backofen", name: "oven", iconUrl: "Cooker-96.png", hasComponents: false},
                     {id: 5, displayName: "Heizung", name: "heater", iconUrl: "Temperature-96.png"},
-                    {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Temperature-96.png"},
+                    {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Start-96.png"},
                     {id: 7, displayName: "Verbraucher", name: "consumer", iconUrl: "Temperature-96.png"}
                 ],
                 scenes: [
@@ -515,7 +537,7 @@ var Storage = function () {
     };
 
     this.getCountries = function () {
-        return ["Deutschland", "Kaufland", "Schlaraffenland"];
+        return ["Deutschland", "Österreich", "Schweiz"];
     };
 
     this.getRoomsWithModuleById = function (moduleId) {

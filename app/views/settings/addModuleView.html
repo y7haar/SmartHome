@@ -1,6 +1,6 @@
-<settings-toolbar abort-mode="cancel" title="'Modul hinzufügen'"></settings-toolbar>
+<settings-toolbar abort-mode="cancel" abort-function="hide()" title="'Modul hinzufügen'"></settings-toolbar>
 
-<md-content class="md-padding" layout="column" flex="grow" style="width:550px;height:500px;">
+<md-content class="md-padding module-settings" layout="column" flex="100" style="min-height:550px">
     <form layout="column">
 
         <div layout="row" layout-align="start center">
@@ -44,7 +44,7 @@
             </md-button>
         </div>
 
-        <md-button class="md-fab settings-fab-button" aria-label="Bestätigen" ng-click="">
+        <md-button class="md-fab settings-fab-button" aria-label="Bestätigen" type="submit" ng-click="saveModule()">
             <img ng-src="assets/img/icons/Checkmark-96.png" class="png-icon">
         </md-button>
         <!--

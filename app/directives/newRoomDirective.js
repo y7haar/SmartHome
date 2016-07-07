@@ -6,15 +6,37 @@ mainApp.directive('newRoom', function () {
     return {
         templateUrl: BASE_URL + "/app/views/settings/newRoomView.html",
         restrict: "E",
+        controller:newRoomController,
+
         scope: {
-            "room":"="
-        },
-        controller:newRoomController
+            roomId: "="
+        }
     };
 });
 
-var newRoomController = function($scope, $mdDialog, $mdMedia, settingsService) {
+var newRoomController = function($scope, $mdDialog, $mdMedia, $stateParams, settingsService) {
     $scope.roomTypes = Storage.getInstance().getRoomTypes();
+
+    $scope.mobile = false;
+
+    $scope.room = settingsService.rooms[$scope.roomId];
+
+    $scope.$watch(function() { return settingsService.roomToEditIndex; }, function(newVal) {
+        $scope.roomId = newVal;
+        $scope.room = settingsService.rooms[newVal];
+
+        if($scope.room === undefined) {
+            $scope.room = {};
+            $scope.room.modules = [];
+        }
+
+    }, true);
+
+
+    if($stateParams.roomId !==undefined && $stateParams.roomId !== "") {
+        $scope.room = settingsService.rooms[$stateParams.roomId];
+        $scope.mobile = true;
+    }
 
     $scope.roomTypesByName = {};
 
@@ -26,10 +48,8 @@ var newRoomController = function($scope, $mdDialog, $mdMedia, settingsService) {
         return ($scope.room !== undefined) ? $scope.room.name : "Neuer Raum";
     };
 
-    $scope.saveNewRoom = function() {
+    $scope.saveNewRoom = function(ev) {
         $scope.room.iconUrl = $scope.roomTypesByName[$scope.room.type];
-
-        console.log($scope.room);
 
         if(! settingsService.editingRoom) {
             settingsService.rooms.push($scope.room);
@@ -37,6 +57,16 @@ var newRoomController = function($scope, $mdDialog, $mdMedia, settingsService) {
 
 
         settingsService.saveAllRooms();
+
+        var dialog = $mdDialog.alert()
+            .title('Einstellungen gespeichert')
+            .textContent('Die Einstellungen des Raums wurden gespeichert.')
+            .ariaLabel('Einstellungen gespeichert')
+            .clickOutsideToClose(true)
+            .targetEvent(ev)
+            .ok('Ok');
+
+        $mdDialog.show(dialog);
     };
 
 

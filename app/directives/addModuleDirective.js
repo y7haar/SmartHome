@@ -13,6 +13,15 @@ mainApp.directive('addModule', function () {
     };
 });
 
-var addModuleController = function($scope, settingsService) {
+var addModuleController = function($scope, $mdDialog, settingsService) {
     $scope.roomModules = settingsService.roomModules;
+
+    console.log($scope);
+
+    $scope.hide = function() {
+        $mdDialog.hide();
+    };
+
+    $scope.saveModule = function() {
+    }
 };

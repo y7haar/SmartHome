@@ -118,13 +118,13 @@ function multiRoomAudioSettingsController($scope, $mdDialog) {
 
     $scope.maxVolume = 100;
 
-    $scope.eqPresets = ["Pop", "Rock", "Negersprechgesang", "Benutzer"];
+    $scope.eqPresets = ["Pop", "Rock", "Hip Hop", "Benutzer"];
 
     $scope.eqValues = {};
 
     $scope.eqValues["Pop"] = {bass: 5, middle:-4, treble:6};
     $scope.eqValues["Rock"] = {bass: 2, middle:5, treble:-2};
-    $scope.eqValues["Negersprechgesang"] = {bass: 8, middle:-7, treble:4};
+    $scope.eqValues["Hip Hop"] = {bass: 8, middle:-7, treble:4};
     $scope.eqValues["Benutzer"] = {bass: 0, middle:0, treble:0};
 
     $scope.eqPreset = "Rock";
@@ -294,14 +294,6 @@ function washingMachineController($scope, $mdDialog) {
     $scope.toggleAll();
 }
 
-
-mainApp.directive('washingMachineSettings', function () {
-    return {
-        templateUrl: BASE_URL + "/app/views/settings/modules/washingMachineSettingsView.html",
-        restrict: "E",
-        controller:washingMachineController
-    };
-});
 
 //#####################################
 /* Alex Kern*/

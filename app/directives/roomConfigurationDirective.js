@@ -10,10 +10,20 @@ mainApp.directive('roomConfiguration', function () {
     };
 });
 
-var roomConfigurationController = function ($scope, $mdDialog, $mdMedia,settingsService) {
+var roomConfigurationController = function ($scope, $mdDialog, $mdMedia, $location, $state,  settingsService) {
     $scope.rooms = settingsService.rooms;
 
     var isXs = $mdMedia("xs");
+
+    var isTablet = $mdMedia("sm") || $mdMedia("md");
+
+    $scope.mobile = false;
+
+    var url = $location.url();
+
+    if(url === "/settings/admin/roomconfiguration") {
+        $scope.mobile=true;
+    }
 
     $scope.deleteRoom = function (roomIndex, ev) {
 
@@ -66,6 +76,12 @@ var roomConfigurationController = function ($scope, $mdDialog, $mdMedia,settings
         $scope.roomToEditIndex = roomIndex;
         settingsService.editingRoom = true;
         settingsService.addingRoom = false;
+
+        if(isXs || isTablet) {
+            $state.go("settingsAdminRoomconfigurationRoom", {roomId: roomIndex});
+        }
+
+
     };
 
     $scope.addRoom = function() {
@@ -77,10 +93,14 @@ var roomConfigurationController = function ($scope, $mdDialog, $mdMedia,settings
         $scope.roomToEditIndex = $scope.rooms.length;
         settingsService.editingRoom = false;
         settingsService.addingRoom = true;
+
+        if(isXs || isTablet) {
+            $state.go("settingsAdminRoomconfigurationRoom", {roomId: settingsService.roomToEditIndex});
+        }
     };
 
 
-    if(!isXs) {
+    if(!isXs && !isTablet) {
         $scope.editRoom(0);
     }
 };

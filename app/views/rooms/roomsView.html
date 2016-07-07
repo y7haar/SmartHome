@@ -52,7 +52,8 @@
 
                     <md-tab ng-repeat="room in ::rooms track by $index">
                         <md-tab-label>
-                            <img ng-src='{{"assets/img/icons/rooms/white/" + room.iconUrl}}' class="tab-icon" alt={{::room.name}}>
+                            <img ng-src='{{"assets/img/icons/rooms/white/" + room.iconUrl}}' class="tab-icon"
+                                 alt={{::room.name}}>
                         </md-tab-label>
 
                         <md-tab-body layout="column" layout-align="center center">
@@ -61,25 +62,14 @@
                                     <room-image room="::room"></room-image>
 
 
-                                    <!--
-                                    <div layout="column" hide show-xs>
-                                        <div ng-repeat="module in ::room.modules">
-                                            <module></module>
-                                        </div>
-                                    </div>
-                                    -->
-
-                                    <h1 style="color:red"> TODO: Layout anpassen</h1>
-
-
-                                    <div layout="row" layout-align="space-between start" layout-wrap>
-
+                                    <div layout="row" layout-xs="column" layout-align-gt-xs="space-between start">
 
                                         <div layout="column" flex="auto" hide-xs>
 
                                         </div>
 
-                                        <div style="max-width:480px" layout="column" flex="50" flex-xs="100">
+
+                                        <div style="max-width:480px" layout="column" flex-gt-xs="grow">
                                             <div ng-repeat="module in ::room.modulesRight">
                                                 <module></module>
                                             </div>
@@ -89,13 +79,14 @@
 
                                         </div>
 
-                                        <div style="max-width:480px" layout="column" flex="50" flex-xs="100">
+                                        <div style="max-width:480px" layout="column" flex-gt-xs="grow">
                                             <div ng-repeat="module in ::room.modulesLeft">
                                                 <module></module>
                                             </div>
                                         </div>
 
-                                        <div hide show-gt-xs layout="column" flex="auto">
+
+                                        <div layout="column" flex="auto" hide-xs>
 
                                         </div>
 
