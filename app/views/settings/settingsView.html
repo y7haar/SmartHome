@@ -157,7 +157,7 @@
 
             <!-- right view  33%-->
             <div ng-if="selectedTabIndex == adminTabIndex && getSelectedAdminIndex() == 1 && (isEditingRoom() || isAddingRoom()) && isGtMd()" layout="column" flex-gt-md="auto">
-                <new-room room="getRoomToEdit()" style="position:relative" flex></new-room>
+                <new-room room-id="getRoomIdToEdit()" style="position:relative" flex></new-room>
             </div>
 
             <!-- right view  33%-->

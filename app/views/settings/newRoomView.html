@@ -1,5 +1,6 @@
-<settings-toolbar hide show-gt-xs title='getBarTitle()'></settings-toolbar>
-<settings-toolbar hide show-xs abort-mode="cancel" title='getBarTitle()'></settings-toolbar>
+<settings-toolbar ng-if="!mobile" title='getBarTitle()'></settings-toolbar>
+<settings-toolbar ng-if="mobile" hide show-xs abort-mode="cancel" abort-state="settingsAdminRoomconfiguration" title='getBarTitle()'></settings-toolbar>
+<settings-toolbar ng-if="mobile" hide show-gt-xs abort-mode="cancel" abort-state="settings" title='getBarTitle()'></settings-toolbar>
 
 <md-content class="md-padding" layout="column" flex="100">
     <form layout="column">

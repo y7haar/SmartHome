@@ -52,9 +52,6 @@ mainApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
                 "content": { templateUrl: "app/views/settings/settingsView.html", controller: "settingsCtrl"}
             }
         })
-        .state('settings.rooms', {
-            url:'/rooms'
-        })
         .state('settingsRoomsDetail', {
             url:'/settings/rooms/detail/:roomId',
             views: {
@@ -67,22 +64,16 @@ mainApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
                 "content": { template: "<house-settings></house-settings>"}
             }
         })
-        .state('settings.admin.roomconfiguration', {
+        .state('settingsAdminRoomconfiguration', {
             url:'/settings/admin/roomconfiguration',
             views: {
-                "content": { templateUrl: "app/views/settings/settingsView.html", controller: "settingsCtrl"}
+                "content": { template: "<room-configuration></room-configuration>"}
             }
         })
-        .state('settings.admin.roomconfiguration.rooms', {
-            url:'/settings/admin/roomconfiguration/rooms',
-            views: {
-                "content": { templateUrl: "app/views/settings/settingsView.html", controller: "settingsCtrl"}
-            }
-        })
-        .state('settings.admin.roomconfiguration.rooms.detail', {
+        .state('settingsAdminRoomconfigurationRoom', {
             url:'/settings/admin/roomconfiguration/rooms/:roomId',
             views: {
-                "content": { templateUrl: "app/views/settings/settingsView.html", controller: "settingsCtrl"}
+                "content": { template: "<new-room room-id='0'></new-room>"}
             }
         })
         .state('settings.admin.usermanagement', {

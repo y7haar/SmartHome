@@ -11,10 +11,10 @@ var Storage = function () {
     this.defaults = {
 
         houseSettings: {
-            street: "Am Schnakenberg Hügel 7",
-            zip: "88888",
-            location: "Gifhorn",
-            country: "Kaufland"
+            street: "Am Geigengrund 5",
+            zip: "95028",
+            location: "Hof",
+            country: "Deutschland"
         },
 
         centralHeaterSettings: {
@@ -473,7 +473,7 @@ var Storage = function () {
     };
 
     this.getCountries = function () {
-        return ["Deutschland", "Kaufland", "Schlaraffenland"];
+        return ["Deutschland", "Österreich", "Schweiz"];
     };
 
     this.getRoomsWithModuleById = function (moduleId) {

@@ -21,7 +21,18 @@ mainApp.controller("settingsCtrl", function ($scope, $mdMedia, $mdDialog, $state
     $scope.adminTabIndex = 2;
 
 
-    $scope.selectedTabIndex = 0;
+    if(settingsService.selectedTabIndex !== undefined)
+        $scope.selectedTabIndex = settingsService.selectedTabIndex;
+
+    if(settingsService.selectedAdminIndex !== null)
+        $scope.selectedAdminIndex = settingsService.selectedAdminIndex;
+    
+
+    $scope.$watch(function() { return $scope.selectedTabIndex; }, function(newVal) {
+        settingsService.selectedTabIndex = newVal;
+    }, true);
+
+    //$scope.selectedTabIndex = 0;
 
     $scope.selectedModuleIndex = settingsService.selectedModuleIndex;
 
@@ -67,6 +78,9 @@ mainApp.controller("settingsCtrl", function ($scope, $mdMedia, $mdDialog, $state
     
     $scope.selectRoomConfiguration = function () {
         settingsService.setSelectedAdminIndex(1);
+
+        if($scope.isXs())
+            $state.go("settingsAdminRoomconfiguration");
     };
 
     $scope.selectUserManagement = function () {
@@ -75,6 +89,10 @@ mainApp.controller("settingsCtrl", function ($scope, $mdMedia, $mdDialog, $state
 
     $scope.getRoomToEdit = function() {
         return settingsService.roomToEdit;
+    };
+
+    $scope.getRoomIdToEdit = function() {
+        return settingsService.roomToEditIndex;
     };
 
     $scope.isEditingRoom = function() {
