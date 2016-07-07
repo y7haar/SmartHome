@@ -1,5 +1,5 @@
 /**
- * @author Yannic Siebenhaar
+ * @author Andreas Kurt Rohne
  */
 
 function castController($scope, $mdDialog) {

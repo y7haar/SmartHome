@@ -2,44 +2,38 @@
 
     <room-image room="house"></room-image>
 
-    <!--
-
-    <div layout="column" hide show-xs>
-        <div ng-repeat="module in ::modules">
-            <module></module>
-        </div>
-    </div>
-
-    -->
     <h1 style="color:red"> TODO: Layout anpassen</h1>
 
-    <div layout="row" layout-align="center start" layout-wrap>
+    <div layout="row" layout-xs="column" layout-align-gt-xs="space-between start">
 
 
 
-        <div layout="column" flex="auto">
+        <div layout="column" flex="auto" hide-xs>
 
         </div>
 
-        <div style="max-width:480px" layout="column" flex="50" flex-xs="100">
+
+        <div style="max-width:480px" layout="column" flex-gt-xs="grow">
             <div ng-repeat="module in ::modulesRight">
                 <module></module>
             </div>
         </div>
 
-        <div layout="column" flex="auto">
+        <div layout="column" flex="auto" hide-xs>
 
         </div>
 
-        <div style="max-width:480px" layout="column" flex="50" flex-xs="100">
+        <div style="max-width:480px" layout="column" flex-gt-xs="grow">
             <div ng-repeat="module in ::modulesLeft">
                 <module></module>
             </div>
         </div>
 
-        <div hide show-gt-xs layout="column" flex="auto">
+
+        <div layout="column" flex="auto" hide-xs>
 
         </div>
+
 
     </div>
 

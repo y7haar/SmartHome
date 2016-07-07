@@ -1,9 +1,13 @@
 <settings-toolbar ng-if="!mobile" title='getBarTitle()'></settings-toolbar>
-<settings-toolbar ng-if="mobile" hide show-xs abort-mode="cancel" abort-state="settingsAdminRoomconfiguration" title='getBarTitle()'></settings-toolbar>
-<settings-toolbar ng-if="mobile" hide show-gt-xs abort-mode="cancel" abort-state="settings" title='getBarTitle()'></settings-toolbar>
+<settings-toolbar ng-if="mobile" hide show-xs abort-mode="cancel" abort-state="settingsAdminRoomconfiguration"
+                  title='getBarTitle()'></settings-toolbar>
+<settings-toolbar ng-if="mobile" hide show-gt-xs abort-mode="cancel" abort-state="settings"
+                  title='getBarTitle()'></settings-toolbar>
 
-<md-content class="md-padding" layout="column" flex="100">
-    <form layout="column">
+
+<form layout="column">
+    <md-content class="md-padding" layout="column" flex="100">
+
         <md-input-container class="md-block">
             <label>Name</label>
             <input type="text" ng-model="room.name" required>
@@ -13,7 +17,7 @@
 
         <div layout="row" layout-align="start center">
             <md-input-container flex="grow">
-                <md-select ng-model="room.type" placeholder="Raumtyp">
+                <md-select ng-model="room.type" placeholder="Raumtyp" required>
                     <md-option ng-value="roomType.name" ng-repeat="roomType in roomTypes">{{roomType.name}}</md-option>
                 </md-select>
 
@@ -62,9 +66,11 @@
 
         </md-list>
 
-    </form>
-</md-content>
 
-<md-button class="md-fab settings-fab-button" aria-label="Bestätigen" ng-click="saveNewRoom()">
-    <img ng-src="assets/img/icons/Checkmark-96.png" class="png-icon">
-</md-button>
+    </md-content>
+
+    <md-button class="md-fab settings-fab-button" aria-label="Bestätigen" type="submit" ng-click="saveNewRoom()">
+        <img ng-src="assets/img/icons/Checkmark-96.png" class="png-icon">
+    </md-button>
+
+</form>
