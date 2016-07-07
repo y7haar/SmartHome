@@ -399,8 +399,13 @@ room-image {
     display: none !important;
 }
 
+.module-settings {
+    width:100%;
+    min-width:100%;
+}
 
-@media (min-device-width: 1024px) {
+
+@media (min-width: 1024px) {
     .module-settings {
         min-width:600px;
     }
