@@ -1,0 +1,19 @@
+<settings-toolbar abort-mode="cancel" title='"Musik synchronisieren"' abort-function="close()"></settings-toolbar>
+
+<md-content class="md-padding module-settings" layout="column" flex="100">
+    <md-list flex>
+        <md-subheader class="md-no-sticky">Musik in Räumen synchroniseren</md-subheader>
+
+        <md-list-item ng-repeat="room in rooms">
+
+            <div layout="row" layout-align="center center">
+                <img ng-src='{{"assets/img/icons/rooms/black/" + room.iconUrl}}' class="png-icon">
+                <p> {{ room.name }} </p>
+                <md-checkbox class="md-secondary" ng-model="checks[$index]"></md-checkbox>
+            </div>
+
+
+        </md-list-item>
+
+    </md-list>
+</md-content>

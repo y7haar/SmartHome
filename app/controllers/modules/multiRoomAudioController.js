@@ -2,6 +2,24 @@
  * @author Yannic Siebenhaar
  */
 
+function castController($scope, $mdDialog) {
+
+    $scope.rooms = Storage.getInstance().getRooms();
+
+    $scope.checks = [];
+
+    $scope.close = function(ev) {
+        $mdDialog.hide();
+    };
+
+    var falseTrue = [false, true];
+
+    for(var i = 0;i < $scope.rooms.length;++i) {
+        $scope.checks[i] = falseTrue[Math.round(Math.random())];
+    }
+
+}
+
 mainApp.controller("multiRoomAudioCtrl", function ($scope, $interval, $mdDialog) {
 
     $scope.tracks = [
@@ -116,6 +134,17 @@ mainApp.controller("multiRoomAudioCtrl", function ($scope, $interval, $mdDialog)
             targetEvent: ev,
             clickOutsideToClose: true,
             fullscreen: true
+        });
+    };
+
+    $scope.openCast = function (ev) {
+        $mdDialog.show({
+            templateUrl: "app/views/modules/audioCastDialog.html",
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: true,
+            controller: castController
         });
     };
 

@@ -92,16 +92,38 @@ var Storage = function () {
             },
 
             {
-                id: 4, displayName: "Backofen", name: "oven", iconUrl: "Cooker-96.png",
-                hasComponents: false, description: "Erweitern Sie Ihre Küche um einen Backofen mit automatischem Timer."
+                id: 4,
+                displayName: "Backofen",
+                name: "oven",
+                iconUrl: "Cooker-96.png",
+                hasComponents: false,
+                description: "Erweitern Sie Ihre Küche um einen Backofen mit automatischem Timer."
             },
 
             {
-                id: 5, displayName: "Waschmaschine", name: "washingMachine", iconUrl: "Washing Machine-96.png",
-                hasComponents: false, description: "Eine Steuerung zur Überwachung Ihrer Waschmaschine."
+                id: 5, 
+                displayName: "Waschmaschine", 
+                name: "washingMachine", 
+                iconUrl: "Washing Machine-96.png",
+                hasComponents: false,
+                description: "Eine Steuerung zur Überwachung Ihrer Waschmaschine."
             },
-            {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Temperature-96.png"},
-            {id: 7, displayName: "Verbraucher", name: "consumer", iconUrl: "Temperature-96.png"}
+            
+            {
+                id: 6,
+                displayName: "Szenen", 
+                name: "scene", 
+                iconUrl: "Start-96.png",
+                hasComponents: false
+            },
+
+            {
+                id: 7,
+                displayName: "Verbraucher",
+                name: "consumer",
+                iconUrl: "Temperature-96.png",
+                hasComponents: false,
+            }
 
 
         ],
@@ -142,7 +164,7 @@ var Storage = function () {
                     },
                     {id: 4, displayName: "Backofen", name: "oven", iconUrl: "Cooker-96.png", hasComponents: false},
                     {id: 5, displayName: "Heizung", name: "heater", iconUrl: "Temperature-96.png"},
-                    {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Temperature-96.png"},
+                    {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Start-96.png"},
                     {id: 7, displayName: "Verbraucher", name: "consumer", iconUrl: "Temperature-96.png"}
                 ]
             },
@@ -336,11 +358,11 @@ var Storage = function () {
                 pin: "1234"
             }],
 
-        scenes:[
+        scenes: [
             {
-                name:"Party",
-                modules:[{
-                    id:1
+                name: "Party",
+                modules: [{
+                    id: 1
                 }]
 
             }
