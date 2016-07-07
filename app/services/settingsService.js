@@ -104,7 +104,11 @@ mainApp.service("settingsService", [
         
         
         // Alex K
-        
+
+        this.selectedSceneToEditIndex = null;
+        this.selectedRoomForSceneIndex = 0;
+        this.selectedRoomForScene = this.rooms[ this.selectedRoomForSceneIndex];
+
         this.setSelectedRoomForSceneIndex = function(index) {
             this.selectedRoomForSceneIndex = index;
             this.selectedRoomForScene = this.rooms[index];

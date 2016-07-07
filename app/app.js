@@ -92,9 +92,14 @@ mainApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
             }
         })
         .state('settingsSceneScenes', {
-            url:'/settings/scene/scenes/:roomId',
+            url:'/settings/scene/:roomId/scenes/',
             views: {
                 "content": { template: "<scene-settings></scene-settings>"}
+            }
+        }).state('settingsSceneModules', {
+            url:'/settings/scene/:roomId/scenes/:moduleId',
+            views: {
+                "content": { template: "<scene-module-settings></scene-module-settings>"}
             }
         })
 

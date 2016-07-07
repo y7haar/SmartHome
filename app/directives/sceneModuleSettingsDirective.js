@@ -1,17 +1,17 @@
 /**
- * Created by Alex Kern on 05.07.2016.6
+ * Created by Alex Kern on 07.07.2016.
  */
 
 
-mainApp.directive('sceneSettings', function () {
+mainApp.directive('sceneModuleSettings', function () {
     return {
-        templateUrl: BASE_URL + "/app/views/settings/sceneSettingsView.html",
+        templateUrl: BASE_URL + "/app/views/settings/sceneModuleSettingsView.html",
         restrict: "E",
-        controller:sceneSettingsController
+        controller:sceneModuleSettingsController
     };
 });
 
-var sceneSettingsController = function($scope, $mdDialog, $location, settingsService) {
+var sceneModuleSettingsController = function($scope, $mdDialog, $location, settingsService) {
 
     $scope.mobile = false;
     $scope.sceneToEditIndex = null;

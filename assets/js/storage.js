@@ -144,6 +144,14 @@ var Storage = function () {
                     {id: 5, displayName: "Heizung", name: "heater", iconUrl: "Temperature-96.png"},
                     {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Temperature-96.png"},
                     {id: 7, displayName: "Verbraucher", name: "consumer", iconUrl: "Temperature-96.png"}
+                ],
+                scenes: [
+                    {
+                        displayName: "Alle Lichter Dimmen"
+                    },
+                    {
+                        displayName: "Alle Lichter Rot"
+                    }
                 ]
             },
 
@@ -168,6 +176,14 @@ var Storage = function () {
                         iconUrl: "General Blind-96.png",
                         hasComponents: true
                     }
+                ],
+                scenes: [
+                    {
+                        displayName: "Party"
+                    },
+                    {
+                        displayName: "Chill"
+                    }
                 ]
             },
             {
@@ -190,6 +206,14 @@ var Storage = function () {
                         name: "blinds",
                         iconUrl: "General Blind-96.png",
                         hasComponents: true
+                    }
+                ],
+                scenes: [
+                    {
+                        displayName: "Party"
+                    },
+                    {
+                        displayName: "Chill"
                     }
                 ]
             },
@@ -214,6 +238,14 @@ var Storage = function () {
                         iconUrl: "General Blind-96.png",
                         hasComponents: true
                     }
+                ],
+                scenes: [
+                    {
+                        displayName: "Party"
+                    },
+                    {
+                        displayName: "Chill"
+                    }
                 ]
             },
             {
@@ -236,6 +268,14 @@ var Storage = function () {
                         name: "blinds",
                         iconUrl: "General Blind-96.png",
                         hasComponents: true
+                    }
+                ],
+                scenes: [
+                    {
+                        displayName: "Party"
+                    },
+                    {
+                        displayName: "Chill"
                     }
                 ]
             },
@@ -260,6 +300,14 @@ var Storage = function () {
                         iconUrl: "General Blind-96.png",
                         hasComponents: true
                     }
+                ],
+                scenes: [
+                    {
+                        displayName: "Party"
+                    },
+                    {
+                        displayName: "Chill"
+                    }
                 ]
             },
             {
@@ -283,6 +331,14 @@ var Storage = function () {
                         iconUrl: "General Blind-96.png",
                         hasComponents: true
                     }
+                ],
+                scenes: [
+                    {
+                        displayName: "Party"
+                    },
+                    {
+                        displayName: "Chill"
+                    }
                 ]
             },
             {
@@ -305,6 +361,14 @@ var Storage = function () {
                         name: "washingMachine",
                         iconUrl: "Washing Machine-96.png",
                         hasComponents: false
+                    }
+                ],
+                scenes: [
+                    {
+                        displayName: "Party"
+                    },
+                    {
+                        displayName: "Chill"
                     }
                 ]
             }
@@ -336,11 +400,11 @@ var Storage = function () {
                 pin: "1234"
             }],
 
-        scenes:[
+        scenes: [
             {
-                name:"Party",
-                modules:[{
-                    id:1
+                name: "Party",
+                modules: [{
+                    id: 1
                 }]
 
             }
