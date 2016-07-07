@@ -169,10 +169,27 @@ var Storage = function () {
                 ],
                 scenes: [
                     {
-                        displayName: "Alle Lichter Dimmen"
+                        displayName: "Alle Lichter Dimmen",
+                        modules:[
+                            {
+                                name:"multiRoomAudio"
+                            },
+                            {
+                                name:"light"
+                            }
+
+                        ]
                     },
                     {
-                        displayName: "Alle Lichter Rot"
+                        displayName: "Alle Lichter Rot",
+                        modules:[
+                            {
+                                name:"multiRoomAudio"
+                            },
+                            {
+                                name:"heater"
+                            }
+                        ]
                     }
                 ]
             },
@@ -232,10 +249,12 @@ var Storage = function () {
                 ],
                 scenes: [
                     {
-                        displayName: "Party"
-                    },
-                    {
-                        displayName: "Chill"
+                        displayName: "Vorheizen",
+                        modules:[
+                            {
+                                name:"heater"
+                            }
+                        ]
                     }
                 ]
             },
@@ -262,12 +281,7 @@ var Storage = function () {
                     }
                 ],
                 scenes: [
-                    {
-                        displayName: "Party"
-                    },
-                    {
-                        displayName: "Chill"
-                    }
+               
                 ]
             },
             {

@@ -3,10 +3,10 @@
 
     <div class='md-padding'>
 
-        <div layout="row" ng-repeat="consumer in consumers | orderBy:'-elecConsumption' | limitTo: 3"
-             layout-align="space-between center">
+        <div layout="row" ng-repeat="consumer in consumers | limitTo: consumerLimit | orderBy:'-elecConsumption' "
+             layout-align="space-between center" ><!--ng-if="::consumer.isOn"-->
             <div>
-                <span style="word-wrap: break-word;" class="font-green">{{::consumer.name}}</span>
+                <span style="word-wrap: break-word;" class="">{{::consumer.name}}</span>
             </div>
             <div layout="row" flex="70" layout-align="end center">
                 <div flex="40">
@@ -31,9 +31,9 @@
 
     <div class='md-padding'>
         <div layout="row" ng-repeat="consumer in consumers | orderBy:'-elecConsumption' "
-             layout-align="space-between center">
+             layout-align="space-between center" >
             <div>
-                <span style="word-wrap: break-word;" class="font-green">{{::consumer.name}}</span>
+                <span style="word-wrap: break-word;" class="">{{::consumer.name}}</span>
             </div>
             <div layout="row" flex="70" layout-align="end center">
                 <div flex="40">
@@ -53,7 +53,7 @@
 
         <div layout="row" layout-align="space-between center" ng-init="calcTotalConsumption();">
             <div layout="column">
-                <span style="word-wrap: break-word;" class="font-green">Verbrauch</span>
+                <span style="word-wrap: break-word;" class="">Verbrauch</span>
             </div>
             <div layout="row" flex="70" layout-align="end center">
                 <div flex="40">

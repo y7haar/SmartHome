@@ -14,7 +14,7 @@ mainApp.directive('sceneSettings', function () {
 var sceneSettingsController = function($scope, $mdDialog, $location, settingsService) {
 
     $scope.mobile = false;
-    $scope.sceneToEditIndex = null;
+    $scope.sceneToEditIndex = settingsService.selectedSceneToEditIndex;
 
 
     var url = $location.url();
@@ -29,7 +29,9 @@ var sceneSettingsController = function($scope, $mdDialog, $location, settingsSer
 
     $scope.editScene = function (index) {
         settingsService.selectedSceneToEditIndex = index;
+        settingsService.selectedSceneToEdit = settingsService.selectedRoomForScene.scenes[index];
         $scope.sceneToEditIndex = index;
+        console.log(settingsService.selectedSceneToEdit);
 
     };
 

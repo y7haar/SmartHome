@@ -1,11 +1,18 @@
 
-<settings-toolbar ng-if="mobile" title="'Moduleinstellungen'" abort-mode="back" abort-state="settings"></settings-toolbar>
-<settings-toolbar ng-if="!mobile" title="'Moduleinstellungen'"></settings-toolbar>
+<settings-toolbar ng-if="mobile" title="'Module'" abort-mode="back" abort-state="settings"></settings-toolbar>
+<settings-toolbar ng-if="!mobile" title="'Module'"></settings-toolbar>
 
 <md-content class="md-padding" layout="column" flex="100">
 
 
-    <md-subheader class="md-no-sticky">Module editieren</md-subheader>
+    <div layout="row" layout-align="center center">
+        <div style="max-width:480px" layout="column" flex-gt-xs="grow">
+            <div ng-repeat="module in getModules()">
+                <module></module>
+            </div>
+        </div>
+    </div>
+
 
     <!--
     <md-list>

@@ -4,23 +4,33 @@
 mainApp.controller("consumerCtrl", function ($scope,$mdMedia) {
 
     $scope.totalElecConsumption = 0;
-    $scope.totalWaterConsumption = 0;
+    $scope.totalWaterConsumption = 10;
     $scope.chart = "";
+    $scope.consumerLimit = 3;
     var chartWidth = 0;
 
     if($mdMedia("xs"))
         chartWidth = 365;
     else
         chartWidth = 440;
-
-    console.log("WIDTH: "+chartWidth);
     
     $scope.consumers = [
         {
             id: 0,
             name: "TV",
-            isOn: true,
+            isOn: false,
             isSwitchOffAble :true,
+            consumption:[
+                {
+                    type: "electricity",
+                    measure:"kWh",
+                    value:0.12
+                }
+            ],
+            currentConsumption: {
+                "electricity": 0
+            },
+
             elecConsumption: 0.12,
             waterConsumption: 0
         },
@@ -35,7 +45,7 @@ mainApp.controller("consumerCtrl", function ($scope,$mdMedia) {
         {
             id: 2,
             name: "Waschmaschine",
-            isOn: false,
+            isOn: true,
             isSwitchOffAble :false,
             elecConsumption: 0.71,
             waterConsumption: 12
@@ -68,15 +78,19 @@ mainApp.controller("consumerCtrl", function ($scope,$mdMedia) {
 
 
     $scope.calcTotalConsumption= function () {
-        console.log("CALLED")
         $scope.totalElecConsumption = 0;
         $scope.totalWaterConsumption = 0;
         for(var i= 0; i< $scope.consumers.length;++i){
-            if($scope.consumers[i].isOn) {
+            if($scope.consumers[i].isOn|| true) {
                 $scope.totalElecConsumption += $scope.consumers[i].elecConsumption;
+                console.log($scope.consumers[i].waterConsumption);
                 $scope.totalWaterConsumption += $scope.consumers[i].waterConsumption;
             }
         }
+
+        $scope.totalElecConsumption= $scope.totalElecConsumption.toFixed(3);
+        $scope.totalWaterConsumption= $scope.totalWaterConsumption.toFixed(3);
+
     };
 
     $scope.consumerClicked = function (id) {

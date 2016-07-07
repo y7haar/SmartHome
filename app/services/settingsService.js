@@ -103,11 +103,13 @@ mainApp.service("settingsService", [
         
         
         
-        // Alex K
+        // Alex K ############################
 
-        this.selectedSceneToEditIndex = null;
         this.selectedRoomForSceneIndex = 0;
         this.selectedRoomForScene = this.rooms[ this.selectedRoomForSceneIndex];
+
+        this.selectedSceneToEditIndex = 0;
+        this.selectedSceneToEdit = this.selectedRoomForScene.scenes[this.selectedSceneToEditIndex];
 
         this.setSelectedRoomForSceneIndex = function(index) {
             this.selectedRoomForSceneIndex = index;
