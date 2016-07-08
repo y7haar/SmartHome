@@ -9,6 +9,40 @@ mainApp.controller("consumerCtrl", function ($scope,$mdMedia,$timeout,$window) {
     $scope.consumerLimit = 3;
     var chartWidth = null;
 
+    if($mdMedia("xs"))
+        chartWidth = 365;
+    else
+        chartWidth = 440;
+
+    var chartTest = null;
+    $scope.$watch("expanded", function(newV,oldV){
+        console.log("TEST :" +newV+" - "+oldV);
+        console.log($scope.chart);
+
+        console.log("Try reflow");
+        chartTest.reflow();
+
+    });    
+
+    var falseTrue = [false, true];
+
+    $scope.consumers = [];
+
+    for(var i = 0;i < $scope.module.components.length;++i) {
+
+        var consumer = {
+            id: i,
+            name: $scope.module.components[i].name,
+            isSwitchOffAble: $scope.module.components[i].isSwitchOffAble,
+            isOn: $scope.module.components[i].isSwitchOffAble ? falseTrue[Math.round(Math.random())] : true,
+            elecConsumption: Math.round(Math.random() * 100) / 100,
+            waterConsumption: Math.round(Math.random() * 100) / 100
+        };
+
+        $scope.consumers.push(consumer);
+    }
+
+    /*
     $scope.test = false;
     var calcWidth = function () {
         chartWidth = $timeout(function(){
@@ -92,6 +126,8 @@ mainApp.controller("consumerCtrl", function ($scope,$mdMedia,$timeout,$window) {
         }
     ];
 
+    */
+
 
     $scope.calcTotalConsumption= function () {
         $scope.totalElecConsumption = 0;
@@ -130,6 +166,7 @@ mainApp.controller("consumerCtrl", function ($scope,$mdMedia,$timeout,$window) {
                         var y2= Math.round(1+Math.random(x*21) *5);
                         series[0].addPoint([x, y1], true, true);
                         series[1].addPoint([x, y2], true, true);
+
                     }, 15000);
                 }
             }
@@ -201,17 +238,8 @@ mainApp.controller("consumerCtrl", function ($scope,$mdMedia,$timeout,$window) {
             formatter: function() {
                 return Highcharts.dateFormat('%d.%m.%Y %H:%M:%S', this.x)+'<br>Stromverbrauch: '+ this.points[0].y+' kWh'+'<br>Wasserverbrauch: '+ this.points[1].y+' m³';
             }
-        },
-        func: function(chart) {
-            $timeout(function() {
-                console.log("OMG");
-                chart.reflow();
-                //The below is an event that will trigger all instances of charts to reflow
-                //$scope.$broadcast('highchartsng.reflow');
-            }, 0);
         }
     };
-
 
 
 

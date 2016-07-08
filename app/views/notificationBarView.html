@@ -1,7 +1,9 @@
 <md-content class="notification-bar" layout="column" md-swipe-up="hideBar()">
+
     <washing-machine-notification ng-if="showNotifications[0]"></washing-machine-notification>
     <weather-notification ng-if="showNotifications[1]"></weather-notification>
     <door-notification ng-if="showNotifications[2]"></door-notification>
     <oven-notification ng-if="showNotifications[3]"></oven-notification>
 
+    <hr style="margin-bottom:4px;margin-top:4px; ">
 </md-content>

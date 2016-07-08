@@ -4,6 +4,24 @@
 
 mainApp.controller("lightCtrl", function ($scope, $mdDialog){
 
+    var falseTrue = [false, true];
+
+    $scope.lights = [];
+
+    for(var i = 0;i < $scope.module.components.length;++i) {
+        var light = {
+            id: i,
+            name: $scope.module.components[i].name,
+            isOn: falseTrue[Math.round(Math.random())],
+            dimState: parseInt(Math.random() * 100),
+            isColorAble: $scope.module.components[i].isColorAble
+        };
+
+        $scope.lights.push(light);
+    }
+
+
+    /*
     $scope.lights = [
         {
             id: 0,
@@ -30,6 +48,8 @@ mainApp.controller("lightCtrl", function ($scope, $mdDialog){
         }
 
     ];
+
+    */
 
 
     $scope.lightClicked = function (event, id) {

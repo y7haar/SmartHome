@@ -4,11 +4,11 @@
 
 mainApp.controller("blindsCtrl", function ($scope, $interval, $mdDialog) {
 
-    $scope.windows = [
-        {name:"Fenster Links", status:10, slatOpened:true, autoMode:true},
-        {name:"Fenster Mitte",  status:10, slatOpened:true, autoMode:true},
-        {name:"Fenster Rechts",  status:10, slatOpened:true, autoMode:true}
-    ];
+    $scope.windows = [];
+
+    for(var i = 0;i < $scope.module.components.length;++i) {
+        $scope.windows.push({name:$scope.module.components[i].name, status:10, slatOpened:true, autoMode:true})
+    }
 
     $scope.allWindowsStatus = "-";
 
