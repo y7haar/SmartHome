@@ -185,10 +185,13 @@ var Storage = function () {
                         name: "blinds",
                         iconUrl: "General Blind-96.png",
                         hasComponents: true,
-                        components: [{name:"Fenster links"}, {name:"Fenster Mitte"}]
+                        components: [{name:"Fenster links"}, {name:"Fenster Rechts"}]
                     },
+
                     {id: 4, displayName: "Backofen", name: "oven", iconUrl: "Cooker-96.png", hasComponents: false},
+
                     {id: 5, displayName: "Heizung", name: "heater", iconUrl: "Heating Radiator-96.png"},
+
                     {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Start-96.png"},
 
 
@@ -197,25 +200,18 @@ var Storage = function () {
                         name: "consumer",
                         iconUrl: "Electrical-96.png",
                         hasComponents: true,
-                        components: [{
-                            name: "TV",
-                            isSwitchOffAble :true
-                        },
+                        components: [
                             {
                                 name: "Kühlschrank",
-                                isSwitchOffAble :false,
+                                isSwitchOffAble :false
                             },
                             {
                                 name: "Kaffe Maschine",
-                                isSwitchOffAble :true,
+                                isSwitchOffAble :true
                             },
                             {
                                 name: "Telefon",
-                                isSwitchOffAble :false,
-                            },
-                            {
-                                name: "TV 2",
-                                isSwitchOffAble :true,
+                                isSwitchOffAble :false
                             }]
                     }
                 ],
@@ -258,6 +254,54 @@ var Storage = function () {
                         name: "multiRoomAudio",
                         iconUrl: "Music-96.png",
                         hasComponents: false
+                    },
+
+                    {
+                        id: 2,
+                        displayName: "Licht",
+                        name: "light",
+                        iconUrl: "Light On-96.png",
+                        hasComponents: true,
+                        components: [{name:"Licht 1", isColorAble:false}, {name:"Licht 2", isColorAble:true}, {name:"Licht 3", isColorAble:true}]
+                    },
+
+                    {id: 5, displayName: "Heizung", name: "heater", iconUrl: "Heating Radiator-96.png"},
+
+                    {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Start-96.png"},
+
+                    {
+                        id: 3,
+                        displayName: "Jalousien",
+                        name: "blinds",
+                        iconUrl: "General Blind-96.png",
+                        hasComponents: true,
+                        components: [{name:"Fenster links"}, {name:"Fenster Mitte"}, {name:"Fenster Rechts"}]
+                    },
+
+
+
+                    {
+                        id: 7, displayName: "Verbraucher",
+                        name: "consumer",
+                        iconUrl: "Electrical-96.png",
+                        hasComponents: true,
+                        components: [
+                            {
+                                name: "TV",
+                                isSwitchOffAble :true
+                            },
+                            {
+                                name: "XBox",
+                                isSwitchOffAble :true
+                            },
+                            {
+                                name: "BluRay Player",
+                                isSwitchOffAble :true
+                            },
+                            {
+                                name: "Telefon",
+                                isSwitchOffAble :false
+                            }]
                     }
                 ],
                 scenes: [
@@ -281,6 +325,44 @@ var Storage = function () {
                         name: "multiRoomAudio",
                         iconUrl: "Music-96.png",
                         hasComponents: false
+                    },
+
+                    {
+                        id: 2,
+                        displayName: "Licht",
+                        name: "light",
+                        iconUrl: "Light On-96.png",
+                        hasComponents: true,
+                        components: [{name:"Spiegel", isColorAble:true}, {name:"Decke", isColorAble:false}]
+                    },
+
+                    {id: 5, displayName: "Heizung", name: "heater", iconUrl: "Heating Radiator-96.png"},
+
+                    {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Start-96.png"},
+
+                    {
+                        id: 3,
+                        displayName: "Jalousien",
+                        name: "blinds",
+                        iconUrl: "General Blind-96.png",
+                        hasComponents: true,
+                        components: [{name:"Fenster"}]
+                    },
+
+                    {
+                        id: 7, displayName: "Verbraucher",
+                        name: "consumer",
+                        iconUrl: "Electrical-96.png",
+                        hasComponents: true,
+                        components: [
+                            {
+                                name: "Zahnbürste",
+                                isSwitchOffAble :true
+                            },
+                            {
+                                name: "Rasierer",
+                                isSwitchOffAble :true
+                            }]
                     }
                 ],
                 scenes: [
@@ -306,6 +388,44 @@ var Storage = function () {
                         name: "multiRoomAudio",
                         iconUrl: "Music-96.png",
                         hasComponents: false
+                    },
+
+                    {
+                        id: 2,
+                        displayName: "Licht",
+                        name: "light",
+                        iconUrl: "Light On-96.png",
+                        hasComponents: true,
+                        components: [{name:"Decke", isColorAble:false}, {name:"Bett", isColorAble:false}]
+                    },
+
+                    {id: 5, displayName: "Heizung", name: "heater", iconUrl: "Heating Radiator-96.png"},
+
+                    {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Start-96.png"},
+
+                    {
+                        id: 3,
+                        displayName: "Jalousien",
+                        name: "blinds",
+                        iconUrl: "General Blind-96.png",
+                        hasComponents: true,
+                        components: [{name:"Fenster links"}, {name:"Fenster Ecke"}]
+                    },
+
+                    {
+                        id: 7, displayName: "Verbraucher",
+                        name: "consumer",
+                        iconUrl: "Electrical-96.png",
+                        hasComponents: true,
+                        components: [
+                            {
+                                name: "TV",
+                                isSwitchOffAble :true
+                            },
+                            {
+                                name: "Handy",
+                                isSwitchOffAble :true
+                            }]
                     }
                 ],
                 scenes: [
@@ -324,6 +444,47 @@ var Storage = function () {
                         name: "multiRoomAudio",
                         iconUrl: "Music-96.png",
                         hasComponents: false
+                    },
+
+                    {
+                        id: 2,
+                        displayName: "Licht",
+                        name: "light",
+                        iconUrl: "Light On-96.png",
+                        hasComponents: true,
+                        components: [{name:"Licht 1", isColorAble:false}, {name:"Licht 2", isColorAble:true}, {name:"Licht 3", isColorAble:true}]
+                    },
+
+                    {id: 5, displayName: "Heizung", name: "heater", iconUrl: "Heating Radiator-96.png"},
+
+
+                    {
+                        id: 3,
+                        displayName: "Jalousien",
+                        name: "blinds",
+                        iconUrl: "General Blind-96.png",
+                        hasComponents: true,
+                        components: [{name:"Fenster links"}, {name:"Fenster Rechts"}]
+                    },
+
+                    {
+                        id: 7, displayName: "Verbraucher",
+                        name: "consumer",
+                        iconUrl: "Electrical-96.png",
+                        hasComponents: true,
+                        components: [
+                            {
+                                name: "Carrerabahn",
+                                isSwitchOffAble :true
+                            },
+                            {
+                                name: "Wii",
+                                isSwitchOffAble :true
+                            },
+                            {
+                                name: "Handy",
+                                isSwitchOffAble :true
+                            }]
                     }
                 ],
                 scenes: [
@@ -347,6 +508,51 @@ var Storage = function () {
                         name: "multiRoomAudio",
                         iconUrl: "Music-96.png",
                         hasComponents: false
+                    },
+
+                    {
+                        id: 2,
+                        displayName: "Licht",
+                        name: "light",
+                        iconUrl: "Light On-96.png",
+                        hasComponents: true,
+                        components: [{name:"Decke", isColorAble:false}, {name:"Billiard", isColorAble:false}]
+                    },
+
+                    {id: 5, displayName: "Heizung", name: "heater", iconUrl: "Heating Radiator-96.png"},
+
+                    {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Start-96.png"},
+
+
+                    {
+                        id: 7, displayName: "Verbraucher",
+                        name: "consumer",
+                        iconUrl: "Electrical-96.png",
+                        hasComponents: true,
+                        components: [
+                            {
+                                name: "Dart",
+                                isSwitchOffAble :true
+                            },
+                            {
+                                name: "Flipper",
+                                isSwitchOffAble :true
+                            },
+
+                            {
+                                name: "TV",
+                                isSwitchOffAble :true
+                            },
+
+                            {
+                                name: "NES",
+                                isSwitchOffAble :true
+                            },
+
+                            {
+                                name: "BlurRay Player",
+                                isSwitchOffAble :true
+                            }]
                     }
                 ],
                 scenes: [
@@ -363,6 +569,7 @@ var Storage = function () {
                 name: "Büro",
                 type: "Arbeitszimmer",
                 roomImageUrl: "assets/img/room_images/buero.png",
+
                 modules: [
                     {
                         id: 1,
@@ -370,6 +577,41 @@ var Storage = function () {
                         name: "multiRoomAudio",
                         iconUrl: "Music-96.png",
                         hasComponents: false
+                    },
+
+                    {
+                        id: 2,
+                        displayName: "Licht",
+                        name: "light",
+                        iconUrl: "Light On-96.png",
+                        hasComponents: true,
+                        components: [{name:"Decke", isColorAble:false}, {name:"Tisch", isColorAble:false}]
+                    },
+
+                    {id: 5, displayName: "Heizung", name: "heater", iconUrl: "Heating Radiator-96.png"},
+
+                    {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Start-96.png"},
+
+
+                    {
+                        id: 7, displayName: "Verbraucher",
+                        name: "consumer",
+                        iconUrl: "Electrical-96.png",
+                        hasComponents: true,
+                        components: [
+                            {
+                                name: "Handy",
+                                isSwitchOffAble :true
+                            },
+                            {
+                                name: "PC",
+                                isSwitchOffAble :true
+                            },
+
+                            {
+                                name: "TV",
+                                isSwitchOffAble :true
+                            }]
                     }
                 ],
                 scenes: [
