@@ -59,10 +59,10 @@ var Storage = function () {
 
         },
 
-        roomModules: [
+        roomModules: {
 
 
-            {
+            "Multi Room Audio": {
                 id: 1,
                 displayName: "Multi Room Audio",
                 name: "multiRoomAudio",
@@ -71,7 +71,7 @@ var Storage = function () {
                 description: "Mit dem Multi Room Audio Modul können Sie Musik in dem aktuellen Raum abspielen. Synchronisieren Sie Ihre Lieblingslieder in gewünschten Räumen."
             },
 
-            {
+            "Licht": {
                 id: 2,
                 displayName: "Licht",
                 name: "light",
@@ -81,7 +81,7 @@ var Storage = function () {
                 description: "Dieses Modul steuert all Ihre Lichter in dem aktuellen Raum."
             },
 
-            {
+            "Jalousien": {
                 id: 3,
                 displayName: "Jalousien",
                 name: "blinds",
@@ -91,7 +91,7 @@ var Storage = function () {
                 description: "Automatisieren Sie die Steuerung der Jalousien mithilfe dieses Moduls."
             },
 
-            {
+            "Backofen": {
                 id: 4,
                 displayName: "Backofen",
                 name: "oven",
@@ -100,33 +100,47 @@ var Storage = function () {
                 description: "Erweitern Sie Ihre Küche um einen Backofen mit automatischem Timer."
             },
 
-            {
-                id: 5, 
-                displayName: "Waschmaschine", 
-                name: "washingMachine", 
+            "Waschmaschine": {
+                id: 5,
+                displayName: "Waschmaschine",
+                name: "washingMachine",
                 iconUrl: "Washing Machine-96.png",
                 hasComponents: false,
                 description: "Eine Steuerung zur Überwachung Ihrer Waschmaschine."
             },
-            
-            {
+
+            "Szenen": {
                 id: 6,
-                displayName: "Szenen", 
-                name: "scene", 
+                displayName: "Szenen",
+                name: "scene",
                 iconUrl: "Start-96.png",
-                hasComponents: false
+                hasComponents: false,
+                description: "Erschaffen Sie mithilfe dieses Modul beliebige Abläufe und speichern Sie diese als Szene."
+
             },
 
-            {
+            "Verbraucher": {
                 id: 7,
                 displayName: "Verbraucher",
                 name: "consumer",
-                iconUrl: "Temperature-96.png",
+                iconUrl: "Electrical-96.png",
                 hasComponents: false,
+                description: "Verschaffen Sie sich einen Überblick über Ihre angeschlossenen Geräte, die in Steckdosen eingesteckt sind. Das Modul gibt Ihnen Aufschluss über den Strom- und Wasserverbrauch."
+
+            },
+
+            "Heizung": {
+                id: 8,
+                displayName: "Heizung",
+                name: "heater",
+                iconUrl: "Heating Radiator-96.png",
+                hasComponents: false,
+                description: "Das Heizungsmodul temperiert den gewählten Raum immer perfekt. Abhängig von der Zentralheizung oder Ihren aktuellen Wünschen."
+
             }
 
 
-        ],
+        },
 
         house: {
             name: "Haus",
@@ -163,9 +177,9 @@ var Storage = function () {
                         hasComponents: true
                     },
                     {id: 4, displayName: "Backofen", name: "oven", iconUrl: "Cooker-96.png", hasComponents: false},
-                    {id: 5, displayName: "Heizung", name: "heater", iconUrl: "Temperature-96.png"},
+                    {id: 5, displayName: "Heizung", name: "heater", iconUrl: "Heating Radiator-96.png"},
                     {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Start-96.png"},
-                    {id: 7, displayName: "Verbraucher", name: "consumer", iconUrl: "Temperature-96.png"}
+                    {id: 7, displayName: "Verbraucher", name: "consumer", iconUrl: "Electrical-96.png"}
                 ],
                 scenes: [
                     {
@@ -281,7 +295,7 @@ var Storage = function () {
                     }
                 ],
                 scenes: [
-               
+
                 ]
             },
             {

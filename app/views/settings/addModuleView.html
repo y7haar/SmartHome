@@ -1,37 +1,37 @@
-<settings-toolbar abort-mode="cancel" abort-function="hide()" title="'Modul hinzufügen'"></settings-toolbar>
+<settings-toolbar abort-mode="cancel" abort-function="hide()" title="moduleId < room.modules.length ? 'Modul Informationen' : 'Modul hinzufügen'"></settings-toolbar>
 
 <md-content class="md-padding module-settings" layout="column" flex="100" style="min-height:550px">
     <form layout="column">
 
-        <div layout="row" layout-align="start center">
+        <div layout="row" layout-align="start center" ng-if="moduleId >= room.modules.length">
             <md-input-container flex="grow">
-                <md-select ng-model="module.index" placeholder="Modul">
-                    <md-option ng-value="$index" ng-repeat="module in roomModules">{{module.displayName}}
+                <md-select ng-model="module.displayName" placeholder="Modul">
+                    <md-option ng-value="moduleI.displayName" ng-repeat="moduleI in roomModules">{{moduleI.displayName}}
                     </md-option>
                 </md-select>
 
             </md-input-container>
 
-            <img ng-if="module.index === undefined"
+            <img ng-if="module.displayName === undefined"
                  ng-src="assets/img/icons/Control Panel-96.png" class="png-icon">
 
-            <img ng-if="module.index !== undefined"
-                 ng-src='{{"assets/img/icons/modules/black/" + roomModules[module.index].iconUrl}}' class="png-icon">
+            <img ng-if="module.displayName !== undefined"
+                 ng-src='{{"assets/img/icons/modules/black/" + roomModules[module.displayName].iconUrl}}' class="png-icon">
 
         </div>
 
-        <div layout="column" style="padding-top:20px;padding-bottom:20px;" ng-if="module.index != undefined">
+        <div layout="column" style="padding-top:20px;padding-bottom:20px;" ng-if="module.displayName != undefined">
             <h3>Beschreibung</h3>
-            <p>{{roomModules[module.index].description}}</p>
+            <p>{{roomModules[module.displayName].description}}</p>
         </div>
 
-        <div layout="column" style="padding-top:20px;padding-bottom:20px;" ng-if="roomModules[module.index].hasComponents">
+        <div layout="column" style="padding-top:20px;padding-bottom:20px;" ng-if="roomModules[module.displayName].hasComponents">
             <h3>Komponenten</h3>
 
             <md-list-item class="md-1-line settings-list-item"
-                          ng-repeat="component in roomModules[module.index].components">
+                          ng-repeat="component in roomModules[module.displayName].components">
                 <div class="md-list-item-text" layout="row" layout-align="center center" flex>
-                    <img ng-src='{{"assets/img/icons/modules/black/" + roomModules[module.index].iconUrl}}'
+                    <img ng-src='{{"assets/img/icons/modules/black/" + roomModules[module.displayName].iconUrl}}'
                          class="png-icon">
                     <h4 flex>{{component.name}}</h4>
                 </div>
@@ -40,11 +40,11 @@
 
 
             <md-button>
-                {{roomModules[module.index].componentName}} hinzufügen
+                {{roomModules[module.displayName].componentName}} hinzufügen
             </md-button>
         </div>
 
-        <md-button class="md-fab settings-fab-button" aria-label="Bestätigen" type="submit" ng-click="saveModule()">
+        <md-button ng-if="roomModules[module.displayName].hasComponents || moduleId >= room.modules.length" class="md-fab settings-fab-button" aria-label="Bestätigen" type="submit" ng-click="moduleId < room.modules.length ? saveEditedModule() : saveNewModule()">
             <img ng-src="assets/img/icons/Checkmark-96.png" class="png-icon">
         </md-button>
         <!--

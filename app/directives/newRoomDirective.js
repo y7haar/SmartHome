@@ -14,6 +14,40 @@ mainApp.directive('newRoom', function () {
     };
 });
 
+
+
+var addModuleController = function($scope, $mdDialog, moduleId, room, settingsService) {
+    $scope.moduleId = moduleId;
+    $scope.room = room;
+    $scope.roomModules = settingsService.roomModules;
+
+    if($scope.moduleId < $scope.room.modules.length) {
+        $scope.module = $scope.room.modules[$scope.moduleId];
+    }
+
+    else {
+        $scope.module = {};
+    }
+
+    $scope.hide = function() {
+        $mdDialog.hide();
+    };
+
+    $scope.saveNewModule = function() {
+        $scope.room.modules.push();
+
+        settingsService.saveAllRooms();
+    };
+
+    $scope.saveEditedModule = function() {
+        alert("asd");
+
+        settingsService.saveAllRooms();
+    };
+};
+
+
+
 var newRoomController = function($scope, $mdDialog, $mdMedia, $stateParams, settingsService) {
     $scope.roomTypes = Storage.getInstance().getRoomTypes();
 
@@ -90,14 +124,48 @@ var newRoomController = function($scope, $mdDialog, $mdMedia, $stateParams, sett
         });
     };
 
+    var scope = $scope.$new();
+    scope.params = {moduleId:"lol"};
+
     $scope.addModule = function(ev) {
 
         $mdDialog.show({
-            template: "<add-module></add-module>",
+            templateUrl: "app/views/settings/addModuleView.html",
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true,
-            fullscreen: true
+            fullscreen: true,
+            controller:addModuleController,
+            resolve: {
+                moduleId: function () {
+                    return $scope.room.modules.length;
+                },
+
+                room: function () {
+                    return $scope.room;
+                }
+            }
+        });
+    };
+
+    $scope.editModule = function(moduleId, ev) {
+
+        $mdDialog.show({
+            templateUrl: "app/views/settings/addModuleView.html",
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: true,
+            controller:addModuleController,
+            resolve: {
+                moduleId: function () {
+                    return moduleId;
+                },
+
+                room: function () {
+                    return $scope.room;
+                }
+            }
         });
     }
 };
