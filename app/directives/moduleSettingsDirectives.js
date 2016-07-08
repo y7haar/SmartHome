@@ -429,6 +429,13 @@ function sceneController($scope, $mdDialog) {
     $scope.toggleAll();
 };
 
+mainApp.directive('logSettings', function () {
+    return {
+        templateUrl: BASE_URL + "/app/views/settings/modules/logSettingsView.html",
+        restrict: "E",
+        controller:logController
+    };
+});
 
 function logController($scope, $mdDialog) {
     $scope.showDate= true;
@@ -441,13 +448,63 @@ function logController($scope, $mdDialog) {
 };
 
 
-mainApp.directive('logSettings', function () {
+
+
+mainApp.directive('photovoltaicSettings', function () {
     return {
-        templateUrl: BASE_URL + "/app/views/settings/modules/logSettingsView.html",
+        templateUrl: BASE_URL + "/app/views/settings/modules/photovoltaicSettingsView.html",
         restrict: "E",
-        controller:logController
+        controller:photovoltaicController
     };
 });
+
+function photovoltaicController($scope, $mdDialog) {
+    $scope.notifications = ["Akku Voll", "Akku Leer", "Strom bezug", "Strom verkaufen"];
+    $scope.selected = [1];
+    $scope.akkuUnit="0";
+
+
+    $scope.lightOn = true;
+
+
+    $scope.toggle = function (item, list) {
+        var idx = list.indexOf(item);
+        if (idx > -1) {
+            list.splice(idx, 1);
+        }
+        else {
+            list.push(item);
+        }
+    };
+
+    $scope.exists = function (item, list) {
+        return list.indexOf(item) > -1;
+    };
+
+    $scope.isIndeterminate = function() {
+        return ($scope.selected.length !== 0 &&
+        $scope.selected.length !== $scope.notifications.length);
+    };
+
+    $scope.isChecked = function() {
+        return $scope.selected.length === $scope.notifications.length;
+    };
+
+    $scope.toggleAll = function() {
+        if ($scope.selected.length === $scope.notifications.length) {
+            $scope.selected = [];
+        } else if ($scope.selected.length === 0 || $scope.selected.length > 0) {
+            $scope.selected = $scope.notifications.slice(0);
+        }
+    };
+
+
+    $scope.close = function() {
+        $mdDialog.hide();
+    };
+
+    $scope.toggleAll();
+};
 
 
 

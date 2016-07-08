@@ -1,0 +1,47 @@
+<settings-toolbar abort-mode="cancel" title='"Photovoltaik"' abort-function="close()"></settings-toolbar>
+
+<md-content class="md-padding" layout="column" flex="100">
+    <form layout="column">
+
+
+        <fieldset class="standard" style="margin-bottom:25px">
+            <legend>Photovoltaik</legend>
+
+            <div layout="column">
+                <h4 style="margin-bottom:15px">Überschüssige Energie</h4>
+                <md-radio-group ng-model="akkuUnit">
+                    <md-radio-button value="0">Strom verkaufen</md-radio-button>
+                    <md-radio-button value="1">Akku volladen </md-radio-button>
+                </md-radio-group>
+
+            </div>
+
+        </fieldset>
+
+
+        <fieldset class="standard">
+            <legend>Benachrichtigungen</legend>
+            <div layout="column">
+                <div>
+                    <md-checkbox aria-label="Alle Benachrichtigungen"
+                                 ng-checked="isChecked()"
+                                 md-indeterminate="isIndeterminate()"
+                                 ng-click="toggleAll()">
+                        Benachrichtigungen erhalten
+                    </md-checkbox>
+                </div>
+                <div style="padding-left: 30px" ng-repeat="not in notifications">
+                    <md-checkbox ng-checked="exists(not, selected)"
+                                 ng-click="toggle(not, selected)"
+                                 aria-label={{not}}>
+                        {{ not }}
+                    </md-checkbox>
+                </div>
+            </div>
+        </fieldset>
+
+
+
+
+    </form>
+</md-content>

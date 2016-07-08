@@ -2,7 +2,7 @@
  * @author Alexander Kern
  */
 
-mainApp.controller("photovoltaicCtrl", function ($scope,$mdMedia) {
+mainApp.controller("photovoltaicCtrl", function ($scope,$mdMedia,$mdDialog) {
 
     var chartWidth = null;
 
@@ -25,6 +25,7 @@ mainApp.controller("photovoltaicCtrl", function ($scope,$mdMedia) {
             value: undefined
         }
     };
+
 
     var setData = function(){
         $scope.data.pvElecGeneration = (Math.random() *5).toFixed(2);
@@ -63,7 +64,7 @@ mainApp.controller("photovoltaicCtrl", function ($scope,$mdMedia) {
         }
         else
         {
-            $scope.data.battery.isLoading = true;
+
             if($scope.data.battery.isLoading){
                 $scope.data.outside.type = "Bezug";
                 $scope.data.outside.value = 0;
@@ -80,11 +81,119 @@ mainApp.controller("photovoltaicCtrl", function ($scope,$mdMedia) {
     setData();
 
 
+    $scope.openSettings = function (ev) {
+        $mdDialog.show({
+            template: "<" + "photovoltaic-settings" + " class='module-settings'></" + "photovoltaic-settings" + ">",
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: true
+        });
+    };
 
+    /*
     console.log("PV: "+$scope.data.pvElecGeneration);
     console.log("H: "+$scope.data.houseConsumption);
     console.log("B: "+$scope.data.battery.state+ "- "+$scope.data.battery.generation+" Charging"+$scope.data.battery.isLoading);
     console.log("S: "+$scope.data.outside.type+" - "+$scope.data.outside.value);
+
+       */
+
+    $scope.chartOptions2 = {
+        chart:{
+            width:chartWidth,
+            events: {
+                load : function (){
+                    chartTest = this;
+                    var series = this.series;
+                    setInterval(function () {
+                        var x = (new Date()).getTime();
+                        var y1= Math.round(5+Math.random(x*42) *8);
+                        var y2= Math.round(1+Math.random(x*21) *6);
+                        series[0].addPoint([x, y1], true, true);
+                        series[1].addPoint([x, y2], true, true);
+
+                    }, 15000);
+                }
+            }
+        },
+        navigator: {
+            margin: 5,
+            series: {
+                color: "#5d8e1a",
+                lineWidth: 2
+            }
+        },
+
+        rangeSelector: {
+            enabled: false
+
+        },
+        credits: {
+            enabled: false
+        },
+        title: {
+            text: 'Photovoltaik'
+        },
+        xAxis: {
+            range: 15 * 1000,
+            type:'datetime'
+        },
+
+        series: [{
+            type: "column",
+            color: '#5d8e1a',
+            name: 'Stromverbrauch in kWh',
+            data: (function () {
+
+                var data = [], time = (new Date()), i;
+                time.setSeconds(0);
+                time = time.getTime();
+
+                for (i = -100; i <= 0; i += 1) {
+                    data.push([
+                        time + i * 15000,
+                        Math.round(3+Math.random(time *2) * 8)
+                    ]);
+                }
+                return data;
+            }())
+        },
+            {
+                type: "column",
+                color: '#0956a9',
+                name: 'Stromerzeugung in kWh',
+                data: (function () {
+                    var data = [], time = (new Date()), i;
+                    time.setSeconds(0);
+                    time = time.getTime();
+
+                    for (i = -100; i <= 0; i += 1) {
+                        data.push([
+                            time + i * 15000,
+                            Math.round(1+Math.random(time) * 6)
+                        ]);
+                    }
+                    return data;
+                }())
+            }
+
+        ],
+        tooltip:{
+            crosshairs: [true],
+            formatter: function() {
+                return Highcharts.dateFormat('%d.%m.%Y %H:%M:%S', this.x)+'<br>Stromverbrauch: '+ this.points[0].y+' kWh'+'<br>Stromerzeugung: '+ this.points[1].y+' kWh';
+            }
+        }
+    };
+
+
+
+
+
+
+
+
 
     $scope.chartOptions = {
         chart:{
