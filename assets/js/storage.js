@@ -156,7 +156,7 @@ var Storage = function () {
                 id: 10,
                 displayName: "Photovoltaik",
                 name: "photovoltaic",
-                iconUrl: "Control Panel-96.png",
+                iconUrl: "Solar Panel-96.png",
                 hasComponents: false,
                 description: "Dieses Modul verschaft Ihnen einen Überblick Ihrer Photovoltaikanlage."
             }
@@ -173,7 +173,7 @@ var Storage = function () {
                 {id: 102, displayName: "Haustür", name: "door", iconUrl: "Door Sensor-96.png"},
                 {id: 103, displayName: "Log", name: "log", iconUrl: "Page Overview -96.png"},
                 {id: 104, displayName: "Statistik", name: "statistic", iconUrl: "Combo Chart-96.png"},
-                {id: 105, displayName: "Photovoltaik", name: "photovoltaic", iconUrl: "Control Panel-96.png"}
+                {id: 105, displayName: "Photovoltaik", name: "photovoltaic", iconUrl: "Solar Panel-96.png"}
             ]
 
         },
