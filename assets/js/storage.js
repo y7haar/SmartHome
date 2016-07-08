@@ -17,6 +17,10 @@ var Storage = function () {
             country: "Deutschland"
         },
 
+        forbiddenSceneEditorModules : [
+            "scene"
+        ],
+
         centralHeaterSettings: {
             timeStates: [
                 {
@@ -73,7 +77,7 @@ var Storage = function () {
 
             "Licht": {
                 id: 2,
-                displayName: "Licht",
+                displayName: "Beleuchtung",
                 name: "light",
                 iconUrl: "Light On-96.png",
                 hasComponents: true,
@@ -172,7 +176,7 @@ var Storage = function () {
 
                     {
                         id: 2,
-                        displayName: "Licht",
+                        displayName: "Beleuchtung",
                         name: "light",
                         iconUrl: "Light On-96.png",
                         hasComponents: true,
@@ -223,7 +227,9 @@ var Storage = function () {
                                 name:"multiRoomAudio"
                             },
                             {
-                                name:"light"
+                                name:"light",
+                                hasComponents: true,
+                                components: [{name:"Licht 1", isColorAble:false}, {name:"Licht 2", isColorAble:true}]
                             }
 
                         ]
@@ -258,7 +264,7 @@ var Storage = function () {
 
                     {
                         id: 2,
-                        displayName: "Licht",
+                        displayName: "Beleuchtung",
                         name: "light",
                         iconUrl: "Light On-96.png",
                         hasComponents: true,
@@ -306,10 +312,12 @@ var Storage = function () {
                 ],
                 scenes: [
                     {
-                        displayName: "Party"
+                        displayName: "Party",
+                        modules:[]
                     },
                     {
-                        displayName: "Chill"
+                        displayName: "Chill",
+                        modules:[]
                     }
                 ]
             },
@@ -329,7 +337,7 @@ var Storage = function () {
 
                     {
                         id: 2,
-                        displayName: "Licht",
+                        displayName: "Beleuchtung",
                         name: "light",
                         iconUrl: "Light On-96.png",
                         hasComponents: true,
@@ -392,7 +400,7 @@ var Storage = function () {
 
                     {
                         id: 2,
-                        displayName: "Licht",
+                        displayName: "Beleuchtung",
                         name: "light",
                         iconUrl: "Light On-96.png",
                         hasComponents: true,
@@ -448,7 +456,7 @@ var Storage = function () {
 
                     {
                         id: 2,
-                        displayName: "Licht",
+                        displayName: "Beleuchtung",
                         name: "light",
                         iconUrl: "Light On-96.png",
                         hasComponents: true,
@@ -512,7 +520,7 @@ var Storage = function () {
 
                     {
                         id: 2,
-                        displayName: "Licht",
+                        displayName: "Beleuchtung",
                         name: "light",
                         iconUrl: "Light On-96.png",
                         hasComponents: true,
@@ -581,7 +589,7 @@ var Storage = function () {
 
                     {
                         id: 2,
-                        displayName: "Licht",
+                        displayName: "Beleuchtung",
                         name: "light",
                         iconUrl: "Light On-96.png",
                         hasComponents: true,
@@ -836,6 +844,10 @@ var Storage = function () {
 
     this.getCentralHeaterSettings = function () {
         return this.getHelper("centralHeaterSettings");
+    };
+
+    this.getForbiddenSceneEditorModules = function () {
+        return this.getHelper("forbiddenSceneEditorModules");
     };
 };
 

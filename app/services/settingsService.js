@@ -117,5 +117,10 @@ mainApp.service("settingsService", [
         };
 
 
+        this.getForbiddenSceneEditorModules = function () {
+            return storage.getForbiddenSceneEditorModules();
+        }
+
+
     }]
 );

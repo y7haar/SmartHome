@@ -1,0 +1,37 @@
+<settings-toolbar abort-mode="cancel" abort-function="close()" title="'Modul hinzufügen'"></settings-toolbar>
+
+<md-content class="md-padding module-settings" layout="column" flex="100" style="min-height:550px">
+    <form layout="column">
+
+        <div layout="row" layout-align="start center">
+            <md-input-container flex="grow">
+                <md-select ng-model="selectedModule" placeholder="Modul">
+                    <md-option ng-value="module" ng-repeat="module in modulesInsideRoom">{{module.displayName}}
+                    </md-option>
+                </md-select>
+
+            </md-input-container>
+
+            <img ng-if="selectedModule === undefined"
+                 ng-src="assets/img/icons/Control Panel-96.png" class="png-icon">
+
+            <img ng-if="selectedModule !== undefined"
+                 ng-src='{{"assets/img/icons/modules/black/" + selectedModule.iconUrl}}'
+                 class="png-icon">
+
+        </div>
+
+        <div flex="noshrink" layout="column" style="padding-top:20px;padding-bottom:20px;" ng-if="selectedModule.displayName != undefined">
+            <h3>Beschreibung</h3>
+            <p>{{ roomModules[selectedModule.displayName].description}}</p>
+        </div>
+
+
+
+        <md-button class="md-fab settings-fab-button" aria-label="Module hinzufügen" type="submit"
+                   ng-click="saveModule()">
+            <img ng-src="assets/img/icons/Checkmark-96.png" class="png-icon">
+        </md-button>
+
+    </form>
+</md-content>

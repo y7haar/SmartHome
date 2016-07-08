@@ -7,14 +7,29 @@
 
     <div layout="row" layout-align="center center">
         <div style="max-width:480px" layout="column" flex-gt-xs="grow">
+
             <div ng-repeat="module in getModules()">
-                <module></module>
+                <md-content style="background-color: #F1F1F1; margin-top:15px;">
+                    <module></module>
+                    <div layout="row" layout-align="end end" class="scene-editor-module">
+                        <button class="md-icon-button button-inside-list no-focus" ng-click="deleteModule($index)">
+                            <img ng-src="assets/img/icons/Delete-black.png" class="png-icon">
+                        </button>
+                    </div>
+                </md-content>
             </div>
         </div>
     </div>
 </md-content>
 
+<div layout="row" layout-align="center center" >
+    <md-button flex ng-click="addModule()"flex="50">
+        Modul hinzufügen
+    </md-button>
+</div>
 
-<md-button class="md-fab settings-fab-button" aria-label="Hinzufügen" ng-click="addSzene();">
-    <img ng-src="assets/img/icons/Plus Math-96.png" class="png-icon">
+<md-button class="md-fab settings-fab-button" aria-label="Änderungen speichern" ng-click="saveModuleSettings();">
+    <img ng-src="assets/img/icons/Checkmark-96.png" class="png-icon">
 </md-button>
+
+</div>

@@ -302,6 +302,11 @@ room-image {
     cursor: pointer;
     margin-right: 10px;
 }
+/* Sceneeditor Module Style*/
+
+.scene-editor-module {
+    box-shadow: 0px 10px 2px #DADADA;
+}
 
 /* Chart*/
 .chart-size{

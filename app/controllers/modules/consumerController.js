@@ -11,17 +11,13 @@ mainApp.controller("consumerCtrl", function ($scope,$mdMedia,$timeout,$window) {
 
     if($mdMedia("xs"))
         chartWidth = 365;
-    else
-        chartWidth = 440;
+    else if($mdMedia("gt-md"))
+        chartWidth=440;
+
 
     var chartTest = null;
-    $scope.$watch("expanded", function(newV,oldV){
-        console.log("TEST :" +newV+" - "+oldV);
-        console.log($scope.chart);
-
-        console.log("Try reflow");
+    $scope.$watch("expanded", function(){
         chartTest.reflow();
-
     });    
 
     var falseTrue = [false, true];
@@ -133,13 +129,11 @@ mainApp.controller("consumerCtrl", function ($scope,$mdMedia,$timeout,$window) {
         $scope.totalElecConsumption = 0;
         $scope.totalWaterConsumption = 0;
         for(var i= 0; i< $scope.consumers.length;++i){
-            if($scope.consumers[i].isOn|| true) {
+            if($scope.consumers[i].isOn || true) {
                 $scope.totalElecConsumption += $scope.consumers[i].elecConsumption;
-                console.log($scope.consumers[i].waterConsumption);
                 $scope.totalWaterConsumption += $scope.consumers[i].waterConsumption;
             }
         }
-
         $scope.totalElecConsumption= $scope.totalElecConsumption.toFixed(3);
         $scope.totalWaterConsumption= $scope.totalWaterConsumption.toFixed(3);
 
@@ -155,7 +149,7 @@ mainApp.controller("consumerCtrl", function ($scope,$mdMedia,$timeout,$window) {
 
     $scope.chartOptions = {
         chart:{
-
+            width:chartWidth,
             events: {
                 load : function (){
                     chartTest = this;

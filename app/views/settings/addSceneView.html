@@ -1,80 +1,19 @@
-<settings-toolbar abort-mode="cancel" abort-function="hide()" title="'Modul hinzufügen'"></settings-toolbar>
+<settings-toolbar abort-mode="cancel" abort-function="close()" title="'Szene hinzufügen'"></settings-toolbar>
 
 <md-content class="md-padding module-settings" layout="column" flex="100" style="min-height:550px">
     <form layout="column">
 
-        <div layout="row" layout-align="start center">
-            <md-input-container flex="grow">
-                <md-select ng-model="module.index" placeholder="Modul">
-                    <md-option ng-value="$index" ng-repeat="module in roomModules">{{module.displayName}}
-                    </md-option>
-                </md-select>
+        <md-content class="md-padding" layout="column" flex="100">
+
+            <md-input-container class="md-block">
+                <label>Szenen Name</label>
+                <input type="text" ng-model="sceneName" required>
 
             </md-input-container>
+        </md-content>
 
-            <img ng-if="module.index === undefined"
-                 ng-src="assets/img/icons/Control Panel-96.png" class="png-icon">
-
-            <img ng-if="module.index !== undefined"
-                 ng-src='{{"assets/img/icons/modules/black/" + roomModules[module.index].iconUrl}}' class="png-icon">
-
-        </div>
-
-        <div layout="column" style="padding-top:20px;padding-bottom:20px;" ng-if="module.index != undefined">
-            <h3>Beschreibung</h3>
-            <p>{{roomModules[module.index].description}}</p>
-        </div>
-
-        <div layout="column" style="padding-top:20px;padding-bottom:20px;" ng-if="roomModules[module.index].hasComponents">
-            <h3>Komponenten</h3>
-
-            <md-list-item class="md-1-line settings-list-item"
-                          ng-repeat="component in roomModules[module.index].components">
-                <div class="md-list-item-text" layout="row" layout-align="center center" flex>
-                    <img ng-src='{{"assets/img/icons/modules/black/" + roomModules[module.index].iconUrl}}'
-                         class="png-icon">
-                    <h4 flex>{{component.name}}</h4>
-                </div>
-                <md-divider></md-divider>
-            </md-list-item>
-
-
-            <md-button>
-                {{roomModules[module.index].componentName}} hinzufügen
-            </md-button>
-        </div>
-
-        <md-button class="md-fab settings-fab-button" aria-label="Bestätigen" type="submit" ng-click="saveModule()">
+        <md-button class="md-fab settings-fab-button" aria-label="Bestätigen" type="submit" ng-click="saveNewScene()" ng-disabled="isDisabled">
             <img ng-src="assets/img/icons/Checkmark-96.png" class="png-icon">
         </md-button>
-        <!--
-
-        <md-list>
-            <md-subheader class="md-no-sticky">Module</md-subheader>
-            <md-divider></md-divider>
-
-
-            <md-list-item class="md-1-line settings-list-item" ng-class="($index==selectedModuleIndex) ? 'active' : ''"
-                          ng-repeat="module in room.modules">
-                <div class="md-list-item-text" layout="row" layout-align="center center" flex>
-                    <img ng-src='{{"assets/img/icons/modules/black/" + module.iconUrl}}'
-                         class="png-icon">
-                    <h4 flex>{{module.displayName}}</h4>
-
-                    <button class="md-icon-button" ng-if="module.hasComponents">
-                        <img ng-src="assets/img/icons/Add Property-96.png" class="png-icon" ng-click="null">
-                    </button>
-                </div>
-                <md-divider></md-divider>
-            </md-list-item>
-
-
-            <md-button>
-                Modul hinzufügen
-            </md-button>
-
-        </md-list>
-        -->
-
     </form>
 </md-content>
