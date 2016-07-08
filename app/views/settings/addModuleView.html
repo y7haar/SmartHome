@@ -1,4 +1,5 @@
-<settings-toolbar abort-mode="cancel" abort-function="hide()" title="moduleId < room.modules.length ? 'Modul Informationen' : 'Modul hinzufügen'"></settings-toolbar>
+<settings-toolbar abort-mode="cancel" abort-function="hide()"
+                  title="moduleId < room.modules.length ? 'Modul Informationen' : 'Modul hinzufügen'"></settings-toolbar>
 
 <md-content class="md-padding module-settings" layout="column" flex="100" style="min-height:550px">
     <form layout="column">
@@ -16,15 +17,127 @@
                  ng-src="assets/img/icons/Control Panel-96.png" class="png-icon">
 
             <img ng-if="module.displayName !== undefined"
-                 ng-src='{{"assets/img/icons/modules/black/" + roomModules[module.displayName].iconUrl}}' class="png-icon">
+                 ng-src='{{"assets/img/icons/modules/black/" + roomModules[module.displayName].iconUrl}}'
+                 class="png-icon">
 
         </div>
 
-        <div layout="column" style="padding-top:20px;padding-bottom:20px;" ng-if="module.displayName != undefined">
+        <div flex="noshrink" layout="column" style="padding-top:20px;padding-bottom:20px;" ng-if="module.displayName != undefined">
             <h3>Beschreibung</h3>
             <p>{{roomModules[module.displayName].description}}</p>
         </div>
 
+
+        <md-content ng-if="roomModules[module.displayName].hasComponents">
+            <md-subheader class="md-no-sticky">Komponenten</md-subheader>
+            <md-divider></md-divider>
+
+
+            <md-card ng-repeat="component in module.components">
+
+                <md-card-title style="padding-top:5px; padding-bottom:5px;">
+                    <div layout="row" layout-align="start center" flex>
+                        <img ng-src='{{"assets/img/icons/modules/black/" + module.iconUrl}}'
+                             class="png-icon">
+
+                        <md-input-container style="margin-bottom:0px; width:100%">
+
+                            <input aria-label="Name" ng-model="component.name" required md-autofocus="$index == newIndex">
+                            <div ng-messages="component.name.$error">
+                            </div>
+                        </md-input-container>
+
+                        <button class="md-icon-button button-inside-list no-focus" ng-click="deleteComponent($index)">
+                            <img ng-src="assets/img/icons/Delete-black.png" class="png-icon">
+                        </button>
+                    </div>
+
+                </md-card-title>
+
+                <md-card-content>
+                    <md-checkbox aria-label="Gerät ausschaltbar?" ng-model="component.isSwitchOffAble" ng-if="component.isSwitchOffAble !== undefined" style="margin-left:30px">Gerät ausschaltbar?
+                    </md-checkbox>
+
+                    <md-checkbox aria-label="Farblicht?"  ng-model="component.isColorAble" ng-if="component.isColorAble !== undefined" style="margin-left:30px">Farblicht?
+                    </md-checkbox>
+
+                </md-card-content>
+            </md-card>
+
+
+            <md-button flex ng-click="addComponent()">
+                {{roomModules[module.displayName].componentName}} hinzufügen
+            </md-button>
+
+            <!--
+            <div ng-repeat="component in module.components" layout="column" flex="grow">
+                <div layout="row" layout-align="start center" flex>
+                    <img ng-src='{{"assets/img/icons/modules/black/" + module.iconUrl}}'
+                         class="png-icon">
+
+                    <md-input-container style="margin-bottom:0px; width:100%">
+
+                        <input ng-model="component.name" required>
+                        <div ng-messages="component.name.$error">
+                        </div>
+                    </md-input-container>
+                </div>
+            </div>
+            -->
+
+        </md-content>
+
+        <!--
+        <md-list ng-if="roomModules[module.displayName].hasComponents">
+            <md-subheader class="md-no-sticky">Komponenten</md-subheader>
+            <md-divider></md-divider>
+
+
+            <md-list-item class="md-1-line settings-list-item"
+                          ng-repeat="component in module.components" layout="column">
+                <div class="md-list-item-text" layout="row" layout-align="center center" flex="grow">
+
+
+                    <div class="" layout="row" flex="grow">
+                        <img ng-src='{{"assets/img/icons/modules/black/" + module.iconUrl}}'
+                             class="png-icon">
+
+                        <md-input-container style="margin-bottom:0px; width:100%">
+
+                            <input ng-model="component.name" required>
+                            <div ng-messages="component.name.$error">
+                            </div>
+                        </md-input-container>
+
+                    </div>
+
+
+                </div>
+
+                <!--
+
+                <div>
+                    asd
+                    <md-checkbox>lol</md-checkbox>
+                </div>
+                -->
+
+
+        <!--
+
+                <md-divider></md-divider>
+            </md-list-item>
+
+
+            <md-button flex ng-click="addModule()">
+                {{roomModules[module.displayName].componentName}} hinzufügen
+            </md-button>
+
+        </md-list>
+        -->
+
+
+        <!--
         <div layout="column" style="padding-top:20px;padding-bottom:20px;" ng-if="roomModules[module.displayName].hasComponents">
             <h3>Komponenten</h3>
 
@@ -43,8 +156,11 @@
                 {{roomModules[module.displayName].componentName}} hinzufügen
             </md-button>
         </div>
+        -->
 
-        <md-button ng-if="roomModules[module.displayName].hasComponents || moduleId >= room.modules.length" class="md-fab settings-fab-button" aria-label="Bestätigen" type="submit" ng-click="moduleId < room.modules.length ? saveEditedModule() : saveNewModule()">
+        <md-button ng-if="roomModules[module.displayName].hasComponents || moduleId >= room.modules.length"
+                   class="md-fab settings-fab-button" aria-label="Bestätigen" type="submit"
+                   ng-click="moduleId < room.modules.length ? saveEditedModule() : saveNewModule()">
             <img ng-src="assets/img/icons/Checkmark-96.png" class="png-icon">
         </md-button>
         <!--

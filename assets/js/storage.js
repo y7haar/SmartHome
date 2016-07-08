@@ -124,7 +124,8 @@ var Storage = function () {
                 displayName: "Verbraucher",
                 name: "consumer",
                 iconUrl: "Electrical-96.png",
-                hasComponents: false,
+                hasComponents: true,
+                componentName: "Verbraucher",
                 description: "Verschaffen Sie sich einen Überblick über Ihre angeschlossenen Geräte, die in Steckdosen eingesteckt sind. Das Modul gibt Ihnen Aufschluss über den Strom- und Wasserverbrauch."
 
             },
