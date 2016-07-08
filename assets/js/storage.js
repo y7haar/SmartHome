@@ -168,18 +168,55 @@ var Storage = function () {
                         iconUrl: "Music-96.png",
                         hasComponents: false
                     },
-                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents: true},
+
+                    {
+                        id: 2,
+                        displayName: "Licht",
+                        name: "light",
+                        iconUrl: "Light On-96.png",
+                        hasComponents: true,
+                        components: [{name:"Licht 1", isColorAble:false}, {name:"Licht 2", isColorAble:true}]
+                    },
+
                     {
                         id: 3,
                         displayName: "Jalousien",
                         name: "blinds",
                         iconUrl: "General Blind-96.png",
-                        hasComponents: true
+                        hasComponents: true,
+                        components: [{name:"Fenster links"}, {name:"Fenster Mitte"}]
                     },
                     {id: 4, displayName: "Backofen", name: "oven", iconUrl: "Cooker-96.png", hasComponents: false},
                     {id: 5, displayName: "Heizung", name: "heater", iconUrl: "Heating Radiator-96.png"},
                     {id: 6, displayName: "Szenen", name: "scene", iconUrl: "Start-96.png"},
-                    {id: 7, displayName: "Verbraucher", name: "consumer", iconUrl: "Electrical-96.png"}
+
+
+                    {
+                        id: 7, displayName: "Verbraucher",
+                        name: "consumer",
+                        iconUrl: "Electrical-96.png",
+                        hasComponents: true,
+                        components: [{
+                            name: "TV",
+                            isSwitchOffAble :true
+                        },
+                            {
+                                name: "Kühlschrank",
+                                isSwitchOffAble :false,
+                            },
+                            {
+                                name: "Kaffe Maschine",
+                                isSwitchOffAble :true,
+                            },
+                            {
+                                name: "Telefon",
+                                isSwitchOffAble :false,
+                            },
+                            {
+                                name: "TV 2",
+                                isSwitchOffAble :true,
+                            }]
+                    }
                 ],
                 scenes: [
                     {
@@ -220,14 +257,6 @@ var Storage = function () {
                         name: "multiRoomAudio",
                         iconUrl: "Music-96.png",
                         hasComponents: false
-                    },
-                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents: true},
-                    {
-                        id: 3,
-                        displayName: "Jalousien",
-                        name: "blinds",
-                        iconUrl: "General Blind-96.png",
-                        hasComponents: true
                     }
                 ],
                 scenes: [
@@ -251,14 +280,6 @@ var Storage = function () {
                         name: "multiRoomAudio",
                         iconUrl: "Music-96.png",
                         hasComponents: false
-                    },
-                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents: true},
-                    {
-                        id: 3,
-                        displayName: "Jalousien",
-                        name: "blinds",
-                        iconUrl: "General Blind-96.png",
-                        hasComponents: true
                     }
                 ],
                 scenes: [
@@ -284,14 +305,6 @@ var Storage = function () {
                         name: "multiRoomAudio",
                         iconUrl: "Music-96.png",
                         hasComponents: false
-                    },
-                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents: true},
-                    {
-                        id: 3,
-                        displayName: "Jalousien",
-                        name: "blinds",
-                        iconUrl: "General Blind-96.png",
-                        hasComponents: true
                     }
                 ],
                 scenes: [
@@ -310,14 +323,6 @@ var Storage = function () {
                         name: "multiRoomAudio",
                         iconUrl: "Music-96.png",
                         hasComponents: false
-                    },
-                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents: true},
-                    {
-                        id: 3,
-                        displayName: "Jalousien",
-                        name: "blinds",
-                        iconUrl: "General Blind-96.png",
-                        hasComponents: true
                     }
                 ],
                 scenes: [
@@ -341,14 +346,6 @@ var Storage = function () {
                         name: "multiRoomAudio",
                         iconUrl: "Music-96.png",
                         hasComponents: false
-                    },
-                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents: true},
-                    {
-                        id: 3,
-                        displayName: "Jalousien",
-                        name: "blinds",
-                        iconUrl: "General Blind-96.png",
-                        hasComponents: true
                     }
                 ],
                 scenes: [
@@ -372,14 +369,6 @@ var Storage = function () {
                         name: "multiRoomAudio",
                         iconUrl: "Music-96.png",
                         hasComponents: false
-                    },
-                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents: true},
-                    {
-                        id: 3,
-                        displayName: "Jalousien",
-                        name: "blinds",
-                        iconUrl: "General Blind-96.png",
-                        hasComponents: true
                     }
                 ],
                 scenes: [
@@ -404,7 +393,6 @@ var Storage = function () {
                         iconUrl: "Music-96.png",
                         hasComponents: false
                     },
-                    {id: 2, displayName: "Licht", name: "light", iconUrl: "Light On-96.png", hasComponents: true},
                     {
                         id: 5,
                         displayName: "Waschmaschine",

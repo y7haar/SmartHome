@@ -13,7 +13,28 @@ mainApp.controller("consumerCtrl", function ($scope,$mdMedia) {
         chartWidth = 365;
     else
         chartWidth = 440;
-    
+
+
+
+    var falseTrue = [false, true];
+
+    $scope.consumers = [];
+
+    for(var i = 0;i < $scope.module.components.length;++i) {
+
+        var consumer = {
+            id: i,
+            name: $scope.module.components[i].name,
+            isSwitchOffAble: $scope.module.components[i].isSwitchOffAble,
+            isOn: $scope.module.components[i].isSwitchOffAble ? falseTrue[Math.round(Math.random())] : true,
+            elecConsumption: Math.round(Math.random() * 100) / 100,
+            waterConsumption: Math.round(Math.random() * 100) / 100
+        };
+
+        $scope.consumers.push(consumer);
+    }
+
+    /*
     $scope.consumers = [
         {
             id: 0,
@@ -75,6 +96,8 @@ mainApp.controller("consumerCtrl", function ($scope,$mdMedia) {
             waterConsumption: 0
         }
     ];
+
+    */
 
 
     $scope.calcTotalConsumption= function () {
