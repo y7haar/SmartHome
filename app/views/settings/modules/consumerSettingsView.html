@@ -1,0 +1,38 @@
+<settings-toolbar abort-mode="cancel" title='"Verbrauch"' abort-function="close()"></settings-toolbar>
+
+<md-content class="md-padding" layout="column" flex="100">
+    <form layout="column">
+
+        <fieldset class="standard" style="margin-bottom:25px">
+            <legend>Verbraucher</legend>
+
+            <div layout="column">
+
+                <md-checkbox ng-model="showWater" aria-label="Wasserverbrauch anzeigen?">
+                    Wasserverbrauch anzeigen
+                </md-checkbox>
+
+                <md-checkbox ng-model="showElec" aria-label="Stromverbrauch anzeigen?">
+                    Stromverbrauch anzeigen
+                </md-checkbox>
+            </div>
+
+        </fieldset>
+
+        <fieldset class="standard" style="margin-bottom:25px">
+            <legend>Sortieren</legend>
+            <h4 style="">Verbraucher Sortiern nach </h4>
+            <md-select ng-model="currentModi" flex="50" placeholder="Modi">
+                <md-option value="1">Wasserverbrauch</md-option>
+                <md-option value="2">Stromverbrauch</md-option>
+            </md-select>
+
+        </fieldset>
+
+
+
+
+
+
+    </form>
+</md-content>

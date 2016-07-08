@@ -1,0 +1,87 @@
+<h2 aria-label="Photovoltaik" class="padding-height-5 padding-left-10">Photovoltaik</h2>
+<div class="module stage1 fade" ng-if="!expanded">
+
+    <div layout="row" layout-align="center center" style="">
+        <div layout="row" flex ="50">
+            <div layout="column" layout-align="center center">
+                <h3>Photovoltaik</h3>
+                <span>{{data.pvElecGeneration}} kWh</span>
+            </div>
+
+            <div layout="column" layout-align="center center">
+                <img class="png-icon-large" src="assets/img/icons/Temperature-96.png">
+            </div>
+        </div>
+
+        <div layout="row"flex ="50">
+            <div layout="column" layout-align="center center">
+                <img class="png-icon-large" src="assets/img/icons/Temperature-96.png">
+            </div>
+            <div layout="column" layout-align="center center">
+                <h3>{{data.outside.type}}</h3>
+                <span>{{data.outside.value }} kWh</span>
+            </div>
+        </div>
+    </div>
+
+    <div layout="row" layout-align="space-around center" style="margin-top:15px;">
+        <div layout="column" layout-align="center center">
+            <h3>Akku {{data.battery.isLoading ? 'Lädt' : "Speist"}}</h3>
+            <span ng-if="data.battery.isLoading ">{{data.battery.state*100}} %</span>
+            <span ng-if="!data.battery.isLoading ">{{data.battery.generation}} kWh</span>
+        </div>
+        <div layout="column" layout-align="center center">
+            <h3>Verbrauch</h3>
+            <span>{{data.houseConsumption}} kWh</span>
+        </div>
+    </div>
+
+
+    <div class='md-padding'>
+
+        <div layout="row" ng-repeat="consumer in consumers | limitTo: consumerLimit | orderBy:'-elecConsumption' "
+             layout-align="space-between center"><!--ng-if="::consumer.isOn"-->
+            <div>
+                <span style="word-wrap: break-word;" class="">{{::consumer.name}}</span>
+            </div>
+            <div layout="row" flex="70" layout-align="end center">
+                <div flex="40">
+                    <img align="center" class="png-icon" src="assets/img/icons/Water-96.png">
+                    <span>{{::consumer.waterConsumption}} m³</span>
+                </div>
+                <div flex="40">
+                    <img align="center" class="png-icon" src="assets/img/icons/Electrical-96.png">
+                    <span>{{::consumer.elecConsumption}} kWh</span>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<!-- extended controls-->
+<div class="module stage2 fade" slide-toggle="expanded">
+
+
+    <div layout="row" layout-aling="center center">
+        <hc-chart flex="100" options="chartOptions">Beim erstellen der Statistik ist ein Fehler unterlaufen.</hc-chart>
+    </div>
+</div>
+
+
+<!-- Bottom Controls-->
+<!--
+<div layout="row" layout-align="space-between center">
+    <div flex="10">
+        <md-button class="md-icon-button no-margin" aria-label="Einstellungen" ng-show="expanded">
+            <img class="png-icon" src="assets/img/icons/Settings-96.png">
+        </md-button>
+    </div>
+
+</div>
+-->
+
+</div>

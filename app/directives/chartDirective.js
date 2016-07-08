@@ -1,7 +1,7 @@
 /**
- * Created by Core on 30.06.2016.
+ * @author Alexander Kern
  */
-mainApp.directive('hcChart', function () {
+mainApp.directive('hcStockChart', function () {
     return {
         restrict: 'E',
         template: '<div ></div>',
@@ -10,6 +10,20 @@ mainApp.directive('hcChart', function () {
         },
         link: function (scope, element) {
             scope.chart =  Highcharts.stockChart(element[0], scope.options);
+            scope.chart.reflow();
+        }
+    };
+});
+
+mainApp.directive('hcChart', function () {
+    return {
+        restrict: 'E',
+        template: '<div ></div>',
+        scope: {
+            options: '='
+        },
+        link: function (scope, element) {
+            scope.chart =  Highcharts.chart(element[0], scope.options);
             scope.chart.reflow();
         }
     };

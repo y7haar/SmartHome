@@ -1,9 +1,9 @@
 /**
- * Created by AlexK on 22.06.2016.
+ * @author Alexander Kern
  */
 
 
-mainApp.controller("logCtrl", function ($scope) {
+mainApp.controller("logCtrl", function ($scope,$mdDialog) {
 
     $scope.users = Storage.getInstance().getUsers();
     $scope.logQuantity = 3;
@@ -40,6 +40,19 @@ mainApp.controller("logCtrl", function ($scope) {
         "[12.04.2016] 17:30: Maria hat die Haustür entriegelt",
         "[13.04.2016] 17:30: Maria hat die Haustür entriegelt"
     ];
+
+
+
+    $scope.openSettings = function (ev) {
+        $mdDialog.show({
+            template: "<" + "log-settings" + " class='module-settings'></" + "log-settings" + ">",
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: true
+        });
+    };
+
 
 
 

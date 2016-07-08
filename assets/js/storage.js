@@ -142,6 +142,23 @@ var Storage = function () {
                 hasComponents: false,
                 description: "Das Heizungsmodul temperiert den gewählten Raum immer perfekt. Abhängig von der Zentralheizung oder Ihren aktuellen Wünschen."
 
+            },
+
+            "Statistik": {
+                id: 9,
+                displayName: "Statistik",
+                name: "statistic",
+                iconUrl: "Combo Chart-96.png",
+                hasComponents: false,
+                description: "Das Statistikmodul veranschaulicht Ihren den momentanen Strom- und Wasserverbrauch des gesamten Hauses."
+            },
+            "Photovoltaik": {
+                id: 10,
+                displayName: "Photovoltaik",
+                name: "photovoltaic",
+                iconUrl: "Control Panel-96.png",
+                hasComponents: false,
+                description: "Dieses Modul verschaft Ihnen einen Überblick Ihrer Photovoltaikanlage."
             }
 
 
@@ -154,7 +171,9 @@ var Storage = function () {
             modules: [
                 {id: 101, displayName: "Wetter", name: "weather", iconUrl: "Sun-96.png"},
                 {id: 102, displayName: "Haustür", name: "door", iconUrl: "Door Sensor-96.png"},
-                {id: 103, displayName: "Log", name: "log", iconUrl: "Page Overview -96.png"}
+                {id: 103, displayName: "Log", name: "log", iconUrl: "Page Overview -96.png"},
+                {id: 104, displayName: "Statistik", name: "statistic", iconUrl: "Combo Chart-96.png"},
+                {id: 105, displayName: "Photovoltaik", name: "photovoltaic", iconUrl: "Control Panel-96.png"}
             ]
 
         },

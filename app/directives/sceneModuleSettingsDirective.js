@@ -1,5 +1,5 @@
 /**
- * Created by Alex Kern on 07.07.2016.
+ * @author Alexander Kern
  */
 
 

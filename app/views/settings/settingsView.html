@@ -137,7 +137,7 @@
 
 
             <!-- middle view 66% Scene Settings-->
-            <div ng-if="selectedTabIndex == sceneTabIndex && !isXs()" layout="column" flex-sm="auto" flex-md="auto" flex-gt-md="auto">
+            <div ng-if="selectedTabIndex == sceneTabIndex && !isXs() " layout="column" flex-sm="auto" flex-md="auto" flex-gt-md="auto">
                 <scene-settings style="position:relative" flex></scene-settings>
             </div>
 
@@ -161,7 +161,7 @@
             </div>
 
             <!-- right view  33%-->
-            <div ng-if="selectedTabIndex == sceneTabIndex && !isXs()" layout="column" flex-gt-md="auto">
+            <div ng-if="selectedTabIndex == sceneTabIndex && !isXs() && isGtMd()" layout="column" flex-gt-md="auto">
                 <scene-module-settings ></scene-module-settings>
             </div>
         </div>

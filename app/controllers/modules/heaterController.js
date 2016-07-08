@@ -1,11 +1,8 @@
 /**
- * Created by AlexK on 22.06.2016.
- */
-/**
  * @author Alexander Kern
  */
 
-mainApp.controller("heaterCtrl", function ($scope) {
+mainApp.controller("heaterCtrl", function ($scope,$mdDialog) {
 
     var centralHeaterSettings = Storage.getInstance().getCentralHeaterSettings();
     
@@ -115,6 +112,17 @@ mainApp.controller("heaterCtrl", function ($scope) {
 
         return true;
     }
+
+    $scope.openSettings = function (ev) {
+        $mdDialog.show({
+            template: "<" + "heater-settings" + " class='module-settings'></" + "heater-settings" + ">",
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: true
+        });
+    };
+
 
     //console.log($scope);
 

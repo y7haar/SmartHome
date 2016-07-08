@@ -1,0 +1,26 @@
+<settings-toolbar abort-mode="cancel" title='"Log"' abort-function="close()"></settings-toolbar>
+
+<md-content class="md-padding" layout="column" flex="100">
+    <form layout="column">
+
+        <fieldset class="standard" style="margin-bottom:25px">
+            <legend>Log</legend>
+
+            <div layout="column">
+
+                <md-checkbox ng-model="showDate" aria-label="Datum anzeigen?">
+                    Datum anzeigen
+                </md-checkbox>
+
+                <md-checkbox ng-model="showTime" aria-label="Uhrzeit anzeigen?">
+                    Uhrzeit anzeigen
+                </md-checkbox>
+                <md-checkbox ng-model="showUser" aria-label="Benutzer anzeigen?">
+                    Benutzer anzeigen
+                </md-checkbox>
+            </div>
+
+        </fieldset>
+
+    </form>
+</md-content>

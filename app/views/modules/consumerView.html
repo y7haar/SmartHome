@@ -50,6 +50,7 @@
         </div>
 
 
+
         <md-divider></md-divider>
 
         <div layout="row" layout-align="space-between center" ng-init="calcTotalConsumption();" id="chartContainer">
@@ -69,11 +70,14 @@
             </div>
         </div>
     </div>
+    <md-button class="md-icon-button no-margin" aria-label="Einstellungen" ng-show="expanded" ng-click="openSettings();">
+        <img class="png-icon" src="assets/img/icons/Settings-96.png">
+    </md-button>
 
 
 
     <div layout="row" layout-aling="center center" >
-        <hc-chart flex="100" options="chartOptions">Beim erstellen der Statistik ist ein Fehler unterlaufen.</hc-chart>
+        <hc-stock-chart flex="100" options="chartOptions">Beim erstellen der Statistik ist ein Fehler unterlaufen.</hc-stock-chart>
     </div>
 </div>
 

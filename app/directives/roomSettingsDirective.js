@@ -49,6 +49,7 @@ var roomSettingsController = function ($scope, $mdMedia, $mdDialog, $stateParams
         mapping["washingMachine"] = "washing-machine-settings";
         mapping["weather"] = "weather-settings";
         mapping["light"] = "light-settings";
+        mapping["heater"] = "heater-settings";
 
 
         $mdDialog.show({

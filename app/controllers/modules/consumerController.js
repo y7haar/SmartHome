@@ -1,7 +1,7 @@
 /**
- * Created by AlexK on 29.06.2016.
+ * @author Alexander Kern
  */
-mainApp.controller("consumerCtrl", function ($scope,$mdMedia,$timeout,$window) {
+mainApp.controller("consumerCtrl", function ($scope,$mdMedia,$mdDialog,$timeout,$window) {
 
     $scope.totalElecConsumption = 0;
     $scope.totalWaterConsumption = 10;
@@ -233,6 +233,17 @@ mainApp.controller("consumerCtrl", function ($scope,$mdMedia,$timeout,$window) {
                 return Highcharts.dateFormat('%d.%m.%Y %H:%M:%S', this.x)+'<br>Stromverbrauch: '+ this.points[0].y+' kWh'+'<br>Wasserverbrauch: '+ this.points[1].y+' m³';
             }
         }
+    };
+
+
+    $scope.openSettings = function (ev) {
+        $mdDialog.show({
+            template: "<" + "consumer-settings" + " class='module-settings'></" + "consumer-settings" + ">",
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: true
+        });
     };
 
 

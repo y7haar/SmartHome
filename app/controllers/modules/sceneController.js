@@ -1,8 +1,8 @@
 /**
- * Created by AlexK on 29.06.2016.
+ * @author Alexander Kern
  */
 
-mainApp.controller("sceneCtrl", function ($scope) {
+mainApp.controller("sceneCtrl", function ($scope, $mdDialog) {
 
     $scope.currentScene = 0;
     $scope.hasSceneStarted = false;
@@ -97,6 +97,17 @@ mainApp.controller("sceneCtrl", function ($scope) {
     function stopAnimation() {
         $interval.cancel(interval);
     }
+
+
+    $scope.openSettings = function (ev) {
+        $mdDialog.show({
+            template: "<" + "scene-play-settings" + " class='module-settings'></" + "scene-play-settings" + ">",
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: true
+        });
+    };
 
 
 

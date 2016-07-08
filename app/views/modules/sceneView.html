@@ -27,7 +27,10 @@
     </div>
 </div>
 
-<md-progress-linear ng-if="false" md-mode="determinate" value={{progress}}></md-progress-linear>
+<md-button class="md-icon-button no-margin" aria-label="Einstellungen" ng-show="expanded" ng-click="openSettings();">
+    <img class="png-icon" src="assets/img/icons/Settings-96.png">
+</md-button>
+
 
 <!-- Bottom Controls-->
 <!--

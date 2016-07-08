@@ -1,0 +1,39 @@
+<settings-toolbar abort-mode="cancel" title='"Heizung"' abort-function="close()"></settings-toolbar>
+
+<md-content class="md-padding" layout="column" flex="100">
+    <form layout="column">
+
+        <fieldset class="standard" style="margin-bottom:25px">
+
+            <legend>Heizung</legend>
+
+
+                    <h4 style="">Standard-Modi </h4>
+
+                    <md-select ng-model="currentModi" flex="50" placeholder="Modi">
+                        <md-option ng-repeat="option in heaterModes" value="{{option.id}}">{{option.name}}</md-option>
+                    </md-select>
+
+
+            <h4 style="margin-bottom:15px">Temperatureinheit</h4>
+
+            <md-radio-group ng-model="temperatureUnit">
+                <md-radio-button value="Celsius">Celsius</md-radio-button>
+                <md-radio-button value="Fahrenheit"> Fahrenheit </md-radio-button>
+            </md-radio-group>
+
+        </fieldset>
+            <fieldset class="standard" style="margin-bottom:25px">
+                <legend>Boost</legend>
+
+                <h4>Tempertaur - {{boostTemp}}°</h4>
+
+                <div layout="row" layout-align="space-between center">
+                    <img style="margin-right:4px" class="png-icon" ng-src="assets/img/icons/Temperature-96.png">
+                    <md-slider class="md-primary" flex min="0" max="40" step="0.1" ng-model="boostTemp" flex ="80"></md-slider>
+                </div>
+            </fieldset>
+
+
+    </form>
+</md-content>

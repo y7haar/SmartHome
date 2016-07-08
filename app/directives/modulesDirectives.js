@@ -87,3 +87,19 @@ mainApp.directive('blinds', function() {
         restrict: "E"
     };
 });
+
+mainApp.directive('statistic', function() {
+    return {
+        controller: "statisticCtrl",
+        templateUrl: BASE_URL + "/app/views/modules/statisticView.html",
+        restrict: "E"
+    };
+});
+
+mainApp.directive('photovoltaic', function() {
+    return {
+        controller: "photovoltaicCtrl",
+        templateUrl: BASE_URL + "/app/views/modules/photovoltaicView.html",
+        restrict: "E"
+    };
+});
