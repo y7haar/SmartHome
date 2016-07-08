@@ -3,9 +3,6 @@
  */
 
 mainApp.controller("doorCtrl", function ($scope, $timeout, $mdDialog) {
-
-    console.log("door");
-
     $scope.isLocked = false;
     $scope.isOpen = false;
 

@@ -50,6 +50,9 @@ var roomSettingsController = function ($scope, $mdMedia, $mdDialog, $stateParams
         mapping["weather"] = "weather-settings";
         mapping["light"] = "light-settings";
         mapping["heater"] = "heater-settings";
+        mapping["consumer"] = "consumer-settings";
+        mapping["log"] = "log-settings";
+        mapping["scene"] = "scene-play-settings";
 
 
         $mdDialog.show({

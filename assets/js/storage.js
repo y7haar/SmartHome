@@ -77,7 +77,7 @@ var Storage = function () {
 
             "Licht": {
                 id: 2,
-                displayName: "Beleuchtung",
+                displayName: "Licht",
                 name: "light",
                 iconUrl: "Light On-96.png",
                 hasComponents: true,
@@ -119,7 +119,7 @@ var Storage = function () {
                 name: "scene",
                 iconUrl: "Start-96.png",
                 hasComponents: false,
-                description: "Erschaffen Sie mithilfe dieses Modul beliebige Abläufe und speichern Sie diese als Szene."
+                description: "Erschaffen Sie mithilfe dieses Moduls beliebige Abläufe und speichern Sie diese als Szene."
 
             },
 
@@ -195,7 +195,7 @@ var Storage = function () {
 
                     {
                         id: 2,
-                        displayName: "Beleuchtung",
+                        displayName: "Licht",
                         name: "light",
                         iconUrl: "Light On-96.png",
                         hasComponents: true,
@@ -286,7 +286,7 @@ var Storage = function () {
 
                     {
                         id: 2,
-                        displayName: "Beleuchtung",
+                        displayName: "Licht",
                         name: "light",
                         iconUrl: "Light On-96.png",
                         hasComponents: true,
@@ -357,7 +357,7 @@ var Storage = function () {
 
                     {
                         id: 2,
-                        displayName: "Beleuchtung",
+                        displayName: "Licht",
                         name: "light",
                         iconUrl: "Light On-96.png",
                         hasComponents: true,
@@ -420,7 +420,7 @@ var Storage = function () {
 
                     {
                         id: 2,
-                        displayName: "Beleuchtung",
+                        displayName: "Licht",
                         name: "light",
                         iconUrl: "Light On-96.png",
                         hasComponents: true,
@@ -476,7 +476,7 @@ var Storage = function () {
 
                     {
                         id: 2,
-                        displayName: "Beleuchtung",
+                        displayName: "Licht",
                         name: "light",
                         iconUrl: "Light On-96.png",
                         hasComponents: true,
@@ -540,7 +540,7 @@ var Storage = function () {
 
                     {
                         id: 2,
-                        displayName: "Beleuchtung",
+                        displayName: "Licht",
                         name: "light",
                         iconUrl: "Light On-96.png",
                         hasComponents: true,
@@ -609,7 +609,7 @@ var Storage = function () {
 
                     {
                         id: 2,
-                        displayName: "Beleuchtung",
+                        displayName: "Licht",
                         name: "light",
                         iconUrl: "Light On-96.png",
                         hasComponents: true,
