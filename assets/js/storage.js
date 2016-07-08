@@ -227,7 +227,10 @@ var Storage = function () {
                                 name:"multiRoomAudio"
                             },
                             {
-                                name:"light",
+                                id: 2,
+                                displayName: "Licht",
+                                name: "light",
+                                iconUrl: "Light On-96.png",
                                 hasComponents: true,
                                 components: [{name:"Licht 1", isColorAble:false}, {name:"Licht 2", isColorAble:true}]
                             }
@@ -312,12 +315,10 @@ var Storage = function () {
                 ],
                 scenes: [
                     {
-                        displayName: "Party",
-                        modules:[]
+                        displayName: "Party"
                     },
                     {
-                        displayName: "Chill",
-                        modules:[]
+                        displayName: "Chill"
                     }
                 ]
             },
