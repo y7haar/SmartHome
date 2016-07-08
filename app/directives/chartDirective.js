@@ -10,6 +10,7 @@ mainApp.directive('hcChart', function () {
         },
         link: function (scope, element) {
             scope.chart =  Highcharts.stockChart(element[0], scope.options);
+            scope.chart.reflow();
         }
     };
 });

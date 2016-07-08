@@ -1,5 +1,5 @@
 
-<settings-toolbar ng-if="mobile" title="'Module'" abort-mode="back" abort-state="settings"></settings-toolbar>
+<settings-toolbar ng-if="mobile" title="'Module'" abort-mode="back" abort-state="settingsSceneScenes"></settings-toolbar>
 <settings-toolbar ng-if="!mobile" title="'Module'"></settings-toolbar>
 
 <md-content class="md-padding" layout="column" flex="100">
@@ -12,37 +12,6 @@
             </div>
         </div>
     </div>
-
-
-    <!--
-    <md-list>
-        <md-divider></md-divider>
-
-        <md-list-item class="md-1-line settings-list-item" ng-class="sceneToEditIndex == $index ? 'active' : ''"
-                      ng-repeat="scene in selectedRoom().scenes">
-            <div ng-click="editScene($index)" md-ink-ripple class="md-list-item-text no-focus clickable" layout="row"
-                 layout-align="center center" flex="grow">
-
-
-                <h4 flex="100">{{scene.displayName}}</h4>
-
-
-                <div flex="nogrow" layout="row">
-                    <button class="md-icon-button button-inside-list no-focus" ng-click="editScene($index)">
-                        <img ng-src="assets/img/icons/Edit-96.png" class="png-icon">
-                    </button>
-
-                    <button class="md-icon-button button-inside-list no-focus" ng-click="deleteScene($index)">
-                        <img ng-src="assets/img/icons/Delete-black.png" class="png-icon">
-                    </button>
-                </div>
-            </div>
-            <md-divider></md-divider>
-        </md-list-item>
-    </md-list>
-    -->
-
-
 </md-content>
 
 

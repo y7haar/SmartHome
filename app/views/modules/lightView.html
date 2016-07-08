@@ -23,14 +23,7 @@
 <!-- extended controls-->
 <div flex class="module stage2" slide-toggle="expanded">
     <div ng-repeat="light in ::lights">
-        <!--
-                <div layout="row" layout-align="space-between center">
-                    <span flex="75" >{{ light.name}}</span>
-                    <span  flex="10" ng-if="light.isOn">ON</span>
-                    <span flex="10" ng-if="!light.isOn">OFF</span>
-                    <md-switch flex="20" ng-model="light.isOn" ></md-switch>
-                </div>
-        -->
+
         <div layout="row" layout-align="space-between center">
 
             <div layout="row" layout-align="center center">
@@ -47,8 +40,8 @@
                 </md-button>
             </div>
 
-            <md-slider class="md-primary" flex="50" min="0" max="100" ng-model="light.dimState" aria-label="dimState"
-                       id=""></md-slider>
+            <md-slider class="md-primary" flex="50" min="0" max="100" ng-disabled="!light.isOn"
+                       ng-model="light.dimState" aria-label="Dimm Status"></md-slider>
 
             <span flex="15">{{light.dimState}} %</span>
         </div>
@@ -62,10 +55,13 @@
         </div>
         -->
 
-        <div layout="row" layout-align="end center" style="">
+        <div layout="row" layout-align="end center" style="margin-right:35px;" ng-if="::light.isColorAble">
             <div class="colorpicker-style"  colorpicker-size="150" colorpicker="rgb"
-                 colorpicker-position="left" ng-model="light.color"  ng-if="light.isColorAble"
+                 colorpicker-position="left" ng-model="light.color"
                  style="background-color: {{light.color}};">
+            </div>
+            <div>
+                <span aria-label="Farbe">Farbe</span>
             </div>
         </div>
 

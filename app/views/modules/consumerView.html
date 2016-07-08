@@ -1,3 +1,4 @@
+<div id="consumerContainer" >
 <h2 aria-label="Verbraucher" class="padding-height-5 padding-left-10">Verbraucher</h2>
 <div class="module stage1 fade" ng-if="!expanded">
 
@@ -51,7 +52,7 @@
 
         <md-divider></md-divider>
 
-        <div layout="row" layout-align="space-between center" ng-init="calcTotalConsumption();">
+        <div layout="row" layout-align="space-between center" ng-init="calcTotalConsumption();" id="chartContainer">
             <div layout="column">
                 <span style="word-wrap: break-word;" class="">Verbrauch</span>
             </div>
@@ -71,7 +72,7 @@
 
 
 
-    <div layout="row" layout-aling="center center">
+    <div layout="row" layout-aling="center center" >
         <hc-chart flex="100" options="chartOptions">Beim erstellen der Statistik ist ein Fehler unterlaufen.</hc-chart>
     </div>
 </div>
@@ -88,3 +89,5 @@
 
 </div>
 -->
+
+</div>

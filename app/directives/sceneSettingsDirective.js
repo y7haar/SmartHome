@@ -11,16 +11,20 @@ mainApp.directive('sceneSettings', function () {
     };
 });
 
-var sceneSettingsController = function($scope, $mdDialog, $location, settingsService) {
+var sceneSettingsController = function($scope, $mdDialog,$mdMedia,$state,$stateParams, $location, settingsService) {
+
+    $scope.isXs = function() {
+        return $mdMedia("xs");
+    };
 
     $scope.mobile = false;
     $scope.sceneToEditIndex = settingsService.selectedSceneToEditIndex;
 
 
-    var url = $location.url();
+    var id = $stateParams.roomId;
 
-    if(url === '/settings/scene/scenes/:roomId') {
-        $scope.mobile=true;
+    if (id !== undefined) {
+        $scope.mobile = true;
     }
 
     $scope.selectedRoom = function () {
@@ -31,11 +35,15 @@ var sceneSettingsController = function($scope, $mdDialog, $location, settingsSer
         settingsService.selectedSceneToEditIndex = index;
         settingsService.selectedSceneToEdit = settingsService.selectedRoomForScene.scenes[index];
         $scope.sceneToEditIndex = index;
-        console.log(settingsService.selectedSceneToEdit);
+
+        if($scope.isXs())
+            $state.go("settingsSceneModules", {roomId: settingsService.selectedRoomForSceneIndex, moduleId: index});
 
     };
 
     $scope.addScene = function () {
+
+        /*
         var aScene = {displayName:"", modules:[]};
 
         settingsService.selectedRoomForScene.scenes.push(aScene);
@@ -43,6 +51,7 @@ var sceneSettingsController = function($scope, $mdDialog, $location, settingsSer
         $scope.roomToEditIndex = $scope.rooms.length;
         settingsService.editingRoom = false;
         settingsService.addingRoom = true;
+        */
 
     };
 

@@ -161,8 +161,8 @@
             </div>
 
             <!-- right view  33%-->
-            <div ng-if="selectedTabIndex == sceneTabIndex " layout="column" flex-gt-md="auto">
-                <scene-module-settings></scene-module-settings>
+            <div ng-if="selectedTabIndex == sceneTabIndex && !isXs()" layout="column" flex-gt-md="auto">
+                <scene-module-settings ></scene-module-settings>
             </div>
         </div>
     </div>

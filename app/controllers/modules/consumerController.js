@@ -1,19 +1,35 @@
 /**
  * Created by AlexK on 29.06.2016.
  */
-mainApp.controller("consumerCtrl", function ($scope,$mdMedia) {
+mainApp.controller("consumerCtrl", function ($scope,$mdMedia,$timeout,$window) {
 
     $scope.totalElecConsumption = 0;
     $scope.totalWaterConsumption = 10;
-    $scope.chart = "";
-    $scope.consumerLimit = 3;
-    var chartWidth = 0;
 
-    if($mdMedia("xs"))
-        chartWidth = 365;
-    else
-        chartWidth = 440;
+    $scope.consumerLimit = 3;
+    var chartWidth = null;
+
+    $scope.test = false;
+    var calcWidth = function () {
+        chartWidth = $timeout(function(){
+            return document.getElementsByTagName('consumer')[0].clientWidth;
+        },0);
+        testWidth = chartWidth;
+        return chartWidth;
+    };
+
+    var chartTest = null;
     
+    $scope.$watch("expanded", function(newV,oldV){
+        console.log("TEST :" +newV+" - "+oldV);
+        console.log($scope.chart);
+
+            console.log("Try reflow");
+            chartTest.reflow();
+
+    });
+
+
     $scope.consumers = [
         {
             id: 0,
@@ -103,19 +119,17 @@ mainApp.controller("consumerCtrl", function ($scope,$mdMedia) {
 
     $scope.chartOptions = {
         chart:{
-            width: chartWidth,
-            events: {
-                load : function () {
 
-                    // set up the updating of the chart each second
+            events: {
+                load : function (){
+                    chartTest = this;
                     var series = this.series;
                     setInterval(function () {
-                        var x = (new Date()).getTime();// current time
+                        var x = (new Date()).getTime();
                         var y1= Math.round(5+Math.random(x*42) *35);
                         var y2= Math.round(1+Math.random(x*21) *5);
                         series[0].addPoint([x, y1], true, true);
                         series[1].addPoint([x, y2], true, true);
-
                     }, 15000);
                 }
             }
@@ -148,6 +162,7 @@ mainApp.controller("consumerCtrl", function ($scope,$mdMedia) {
             color: '#5d8e1a',
             name: 'Stromverbrauch in kWh',
             data: (function () {
+
                 var data = [], time = (new Date()), i;
                 time.setSeconds(0);
                 time = time.getTime();
@@ -186,8 +201,17 @@ mainApp.controller("consumerCtrl", function ($scope,$mdMedia) {
             formatter: function() {
                 return Highcharts.dateFormat('%d.%m.%Y %H:%M:%S', this.x)+'<br>Stromverbrauch: '+ this.points[0].y+' kWh'+'<br>Wasserverbrauch: '+ this.points[1].y+' m³';
             }
+        },
+        func: function(chart) {
+            $timeout(function() {
+                console.log("OMG");
+                chart.reflow();
+                //The below is an event that will trigger all instances of charts to reflow
+                //$scope.$broadcast('highchartsng.reflow');
+            }, 0);
         }
     };
+
 
 
 

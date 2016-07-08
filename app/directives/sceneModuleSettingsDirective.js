@@ -11,13 +11,15 @@ mainApp.directive('sceneModuleSettings', function () {
     };
 });
 
-var sceneModuleSettingsController = function($scope, $mdDialog, $location, settingsService) {
+var sceneModuleSettingsController = function($scope, $mdDialog,$stateParams, settingsService) {
 
     $scope.mobile = false;
-    var url = $location.url();
-
-    if(url === '/settings/scene/scenes/:roomId') {
-        $scope.mobile=true;
+    var roomId = $stateParams.roomId;
+    var moduleId = $stateParams.moduleId;
+    if (roomId !== undefined && moduleId !== undefined) {
+        settingsService.selectedSceneToEditIndex = moduleId;
+        settingsService.selectedRoomForSceneIndex = roomId;
+        $scope.mobile = true;
     }
 
     $scope.modules = settingsService.selectedSceneToEdit.modules;
